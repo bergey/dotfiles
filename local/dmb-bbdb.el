@@ -2,11 +2,6 @@
 (use-package bbdb
   :commands bbdb-search-simple
   :commands bbdb-get-addresses
-  :commands bbdb-define-all-aliases
-
-  :init (progn
-          (add-hook 'mail-setup-hook 'bbdb-define-all-aliases)
-          (add-hook 'message-setup-hook 'bbdb-define-all-aliases))
 
   :config (progn
                      (bbdb-initialize)
