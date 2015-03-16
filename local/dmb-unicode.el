@@ -9,6 +9,7 @@
 (define-key 'iso-transl-ctl-x-8-map "s" [?σ])
 (define-key 'iso-transl-ctl-x-8-map "S" [?Σ])
 (define-key 'iso-transl-ctl-x-8-map "r" [?ρ])
+(define-key 'iso-transl-ctl-x-8-map "G" [?Γ])
 
 (define-key 'iso-transl-ctl-x-8-map "M" [?—])
 
