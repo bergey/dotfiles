@@ -151,4 +151,11 @@
   ;; not in Elpa, installed through Nix
   :mode ("\\.v\'" . Coq))
 
+;; purescript
+(use-package purescript-mode
+  :ensure purescript-mode
+  :config (progn
+            (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
+            ))
+
 (provide 'dmb-coding)
