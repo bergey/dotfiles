@@ -80,6 +80,7 @@
      (:foreground "green"))
     (((class color) (min-colors 8) (background dark))
      (:foreground "yellow"))))
+ '(org-column ((t (:family "Inconsolata" :height 90))))
  '(rainbow-delimiters-depth-1-face ((((class color) (background dark)) (:foreground "red"))))
  '(rainbow-delimiters-depth-2-face ((((class color) (background dark)) (:foreground "deep sky blue"))))
  '(rainbow-delimiters-depth-3-face ((((class color) (background dark)) (:foreground "yellow"))))
@@ -93,6 +94,11 @@
  '(erc-notice-face ((((class color) (background darc)) (:foreground "LightSteelBlue4"))))
  '(italic ((t (:underline nil :slant italic))))
  '(monospace ((t (:family "Inconsolata"))))
- '(default ((t (:inherit nil :stipple nil :background "black" :foreground "Chartreuse" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal)))))
+ '(default
+    ((t (:inherit nil :stipple nil :background "black" :foreground "Chartreuse"
+                  :inverse-video nil :box nil :strike-through
+                  nil :overline nil
+                  :underline nil :slant normal :weight normal
+                  :height 100 :width normal)))))
 
 (provide-theme 'bergey)

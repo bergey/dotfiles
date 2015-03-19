@@ -39,7 +39,7 @@
 (setq
  org-agenda-start-on-weekday nil
  org-blank-before-new-entry (quote ((heading) (plain-list-item)))
- org-columns-default-format "%25ITEM %TODO %3PRIORITY %5Effort{:} %CLOCKSUM"
+ org-columns-default-format "%45ITEM %TODO %3PRIORITY %5Effort{:} %CLOCKSUM"
  org-global-properties (quote (("Effort_ALL" . "0:05 0:15 0:30 1:00 2:00 4:00 8:00")))
  org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-w3m org-git-link org-notmuch))
  org-special-ctrl-a/e t
