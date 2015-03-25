@@ -49,7 +49,7 @@
 
 (setq org-agenda-custom-commands
       '(("p" tags "project")
-        ("D" tags-todo "-someday-next-SCHEDULED>=2014-01-01")
+        ("D" tags-todo "-someday-next-SCHEDULED>=2014-01-01+PRIORITY<\"C\"-PRIORITY=\"\"")
         ("d" tags-todo  "-someday-next-SCHEDULED>=2014-01-01")
         ("n" tags "next+LEVEL=1")
         ("w" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
