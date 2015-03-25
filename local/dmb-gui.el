@@ -16,7 +16,8 @@
 (use-package window-number
   :ensure window-number
   :commands window-number-meta-mode
-  :idle (window-number-meta-mode 1)) ; meta-# shortcuts
+  :defer 3
+  :config (window-number-meta-mode 1)) ; meta-# shortcuts
 
 (use-package windresize
   :ensure windresize

@@ -5,7 +5,7 @@
 (use-package git-annex
   :ensure git-annex
   :commands git-annex
-  :idle (git-annex))
+  :defer 20)
 
 (use-package magit
   :ensure magit
