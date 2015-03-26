@@ -20,8 +20,8 @@
                               ;; interactive-haskell-mode ;; causes annoying project starts
                               dmb-company-short-idle
                               smartparens-mode
-                              (lambda ()
-                                (diminish 'haskell-indentation-mode))
+                              ;; (lambda ()
+                              ;;   (diminish 'haskell-indentation-mode))
                               haskell-auto-insert-module-template
                               ))
 
