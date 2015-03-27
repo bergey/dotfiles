@@ -66,6 +66,10 @@
           (bind-key "M-c" 'company-manual-begin)
           (defun company-begin-dabbrev () (interactive) (company-begin-backend 'company-dabbrev))
           (bind-key "M-/" 'company-begin-dabbrev)
+          (setq
+           ;; if I start using completion in prose, make these buffer-local
+           company-dabbrev-ignore-case nil ; in code, case matters
+           company-dabbrev-downcase nil)
           ))
 
 (use-package csv-mode
