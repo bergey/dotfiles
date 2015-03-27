@@ -13,9 +13,4 @@
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
 
-;; In emacs 24.4, icomplete takes over most of the functionality of ido
-;; though defaults & keybindings differ
-;; ETA: I'm not convinced of the above; keep experimenting
-(icomplete-mode 99)
-(setq completion-cycle-threshold nil)  ; TAB cycles
 (provide 'dmb-isearch)
