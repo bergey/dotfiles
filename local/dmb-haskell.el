@@ -20,8 +20,8 @@
                               ;; interactive-haskell-mode ;; causes annoying project starts
                               dmb-company-short-idle
                               smartparens-mode
-                              ;; (lambda ()
-                              ;;   (diminish 'haskell-indentation-mode))
+                              (lambda ()
+                                (diminish 'haskell-indentation-mode))
                               haskell-auto-insert-module-template
                               ))
 
@@ -34,7 +34,7 @@
                ("C-c v c" . haskell-cabal-visit-file)
                ;; haskell-process functions
                ("C-c C-l" . haskell-process-load-or-reload)
-               ;; ("C-c C-g" . haskell-interactive-bring) ; use C-c C-z
+               ("C-c C-z" . haskell-interactive-switch)
                ("C-c C-t" . haskell-process-do-type)
                ("C-c C-i" . haskell-process-do-info)
                ("C-c C-c" . haskell-process-cabal-build)
@@ -51,13 +51,9 @@
 
 (use-package haskell-interactive-mode
   :commands interactive-haskell-mode
-  :diminish
+  ;; :diminish interactive-haskell-mode
   :config
   (progn
-    (setq haskell-process-type 'cabal-repl
-          haskell-process-path-cabal "/home/bergey/code/utility/nix-shell-cabal"
-          haskell-process-args-cabal-repl  '("--ghc-option=-ferror-spans"))
-    ;; (diminish 'interactive-haskell-mode)
 
     ;; source code buffer
     (bind-keys :map haskell-interactive-mode-map
