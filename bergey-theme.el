@@ -91,7 +91,7 @@
  '(rainbow-delimiters-depth-8-face ((((class color) (background dark)) (:foreground "green"))))
  '(rainbow-delimiters-depth-9-face ((((class color) (background dark)) (:foreground "gray"))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
- '(erc-notice-face ((((class color) (background darc)) (:foreground "LightSteelBlue4"))))
+ '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
  '(italic ((t (:underline nil :slant italic))))
  '(monospace ((t (:family "Inconsolata"))))
  '(default
