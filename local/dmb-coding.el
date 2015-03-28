@@ -7,10 +7,10 @@
 
 (use-package yasnippet
   :ensure yasnippet
-  :bind ("C-t" . yas-expand)
   :diminish yas-minor-mode
   :config (progn
             (yas-global-mode)
+            (bind-key "C-t" 'yas-expand yas-minor-mode-map)
             (define-key yas-minor-mode-map (kbd "<tab>") nil)
             (define-key yas-minor-mode-map (kbd "TAB") nil)
             ))

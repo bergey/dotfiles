@@ -57,7 +57,8 @@
 (use-package company
   :ensure company
   :diminish company-mode
-  :init (progn
+  :defer 10
+  :config (progn
           (setq company-show-numbers t)
           (global-company-mode)
           (setq company-idle-delay 2) ; set shorter in select modes
@@ -69,8 +70,7 @@
           (setq
            ;; if I start using completion in prose, make these buffer-local
            company-dabbrev-ignore-case nil ; in code, case matters
-           company-dabbrev-downcase nil)
-          ))
+           company-dabbrev-downcase nil)))
 
 (use-package csv-mode
   :ensure csv-mode

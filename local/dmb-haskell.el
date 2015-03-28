@@ -7,6 +7,8 @@
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"
+  :init (use-package ghc
+          :commands ghc-init)
   :config
   (progn ; needed for haskell-mode-hook, below
 
@@ -23,6 +25,7 @@
                               (lambda ()
                                 (diminish 'haskell-indentation-mode))
                               haskell-auto-insert-module-template
+                              ;; ghc-init  ; doesn't work with GHC-7.10?
                               ))
 
     (bind-keys :map haskell-mode-map
