@@ -1,5 +1,8 @@
 ; *** org mode ***
 ;;(require 'org-install)
+(setq
+ org-mobile-directory "~/records/org-mode/MobileOrg"
+ org-mobile-inbox-for-pull "~/records/org-mode/MobileOrg/from-mobile.org")
 (use-package org-clock
   :commands org-clock-in
   :config (progn
@@ -48,7 +51,8 @@
  )
 
 (setq org-agenda-custom-commands
-      '(("p" tags "project")
+      '(("p" tags "project+LEVEL=1")
+        ("P" tags-todo "project")
         ("D" tags-todo "-someday-next-SCHEDULED>=2014-01-01+PRIORITY<\"C\"-PRIORITY=\"\"")
         ("d" tags-todo  "-someday-next-SCHEDULED>=2014-01-01")
         ("n" tags "next+LEVEL=1")
@@ -82,7 +86,8 @@
         ("DELAY" . (:foreground "chocolate" :weight bold))
         ))
 
-(setq org-tags-exclude-from-inheritance '("project"))
+;; (setq org-tags-exclude-from-inheritance '("project"))
+;; (setq org-tags-exclude-from-inheritance nil)
 
 (setq org-lowest-priority ?D)
 (setq org-default-priority ?C)
