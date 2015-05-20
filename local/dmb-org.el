@@ -35,7 +35,9 @@
 
 (add-hook 'org-mode-hook
           '(lambda ()
-             (define-key org-mode-map (kbd "C-c C-x C-i") 'org-clock-in)))
+             (define-key org-mode-map (kbd "C-c C-x C-i") 'org-clock-in)
+	     (bind-key "C-c C-m" 'helm-imenu org-mode-map)
+	     ))
 
 (add-hook 'org-mode-hook '(lambda () (diminish 'org-indent-mode)))
 
