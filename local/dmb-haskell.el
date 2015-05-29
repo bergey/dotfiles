@@ -17,7 +17,6 @@
                               haskell-indentation-mode
                               whitespace-mode
                               flycheck-mode
-                              haskell-style ; sets 4-space indentation
                               subword-mode
                               ;; interactive-haskell-mode ;; causes annoying project starts
                               dmb-company-short-idle
