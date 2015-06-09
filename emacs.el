@@ -169,3 +169,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(add-to-list 'exec-path "~/.nix-profile/bin")
+(add-to-list 'exec-path "~/.cabal/bin")
