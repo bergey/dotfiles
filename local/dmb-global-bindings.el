@@ -77,9 +77,9 @@ bind them to the specified keys."
 (bind-keys*
  ("M-S-a" . backward-sentence)
  ("M-S-e" . forward-sentence)
- ("M-a" . window-number-select-1)
- ("M-o" . window-number-select-2)
- ("M-e" . window-number-select-3)
+ ("M-o" . window-number-select-1)
+ ("M-e" . window-number-select-2)
+ ("M-u" . window-number-select-3)
  )
 
 ;; move case-change commands under a prefix
