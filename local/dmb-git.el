@@ -11,7 +11,7 @@
   :ensure magit
   :ensure magit-annex
   :bind ("C-x g" . magit-status)
-  :diminish magit-auto-revert-mode
+  ;; :diminish magit-auto-revert-mode
   :init (defvar magit-log-edit-confirm-cancellation nil)
   :config (use-package magit-annex)
   )
