@@ -3,12 +3,16 @@
   :init
   (defun dmb-erc ()
     (interactive)
-    (erc :server "irc.freenode.net" :nick "bergey" :password (assoc 'freenode dmb-passwords))
+    (setq erc-nickserv-passwords `((freenode (("bergey" . ,(progn (message "prompting for GPG password") (password-store-get "freenode")))))))
+    (erc :server "irc.freenode.net" :nick "bergey")
     ;; (erc :server "irc.mozilla.org" :nick "bergey")
     ;;  (erc :server "localhost"        :nick "bergey" :password (assoc 'bitlbee dmb-passwords))
     )
   :config
   (progn
+
+    (setq erc-prompt-for-nickserv-password nil)
+
     (add-hook 'erc-join-hook 'bitlbee-identify)
     (defun bitlbee-identify ()
       "If we're on the bitlbee server, send the identify command to the
