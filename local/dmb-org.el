@@ -58,7 +58,7 @@
       '(("p" tags "project+LEVEL=1")
         ("P" tags-todo "project")
         ("D" tags-todo "-someday-next-SCHEDULED>=2014-01-01+PRIORITY<\"C\"-PRIORITY=\"\"")
-        ("d" tags-todo  "-someday-next-SCHEDULED>=2014-01-01")
+        ("d" tags-todo  "-someday-next-SCHEDULED>=2014-01-01-TODO=\"DELAY\"-CATEGORY=\"cb\"")
         ("n" tags "next+LEVEL=1")
         ("w" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
@@ -82,7 +82,7 @@
 ;; WISH - review these periodically, might go back on the TODO list
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WIP(p)" "|" "DONE(d!)")
-        (type "BLOCKED(b)" "|" "PR(g)"  "DELAY(l)" "WISH(w)" "CANCEL(k!)")))
+        (type "DELAY(l)" "BLOCKED(b)" "|" "PR(g)"  "WISH(w)" "CANCEL(k!)")))
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "light gray" :weight bold))
