@@ -117,9 +117,12 @@
 (setq org-refile-targets '((org-agenda-files :maxlevel . 2)))
 (setq org-refile-use-outline-path t)
 
-;; (use-package org-trello
-;;   :ensure org-trello
-;;   )
+(use-package org-trello
+  :ensure org-trello
+  :config
+  (progn
+    (setq org-trello-files '("~/records/org-mode/cb.org"))
+))
 
 ;; collapse headers when entering new file
 (setq org-agenda-inhibit-startup nil)
