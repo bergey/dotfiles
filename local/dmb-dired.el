@@ -1,6 +1,7 @@
 (require 'dired-x)
 (require 'dired-details+)
 
+(setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\.")
 (define-key dired-mode-map "." 'dired-up-directory)
 (define-key dired-mode-map (kbd "C-c C-o") 'diredp-find-a-file-other-window)
 (define-key dired-mode-map (kbd "C-o") nil)
