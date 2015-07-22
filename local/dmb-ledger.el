@@ -9,7 +9,7 @@
                     ("payee" "ledger -f %(ledger-file) reg -- %(payee)")
                     ("account" "ledger -f %(ledger-file) reg %(account)")
                     ("assets" "ledger -f %(ledger-file) --price-db prices.db -s bal assets liabilities -V")
-                    ("expenses" "ledger -f %(ledger-file) -s bal expenses")
+                    ("expenses" "ledger -f %(ledger-file) -s bal expenses --begin 2015")
                     ("cleared" "ledger -f %(ledger-file) -s bal -C assets liabilities")
                     ("brokerage" "ledger -f %(ledger-file) bal fidelity")
                     ("monthly" "ledger -f %(ledger-file) reg expenses -M --period-sort \"(-amount)\"")))))
