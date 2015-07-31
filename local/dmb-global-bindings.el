@@ -54,7 +54,8 @@ bind them to the specified keys."
 (bind-keys-switch-buffer
  (("b". "&bitlbee")
   ("y" . "*Ipython*")
-  ("U" . "#diagrams"))
+  ("U" . "#diagrams")
+  ("S" . "*scratch*"))
  dmb-jump-keymap)
 
 (bind-keys* ("C-c C-x C-j" . org-clock-goto)
