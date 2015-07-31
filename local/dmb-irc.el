@@ -28,8 +28,8 @@
     ;; (autojoin module enabled by default)
     (setq erc-autojoin-channels-alist
           '(;("localhost" "&bitlbee")
-            ("freenode.net" "#diagrams" "#haskell" "#ghcjs" "#purescript"
-              "#numerical-haskell" "#haskell-lens" "#haskell-game")
+            ("freenode.net" "#diagrams" "#haskell" "#ghcjs"
+             "#numerical-haskell" "#haskell-lens" "#haskell-game")
             ("irc.mozilla.org" "#rust")))
 
     (setq erc-hide-list '("JOIN" "PART" "QUIT" "MODE"))
