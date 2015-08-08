@@ -13,7 +13,9 @@
   :bind ("C-x g" . magit-status)
   ;; :diminish magit-auto-revert-mode
   :init (defvar magit-log-edit-confirm-cancellation nil)
-  :config (use-package magit-annex)
+  :config (progn
+            (use-package magit-annex)
+            (setq magit-push-always-verify nil))
   )
 
 (provide 'dmb-git)
