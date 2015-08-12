@@ -1,8 +1,6 @@
 (add-to-list 'revert-without-query "~/.cabal/logs/*")
 (add-to-list 'revert-without-query ".cabal-sandbox/logs/*")
 
-(require 'haskell-style) ;;https://github.com/tibbe/haskell-style-guide
-
 (use-package haskell-mode
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
