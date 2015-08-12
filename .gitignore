@@ -26,5 +26,4 @@ local/ob-diagrams.el
 *.elc
 bookmarks
 emacs.bmk
-downloaded
 /.trello/
