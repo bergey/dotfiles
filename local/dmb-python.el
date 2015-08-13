@@ -1,7 +1,6 @@
 ;; *** python ***
 (use-package python-mode
   :ensure python-mode
-  :ensure ipython
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
   :config

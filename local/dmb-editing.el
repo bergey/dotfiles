@@ -58,12 +58,12 @@
   :ensure company
   :diminish company-mode
   :defer 10
+  :init (defun dmb-company-short-idle () (setq company-idle-delay 0.1))
   :config (progn
           (setq company-show-numbers t)
           (global-company-mode)
           (setq company-idle-delay 2) ; set shorter in select modes
           (make-variable-buffer-local 'company-idle-delay)
-          (defun dmb-company-short-idle () (setq company-idle-delay 0.1))
           (bind-key "M-c" 'company-manual-begin)
           (defun company-begin-dabbrev () (interactive) (company-begin-backend 'company-dabbrev))
           (bind-key "M-/" 'company-begin-dabbrev)
