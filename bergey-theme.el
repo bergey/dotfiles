@@ -62,15 +62,7 @@
  '(company-tooltip ((((class color) (background dark)) (:background "grey40" :foreground "white"))))
  '(company-tooltip-selection ((((class color) (background dark)) (:background "grey20" :foreground "white"))))
  '(org-habit-alert-face ((((class color) (background dark)) (:foreground "black" :background "darkgoldenrod"))))
- '(org-verbatim
-   ((((class color grayscale) (min-colors 88) (background light))
-     (:foreground "grey50" :underline t))
-    (((class color grayscale) (min-colors 88) (background dark))
-     (:foreground "grey70" :underline t))
-    (((class color) (min-colors 8) (background light))
-     (:foreground "green" :underline t))
-    (((class color) (min-colors 8) (background dark))
-     (:foreground "yellow" :underline t))))
+ '(org-verbatim ((t (:inherit font-lock-string-face))))
  '(org-code
    ((((class color grayscale) (min-colors 88) (background light))
      (:foreground "grey50"))
