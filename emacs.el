@@ -56,9 +56,6 @@
                  dmb-haskell
                  dmb-git
                  dmb-nix
-                 ;; my homebrew modes
-                 trnsed-mode
-                 eplus-mode
                  ;; mail
                  dmb-notmuch
                  dmb-bbdb
