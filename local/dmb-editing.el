@@ -76,4 +76,8 @@
   :ensure csv-mode
   )
 
+(use-package ag
+  :ensure ag
+  )
+
 (provide 'dmb-editing)
