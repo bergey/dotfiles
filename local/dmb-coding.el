@@ -158,4 +158,12 @@
             (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
             ))
 
+;; documentation lookup
+(use-package :helm-dash
+  :ensure helm-dash
+  ;; :config (progn
+  ;;           (setq helm-dash-common-docsets '("Haskell" "Bourbon"))
+  ;;           )
+  )
+
 (provide 'dmb-coding)

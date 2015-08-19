@@ -23,7 +23,8 @@
  ("C-x C-b" . ibuffer)
  ("C-. t" . shell-date)
  ("C-. d" . datestamp)
- ("C-. C-f" . find-file-at-point))
+ ("C-. C-f" . find-file-at-point)
+ ("C-. ." . helm-dash))
 
 ;; Jump to various buffers
 (bind-keys* :prefix-map dmb-jump-keymap

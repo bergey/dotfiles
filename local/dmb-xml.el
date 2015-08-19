@@ -18,10 +18,17 @@
   :config
   (progn
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
-    (add-hook 'web-mode-hook 'flycheck-mode)
-    (add-hook 'web-mode-hook 'whitespace-mode)
-    (add-hook 'web-mode-hook 'dmb-company-short-idle)
-    (add-hook 'web-mode-hook 'smartparens-strict-mode)
+    (setq web-mode-hook '(
+                          flycheck-mode
+                          whitespace-mode
+                          dmb-company-short-idle
+                          smartparens-strict-mode
+                          (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))))
+  ;; (add-hook 'web-mode-hook 'flycheck-mode)
+  ;; (add-hook 'web-mode-hook 'whitespace-mode)
+  ;; (add-hook 'web-mode-hook 'dmb-company-short-idle)
+  ;; (add-hook 'web-mode-hook 'smartparens-strict-mode)
+  ;; (add-hook 'web-mode-hook '(lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat"))))
     (define-key web-mode-map (kbd "C-j") 'newline)
     (define-key web-mode-map (kbd "RET") 'newline-and-indent)
     (define-key web-mode-map (kbd "C-c C-r") 'run-mocha)
@@ -29,8 +36,7 @@
       (if (equal web-mode-content-type "jsx")
           (let ((web-mode-enable-part-face nil))
             ad-do-it)
-        ad-do-it))
-    ))
+        ad-do-it))))
 
 (use-package coffee-mode
   :ensure coffee-mode
