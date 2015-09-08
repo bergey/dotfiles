@@ -7,7 +7,8 @@
 
 ; put pandoc-specific code here, rst, etc.
 (use-package pandoc-mode
+  :ensure pandoc-mode
   :config
-  (add-hook 'markdown-mode-hook 'turn-on-pandoc))
+  (add-hook 'markdown-mode-hook 'pandoc-mode))
 
 (provide 'dmb-markup)
