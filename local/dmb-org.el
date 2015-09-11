@@ -128,4 +128,6 @@
 (setq org-agenda-inhibit-startup nil)
 ;; use default value of org-startup-folded
 
+(run-with-idle-timer 60 3600 'org-mobile-push)
+
 (provide 'dmb-org)
