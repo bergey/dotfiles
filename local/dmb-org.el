@@ -135,6 +135,7 @@
 (setq org-agenda-inhibit-startup nil)
 ;; use default value of org-startup-folded
 
-(run-with-idle-timer 60 3600 'org-mobile-push)
+;; run every time emacs has been idle for 15 minutes
+(run-with-idle-timer 900 t 'org-mobile-push)
 
 (provide 'dmb-org)
