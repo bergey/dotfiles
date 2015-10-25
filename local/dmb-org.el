@@ -58,8 +58,14 @@
 (setq org-agenda-custom-commands
       '(("p" tags "project+LEVEL=1")
         ("P" tags-todo "project")
-        ("D" tags-todo "-someday-next-SCHEDULED>=2014-01-01+PRIORITY<\"C\"-PRIORITY=\"\"")
-        ("d" tags-todo  "-someday-next-SCHEDULED>=2014-01-01-TODO=\"DELAY\"-CATEGORY=\"cb\"")
+        ("D" tags-todo "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
+        ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
+        ("f" tags-todo "-someday-next-TODO=\"DELAY\"+CATEGORY=\"fcs\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
+        ("F" tags-todo "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\"-CATEGORY=\"fcs\"-CATEGORY=\"cs1\"-CATEGORY=\"cs2\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("n" tags "next+LEVEL=1")
         ("w" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
