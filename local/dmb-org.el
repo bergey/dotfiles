@@ -13,6 +13,7 @@
             (setq org-clock-out-remove-zero-time-clocks t)
             ;; wrap clock entries in a drawer if they exceed this many
             (setq org-clock-into-drawer 5)
+            (setq org-log-into-drawer t)
             ))
 
 (use-package org-archive
