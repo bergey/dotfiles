@@ -167,5 +167,8 @@
   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
   )
 
+(use-package systemd
+  :ensure t
+  )
 
 (provide 'dmb-coding)
