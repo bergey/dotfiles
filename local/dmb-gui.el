@@ -23,7 +23,8 @@
   :ensure windresize
   :commands windresize)
 
-(time-package 'buffer-move)
+(use-package buffer-move
+  :ensure t)
 
 (setq column-number-mode 1)
 
