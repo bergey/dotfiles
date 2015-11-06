@@ -20,7 +20,6 @@
                               dmb-company-short-idle
                               smartparens-mode
                               (lambda ()
-                                (diminish 'haskell-indentation-mode)
                                 (setq-local helm-dash-docsets '("Haskell")))
                               haskell-auto-insert-module-template
                               ;; ghc-init  ; doesn't work with GHC-7.10?
