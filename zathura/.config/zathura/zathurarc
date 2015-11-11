@@ -1,0 +1,4 @@
+map b navigate previous
+map i toggle_index
+map 1 set 'pages-per-row 1'
+map 2 set 'pages-per-row 2'
