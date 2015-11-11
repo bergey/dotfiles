@@ -1,0 +1,9 @@
+/xmonad/.xmonad/xmonad-x86_64-linux
+/xmonad/.xmonad/xmonad.errors
+/imm/.config/imm/state/
+*~
+/xmonad/.xmonad/xmonad
+/imm/.config/imm/imm
+*.hi
+*.o
+/imm/.config/imm/Setup
