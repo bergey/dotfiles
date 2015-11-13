@@ -43,9 +43,6 @@
                ("SPC" . haskell-mode-contextual-space)
                ("C-c i" . haskell-navigate-imports))
 
-    (setq haskell-compile-cabal-build-command
-          "cd %s && /home/bergey/code/utility/nix-shell-cabal build --ghc-option=-ferror-")
-
     (setq haskell-tags-on-save t
           haskell-stylish-on-save t)))
 
