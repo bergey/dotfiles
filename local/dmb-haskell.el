@@ -33,7 +33,7 @@
                ("C-c C-c" . haskell-compile)
                ("C-c v c" . haskell-cabal-visit-file)
                ;; haskell-process functions
-               ("C-c C-l" . haskell-process-load-or-reload)
+               ("C-c C-l" . haskell-process-load-file)
                ("C-c C-z" . haskell-interactive-switch)
                ("C-c C-t" . haskell-process-do-type)
                ("C-c C-i" . haskell-process-do-info)
