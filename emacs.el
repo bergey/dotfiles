@@ -22,9 +22,7 @@
                                                    ))
 
               (dolist (default-directory
-                        '("~/.nix-profile/share/emacs/site-lisp/" ; NixOS
-                          "/run/current-system/sw/share/emacs/" ; NixOS
-                          "/run/current-system/sw/share/org/contrib/lisp/" ; NixOS
+                        '(
                           "~/.emacs.d/git-checkouts/" ; should be managed by mr
                           "~/.emacs.d/elpa/"
                           "/usr/share/org-mode/lisp" ; Debian
