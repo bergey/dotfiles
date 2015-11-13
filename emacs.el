@@ -109,6 +109,10 @@
     (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands readonly ring scrolltobottom services stamp track truncate)))
  '(eval-expression-print-length nil)
  '(frame-background-mode (quote dark))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-hoogle-imports t)
+ '(haskell-process-suggest-remove-import-lines t)
  '(ibuffer-saved-filter-groups nil)
  '(ibuffer-saved-filters
    (quote
@@ -139,7 +143,8 @@
  '(notmuch-hello-sections
    (quote
     (notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags)))
- '(protect-buffer-bury-p nil)
+ '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
+ '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil
