@@ -5,10 +5,12 @@
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"
-  :init (use-package ghc
-          :commands ghc-init)
+  :init (progn
+          (use-package ghc
+            :commands ghc-init)
+          (require 'haskell-mode-autoloads))
   :config
-  (progn ; needed for haskell-mode-hook, below
+  (progn
 
     (setq haskell-mode-hook '(
                               ;;structured-haskell-mode
@@ -16,7 +18,7 @@
                               whitespace-mode
                               flycheck-mode
                               subword-mode
-                              ;; interactive-haskell-mode ;; causes annoying project starts
+                              interactive-haskell-mode ;; causes annoying project starts?
                               dmb-company-short-idle
                               smartparens-mode
                               (lambda ()
@@ -44,7 +46,10 @@
                ("C-c i" . haskell-navigate-imports))
 
     (setq haskell-tags-on-save t
-          haskell-stylish-on-save t)))
+          haskell-stylish-on-save t
+          haskell-ask-also-kill-buffers nil
+          haskell-process-type 'stack-ghci
+          )))
 
 (use-package haskell-interactive-mode
   :commands interactive-haskell-mode
@@ -52,13 +57,15 @@
   :config
   (progn
 
+    ;; TODO this isn't the .hs file map, and <up>, <down> wouldn't
+    ;; make sense if it were
+
     ;; source code buffer
     (bind-keys :map haskell-interactive-mode-map
                ("C-c C-n" . haskell-interactive-mode-error-forward)
                ("C-c C-p" . haskell-interactive-mode-error-backward)
-               ;; haskell-process-cabal shadowed org-clock-goto
-               ("C-c C-x" . nil)
-               ;; (define-key haskell-interactive-mode-map (kbd "C-c C-b") 'haskell-interactive-switch-back)
+               ("<up>" . haskell-interactive-mode-history-previous)
+               ("<down>" . haskell-interactive-mode-history-next)
                )
 
     (bind-keys :map  haskell-interactive-mode-map
