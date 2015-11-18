@@ -167,6 +167,11 @@
   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
   )
 
+;; R stats
+(use-package ess-site
+  :ensure ess
+  :commands R)
+
 (use-package systemd
   :ensure t
   )
