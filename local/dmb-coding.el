@@ -176,4 +176,7 @@
   :ensure t
   )
 
+(use-package yaml-mode
+  :ensure t)
+
 (provide 'dmb-coding)
