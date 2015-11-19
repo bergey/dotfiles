@@ -1,3 +1,9 @@
+(use-package password-store
+  :ensure)
+
+(use-package pass
+  :ensure)
+
 (use-package erc
   :commands erc
   :init
