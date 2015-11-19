@@ -1,14 +1,15 @@
 (add-to-list 'revert-without-query "~/.cabal/logs/*")
 (add-to-list 'revert-without-query ".cabal-sandbox/logs/*")
 
+(require 'haskell-mode-autoloads)
+
 (use-package haskell-mode
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"
   :init (progn
           (use-package ghc
-            :commands ghc-init)
-          (require 'haskell-mode-autoloads))
+            :commands ghc-init))
   :config
   (progn
 
