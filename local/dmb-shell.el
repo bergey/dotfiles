@@ -1,7 +1,6 @@
 (use-package bash-completion
   :ensure t
-  :config (progn 'bash-completion-setup
-                 ))
+  :init (bash-completion-setup))
 
 (use-package shell
   :bind ("C-. h" . shell)
