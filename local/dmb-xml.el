@@ -32,6 +32,8 @@
     (define-key web-mode-map (kbd "C-j") 'newline)
     (define-key web-mode-map (kbd "RET") 'newline-and-indent)
     (define-key web-mode-map (kbd "C-c C-r") 'run-mocha)
+    (bind-keys :map web-mode-map
+               ("C--" . web-mode-comment-or-uncomment))
     (defadvice web-mode-highlight-part (around tweak-jsx activate)
       (if (equal web-mode-content-type "jsx")
           (let ((web-mode-enable-part-face nil))
