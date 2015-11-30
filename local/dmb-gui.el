@@ -12,6 +12,7 @@
 (blink-cursor-mode 0)
 (setq visible-bell 1) ; silence audio bell
 (setq use-dialog-box nil)
+(setq initial-scratch-message nil)
 
 ;; windows
 (use-package window-number
