@@ -1,7 +1,9 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
+             '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("stable" . "http://stable.melpa.org/packages/"))
 
 (setq package-enable-at-startup nil)
 (measure-time "package-initialize" (package-initialize))
