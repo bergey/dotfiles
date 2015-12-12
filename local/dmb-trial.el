@@ -3,4 +3,10 @@
 (use-package avy
   :ensure t)
 
+(use-package cperl-mode
+  :ensure t)
+
+(use-package swift-mode
+  :ensure t)
+
 (provide 'dmb-trial)
