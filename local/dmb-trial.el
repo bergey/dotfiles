@@ -9,4 +9,7 @@
 (use-package swift-mode
   :ensure t)
 
+(use-package helm-gtags
+  :ensure t)
+
 (provide 'dmb-trial)
