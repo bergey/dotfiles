@@ -179,4 +179,23 @@
 (use-package yaml-mode
   :ensure t)
 
+;; C language
+;; custom, based on k&r
+(c-add-style
+ "kar"
+ '("k&r"
+   (c-basic-offset . 4)))
+
+(setq c-default-style
+      '((java-mode . "java")
+        (awk-mode . "awk")
+        (other . "kar")))
+
+(setq c-mode-hook
+      '(whitespace-mode
+        smartparens-mode
+        flycheck-mode
+        helm-gtags-mode
+        dmb-company-short-idle))
+
 (provide 'dmb-coding)
