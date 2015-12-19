@@ -119,7 +119,7 @@
       org-completion-use-ido t)
 
 ;; idle in X11, not just in emacs
-;; (setq org-clock-x11idle-program-name "xprintidle")
+(setq org-clock-x11idle-program-name "xprintidle")
 
 (setq org-refile-targets '((org-agenda-files :maxlevel . 2)))
 (setq org-refile-use-outline-path t)
@@ -137,5 +137,9 @@
 
 ;; run every time emacs has been idle for 15 minutes
 (run-with-idle-timer 900 t 'org-mobile-push)
+
+;; for xmobar org-clock
+(defun strip-text-properties(txt)
+  (set-text-properties 0 (length txt) nil txt) txt)
 
 (provide 'dmb-org)
