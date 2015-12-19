@@ -16,7 +16,7 @@
  ("C-o" . other-window)
  ;; ("C-x w" . evil-window-map)
  ("C-S-o" . vi-open-line-above)
- ("C-x x" . execute-extended-command)
+ ;;("C-x x" . execute-extended-command)
  ;; M-; is hard to type on my keymapping; rebind to something easier
  ;; -- inspired by haskell comment char, and negative-argument is bound to several keys
  ("C--" . comment-dwim)
