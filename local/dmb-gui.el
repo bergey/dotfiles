@@ -71,13 +71,13 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;; use chromium as browser
 ;; TODO set this system-wide via XDG or something
 (setq browse-url-browser-function 'browse-url-chromium)
-;; (setq frame-title-format
-;;       '(multiple-frames erc-modified-channels-object org-mode-line-string
-;;                        ("" invocation-name "@" system-name)))
-;;
-;; (setq mode-line-format
-;;       ("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position
-;;  (vc-mode vc-mode)
-;;  "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
+
+(setq-default mode-line-format
+      '("%e" mode-line-front-space mode-line-mule-info mode-line-client
+        mode-line-modified mode-line-remote mode-line-frame-identification
+        mode-line-buffer-identification "   " mode-line-position
+        (vc-mode vc-mode)
+        "  " mode-line-modes mode-line-end-spaces))
+
 
 (provide 'dmb-gui)
