@@ -239,6 +239,7 @@ from strings as used by bbdb-get-addresses")
             (bergey-notmuch-toggle-bindings "s" "sched")
             (bergey-notmuch-toggle-bindings "D" "todo")
             (bergey-notmuch-toggle-bindings "F" "filter")
+            (bergey-notmuch-toggle-bindings "M" "muted")
 
             (setq notmuch-hello-sections (quote (notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags)))
 
@@ -265,22 +266,14 @@ from strings as used by bbdb-get-addresses")
             (bind-key "$" '(lambda () (interactive (switch-to-buffer "*Notmuch errors*"))) notmuch-search-mode-map)
 
             (bind-key "g" 'notmuch-poll-and-refresh-this-buffer notmuch-search-mode-map)
-
-
             (bind-key "S" 'bergey-notmuch-search-save-search notmuch-search-mode-map)
-
-            (bind-key "f" 'widget-forward notmuch-hello-mode-map)
-            (bind-key "b" 'widget-backward notmuch-hello-mode-map)
-            (bind-key "n" 'next-line notmuch-hello-mode-map)
-            (bind-key "p" 'previous-line notmuch-hello-mode-map)
-            (bind-key "." 'notmuch-hello-update notmuch-hello-mode-map)
 
             (define-prefix-command 'notmuch-bbdb-keymap)
             (bind-key "B" 'notmuch-bbdb-keymap notmuch-show-mode-map)
             (bind-key "f" 'notmuch-bbdb/snarf-from notmuch-bbdb-keymap)
             (bind-key "t" 'notmuch-bbdb/snarf-to notmuch-bbdb-keymap)
 
-;;; bbdb
+            ;;; bbdb
 
             (autoload 'footnote-mode "footnote" nil t)
 
