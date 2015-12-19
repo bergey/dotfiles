@@ -20,8 +20,6 @@
      comint-input-ring-size 5000         ; max shell history size
      protect-buffer-bury-p nil
      comint-move-point-for-output nil
-     completion-at-point-functions
-     '(tags-completion-at-point-function bash-completion-dynamic-complete)
      )
 
     ;; track current directory
