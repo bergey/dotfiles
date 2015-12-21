@@ -12,7 +12,9 @@
                     ("expenses" "ledger -f %(ledger-file) -s bal expenses --begin 2015")
                     ("cleared" "ledger -f %(ledger-file) -s bal -C assets liabilities")
                     ("brokerage" "ledger -f %(ledger-file) bal fidelity")
-                    ("monthly" "ledger -f %(ledger-file) reg expenses -M --period-sort \"(-amount)\"")))))
+                    ("monthly" "ledger -f %(ledger-file) reg expenses -M --period-sort \"(-amount)\"")
+                    ("income" "ledger -f bergey.ledger -Y  register '^Income:[^S]' --begin=$(date +%Y)-01-01")
+                    ))))
 
 (defun date-format-usa-to-iso ()
   (interactive)
