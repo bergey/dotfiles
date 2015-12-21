@@ -30,7 +30,8 @@
 ;; *** C
 (add-hook 'c-initialization-hook
           (lambda ()
-            (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)))
+            (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
+            (define-key c-mode-base-map "{" 'my-c-mode-insert-lcurly)))
 
 (require 'dmb-smartparens)
 
@@ -209,6 +210,5 @@
       (forward-line -1)
       (c-indent-line))))
 
-(define-key c-mode-base-map "{" 'my-c-mode-insert-lcurly)
 
 (provide 'dmb-coding)
