@@ -71,7 +71,9 @@ bind them to the specified keys."
             ("C-. p" . (lambda () (interactive) (scroll-up 1)))
             ;; interferes with org-time-stamp
             ("C-. C-." . kmacro-call-macro)
-            ("M-l" . company-show-location))
+            ("M-l" . company-show-location)
+            ("C-. C-p" . password-store-copy)
+            )
 
 (defun window-number-select-1 () (interactive) (window-number-select 1))
 (defun window-number-select-2 () (interactive) (window-number-select 2))
