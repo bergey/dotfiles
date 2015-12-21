@@ -65,6 +65,13 @@
 
     (setq erc-track-shorten-function 'dmb-erc-track-shorten-haskell)
 
+    (defun irc-activity-string ()
+      (if (functionp erc-track-shorten-function)
+          (funcall
+           erc-track-shorten-function
+           (mapcar 'buffer-name (mapcar 'car erc-modified-channels-alist)))
+        (nil)))
+
     ))
 
 (provide 'dmb-irc)
