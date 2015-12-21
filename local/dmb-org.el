@@ -62,6 +62,8 @@
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
+        ("s" tags-todo  "-someday-next-project-TODO=\"DELAY\"-CATEGORY=\"cb\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("f" tags-todo "-someday-next-TODO=\"DELAY\"+CATEGORY=\"fcs\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("F" tags-todo "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\"-CATEGORY=\"fcs\"-CATEGORY=\"cs1\"-CATEGORY=\"cs2\""
@@ -70,7 +72,9 @@
         ("w" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
         ("B" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
-        ("b" tags "buy")))
+        ("b" tags "buy")
+        ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")
+        ))
 
 (use-package org-notmuch
   :commands org-notmuch-store-link
