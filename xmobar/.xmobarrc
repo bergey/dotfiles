@@ -43,11 +43,14 @@ Config { --font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                       , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%Y-%m-%d %H:%M:%S" "date" 10
-                    , Run Com "emacsclient" ["-e", "(irc-activity-string)"] "erc" 300
+                     , Run Com "emacsclient" ["-e", "(irc-activity-string)"] "erc" 20
+                    , Run Com "emacsclient"
+                       [ "-e", "(strip-text-properties (if (org-clock-is-active)  (org-clock-get-clock-string) nil))" ]
+                      "org" 20
                     , Run Com "date" [] "dt" 10
+                    , Run Wireless "wlp3s0" [] 30
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%multicpu% | %memory% * %swap% | %enp0s25% - %wlp3s0% | %bat0% %bat1% }\
-                    \{  %erc% | %KPHL%  <fc=#ee9a00>%date%</fc>"
+       , template = "<fc=#ee9a00>%wlp3s0wi%</fc>  %erc% } { %org%  <fc=#ee9a00>%date%</fc>"
        }
