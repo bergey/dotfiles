@@ -14,6 +14,8 @@
             ;; wrap clock entries in a drawer if they exceed this many
             (setq org-clock-into-drawer 5)
             (setq org-log-into-drawer t)
+            (setq org-agenda-window-setup 'other-window)
+            (setq org-agenda-restore-windows-after-quit t)
             ))
 
 (use-package org-archive
