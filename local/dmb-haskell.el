@@ -30,7 +30,6 @@
 
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
-               ("C-c C-s" . haskell-mode-insert-scc-at-point)
                ("C-," . haskell-move-nested-left)
                ("C-." . haskell-move-nested-right)
                ("C-c C-c" . haskell-compile)
