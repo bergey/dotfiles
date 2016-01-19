@@ -56,7 +56,11 @@
   :mode "\\.clj\\'"
   :config (progn
             (add-hook 'clojure-mode-hook 'dmb-lisp-hook)
+            (add-hook 'clojure-mode-hook 'flycheck-mode)
             (define-key clojure-mode-map (kbd "RET") 'newline-and-indent))
+
+  (use-package flycheck-clojure
+    :ensure t)
 
   (use-package cider
     :ensure cider
