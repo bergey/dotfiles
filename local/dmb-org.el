@@ -66,7 +66,7 @@
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("s" tags-todo  "-someday-next-project-TODO=\"DELAY\"-CATEGORY=\"cb\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
-        ("f" tags-todo "-someday-next-TODO=\"DELAY\"+CATEGORY=\"fcs\""
+        ("f" tags-todo "-someday-next-TODO=\"DELAY\"+CATEGORY=\"fcs\"|CATEGORY=\"cs1\"|CATEGORY=\"cs2\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("F" tags-todo "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\"-CATEGORY=\"fcs\"-CATEGORY=\"cs1\"-CATEGORY=\"cs2\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
