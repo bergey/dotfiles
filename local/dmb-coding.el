@@ -153,8 +153,10 @@
 
 ;; Coq
 (use-package proof
-  ;; not in Elpa, installed through Nix
+  ;; not in MELPA as of 2016-01-19, installed via aptitude
   :mode ("\\.v\'" . Coq))
+
+(load-file "/usr/share/emacs/site-lisp/proofgeneral/generic/proof-site.el")
 
 ;; purescript
 (use-package purescript-mode
