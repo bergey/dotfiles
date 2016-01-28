@@ -18,4 +18,7 @@
             (setq magit-push-always-verify nil))
   )
 
+(use-package orgit
+  :ensure t)
+
 (provide 'dmb-git)
