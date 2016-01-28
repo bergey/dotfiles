@@ -18,7 +18,7 @@
                               whitespace-mode
                               flycheck-mode
     ;;                           subword-mode
-                              interactive-haskell-mode ;; causes annoying project starts?
+                              bpinteractive-haskell-mode ;; causes annoying project starts?
                               dmb-company-short-idle
     ;;                           smartparens-mode
                               (lambda ()
@@ -57,5 +57,8 @@
           haskell-process-suggest-hoogle-imports t
           haskell-process-log t
           haskell-process-auto-import-loaded-modules t)))
+
+(use-package haskell-snippets
+  :ensure t)
 
 (provide 'dmb-haskell)

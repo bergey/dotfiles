@@ -13,6 +13,7 @@
             (bind-key "C-t" 'yas-expand yas-minor-mode-map)
             (define-key yas-minor-mode-map (kbd "<tab>") nil)
             (define-key yas-minor-mode-map (kbd "TAB") nil)
+            (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
             ))
 
 (defun create-tags (dir-name)

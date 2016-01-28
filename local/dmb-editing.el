@@ -80,4 +80,6 @@
   :ensure ag
   )
 
+(global-unset-key (kbd "C-t"))
+
 (provide 'dmb-editing)
