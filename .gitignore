@@ -28,3 +28,4 @@ bookmarks
 emacs.bmk
 /.trello/
 /ido.last
+snippets/*/.yas-compiled-snippets.el
