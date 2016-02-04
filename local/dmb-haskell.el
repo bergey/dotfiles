@@ -18,7 +18,7 @@
                               whitespace-mode
                               flycheck-mode
     ;;                           subword-mode
-                              bpinteractive-haskell-mode ;; causes annoying project starts?
+                              interactive-haskell-mode ;; causes annoying project starts?
                               dmb-company-short-idle
     ;;                           smartparens-mode
                               (lambda ()
