@@ -35,4 +35,7 @@
     ;; TODO should be for all flymake
     (define-key python-mode-map (kbd "C-c C-e") 'flymake-goto-next-error)))
 
+(use-package anaconda-mode
+  :ensure t)
+
 (provide 'dmb-python)
