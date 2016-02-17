@@ -141,7 +141,6 @@
  '(notmuch-hello-sections
    (quote
     (notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags)))
- '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    (quote
