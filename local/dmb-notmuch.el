@@ -231,7 +231,15 @@ from strings as used by bbdb-get-addresses")
             (interactive)
             (let ((ln (bounds-of-thing-at-point 'line)))
               ;; (message ln)
-              (replace-regexp ".*<\\(.*\\)>" "\\1" nil (car ln) (cdr ln)))))
+              (replace-regexp ".*<\\(.*\\)>" "\\1" nil (car ln) (cdr ln))))
+
+          (defun dmb-notmuch-show-stash-email-addr ()
+            "Copy the email part (between <>) of From line."
+            (interactive)
+            ;; (notmuch-show-stash-from)
+            ;; (setq kill-ring (cons (replace-regexp-in-string ".*<\\(.*\\)>" "\\1" (car kill-ring)) (cdr kill-ring)))
+            (notmuch-common-do-stash (replace-regexp-in-string ".*<\\(.*\\)>" "\\1" (notmuch-show-get-from)))
+            ))
 
   :config (progn
 
@@ -256,6 +264,7 @@ from strings as used by bbdb-get-addresses")
             (bind-key "g" 'notmuch-hello-update notmuch-hello-mode-map)
 
             (bind-key "C-c C-o" 'browse-url notmuch-show-mode-map)
+            (bind-key "c e" 'dmb-notmuch-show-stash-email-addr notmuch-show-mode-map)
             (bind-key "F" 'notmuch-show-forward-message notmuch-show-mode-map)
 
 
