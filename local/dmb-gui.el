@@ -1,6 +1,9 @@
 ;; fonts
-(set-face-font 'default (if (member "Gentium" (font-family-list)) "Gentium" "GentiumPlus"))
-(add-to-list 'default-frame-alist '(font . "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1"))
+(if (eq system-type 'gnu/linux)
+    (progn
+      (set-face-font 'default (if (member "Gentium" (font-family-list)) "Gentium" "GentiumPlus"))
+      (add-to-list 'default-frame-alist
+                   '(font . "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1"))))
 
 ;; colors
 (load-theme 'bergey t)
