@@ -32,7 +32,8 @@
     (setq erc-autojoin-channels-alist
           '(;("localhost" "&bitlbee")
             ("freenode.net" "#diagrams" "#haskell" "#ghcjs"
-             "#numerical-haskell" "#haskell-lens" "#haskell-game" "#haskell-emacs" "#haskell-ide-engine")
+             "#numerical-haskell" "#haskell-lens" "#haskell-game"
+             "#haskell-emacs" "#haskell-ide-engine" "#reflex-frp")
             ("irc.mozilla.org" "#rust")))
 
     (setq erc-hide-list '("JOIN" "PART" "QUIT" "MODE"))
