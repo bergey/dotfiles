@@ -8,7 +8,7 @@
     (interactive)
     (setq erc-nickserv-passwords `((freenode (("bergey" . ,(progn (message "prompting for GPG password") (password-store-get "freenode")))))))
     (erc :server "irc.freenode.net" :nick "bergey")
-    ;; (erc :server "irc.mozilla.org" :nick "bergey")
+    (erc :server "irc.mozilla.org" :nick "bergey")
     ;;  (erc :server "localhost"        :nick "bergey" :password (assoc 'bitlbee dmb-passwords))
     )
   :config
