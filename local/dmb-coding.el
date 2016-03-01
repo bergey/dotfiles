@@ -240,5 +240,7 @@
       (forward-line -1)
       (c-indent-line))))
 
+(use-package toml-mode
+  :ensure t)
 
 (provide 'dmb-coding)
