@@ -11,6 +11,9 @@
             (w3m-find-file filename))
         (delete-file filename))))
 
+(use-package emmet-mode
+  :ensure t)
+
 ;; everything web: HTML,javascript, css
 (use-package web-mode
   :ensure web-mode
@@ -23,6 +26,7 @@
                           whitespace-mode
                           dmb-company-short-idle
                           smartparens-strict-mode
+                          emmet-mode
                           (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))))
 
     (define-key web-mode-map (kbd "C-j") 'newline)
@@ -38,7 +42,7 @@
         ad-do-it))))
 
 (use-package coffee-mode
-  :ensure coffee-mode
+  :ensure t
   :mode "\\.coffee\\'")
 
 (defun xml-pretty-print-region (begin end)
