@@ -50,8 +50,6 @@
 
     (bind-key "C-c C-o" 'browse-url erc-mode-map)
 
-    (setq erc-track-position-in-mode-line nil)
-
     (defun dmb-shorten-haskell (name)
       (replace-regexp-in-string "haskell" "h"
                                 (replace-regexp-in-string "^#haskell$" "#H"
