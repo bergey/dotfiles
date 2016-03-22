@@ -36,12 +36,17 @@
 
 (setq org-log-done nil)
 
+(defun dmb-org-end-of-subtree ()
+  (interactive)
+  (org-end-of-subtree))
+
 (add-hook 'org-mode-hook
           '(lambda ()
              (bind-keys* :map org-mode-map
                          ("C-c C-m" . helm-imenu)
                          ("C-c C-x C-i" . org-clock-in)
                          ("C-c C-x m" . org-mark-ring-goto)
+                         ("C-M-n" . dmb-org-end-of-subtree)
                          )))
 
 (add-hook 'org-mode-hook '(lambda () (diminish 'org-indent-mode)))
