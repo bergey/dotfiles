@@ -83,6 +83,10 @@
         ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")
         ))
 
+(setq org-capture-templates
+      '(("e" "email needs reply" entry (file+headline "" "Email")
+         "* TODO [#B] reply to %:from re %?\n%a")))
+
 (use-package org-notmuch
   :commands org-notmuch-store-link
   :commands org-notmuch-search-store-link)
