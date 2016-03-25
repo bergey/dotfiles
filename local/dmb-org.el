@@ -42,7 +42,7 @@
 
 (add-hook 'org-mode-hook
           '(lambda ()
-             (bind-keys* :map org-mode-map
+             (bind-keys :map org-mode-map
                          ("C-c C-m" . helm-imenu)
                          ("C-c C-x C-i" . org-clock-in)
                          ("C-c C-x m" . org-mark-ring-goto)
