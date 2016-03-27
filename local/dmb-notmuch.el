@@ -345,6 +345,8 @@ from strings as used by bbdb-get-addresses")
 
             ;; w3m at least results in legible text on black background
             (setq mm-text-html-renderer 'w3m)
+            (setq notmuch-multipart/alternative-discouraged '("text/plain" "text/html"))
+            (bind-key "g" 'w3m-lnum-follow notmuch-show-mode-map)
 
             ;; override function from notmuch-show.el
             (defun notmuch-show-fontify-header ()
