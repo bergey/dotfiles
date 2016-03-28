@@ -347,6 +347,7 @@ from strings as used by bbdb-get-addresses")
             (setq mm-text-html-renderer 'w3m)
             (setq notmuch-multipart/alternative-discouraged '("text/plain" "text/html"))
             (bind-key "g" 'w3m-lnum-follow notmuch-show-mode-map)
+            (bind-key "f" 'w3m-lnum-external-view-this-url notmuch-show-mode-map)
 
             ;; override function from notmuch-show.el
             (defun notmuch-show-fontify-header ()
