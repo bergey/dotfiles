@@ -84,7 +84,9 @@
         ))
 
 (setq org-capture-templates
-      '(("e" "email needs reply" entry (file+headline "" "Email")
+      '(("t" "task" entry (file+headline "" "Tasks")
+         "* TODO %?\n%a")
+        ("e" "email needs reply" entry (file+headline "" "Email")
          "* TODO [#B] reply to %:from re %?\n%a")))
 
 (use-package org-notmuch
