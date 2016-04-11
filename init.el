@@ -2,7 +2,9 @@
   "Measure the time it takes to evaluate BODY."
   `(let ((time (current-time)))
      ,@body
-     (message "%.06f in %s" (float-time (time-since time)) ,name)))
+     (let ((dt (float-time (time-since time))))
+       (if (>= dt 0.1)
+           (message "%.06f in %s" dt ,name)))))
 
 (defun time-package (pkg)
   "Measure the time it takes to require PKG"
