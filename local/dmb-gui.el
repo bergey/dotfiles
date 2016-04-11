@@ -1,31 +1,34 @@
 ;; fonts
-(if (eq system-type 'gnu/linux)
-    (progn
-      (set-face-font 'default (if (member "Gentium" (font-family-list)) "Gentium" "GentiumPlus"))
-      (if (string= system-name "wonderlust")
-          (add-to-list 'default-frame-alist
-                       '(font . "-unknown-Gentium-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1"))
-          (add-to-list 'default-frame-alist
-                       '(font . "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1"))
-        )))
+(measure-time
+ "gentium"
+ (if (eq system-type 'gnu/linux)
+     (progn
+       (set-face-font 'default (if (member "Gentium" (font-family-list)) "Gentium" "GentiumPlus"))
+       (if (string= system-name "wonderlust")
+           (add-to-list 'default-frame-alist
+                        '(font . "-unknown-Gentium-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1"))
+         (add-to-list 'default-frame-alist
+                      '(font . "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1"))
+         ))))
 
 ;; colors
-(load-theme 'bergey t)
+(measure-time "theme" (load-theme 'bergey t))
 
 ;; clean up interface
-(menu-bar-mode -1) ; hide menu bar
-(tool-bar-mode -1) ; hide toolbar (buttons)
-(fset 'yes-or-no-p 'y-or-n-p) ; reply to all prompts with one letter
-(blink-cursor-mode 0)
-(setq visible-bell 1) ; silence audio bell
-(setq use-dialog-box nil)
-(setq initial-scratch-message nil)
+(measure-time "interface"
+              (menu-bar-mode -1) ; hide menu bar
+              (tool-bar-mode -1) ; hide toolbar (buttons)
+              (fset 'yes-or-no-p 'y-or-n-p) ; reply to all prompts with one letter
+              (blink-cursor-mode 0)
+              (setq visible-bell 1) ; silence audio bell
+              (setq use-dialog-box nil)
+              (setq initial-scratch-message nil))
 
 ;; windows
 (use-package window-number
   :ensure window-number
-  :commands window-number-meta-mode
-  :defer 3
+  ;; :commands window-number-meta-mode
+  ;; :defer 3
   :config (window-number-meta-mode 1)) ; meta-# shortcuts
 
 (use-package windresize

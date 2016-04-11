@@ -22,7 +22,7 @@
   (shell-command (format "ctags %s"  (directory-file-name dir-name))))
 
 (use-package modelica-mode
-  :mode ("\.mo$" . modelica-mode))
+  :mode "\.mo$" )
 
 (add-to-list 'auto-mode-alist '("\.pde" . c-mode)) ; arduino
 (add-to-list 'auto-mode-alist '("\.ino" . c-mode)) ; arduino
@@ -34,7 +34,7 @@
             (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
             (define-key c-mode-base-map "{" 'my-c-mode-insert-lcurly)))
 
-(require 'dmb-smartparens)
+(time-package 'dmb-smartparens)
 
 (use-package rainbow-delimiters
   :ensure rainbow-delimiters
