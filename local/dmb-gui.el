@@ -40,8 +40,6 @@
 
 (setq column-number-mode 1)
 
-;; (require 'buffer-extension)
-
 (setq mouse-yank-at-point t) ; middle mouse button inserts at point, not at mouse pointer
 
 ; better buffer names when >=2 open files (or dirs?) have same name
