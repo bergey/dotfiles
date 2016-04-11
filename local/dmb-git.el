@@ -15,10 +15,10 @@
   :init (defvar magit-log-edit-confirm-cancellation nil)
   :config (progn
             (use-package magit-annex)
+            (use-package orgit
+              :ensure t)
             (setq magit-push-always-verify nil))
   )
 
-(use-package orgit
-  :ensure t)
 
 (provide 'dmb-git)

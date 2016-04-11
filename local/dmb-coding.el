@@ -185,6 +185,7 @@
 ;; purescript
 (use-package purescript-mode
   :ensure purescript-mode
+  :mode "\\.ps$"
   :config (progn
             (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
             ))
@@ -208,7 +209,8 @@
   )
 
 (use-package yaml-mode
-  :ensure t)
+  :ensure t
+  :mode "\\.yaml$" )
 
 ;; C language
 ;; custom, based on k&r
@@ -241,6 +243,7 @@
       (c-indent-line))))
 
 (use-package toml-mode
-  :ensure t)
+  :ensure t
+  :mode "\\.toml" )
 
 (provide 'dmb-coding)

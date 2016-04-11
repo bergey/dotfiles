@@ -1,4 +1,6 @@
-(require-package 'unfill)
+(use-package unfill
+  :ensure t
+  :commands (unfill-paragraph unfill-region))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (diminish 'visual-line-mode)
@@ -74,10 +76,12 @@
 
 (use-package csv-mode
   :ensure csv-mode
+  :mode "\\.csv$"
   )
 
 (use-package ag
   :ensure ag
+  :commands ag
   )
 
 (global-unset-key (kbd "C-t"))

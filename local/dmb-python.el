@@ -36,6 +36,7 @@
     (define-key python-mode-map (kbd "C-c C-e") 'flymake-goto-next-error)))
 
 (use-package anaconda-mode
+  :mode "\\.py"
   :ensure t)
 
 (provide 'dmb-python)
