@@ -2,7 +2,11 @@
   :ensure markdown-mode
   :mode "\\.md\\'"
   :mode "\\.markdown\\'"
-  :config (setq markdown-command "pandoc -f markdown -t html")
+  :config (progn
+            (setq markdown-command "pandoc -f markdown -t html")
+            (bind-key "C-c C-a b" 'markdown-footnote-return markdown-mode-map)
+            (bind-key "C-c C-a k" 'markdown-footnote-kill markdown-mode-map)
+            )
   )
 
 ; put pandoc-specific code here, rst, etc.
