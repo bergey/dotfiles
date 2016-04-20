@@ -60,6 +60,8 @@
  org-special-ctrl-a/e t
  org-startup-indented t
  org-agenda-span 'day
+ org-enforce-todo-dependencies t
+ org-agenda-dim-blocked-tasks 'invisible
  )
 
 (setq org-agenda-custom-commands
