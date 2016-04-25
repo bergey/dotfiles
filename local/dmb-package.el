@@ -27,4 +27,8 @@ re-downloaded in order to locate PACKAGE."
 
 (setq use-package-verbose t)
 
+(use-package auto-compile
+  :ensure t
+  :config (auto-compile-on-load-mode))
+
 (provide 'dmb-package)

@@ -1,3 +1,5 @@
+(setq load-prefer-newer t)
+
 (defmacro measure-time  (name &rest body)
   "Measure the time it takes to evaluate BODY."
   `(let ((time (current-time)))
