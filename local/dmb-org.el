@@ -89,7 +89,10 @@
       '(("t" "task" entry (file+headline "" "Tasks")
          "* TODO %?\n%a")
         ("e" "email needs reply" entry (file+headline "" "Email")
-         "* TODO [#B] reply to %:from re %?\n%a")))
+         "* TODO [#B] reply to %:from re %?\n%a")
+        ("r" "reading" entry (file+headline "read.org" "triage")
+         "* %?")
+        ))
 
 (use-package org-notmuch
   :commands org-notmuch-store-link
