@@ -246,4 +246,8 @@
   :ensure t
   :mode "\\.toml" )
 
+(use-package groovy-mode
+  :ensure t
+  :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)")
+
 (provide 'dmb-coding)
