@@ -86,4 +86,13 @@
 
 (global-unset-key (kbd "C-t"))
 
+;; from https://www.reddit.com/r/emacs/comments/3vo62x/scroll_so_that_whole_paragraphs_stay_visible/
+(defun scroll-up-paragraph ()
+  (interactive)
+  (goto-char (window-end))
+  (backward-paragraph)
+  (recenter 0))
+
+(bind-key "C-c C-v" 'scroll-up-paragraph)
+
 (provide 'dmb-editing)
