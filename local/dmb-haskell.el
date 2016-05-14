@@ -27,10 +27,31 @@
     ;;                           ;; ghc-init  ; doesn't work with GHC-7.10?
                               ))
 
+    (defvar dmb-helm-haskell-language-extensions
+      '((name . "Haskell Language Extensions")
+        (candidates . haskell-ghc-supported-extensions)
+        (action . dmb-haskell-insert-language-pragma)))
+
+    (defun dmb-haskell-insert-language-pragma (extension)
+      "Insert a language extension pragma at the top of the current buffer."
+      ;; assume that stylish-haskell or other code will sort the
+      ;; pragmas.  Just put it at the top of the file.
+      (save-excursion
+        (goto-char (point-min))
+        (insert "{-# LANGUAGE " extension " #-}\n")))
+
+    (defun dmb-helm-haskell-language-pragma ()
+      (interactive)
+      (helm-other-buffer 'dmb-helm-haskell-language-extensions "*Helm Haskell*"))
+
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
                ("C-c c" . haskell-process-cabal)
-               ("C-c i" . haskell-navigate-imports))
+               ("C-c i" . haskell-navigate-imports)
+               ("M-." . find-tag)
+               ("C-M-." . haskell-mode-jump-to-def-or-tag)
+               ("C-h C-l" . dmb-helm-haskell-language-pragma)
+               )
 
     (setq haskell-tags-on-save t
           haskell-stylish-on-save t
