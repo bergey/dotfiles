@@ -250,4 +250,8 @@
   :ensure t
   :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)")
 
+(use-package erlang
+  :mode "\\.erl"
+  :ensure t)
+
 (provide 'dmb-coding)
