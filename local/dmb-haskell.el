@@ -18,7 +18,7 @@
                               whitespace-mode
                               flycheck-mode
     ;;                           subword-mode
-                              interactive-haskell-mode ;; causes annoying project starts?
+                              interactive-haskell-mode
                               dmb-company-short-idle
     ;;                           smartparens-mode
                               (lambda ()
@@ -48,8 +48,7 @@
                ("M-C-h" . haskell-hoogle)
                ("C-c c" . haskell-process-cabal)
                ("C-c i" . haskell-navigate-imports)
-               ("M-." . find-tag)
-               ("C-M-." . haskell-mode-jump-to-def-or-tag)
+               ("M-." . haskell-mode-tag-find)
                ("C-h C-l" . dmb-helm-haskell-language-pragma)
                )
 
@@ -71,7 +70,11 @@
                ("C-c C-p" . haskell-interactive-mode-error-backward)
                ("<up>" . haskell-interactive-mode-history-previous)
                ("<down>" . haskell-interactive-mode-history-next)
+               ("C-M-." . haskell-mode-jump-to-def-or-tag)
                )
+
+    ;; override default
+    (define-key interactive-haskell-mode-map (kbd  "M-.") 'haskell-mode-tag-find)
 
     (setq haskell-process-suggest-remove-import-lines t
           haskell-process-auto-import-loaded-modules t
