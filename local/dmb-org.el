@@ -92,6 +92,9 @@
          "* TODO [#B] reply to %:from re %?\n%a")
         ("r" "reading" entry (file+headline "read.org" "triage")
          "* %?")
+        ("d" "dinner" entry (file+headline "house.org" "2016")
+         ;; "* %(format-time-string \"%Y-%m-%d\")\n%?")
+         "* %<%Y-%m-%d>\n%?")
         ))
 
 (use-package org-notmuch
