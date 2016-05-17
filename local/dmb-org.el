@@ -95,6 +95,7 @@
         ("d" "dinner" entry (file+headline "house.org" "2016")
          ;; "* %(format-time-string \"%Y-%m-%d\")\n%?")
          "* %<%Y-%m-%d>\n%?")
+        ("f" "fitness log" plain (file+datetree "misc.org"))
         ))
 
 (use-package org-notmuch
