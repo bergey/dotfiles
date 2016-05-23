@@ -254,4 +254,7 @@
   :mode "\\.erl"
   :ensure t)
 
+(use-package fsharp-mode
+  :ensure t)
+
 (provide 'dmb-coding)
