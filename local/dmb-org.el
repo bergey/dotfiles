@@ -96,6 +96,8 @@
          ;; "* %(format-time-string \"%Y-%m-%d\")\n%?")
          "* %<%Y-%m-%d>\n%?")
         ("f" "fitness log" plain (file+datetree "misc.org"))
+        ("n" "note" entry (file+headline "" "Notes")
+         "* %<%Y-%m-%d> %?")
         ))
 
 (use-package org-notmuch
