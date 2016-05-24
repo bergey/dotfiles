@@ -27,6 +27,8 @@
 (add-to-list 'auto-mode-alist '("\.pde" . c-mode)) ; arduino
 (add-to-list 'auto-mode-alist '("\.ino" . c-mode)) ; arduino
 (add-to-list 'auto-mode-alist '("\.glsl" . c-mode)) ; OpengGL
+(add-to-list 'auto-mode-alist '("\.frag" . c-mode)) ; OpengGL
+(add-to-list 'auto-mode-alist '("\.vert" . c-mode)) ; OpengGL
 
 ;; *** C
 (add-hook 'c-initialization-hook
