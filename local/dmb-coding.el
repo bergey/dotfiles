@@ -29,6 +29,7 @@
 (add-to-list 'auto-mode-alist '("\.glsl" . c-mode)) ; OpengGL
 (add-to-list 'auto-mode-alist '("\.frag" . c-mode)) ; OpengGL
 (add-to-list 'auto-mode-alist '("\.vert" . c-mode)) ; OpengGL
+(add-to-list 'auto-mode-alist '("\.geom" . c-mode)) ; OpengGL
 
 ;; *** C
 (add-hook 'c-initialization-hook
