@@ -1,0 +1,83 @@
+[general]
+accounts = fastmail, hacktory, gmail
+maxsyncaccounts = 6
+ui = ttyui
+pythonfile = ~/records/keys/offlineimap/offlineimap.py
+
+[Repository localMaildir]
+type = Maildir
+localfolders = ~/Maildir
+
+[Account fastmail]
+localrepository = fastmailLocal
+remoterepository = fastmailImap
+
+[Account gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Account hacktory]
+localrepository = hacktory-local
+remoterepository = hacktory-remote
+
+[Account fcs]
+localrepository = fcs-local
+remoterepository = fcs-remote
+
+[Repository fastmailLocal]
+type = Maildir
+localfolders = ~/Mail/f
+nametrans = lambda fname: re.sub('INBOX.INBOX', 'INBOX', 'INBOX.'+fname)
+
+[Repository gmail-local]
+type = Maildir
+localfolders = ~/Mail/g
+
+[Repository hacktory-local]
+type = Maildir
+localfolders = ~/Mail/hacktory
+
+[Repository fcs-local]
+type = Maildir
+localfolders = ~/Mail/fcs
+
+[Repository fastmailImap]
+type = IMAP
+remotehost = mail.messagingengine.com
+remoteport = 993
+ssl = yes
+cert_fingerprint = 958b1601563aef92607a41eb5bad22e3cace8431
+remoteuser = bergey@fastmail.fm
+keepalive = 60
+nametrans = lambda foldername: re.sub('^INBOX\.', '', foldername)
+remotepasseval = get_pass('bergey@fastmail.fm')
+
+[Repository gmail-remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = dmbergey@gmail.com
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+ssl = yes
+port = 993
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotepasseval = get_pass('dmbergey@gmail.com')
+
+[Repository hacktory-remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = bergey@thehacktory.org
+ssl = yes
+port = 993
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotepasseval = get_pass('bergey@thehacktory.org')
+
+[Repository fcs-remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = dbergey@friendscentral.org
+ssl = yes
+port = 993
+folderfilter = lambda foldername: foldername not in '[Gmail]/All Mail'
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remotepasseval = get_pass('dbergey@friendscentral.org')
