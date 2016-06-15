@@ -86,4 +86,14 @@ synchronize_flags=true
 exclude_tags=
 
 [muchsync]
-and_tags=unread;inbox;
+and_tags=unread;new;inbox;
+
+# Cryptography related configuration
+#
+# The following option is supported here:
+#
+#	gpg_path
+#		binary name or full path to invoke gpg.
+#
+[crypto]
+gpg_path=gpg
