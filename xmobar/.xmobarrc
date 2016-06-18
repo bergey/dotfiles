@@ -52,5 +52,5 @@ Config { --font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<fc=#ee9a00>%wlp3s0wi%</fc>  %erc% } { %org%  <fc=#ee9a00>%date%</fc>"
+       , template = "<fc=#ee9a00>%wlp3s0wi%</fc>  } { %org%  <fc=#ee9a00>%date%</fc>"
        }
