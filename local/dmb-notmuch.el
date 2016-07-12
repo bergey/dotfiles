@@ -16,22 +16,24 @@
           ;; "list-orphan" is a saved search which captures any new mail tagged
           ;; list but not part of a more-specific saved-search
 
-          (setq notmuch-saved-searches (-snoc
-                                        notmuch-saved-searches
-                                        (cons
-                                         "list-orphan"
-                                         (concat
-                                          "tag:list and tag:inbox and not ("
-                                          (-reduce
-                                           'concat
-                                           (-interpose " or "
-                                                       (--map
-                                                        (replace-regexp-in-string
-                                                         " and tag:inbox" ""
-                                                         (replace-regexp-in-string "tag:inbox and " "" (cdr it)))
-                                                        (cdr notmuch-saved-searches))))
-                                          ")"
-                                          ))))
+          (if (boundp 'notmuch-saved-searches)
+              (setq notmuch-saved-searches
+                    (-snoc
+                     notmuch-saved-searches
+                     (cons
+                      "list-orphan"
+                      (concat
+                       "tag:list and tag:inbox and not ("
+                       (-reduce
+                        'concat
+                        (-interpose " or "
+                                    (--map
+                                     (replace-regexp-in-string
+                                      " and tag:inbox" ""
+                                      (replace-regexp-in-string "tag:inbox and " "" (cdr it)))
+                                     (cdr notmuch-saved-searches))))
+                       ")"
+                       )))))
 
           (defun bergey-notmuch-show-toggle-tag-archive (tag)
             "toggle specified tag; if adding tag, also remove inbox tag"
