@@ -138,7 +138,12 @@
 (setq org-default-notes-file (concat org-directory "/capture.org"))
 (bind-key "C-. c" 'org-capture)
 
-(setq org-agenda-files "/home/bergey/records/org-mode/org-agenda-files")
+(setq org-agenda-files
+      (cond
+       ((eq system-type 'gnu/linux)
+        "/home/bergey/records/org-mode/org-agenda-files")
+       ((eq system-type 'windows-nt)
+        "c:/Users/bergey/records/org-mode/org-agenda-files")))
 
 ;; don't show scheduled items in the agenda list of all TODO items
 (setq org-agenda-todo-ignore-scheduled "all")
