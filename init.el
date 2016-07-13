@@ -71,6 +71,9 @@
                  dmb-shell
                  epa-file))
 
+(if (eq system-type 'windows-nt)
+    (time-package 'dmb-windows))
+
 (measure-time "small modes"
               (time-package 'dmb-ledger)
               (time-package 'dmb-dired)
