@@ -160,8 +160,8 @@
   (add-hook 'qml-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent))))
 
 ;; scala
-(use-package scala-mode2
-  :ensure scala-mode2
+(use-package scala-mode
+  :ensure scala-mode
   :ensure sbt-mode
   :ensure ensime
   :mode ("\\.scala\'" . scala-mode)
