@@ -39,9 +39,20 @@
               (dolist (el dmb-add-load-path t)
                 (add-to-list 'load-path el)))
 
+(defmacro with-library (symbol &rest body)
+      `(condition-case nil
+           (progn
+             (require ',symbol)
+             ,@body)
+         (error (message (format "I guess we don't have %s available." ',symbol))
+                nil)))
+(put 'with-library 'lisp-indent-function 1)
+
+;; kept seperate so the rest can be shared, and not used on my work machine
+(with-library 'dmb-passwords)
+
 (time-packages '(
                  dmb-package ; package management
-                 dmb-passwords ; kept seperate so the rest can be shared
                  ;; load this stuff early, so I have it even when I
                  ;; introduce bugs in the later config
                  dmb-keyboard
