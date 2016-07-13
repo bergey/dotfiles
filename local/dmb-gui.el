@@ -9,7 +9,9 @@
                         '(font . "-unknown-Gentium-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1"))
          (add-to-list 'default-frame-alist
                       '(font . "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1"))
-         ))))
+         ))
+   (set-face-font 'default "Gentium Plus")))
+
 
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
