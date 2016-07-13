@@ -18,11 +18,11 @@
 
 ;; call add-to-list; sometimes I add paths within a session
 (measure-time "load-path" (setq dmb-add-load-path (list
-                                                   "~/.emacs.d/git-checkouts/haskell-mode/"  ; git checkout
+                                                   ;; "~/.emacs.d/git-checkouts/haskell-mode/"  ; git checkout
                                                    "~/.emacs.d/local"
                                                    "~/.emacs.d/downloaded"
                                                    ;; "~/.cabal/share/ghc-mod-2.0.3"
-                                                   "/home/bergey/code/build/structured-haskell-mode/elisp"
+                                                   ;; "/home/bergey/code/build/structured-haskell-mode/elisp"
                                                    ))
 
               (dolist (default-directory
