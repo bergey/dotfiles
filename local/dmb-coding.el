@@ -179,11 +179,13 @@
   :config (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
 
 ;; Coq
-(use-package proof
-  ;; not in MELPA as of 2016-01-19, installed via aptitude
-  :mode ("\\.v\'" . Coq))
+(if (eq system-type 'gnu/linux)
+    (progn
+      (use-package proof
+        ;; not in MELPA as of 2016-01-19, installed via aptitude
+        :mode ("\\.v\'" . Coq))
 
-(load-file "/usr/share/emacs/site-lisp/proofgeneral/generic/proof-site.el")
+      (load-file "/usr/share/emacs/site-lisp/proofgeneral/generic/proof-site.el")))
 
 ;; purescript
 (use-package purescript-mode
