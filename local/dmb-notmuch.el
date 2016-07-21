@@ -205,7 +205,9 @@ from strings as used by bbdb-get-addresses")
 
           (defun helm-notmuch-count-searches ()
             (let ((searches (notmuch-hello-query-counts
-                             (if notmuch-saved-search-sort-function
+                             (if (and
+                                  (boundp 'notmuch-saved-search-sort-function)
+                                  notmuch-saved-search-sort-function)
                                  (funcall notmuch-saved-search-sort-function
                                           notmuch-saved-searches)
                                notmuch-saved-searches)

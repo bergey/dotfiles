@@ -42,10 +42,9 @@
 (defmacro with-library (symbol &rest body)
       `(condition-case nil
            (progn
-             (require ',symbol)
+             (require ,symbol)
              ,@body)
-         (error (message (format "I guess we don't have %s available." ',symbol))
-                nil)))
+         (error  "I guess we don't have %s available." ,symbol)))
 (put 'with-library 'lisp-indent-function 1)
 
 ;; kept seperate so the rest can be shared, and not used on my work machine
