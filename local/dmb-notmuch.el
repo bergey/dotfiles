@@ -30,7 +30,7 @@
                                     (--map
                                      (replace-regexp-in-string
                                       " and tag:inbox" ""
-                                      (replace-regexp-in-string "tag:inbox and " "" (cdr it)))
+                                      (replace-regexp-in-string "tag:inbox and " "" (plist-get it :query)))
                                      (cdr notmuch-saved-searches))))
                        ")"
                        )))))
@@ -211,7 +211,10 @@ from strings as used by bbdb-get-addresses")
                                  (funcall notmuch-saved-search-sort-function
                                           notmuch-saved-searches)
                                notmuch-saved-searches)
-                             :show-empty-searches notmuch-show-empty-saved-searches)))
+                             :show-empty-searches
+                             (if (boundp 'notmuch-show-empty-saved-searches)
+                                 notmuch-show-empty-saved-searches)
+                             nil)))
               (mapcar (lambda (s) (let
                                       ((name (plist-get s :name))
                                        (query (plist-get s :query))
