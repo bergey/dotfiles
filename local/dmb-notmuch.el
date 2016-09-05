@@ -1,9 +1,6 @@
 ;; *** mail ***
 (use-package notmuch
   :commands notmuch-hello-query-counts
-  :bind (("C-. m" . helm-notmuch-saved-searches)
-        ("C-. n" . notmuch-mua-new-mail)
-        ("C-. s" . notmuch-search))
   :init (progn
           ;; for example:
           ;; (setq notmuch-saved-searches (quote (
@@ -26,14 +23,108 @@
                        "tag:list and tag:inbox and not ("
                        (-reduce
                         'concat
-                        (-interpose " or "
-                                    (--map
-                                     (replace-regexp-in-string
-                                      " and tag:inbox" ""
-                                      (replace-regexp-in-string "tag:inbox and " "" (plist-get it :query)))
-                                     (cdr notmuch-saved-searches))))
+                        (-interpose
+                         " or "
+                         (--map
+                          (replace-regexp-in-string
+                           " and tag:inbox" ""
+                           (replace-regexp-in-string
+                            "tag:inbox and " ""
+                            ;; old format (key . query)
+                            ;; new plist format (:name name :query query)
+                            (if (listp  (cdr it))
+                                (plist-get it :query)
+                              (cdr it))))
+                          (cdr notmuch-saved-searches))))
                        ")"
                        )))))
+
+            ;; colorization by indent
+            (defface message-double-quoted-text
+              '((default (:foreground "deep sky blue")))
+              "Current email is a reply to a reply to the quoted text"
+              :group 'message)
+            (defface message-triple-quoted-text
+              '((t (:foreground "violet red")))
+              "Current email includes replies three levels deep"
+              :group 'message)
+            (defface message-multiply-quoted-text
+              '((default (:foreground "SpringGreen2")))
+              "Current email includes replies four levels deep"
+              :group 'message)
+
+            (defun quoted-regex (n)
+              "Return a string which matches email quoted n levels deep"
+              (eval (append '(concat "^") (make-list 3 "[ \\t]*>") (list ".*$"))))
+
+            (defface notmuch-show-known-addr
+              '(
+                (((class color) (background dark)) :foreground "spring green")
+                (((class color) (background light)) :background "spring green" :foreground "black"))
+              "Face for sender or recipient already listed in bbdb"
+              :group 'notmuch-show
+              :group 'notmuch-faces)
+
+            (defface notmuch-show-unknown-addr
+              '(
+                (((class color) (background dark)) :foreground "dark orange")
+                (((class color) (background light)) :background "gold" :foreground "black"))
+              "Face for sender or recipient not listed in bbdb"
+              :group 'notmuch-show
+              :group 'notmuch-faces)
+
+          (defun helm-notmuch-count-searches ()
+            (let ((searches (notmuch-hello-query-counts
+                             (if (and
+                                  (boundp 'notmuch-saved-search-sort-function)
+                                  notmuch-saved-search-sort-function)
+                                 (funcall notmuch-saved-search-sort-function
+                                          notmuch-saved-searches)
+                               notmuch-saved-searches)
+                             :show-empty-searches
+                             (if (boundp 'notmuch-show-empty-saved-searches)
+                                 notmuch-show-empty-saved-searches)
+                             nil)))
+              (mapcar (lambda (s) (let
+                                      ((name (plist-get s :name))
+                                       (query (plist-get s :query))
+                                       (msg-count (plist-get s :count)))
+                                    (cons (format "%8s %s" (notmuch-hello-nice-number msg-count) name) query)))
+                      searches)))
+
+          (defvar helm-notmuch-saved-searches
+            '((name . "Notmuch Mail Searches")
+              (candidates . helm-notmuch-count-searches)
+              (action . (lambda (query) (notmuch-search query notmuch-search-oldest-first)))))
+
+          (defun helm-notmuch-saved-searches ()
+            (interactive)
+            (helm-other-buffer 'helm-notmuch-saved-searches "*Helm Notmuch*")))
+
+  :bind (("C-. m" . helm-notmuch-saved-searches)
+        ("C-. n" . notmuch-mua-new-mail)
+        ("C-. s" . notmuch-search))
+
+  :config (progn
+
+            (defun bergey-notmuch-toggle-bindings (key taga)
+              (lexical-let ((lkey key) (ltag taga))
+                (define-key notmuch-show-mode-map lkey
+                  (lambda ()
+                    ;;  (concat "toggle " taga " tag for message")
+                    (interactive)
+                    (bergey-notmuch-show-toggle-tag-archive ltag)))
+                (define-key notmuch-search-mode-map lkey
+                  (lambda ()
+                    ;;  (concat "toggle " taga " tag for message or region")
+                    (interactive)
+                    (bergey-notmuch-search-toggle-tag-archive ltag)))))
+
+            (bergey-notmuch-toggle-bindings "d" "deleted")
+            (bergey-notmuch-toggle-bindings "s" "sched")
+            (bergey-notmuch-toggle-bindings "D" "todo")
+            (bergey-notmuch-toggle-bindings "F" "filter")
+            (bergey-notmuch-toggle-bindings "M" "muted")
 
           (defun bergey-notmuch-show-toggle-tag-archive (tag)
             "toggle specified tag; if adding tag, also remove inbox tag"
@@ -57,19 +148,6 @@ notmuch-search-tag, but always using the region if active"
               (bergey-notmuch-search-tag (list "-inbox" (concat "+" tagb))))
             (notmuch-search-next-thread))
 
-          (defun bergey-notmuch-toggle-bindings (key taga)
-            (lexical-let ((lkey key) (ltag taga))
-              (define-key notmuch-show-mode-map lkey
-                (lambda ()
-                  ;;  (concat "toggle " taga " tag for message")
-                  (interactive)
-                  (bergey-notmuch-show-toggle-tag-archive ltag)))
-              (define-key notmuch-search-mode-map lkey
-                (lambda ()
-                  ;;  (concat "toggle " taga " tag for message or region")
-                  (interactive)
-                  (bergey-notmuch-search-toggle-tag-archive ltag)))))
-
           (defun bergey-notmuch-search-save-search ()
             "save the current dislpayed search"
             (interactive)
@@ -80,7 +158,7 @@ notmuch-search-tag, but always using the region if active"
             (interactive)
             (save-excursion
               ;; move to url
-              (end-of-buffer)
+              (goto-char (point-max))
               (search-backward "URL:")
               (forward-word 2)
               ;; read url even if split over multiple lines
@@ -88,21 +166,6 @@ notmuch-search-tag, but always using the region if active"
                 ;; load url
                 ;; (command-execute 'browse-url))))
                 (browse-url url))))
-
-          ;; colorization by indent
-          (defface message-double-quoted-text
-            '((default (:foreground "deep sky blue")))
-            "Current email is a reply to a reply to the quoted text")
-          (defface message-triple-quoted-text
-            '((t (:foreground "violet red")))
-            "Current email includes replies three levels deep")
-          (defface message-multiply-quoted-text
-            '((default (:foreground "SpringGreen2")))
-            "Current email includes replies four levels deep")
-
-          (defun quoted-regex (n)
-            "Return a string which matches email quoted n levels deep"
-            (eval (append '(concat "^") (make-list 3 "[ \\t]*>") (list ".*$"))))
 
           ;; bbdb
           ;; interactive versions of these functions for testing
@@ -168,7 +231,7 @@ from strings as used by bbdb-get-addresses")
 
 ;;; color coding addresses by bbdb status
 
-                                        ; code taken from bbdb-gnus.el
+          ;; code taken from bbdb-gnus.el
           (defun bbdb/notmuch-known-sender ()
                                         ; plist-get because we cannot use notmuch-show-get-header before formatting
             (let* ((from (plist-get headers :From))
@@ -187,50 +250,6 @@ from strings as used by bbdb-get-addresses")
             (interactive)
             (if (bbdb/notmuch-known-sender) (message "Sender is known") (message "Sender is not known")))
 
-          (defface notmuch-show-known-addr
-            '(
-              (((class color) (background dark)) :foreground "spring green")
-              (((class color) (background light)) :background "spring green" :foreground "black"))
-            "Face for sender or recipient already listed in bbdb"
-            :group 'notmuch-show
-            :group 'notmuch-faces)
-
-          (defface notmuch-show-unknown-addr
-            '(
-              (((class color) (background dark)) :foreground "dark orange")
-              (((class color) (background light)) :background "gold" :foreground "black"))
-            "Face for sender or recipient not listed in bbdb"
-            :group 'notmuch-show
-            :group 'notmuch-faces)
-
-          (defun helm-notmuch-count-searches ()
-            (let ((searches (notmuch-hello-query-counts
-                             (if (and
-                                  (boundp 'notmuch-saved-search-sort-function)
-                                  notmuch-saved-search-sort-function)
-                                 (funcall notmuch-saved-search-sort-function
-                                          notmuch-saved-searches)
-                               notmuch-saved-searches)
-                             :show-empty-searches
-                             (if (boundp 'notmuch-show-empty-saved-searches)
-                                 notmuch-show-empty-saved-searches)
-                             nil)))
-              (mapcar (lambda (s) (let
-                                      ((name (plist-get s :name))
-                                       (query (plist-get s :query))
-                                       (msg-count (plist-get s :count)))
-                                    (cons (format "%8s %s" (notmuch-hello-nice-number msg-count) name) query)))
-                      searches)))
-
-          (defvar helm-notmuch-saved-searches
-            '((name . "Notmuch Mail Searches")
-              (candidates . helm-notmuch-count-searches)
-              (action . (lambda (query) (notmuch-search query notmuch-search-oldest-first)))))
-
-          (defun helm-notmuch-saved-searches ()
-            (interactive)
-            (helm-other-buffer 'helm-notmuch-saved-searches "*Helm Notmuch*"))
-
           (defun dmb-delete-email-name-part ()
             "Delete the name part of an email from or to header on the
   current line, leaving only the address part (and removing the
@@ -246,15 +265,7 @@ from strings as used by bbdb-get-addresses")
             ;; (notmuch-show-stash-from)
             ;; (setq kill-ring (cons (replace-regexp-in-string ".*<\\(.*\\)>" "\\1" (car kill-ring)) (cdr kill-ring)))
             (notmuch-common-do-stash (replace-regexp-in-string ".*<\\(.*\\)>" "\\1" (notmuch-show-get-from)))
-            ))
-
-  :config (progn
-
-            (bergey-notmuch-toggle-bindings "d" "deleted")
-            (bergey-notmuch-toggle-bindings "s" "sched")
-            (bergey-notmuch-toggle-bindings "D" "todo")
-            (bergey-notmuch-toggle-bindings "F" "filter")
-            (bergey-notmuch-toggle-bindings "M" "muted")
+            )
 
             (setq notmuch-hello-sections (quote (notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags)))
 
