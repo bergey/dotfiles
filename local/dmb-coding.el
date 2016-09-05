@@ -260,7 +260,9 @@
   :ensure t)
 
 (use-package fsharp-mode
-  :ensure t)
+  :ensure t
+  :config (progn
+            (add-to-list 'fsharp-mode-hook 'rainbow-delimiters-mode)))
 
 (use-package idris-mode
   :mode "\\.idr"

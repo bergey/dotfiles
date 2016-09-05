@@ -21,7 +21,8 @@
     ;;                           subword-mode
                               interactive-haskell-mode
                               dmb-company-short-idle
-    ;;                           smartparens-mode
+                              ;;                           smartparens-mode
+                              rainbow-delimeters-mode
                               (lambda ()
                                 (setq-local helm-dash-docsets '("Haskell")))
                               haskell-auto-insert-module-template
