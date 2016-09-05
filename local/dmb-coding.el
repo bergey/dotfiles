@@ -262,4 +262,13 @@
 (use-package fsharp-mode
   :ensure t)
 
+(use-package idris-mode
+  :mode "\\.idr"
+  :ensure t
+
+  :config
+  (progn
+    (use-package helm-idris
+      :ensure t)))
+
 (provide 'dmb-coding)
