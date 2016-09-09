@@ -80,6 +80,8 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 ;; use chromium as browser
 ;; TODO set this system-wide via XDG or something
-(setq browse-url-browser-function 'browse-url-chromium)
+(if (eq system-type 'windows-nt)
+    (setq browse-url-browser-function 'browse-url-default-browser)
+  (setq browse-url-browser-function 'browse-url-chromium))
 
 (provide 'dmb-gui)
