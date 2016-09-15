@@ -106,7 +106,14 @@
 
 ;; Set to the location of your Org files on your local system
 
-(setq org-directory "~/records/org-mode")
+(setq org-directory
+      (cond
+       ((eq system-type 'gnu/linux) "~/records/org-mode")
+       ((eq system-type 'windows-nt)
+        (format  "c:/Users/%s/records/org-mode/" (user-login-name)))))
+
+(setq org-agenda-files (concat org-directory "org-agenda-files"))
+
 
 ;; TODO is the normal state for an actionable task
 ;; WIP and DONE are self-explanatory
@@ -137,13 +144,6 @@
 
 (setq org-default-notes-file (concat org-directory "/capture.org"))
 (bind-key "C-. c" 'org-capture)
-
-(setq org-agenda-files
-      (cond
-       ((eq system-type 'gnu/linux)
-        "/home/bergey/records/org-mode/org-agenda-files")
-       ((eq system-type 'windows-nt)
-        "c:/Users/bergey/records/org-mode/org-agenda-files")))
 
 ;; don't show scheduled items in the agenda list of all TODO items
 (setq org-agenda-todo-ignore-scheduled "all")
