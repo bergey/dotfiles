@@ -82,6 +82,8 @@
  '(rainbow-delimiters-depth-7-face ((((class color) (background dark)) (:foreground "medium purple"))))
  '(rainbow-delimiters-depth-8-face ((((class color) (background dark)) (:foreground "green"))))
  '(rainbow-delimiters-depth-9-face ((((class color) (background dark)) (:foreground "gray"))))
+ '(highlight-indent-guides-even-face ((((class color) (background dark)) (:background "dark slate gray"))))
+ '(highlight-indent-guides-odd-face ((((class color) (background dark)) (:background "slate gray"))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
  '(italic ((t (:underline nil :slant italic))))
