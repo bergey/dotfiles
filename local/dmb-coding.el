@@ -48,9 +48,7 @@
   :ensure t
   :commands highlight-indent-guides-mode
   :init
-  (setq highlight-indent-guides-method 'character)
-  (setq highlight-indent-guides-method 'fill)
-(setq highlight-indent-guides-method 'column)
+  (setq highlight-indent-guides-method 'column)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 ;; minor modes to share in several major modes
