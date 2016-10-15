@@ -282,4 +282,15 @@
     (use-package helm-idris
       :ensure t)))
 
+(use-package fstar-mode
+  :ensure t
+  :mode )
+
+;; There are at least two modes for typescript
+;; `typescript-mode' looks like the most barebones, so good for a start
+;; `web-mode' may also have support
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts")
+
 (provide 'dmb-coding)
