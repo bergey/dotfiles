@@ -106,7 +106,7 @@
 
 (setq org-directory
       (cond
-       ((eq system-type 'gnu/linux) "~/records/org-mode")
+       ((eq system-type 'gnu/linux) "~/records/org-mode/")
        ((eq system-type 'windows-nt)
         (format  "c:/Users/%s/records/org-mode/" (user-login-name)))))
 

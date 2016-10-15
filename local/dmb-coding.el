@@ -21,8 +21,9 @@
   (interactive "DDirectory: ")
   (shell-command (format "ctags %s"  (directory-file-name dir-name))))
 
-(use-package modelica-mode
-  :mode "\.mo$" )
+;; (use-package modelica-mode
+;;   :mode "\.mo$"
+;;   :ensure t)
 
 (add-to-list 'auto-mode-alist '("\.pde" . c-mode)) ; arduino
 (add-to-list 'auto-mode-alist '("\.ino" . c-mode)) ; arduino
@@ -149,7 +150,8 @@
 ;; POVRay input files
 (use-package pov-mode
   :mode "\\.pov\\'"
-  :config (setq pov-indent-level 4))
+  :config (setq pov-indent-level 4)
+  :ensure t)
 
 ;; vala is created and maintained by Gnome.
 ;; It looks like Java or C#, but compiles down to C instead of using it's own VM.
@@ -205,8 +207,8 @@
             ))
 
 ;; documentation lookup
-(use-package :helm-dash
-  :ensure helm-dash
+(use-package helm-dash
+  :ensure t
   :config (progn
             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
             )
