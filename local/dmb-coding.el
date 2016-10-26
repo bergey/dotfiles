@@ -53,7 +53,8 @@ vi style of % jumping to matching brace."
 
 (use-package rainbow-delimiters
   :ensure rainbow-delimiters
-  :commands rainbow-delimiters-mode)
+  :commands rainbow-delimiters-mode
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package highlight-indent-guides
   :ensure t
@@ -67,7 +68,6 @@ vi style of % jumping to matching brace."
   ;; (paredit-mode +1)
   (subword-mode +1)
   (smartparens-strict-mode +1)
-  (rainbow-delimiters-mode +1)
   (dmb-company-short-idle)
   (show-paren-mode 1)
   (whitespace-mode)
@@ -281,8 +281,13 @@ vi style of % jumping to matching brace."
 
 (use-package fsharp-mode
   :ensure t
-  :config (progn
-            (add-to-list 'fsharp-mode-hook 'rainbow-delimiters-mode)))
+  :mode "\\.fsx?")
+
+(use-package auto-complete
+  :ensure t)
+
+;; (use-package paket-mode)
+(require 'paket-mode)
 
 (use-package idris-mode
   :mode "\\.idr"
