@@ -86,6 +86,8 @@
  '(highlight-indent-guides-odd-face ((((class color) (background dark)) (:background "slate gray"))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
+ '(web-mode-html-tag-face ((((class color) (background dark)) (:foreground "red"))))
+ '(web-mode-html-attr-name-face ((((class color) (background dark)) (:foreground "white"))))
  '(italic ((t (:underline nil :slant italic))))
  '(monospace ((t (:family "Inconsolata"))))
  '(default
