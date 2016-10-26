@@ -20,5 +20,8 @@
             (setq magit-push-always-verify nil))
   )
 
+(defun search-forward-diff-lines ()
+  (interactive)
+  (re-search-forward "<<<<<<<\\|=======\\|>>>>>>>"))
 
 (provide 'dmb-git)
