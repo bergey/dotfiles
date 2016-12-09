@@ -281,7 +281,9 @@ vi style of % jumping to matching brace."
 
 (use-package fsharp-mode
   :ensure t
-  :mode "\\.fsx?")
+  :mode "\\.fsx?"
+  :config
+  (add-hook 'fsharp-mode-hook 'whitespace-mode))
 
 (use-package auto-complete
   :ensure t)
