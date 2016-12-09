@@ -71,9 +71,10 @@
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
-        ("w" tags-todo "-someday-next-TODO=\"DELAY\"+CATEGORY=\"quicksilver\"|CATEGORY=\"cs1\"|CATEGORY=\"cs2\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
-        ("W" tags-todo "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\"-CATEGORY=\"quicksilver\"-CATEGORY=\"cs1\"-CATEGORY=\"cs2\""
+        ("w" tags-todo "-someday-next-TODO=\"DELAY\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-files '("c:/Users/daniel.bergey/records/org-mode/forge.org" "c:/Users/daniel.bergey/records/org-mode/training.org" ))))
+        ("W" tags-todo "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\"-CATEGORY=\"quicksilver\"-CATEGORY=\"forge\"-CATEGORY=\"training\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("n" tags "next+LEVEL=1")
         ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
