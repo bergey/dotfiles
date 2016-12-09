@@ -25,14 +25,16 @@
 (global-set-key "\C-cl" 'org-store-link)
 ;; set this without org-git-store-link, which is nifty but usually not what I want.
 (setq org-store-link-functions
-      '(org-irc-store-link
+      (append
+       '(org-irc-store-link
         org-info-store-link
         org-gnus-store-link
         org-docview-store-link
         org-bibtex-store-link
-        org-bbdb-store-link
-        org-notmuch-search-store-link
-        org-notmuch-store-link))
+        org-bbdb-store-link)
+       (if (not (eq system-type 'windows-nt))
+           '(org-notmuch-search-store-link org-notmuch-store-link)
+         '())))
 
 (setq org-log-done nil)
 
