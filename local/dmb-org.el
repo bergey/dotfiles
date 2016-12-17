@@ -76,15 +76,23 @@
         ("w" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files '("c:/Users/daniel.bergey/records/org-mode/forge.org" "c:/Users/daniel.bergey/records/org-mode/training.org" ))))
-        ("W" tags-todo "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\"-CATEGORY=\"quicksilver\"-CATEGORY=\"forge\"-CATEGORY=\"training\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
+        ("W" tags-todo "-someday-next-TODO=\"DELAY\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-files
+           (-remove (lambda (fn) (or
+                                  (s-contains? "forge.org" fn)
+                                  (s-contains? "cb.org" fn)
+                                  (s-contains? "training.org" fn)
+                                  ))
+                    (file-expand-wildcards (concat org-directory "*.org"))
+                    ))))
         ("n" tags "next+LEVEL=1")
         ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
         ("B" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
         ("b" tags "buy")
         ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")
-        ))
+        ))g
 
 (setq org-capture-templates
       '(("t" "task" entry (file+headline "" "Tasks")
