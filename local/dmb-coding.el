@@ -288,8 +288,10 @@ vi style of % jumping to matching brace."
 (use-package auto-complete
   :ensure t)
 
-;; (use-package paket-mode)
-(require 'paket-mode)
+(use-package paket-mode
+  :mode "paket."
+;;  https://github.com/mars888/paket-mode.git
+  )
 
 (use-package idris-mode
   :mode "\\.idr"

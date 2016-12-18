@@ -21,6 +21,7 @@
                                                    ;; "~/.emacs.d/git-checkouts/haskell-mode/"  ; git checkout
                                                    "~/.emacs.d/local"
                                                    "~/.emacs.d/downloaded"
+                                                   "~/.emacs.d/git-checkouts/paket-mode"
                                                    ;; "~/.cabal/share/ghc-mod-2.0.3"
                                                    ;; "/home/bergey/code/build/structured-haskell-mode/elisp"
                                                    ))
