@@ -14,6 +14,7 @@
                     ("brokerage" "ledger -f %(ledger-file) bal fidelity")
                     ("monthly" "ledger -f %(ledger-file) reg expenses -M --period-sort \"(-amount)\"")
                     ("income" "ledger -f bergey.ledger -Y  register '^Income:[^S]' --begin=$(date +%Y)-01-01")
+                    ("tikun" "ledger -f %(ledger-file) reg tikun --begin=$(date +%Y)-01-01")
                     ))))
 
 (defun date-format-usa-to-iso ()
