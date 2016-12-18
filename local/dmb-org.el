@@ -84,7 +84,7 @@
                                   (s-contains? "cb.org" fn)
                                   (s-contains? "training.org" fn)
                                   ))
-                    (file-expand-wildcards (concat org-directory "*.org"))
+                    (file-expand-wildcards (concat org-directory "[a-z]*.org"))
                     ))))
         ("n" tags "next+LEVEL=1")
         ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
@@ -92,7 +92,7 @@
         ("B" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
         ("b" tags "buy")
         ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")
-        ))g
+        ))
 
 (setq org-capture-templates
       '(("t" "task" entry (file+headline "" "Tasks")
