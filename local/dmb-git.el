@@ -14,7 +14,8 @@
   ;; :diminish magit-auto-revert-mode
   :init (defvar magit-log-edit-confirm-cancellation nil)
   :config (progn
-            (use-package magit-annex)
+            (use-package magit-annex
+              :ensure t)
             (use-package orgit
               :ensure t)
             (setq magit-push-always-verify nil))
