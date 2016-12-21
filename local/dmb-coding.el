@@ -7,14 +7,17 @@
 
 ;; https://www.emacswiki.org/emacs/NavigatingParentheses#toc2
 (defun goto-match-paren (arg)
-  "Go to the matching parenthesis if on parenthesis, otherwise insert %.
-vi style of % jumping to matching brace."
+  "Go to the matching parenthesis if on parenthesis.
+vi style of % jumping to matching brace.  If point is immediately
+after a paren, and not on a paren, goto the match of the
+preceding paren."
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-        ;; (t (self-insert-command (or arg 1)))
+        ((save-excursion (backward-char 1) (looking-at "\\s\)"))
+         (backward-list 1))
         ))
-(bind-key "C-%" 'goto-match-paren)
+(bind-key"C-%" 'goto-match-paren)
 
 (use-package yasnippet
   :ensure yasnippet
