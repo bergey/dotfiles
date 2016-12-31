@@ -101,7 +101,7 @@
          "* TODO [#B] reply to %:from re %?\n%a")
         ("r" "reading" entry (file+headline "read.org" "triage")
          "* %?")
-        ("d" "dinner" entry (file+headline "house.org" "2016")
+        ("d" "dinner" entry (file+headline "recipes.org" "2017")
          ;; "* %(format-time-string \"%Y-%m-%d\")\n%?")
          "* %<%Y-%m-%d>\n%?")
         ("f" "fitness log" plain (file+datetree "misc.org"))
