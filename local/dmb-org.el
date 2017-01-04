@@ -66,6 +66,18 @@
  org-agenda-dim-blocked-tasks 'invisible
  )
 
+;; Set to the location of your Org files on your local system
+
+(setq org-directory
+      (cond
+       ((eq system-type 'gnu/linux) "~/records/org-mode/")
+       ((eq system-type 'windows-nt)
+        (format  "c:/Users/%s/records/org-mode/" (user-login-name)))))
+
+(defun in-org-directory (fn) (concat org-directory fn))
+
+(setq org-agenda-files (in-org-directory "org-agenda-files"))
+
 (setq org-agenda-custom-commands
       '(("p" tags "project+LEVEL=1")
         ("P" tags-todo "project")
@@ -75,14 +87,13 @@
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("w" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files '("c:/Users/daniel.bergey/records/org-mode/forge.org" "c:/Users/daniel.bergey/records/org-mode/training.org" ))))
+          (org-agenda-files (list (in-org-directory "jet.org")))))
         ("W" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files
            (-remove (lambda (fn) (or
-                                  (s-contains? "forge.org" fn)
+                                  (s-contains? "jet.org" fn)
                                   (s-contains? "cb.org" fn)
-                                  (s-contains? "training.org" fn)
                                   ))
                     (file-expand-wildcards (concat org-directory "[a-z]*.org"))
                     ))))
@@ -113,16 +124,6 @@
   :commands org-notmuch-store-link
   :commands org-notmuch-search-store-link)
 
-;; Set to the location of your Org files on your local system
-
-(setq org-directory
-      (cond
-       ((eq system-type 'gnu/linux) "~/records/org-mode/")
-       ((eq system-type 'windows-nt)
-        (format  "c:/Users/%s/records/org-mode/" (user-login-name)))))
-
-(setq org-agenda-files (concat org-directory "org-agenda-files"))
-
 
 ;; TODO is the normal state for an actionable task
 ;; WIP and DONE are self-explanatory
@@ -151,7 +152,7 @@
 (setq org-deadline-warning-days 0)
 (setq org-imenu-depth 4)
 
-(setq org-default-notes-file (concat org-directory "/capture.org"))
+(setq org-default-notes-file (in-org-directory "capture.org"))
 (bind-key "C-. c" 'org-capture)
 
 ;; don't show scheduled items in the agenda list of all TODO items
