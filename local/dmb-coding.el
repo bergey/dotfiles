@@ -325,6 +325,13 @@ preceding paren."
 ;; `web-mode' may also have support
 (use-package typescript-mode
   :ensure t
-  :mode "\\.ts")
+  :mode "\\.ts"
+  :config
+  (defun typescript-sort-imports ()
+  "sort the current region according to typescript import rules"
+  (interactive)
+  ;; TODO handle all import groups, regardless of position in buffer
+  (sort-regexp-fields nil "^.*$" "\".*\"" (point) (mark)))
+  (add-hook 'typescript-mode-hook 'whitespace-mode))
 
 (provide 'dmb-coding)
