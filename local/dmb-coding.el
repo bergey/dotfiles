@@ -72,6 +72,9 @@ preceding paren."
 (use-package highlight-escape-sequences
   :ensure t)
 
+(use-package hl-sexp
+  :ensure t)
+
 ;; minor modes to share in several major modes
 (defun dmb-lisp-hook ()
   ;; (paredit-mode +1)
@@ -81,6 +84,7 @@ preceding paren."
   (show-paren-mode 1)
   (whitespace-mode)
   (highlight-quoted-mode)
+  (hl-sexp-mode)
   )
 
 ;; *** clojure
