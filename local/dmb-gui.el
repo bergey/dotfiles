@@ -53,17 +53,17 @@
 
 (use-package helm
   :ensure helm
-  :commands helm-other-buffer
+  :bind (("C-x b" . helm-buffers-list))
   ;; :config (require 'helm-config)
   )
 
 (use-package helm-imenu
   :bind ("C-c C-m" . helm-imenu))
 
-(use-package ido
-  :demand t
-  :bind ("C-x b" . ido-switch-buffer)
-  :config (ido-mode t))
+;; (use-package ido
+;;   :demand t
+;;   :bind ("C-x b" . ido-switch-buffer)
+;;   :config (ido-mode t))
 
 ;; Tramp needs to call `ls` and `id` but it will not find them on a
 ;; NixOS machine without additional configuration because they are not

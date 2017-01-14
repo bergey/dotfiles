@@ -24,13 +24,14 @@
  ("C-. t" . shell-date)
  ("C-. d" . datestamp)
  ("C-. C-f" . find-file-at-point)
- ("C-. ." . helm-dash))
+ ("C-. ." . helm-dash)
+ ("C-. C-j" . helm-org-agenda-files-headings))
 
 ;; Jump to various buffers
 (bind-keys* :prefix-map dmb-jump-keymap
             :prefix "C-. b"
             ("u" . erc-iswitchb)
-            ("o" . helm-org-agenda-files-headings))
+            ("o" . org-iswitchb))
 
 (defmacro bind-keys-switch-buffer (bindings &optional prefix-map)
   "Define named functions to switch to the given buffers, and
