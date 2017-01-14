@@ -66,6 +66,12 @@ preceding paren."
   (setq highlight-indent-guides-method 'column)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
+(use-package highlight-quoted
+  :ensure t)
+
+(use-package highlight-escape-sequences
+  :ensure t)
+
 ;; minor modes to share in several major modes
 (defun dmb-lisp-hook ()
   ;; (paredit-mode +1)
@@ -74,6 +80,7 @@ preceding paren."
   (dmb-company-short-idle)
   (show-paren-mode 1)
   (whitespace-mode)
+  (highlight-quoted-mode)
   )
 
 ;; *** clojure
