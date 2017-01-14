@@ -16,6 +16,9 @@
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
 
+(use-package rainbow-mode
+  :ensure t)
+
 ;; clean up interface
 (measure-time "interface"
               (menu-bar-mode -1) ; hide menu bar
