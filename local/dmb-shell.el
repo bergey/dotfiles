@@ -53,25 +53,42 @@
     ;;                               (setq dirtrack-list '("^\\(.*\\)|" 1 nil))
     ;;                              (dirtrack-mode 1)))
 
+    ;; commenting out in favor of ivy, belowe
+    ;; leaving inline in case I want to write ivy-for-mode helper
     ;; shortcut to select shells
-    (defun ido-for-mode(prompt the-mode)
-      (switch-to-buffer
-       (ido-completing-read prompt
-                            (save-excursion
-                              (delq
-                               nil
-                               (mapcar (lambda (buf)
-                                         (when (buffer-live-p buf)
-                                           (with-current-buffer buf
-                                             (and (eq major-mode the-mode)
-                                                  (buffer-name buf)))))
-                                       (buffer-list)))))))
+    ;; (defun ido-for-mode(prompt the-mode)
+    ;;   (switch-to-buffer
+    ;;    (ido-completing-read prompt
+    ;;                         (save-excursion
+    ;;                           (delq
+    ;;                            nil
+    ;;                            (mapcar (lambda (buf)
+    ;;                                      (when (buffer-live-p buf)
+    ;;                                        (with-current-buffer buf
+    ;;                                          (and (eq major-mode the-mode)
+    ;;                                               (buffer-name buf)))))
+    ;;                                    (buffer-list)))))))
 
-    (defun ido-shell-buffer()
+    ;; (defun ido-shell-buffer()
+    ;;   (interactive)
+    ;;   (ido-for-mode "Shell:" 'shell-mode))
+
+    (defun ivy-shell-buffer ()
       (interactive)
-      (ido-for-mode "Shell:" 'shell-mode))
+      (let ((this-command 'ivy-shell-buffer))
+        (ivy-read "Switch to buffer: " 'internal-complete-buffer
+                  :predicate
+                  (lambda (buffer-pair) ;; (name . buffer)
+                    (let ((case-fold-search nil))
+                      (string-match "^\\*shell.*\\*" (car buffer-pair))))
+                  :matcher #'ivy--switch-buffer-matcher
+                  :preselect (buffer-name (other-buffer (current-buffer)))
+                  :action #'ivy--switch-buffer-action
+                  :keymap ivy-switch-buffer-map
+                  :caller 'ivy-switch-buffer)))
 
-    (bind-key "s" 'ido-shell-buffer dmb-jump-keymap)
+    (bind-key "s" 'ivy-shell-buffer dmb-jump-keymap)
+
 
     (defun rename-shell-buffer (new-name)
       "rename the current buffer with the form shell<foo>"
