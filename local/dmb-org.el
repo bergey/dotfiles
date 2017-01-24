@@ -179,7 +179,7 @@
 ;; use default value of org-startup-folded
 
 ;; run every time emacs has been idle for 15 minutes
-(run-with-idle-timer 900 t 'org-mobile-push)
+;;(run-with-idle-timer 900 t 'org-mobile-push)
 
 ;; for xmobar org-clock
 (defun strip-text-properties(txt)
