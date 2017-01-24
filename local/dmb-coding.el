@@ -75,6 +75,12 @@ preceding paren."
 (use-package hl-sexp
   :ensure t)
 
+(use-package fic-mode
+  :ensure t
+  :commands fic-mode
+  :init
+  (add-hook 'prog-mode-hook 'fic-mode))
+
 ;; minor modes to share in several major modes
 (defun dmb-lisp-hook ()
   ;; (paredit-mode +1)

@@ -19,6 +19,7 @@
  '(lazy-highlight ((((class color) (min-colors 89)) (:background "gray25"))))
  '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground "LightSteelBlue"))))
  '(font-lock-comment-face ((t (:foreground "chocolate1"))))
+ '(fic-face ((t (:background "chocolate1" :foreground "black"))))
  '(font-lock-constant-face ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "red"))))
  '(font-lock-keyword-face ((t (:foreground "deep sky blue"))))
