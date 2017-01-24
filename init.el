@@ -1,3 +1,5 @@
+;; (package-initialize) ; in dmb-package instead
+
 (setq load-prefer-newer t)
 
 (defmacro measure-time  (name &rest body)
