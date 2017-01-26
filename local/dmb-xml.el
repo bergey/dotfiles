@@ -14,6 +14,16 @@
 (use-package emmet-mode
   :ensure t)
 
+(use-package color-identifiers-mode
+  :config
+  (push
+   '(web-mode
+     "</?!?"
+     "\\_</?!?\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)"
+     (nil web-mode-html-tag-face))
+   color-identifiers:modes-alist)
+  )
+
 ;; everything web: HTML,javascript, css
 (use-package web-mode
   :ensure web-mode
@@ -27,6 +37,7 @@
                           dmb-company-short-idle
                           smartparens-strict-mode
                           emmet-mode
+                          color-identifiers-mode
                           (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))))
 
     (define-key web-mode-map (kbd "C-j") 'newline)
