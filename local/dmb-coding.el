@@ -333,11 +333,18 @@ preceding paren."
   :ensure t
   :mode "\\.ts"
   :config
+
   (defun typescript-sort-imports ()
   "sort the current region according to typescript import rules"
   (interactive)
   ;; TODO handle all import groups, regardless of position in buffer
   (sort-regexp-fields nil "^.*$" "\".*\"" (point) (mark)))
-  (add-hook 'typescript-mode-hook 'whitespace-mode))
+
+  (setq typescript-mode-
+        '('whitespace-mode
+          smartparens-strict-mode
+          dmb-company-short-idle
+          ))
+  )
 
 (provide 'dmb-coding)
