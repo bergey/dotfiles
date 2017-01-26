@@ -87,4 +87,8 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
     (setq browse-url-browser-function 'browse-url-default-browser)
   (setq browse-url-browser-function 'browse-url-chromium))
 
+(use-package ivy
+  :ensure t
+  :config (ivy-mode))
+
 (provide 'dmb-gui)

@@ -158,8 +158,7 @@
 ;; don't show scheduled items in the agenda list of all TODO items
 (setq org-agenda-todo-ignore-scheduled "all")
 
-(setq org-outline-path-complete-in-steps nil
-      org-completion-use-ido t)
+(setq org-outline-path-complete-in-steps nil)
 
 ;; idle in X11, not just in emacs
 (setq org-clock-x11idle-program-name "xprintidle")
