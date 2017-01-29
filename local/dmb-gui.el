@@ -89,6 +89,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 (use-package ivy
   :ensure t
+  :diminish ivy-mode
   :config (ivy-mode))
 
 (provide 'dmb-gui)
