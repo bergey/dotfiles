@@ -46,6 +46,14 @@
             (define-key sp-keymap (kbd "M-F") 'sp-forward-symbol)
             (define-key sp-keymap (kbd "M-B") 'sp-backward-symbol)
 
+            ;; smartparens uses a remap to insert sp-kill-region,
+            ;; which is great except that I want to bind both. Remove
+            ;; the remap before setting fresh bindings.
+            (define-key smartparens-strict-mode-map [remap kill-region] nil)
+            (bind-key "C-w" 'sp-kill-region smartparens-strict-mode-map)
+            (bind-key "C-S-w" 'kill-region smartparens-strict-mode-map)
+
+
             ;; markdown-mode
             (sp-with-modes '(markdown-mode gfm-mode rst-mode)
               (sp-local-pair "*" "*" :bind "C-*")
