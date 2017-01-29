@@ -340,8 +340,8 @@ preceding paren."
   ;; TODO handle all import groups, regardless of position in buffer
   (sort-regexp-fields nil "^.*$" "\".*\"" (point) (mark)))
 
-  (setq typescript-mode-
-        '('whitespace-mode
+  (setq typescript-mode-hook
+        '(whitespace-mode
           smartparens-strict-mode
           dmb-company-short-idle
           ))
