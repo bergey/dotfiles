@@ -326,13 +326,22 @@ preceding paren."
   :ensure t
   :mode )
 
-;; There are at least two modes for typescript
-;; `typescript-mode' looks like the most barebones, so good for a start
-;; `web-mode' may also have support
 (use-package typescript-mode
   :ensure t
   :mode "\\.ts"
   :config
+
+(use-package tide
+  :ensure t
+  :init
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    ;; (tide-hl-identifier-mode +1)
+    ))
 
   (defun typescript-sort-imports ()
   "sort the current region according to typescript import rules"
@@ -344,6 +353,7 @@ preceding paren."
         '(whitespace-mode
           smartparens-strict-mode
           dmb-company-short-idle
+          setup-tide-mode
           ))
   )
 
