@@ -8,7 +8,7 @@
           ;;                                      ("diagrams" . "tag:diagrams and tag:inbox")
           ;;                                      ("org-mode" . "tag:inbox and to:emacs-orgmode@gnu.org"))))
 
-          (require-package 'dash)
+          (use-package dash)
 
           ;; "list-orphan" is a saved search which captures any new mail tagged
           ;; list but not part of a more-specific saved-search

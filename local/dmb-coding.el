@@ -206,8 +206,8 @@ preceding paren."
   :ensure ensime
   :mode ("\\.scala\'" . scala-mode)
   :config (progn
-            (require-package 'sbt-mode)
-            (require-package 'ensime) ;; 2014-07-30 upstream broken
+            (use-package sbt-mode)
+            (use-package ensime) ;; 2014-07-30 upstream broken
             (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
             (add-hook 'scala-mode-hook 'whitespace-mode)))
 
