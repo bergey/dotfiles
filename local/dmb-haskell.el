@@ -29,6 +29,8 @@
     ;;                           ;; ghc-init  ; doesn't work with GHC-7.10?
                               ))
 
+    (setq haskell-indent-spaces 4)
+
     (defvar dmb-helm-haskell-language-extensions
       '((name . "Haskell Language Extensions")
         (candidates . haskell-ghc-supported-extensions)
