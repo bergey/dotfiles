@@ -15,6 +15,7 @@
   :ensure t)
 
 (use-package color-identifiers-mode
+  :ensure t
   :config
   (push
    '(web-mode
@@ -22,6 +23,16 @@
      "\\_</?!?\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)"
      (nil web-mode-html-tag-face))
    color-identifiers:modes-alist)
+  )
+
+(defun bergey-yas-by-file-extension ()
+  (interactive)  ; for debugging
+;;  (let ((ext )))
+  (pcase (downcase (file-name-extension (buffer-file-name)))
+    ((pred (string-equal "js" )) (yas-activate-extra-mode 'js-mode))
+    ((pred (string-equal "html")) (yas-activate-extra-mode 'html-mode)))
+    ;; ((pred (string-equal "js" )) (message "js"))
+    ;; ((pred (string-equal "html")) (message "html")))
   )
 
 ;; everything web: HTML,javascript, css
@@ -35,10 +46,12 @@
                           flycheck-mode
                           whitespace-mode
                           dmb-company-short-idle
-                          smartparens-strict-mode
+                          ;; smartparens-strict-mode
                           emmet-mode
                           color-identifiers-mode
-                          (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))))
+                          (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
+                          bergey-yas-by-file-extension
+                          ))
 
     (define-key web-mode-map (kbd "C-j") 'newline)
     (define-key web-mode-map (kbd "RET") 'newline-and-indent)
