@@ -81,11 +81,11 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 (add-hook 'calendar-mode-hook 'monospace-mode)
 
-;; use chromium as browser
-;; TODO set this system-wide via XDG or something
+;; Use system default web browser
 (if (eq system-type 'windows-nt)
     (setq browse-url-browser-function 'browse-url-default-browser)
-  (setq browse-url-browser-function 'browse-url-chromium))
+  ;; browse-url-default-browser calls lynx even if not installed, on Debian, -- 2017-02-23
+  (setq browse-url-browser-function 'browse-url-generic browse-url-generic-program "xdg-open"))
 
 (use-package ivy
   :ensure t
