@@ -72,9 +72,6 @@ preceding paren."
 (use-package highlight-escape-sequences
   :ensure t)
 
-(use-package hl-sexp
-  :ensure t)
-
 (use-package fic-mode
   :ensure t
   :commands fic-mode
