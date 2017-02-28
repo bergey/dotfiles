@@ -135,12 +135,15 @@
 ;; WISH - review these periodically, might go back on the TODO list
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WIP(p)" "|" "DONE(d!)")
-        (type "DELAY(l)" "BLOCKED(b)" "|" "PR(g)"  "WISH(w)" "CANCEL(k!)")))
+        (type "DELAY(l)" "BLOCKED(b)" "PR(g)" "|"  "WISH(w)" "CANCEL(k!)")))
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "light gray" :weight bold))
         ("WISH" . (:foreground "deep sky blue" :weight bold))
         ("DELAY" . (:foreground "chocolate" :weight bold))
+        ("BLOCKED" . (:foreground "chocolate" :weight bold))
+        ("PR" . (:foreground "chocolate" :weight bold))
+        ("WIP" . (:foreground "magenta" :weight bold))
         ))
 
 ;; (setq org-tags-exclude-from-inheritance '("project"))
