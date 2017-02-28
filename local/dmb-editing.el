@@ -100,4 +100,6 @@
 ;; https://github.com/dakrone/eos/blob/master/eos.org
 (setq save-interprogram-paste-before-kill t)
 
+(defalias 'count-lines-region 'count-words-region)
+
 (provide 'dmb-editing)
