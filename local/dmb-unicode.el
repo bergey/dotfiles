@@ -12,6 +12,7 @@
 (define-key 'iso-transl-ctl-x-8-map "G" [?Γ])
 
 (define-key 'iso-transl-ctl-x-8-map "M" [?—])
+(define-key 'iso-transl-ctl-x-8-map "#" [?♯])
 
 ;; greek input (for math & science, not language)
 (require 'greek-unicode-insert)
