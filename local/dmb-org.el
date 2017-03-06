@@ -81,7 +81,9 @@
 (setq org-agenda-custom-commands
       '(("p" tags "project+LEVEL=1")
         ("P" tags-todo "project")
-        ("A" "agenda at work" agenda "" ((org-agenda-files (list (in-org-directory "jet.org")))))
+        ("W" "agenda at work" agenda ""
+         ((org-agenda-files
+           (mapcar 'in-org-directory '("jet.org" "research.org")))))
         ("H" "agenda at home" agenda "" ((org-agenda-files
                  (-remove
                   (lambda (fn) (or (s-contains? "jet.org" fn) (s-contains? "cb.org" fn)))
@@ -93,7 +95,7 @@
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("w" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files (list (in-org-directory "jet.org")))))
+          (org-agenda-files (mapcar 'in-org-directory '("jet.org" "research.org")))))
         ("h" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files
