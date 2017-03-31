@@ -36,7 +36,8 @@
                                                     (current-buffer)))))))))
                 nil t))
 
-    (add-hook 'shell-mode-hook 'track-shell-directory/procfs)
+    (unless (equal system-type 'windows-nt)
+      (add-hook 'shell-mode-hook 'track-shell-directory/procfs))
 
     (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
@@ -96,6 +97,29 @@
       (rename-buffer (concat "*shell*<" new-name ">") t))
 
     (bind-key "C-M-n" 'rename-shell-buffer comint-mode-map)
+
+    (if (equal system-type 'windows-nt)
+        (progn (setq explicit-shell-file-name
+                     "C:/Program Files/Git/bin/bash.exe")
+               (setq shell-file-name explicit-shell-file-name)
+               (setq explicit-sh.exe-args '("--login" "-i"))
+               (setenv "SHELL" shell-file-name)
+               (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m))
+
+      (setq eshell-mode-hook
+                '(lambda ()
+                  (setq eshell-path-env
+                        (concat
+                         "C:\\Program Files\\Git\\mingw64\\bin;"
+                         "C:\\Program Files\\Git\\usr\\local\\bin;"
+                         "C:\\Program Files\\Git\\usr\\bin;"
+                         "C:\\Program Files\\Git\\bin;"
+                         "C:\\Program Files\\Git\\cmd;"
+                         eshell-path-env
+                         ";"
+                         "C:\\Program Files\\Git\\usr\\bin\\vendor_perl;"
+                         "C:\\Program Files\\Git\\usr\\bin\\core_perl"
+                         )))))
 
     ) ;; :config
   ) ;; use-package
