@@ -1,3 +1,14 @@
+;; backup-on-save behavior
+;; https://www.emacswiki.org/emacs/BackupDirectory
+(setq
+ backup-by-copying t
+ backup-directory-alist '(("." . "~/.saves"))
+ delete-old-versions t
+ kept-new-versions 4
+ kept-old-versions 2
+ version-control t
+ )
+
 (use-package unfill
   :ensure t
   :commands (unfill-paragraph unfill-region))
