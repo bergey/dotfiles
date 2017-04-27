@@ -104,14 +104,15 @@
                (setq shell-file-name explicit-shell-file-name)
                (setq explicit-sh.exe-args '("--login" "-i"))
                (setenv "SHELL" shell-file-name)
-               (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m))
+               (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
-      (setq eshell-mode-hook
-                '(lambda ()
-                  (setq eshell-path-env
-                        (concat
-                         "C:\\Program Files\\Git\\mingw64\\bin;"
-                         "C:\\Program Files\\Git\\usr\\local\\bin;"
+               (setq eshell-mode-hook
+                     '(lambda ()
+                        (setq eshell-path-env
+                              (concat
+                               "C:\\Program Files\\Git\\mingw64\\bin;"
+                               "C:\\Program Files\\Git\\usr\\local\\bin;"
+                               "C:\TDM-GCC-64\bin;
                          "C:\\Program Files\\Git\\usr\\bin;"
                          "C:\\Program Files\\Git\\bin;"
                          "C:\\Program Files\\Git\\cmd;"
@@ -119,7 +120,9 @@
                          ";"
                          "C:\\Program Files\\Git\\usr\\bin\\vendor_perl;"
                          "C:\\Program Files\\Git\\usr\\bin\\core_perl"
-                         )))))
+                         )))))) ;; if 'windows-nt
+    (bind-key "C-M-n" 'rename-shell-buffer eshell-mode-map)
+    (setq eshell-buffer-name "*shell*")
 
     ) ;; :config
   ) ;; use-package
