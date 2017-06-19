@@ -24,7 +24,6 @@
  '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "red"))))
  '(font-lock-keyword-face ((t (:foreground "deep sky blue"))))
  '(font-lock-string-face ((t (:foreground "gold"))))
- '(font-lock-type-face ((((class color) (min-colors 89)) (:foreground "aquamarine"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
