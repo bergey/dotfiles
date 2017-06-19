@@ -38,7 +38,7 @@
 ;; everything web: HTML,javascript, css
 (use-package web-mode
   :ensure web-mode
-  :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\)\\'"
+  :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\)\\'"
   :config
   (progn
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
@@ -77,7 +77,7 @@ nothing but whitespace between them.  It then indents the markup
 by using nxml's indentation rules."
   (interactive "r")
   (save-excursion
-      (nxml-mode)
+    (nxml-mode)
       (goto-char begin)
       (while (search-forward-regexp "\>[ \\t]*\<" nil t)
         (backward-char) (insert "\n"))
