@@ -89,6 +89,7 @@
  '(highlight-indent-guides-even-face ((((class color) (background dark)) (:background "dark slate gray"))))
  '(highlight-indent-guides-odd-face ((((class color) (background dark)) (:background "slate gray"))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
+ '(proof-locked-face ((((class color) (background dark)) (:background "#333"))))
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
  '(web-mode-html-tag-face ((((class color) (background dark)) (:foreground "red"))))
  '(web-mode-html-attr-name-face ((((class color) (background dark)) (:foreground "white"))))
