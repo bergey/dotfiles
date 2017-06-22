@@ -6,7 +6,12 @@
   :init
   (defun dmb-erc ()
     (interactive)
-    (setq erc-nickserv-passwords `((freenode (("bergey" . ,(progn (message "prompting for GPG password") (password-store-get "freenode")))))))
+    (setq erc-nickserv-passwords
+          `((freenode (("bergey" . ,(if (equal system-type 'windows-nt)
+                                        (read-passwd "freenode password: ")
+                                        (progn
+                                          (message "prompting for GPG password")
+                                          (password-store-get "freenode"))))))))
     (erc :server "irc.freenode.net" :nick "bergey")
     (erc :server "irc.mozilla.org" :nick "bergey")
     ;;  (erc :server "localhost"        :nick "bergey" :password (assoc 'bitlbee dmb-passwords))
