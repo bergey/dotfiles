@@ -90,9 +90,14 @@ preceding paren."
   (hl-sexp-mode)
   )
 
+(use-package racket-mode
+  :ensure
+  :config
+  (add-hook 'racket-mode-hook 'dmb-lisp-hook))
+
 ;; *** clojure
 (use-package clojure-mode
-  :ensure clojure-mode
+  :ensure
   :mode "\\.clj\\'"
   :config (progn
             (add-hook 'clojure-mode-hook 'dmb-lisp-hook)
