@@ -112,7 +112,7 @@
                               (concat
                                "C:\\Program Files\\Git\\mingw64\\bin;"
                                "C:\\Program Files\\Git\\usr\\local\\bin;"
-                               "C:\TDM-GCC-64\bin;
+                               "C:\TDM-GCC-64\bin;"
                          "C:\\Program Files\\Git\\usr\\bin;"
                          "C:\\Program Files\\Git\\bin;"
                          "C:\\Program Files\\Git\\cmd;"
