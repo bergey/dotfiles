@@ -295,7 +295,7 @@ preceding paren."
 
 (use-package groovy-mode
   :ensure t
-  :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)")
+  :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
 
 (use-package erlang
   :mode "\\.erl"
