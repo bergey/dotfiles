@@ -82,6 +82,7 @@
                  ;;dmb-ublog
                  dmb-irc
                  dmb-shell
+                 dmb-evil
                  epa-file))
 
 (if (eq system-type 'windows-nt)
