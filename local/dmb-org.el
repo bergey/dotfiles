@@ -197,4 +197,26 @@
 (defun strip-text-properties(txt)
   (set-text-properties 0 (length txt) nil txt) txt)
 
+(defun dmb-pick-n (n input)
+  "Pick n random elements from lst.  If there are not n items, return lst entire.  If the input list contains no duplicates, neither will the output."
+  (cl-labels
+      ((worker (n l acc lst)
+               (if (= 0 n) acc
+                 (let ((i (random l)))
+                   (worker (1- n) (1- l) (cons (nth i lst) acc) (-remove-at i lst))))))
+    (let ((l (length input)))
+      (if (>= n l) lst (worker n l '() input))
+      )))
+
+(defun dmb-pick-n-stable (n input)
+  "Like `dmb-pick-n', but the elements will appear in the output
+  in the same order as in the input"
+  (let ((range (-iterate '1+ 0 (length input))))
+    (-select-by-indices (sort (dmb-pick-n n range) '<) input)))
+
+  (defun dmb-schedule-n-tasks (n tag)
+    (interactive "nSchedule how many tasks? \nMPick tasks with tag: ")
+    (let (()))(org-map-entries (lambda () (cons (current-buffer) (point))) (format "+%s" tag) 'agenda)
+    )
+
 (provide 'dmb-org)
