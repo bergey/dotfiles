@@ -67,8 +67,12 @@
                  dmb-org
                  ;; programming
                  dmb-coding
-                 dmb-python
                  dmb-haskell
+                 dmb-lisp
+                 dmb-fsharp
+                 dmb-typescript
+                 dmb-python
+                 dmb-languages
                  dmb-git
                  dmb-nix
                  ;; mail
