@@ -43,6 +43,21 @@
 (use-package buffer-move
   :ensure t)
 
+(use-package window-purpose
+  :ensure t
+  :config
+  (setq purpose-user-mode-purposes
+        '((Eshell . shell)
+          (Shell . shell)
+          (magit-status-mode . git)
+          (magit-log-mode . git)
+          (magit-diff-mode . git)
+          (magit-refs-mode . git)
+          (Help . help)
+          (Info . help)))
+  (purpose-compile-user-configuration)
+  )
+
 (setq column-number-mode 1)
 
 (setq mouse-yank-at-point t) ; middle mouse button inserts at point, not at mouse pointer

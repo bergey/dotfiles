@@ -166,6 +166,9 @@
  '(notmuch-hello-sections
    (quote
     (notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags)))
+ '(package-selected-packages
+   (quote
+    (window-purpose org-evil yaml-mode windresize window-number web-mode vala-mode use-package unfill toml-mode tide thrift systemd stylus-mode smartparens rust-mode real-auto-save rainbow-mode rainbow-delimiters racket-mode qml-mode python-mode purescript-mode powershell pov-mode password-store pandoc-mode orgit notmuch nodejs-repl nix-mode ng2-mode move-text maxframe markdown-mode magit-annex ledger-mode jade-mode ivy indent-guide idris-mode hl-sexp highlight-quoted highlight-parentheses highlight-indentation highlight-indent-guides highlight-escape-sequences helm-dash haskell-snippets haskell-mode groovy-mode google-this go-mode go-autocomplete git-annex fstar-mode fsharp-mode flycheck-rust fic-mode evil ess erlang ensime emms emmet-mode dired-details+ csv-mode csharp-mode color-theme-modern color-identifiers-mode coffee-mode clojure-mode buffer-move bbdb auto-compile anaconda-mode ag)))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    (quote
