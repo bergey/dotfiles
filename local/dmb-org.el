@@ -49,6 +49,7 @@
                          ("C-c C-x C-i" . org-clock-in)
                          ("C-c C-x m" . org-mark-ring-goto)
                          ("C-M-n" . dmb-org-end-of-subtree)
+                         ("M-S-a" . org-forward-sentence)
                          )))
 
 (add-hook 'org-mode-hook '(lambda () (diminish 'org-indent-mode)))

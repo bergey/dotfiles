@@ -16,6 +16,7 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (diminish 'visual-line-mode)
 (bind-key "C-. v" 'visual-line-mode)
+(bind-key "M-S-a" 'end-of-sentence) ;; like M-a, since I rebind M-e
 
 (defun find-alternative-file-with-sudo ()
   (interactive)
