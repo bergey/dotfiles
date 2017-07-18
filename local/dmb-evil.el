@@ -19,6 +19,8 @@
   (define-key evil-normal-state-map (kbd "Q") 'call-last-kbd-macro)
   (define-key evil-visual-state-map (kbd "Q") 'call-last-kbd-macro)
 
+  (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
+
   ;; new bindings
   (bind-key "M-<down>" 'evil-scroll-line-down evil-motion-state-map)
   (bind-key "M-<up>" 'evil-scroll-line-up evil-motion-state-map)
