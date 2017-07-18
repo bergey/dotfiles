@@ -403,4 +403,10 @@ formatting convention."
           ))
   )
 
+(use-package merlin
+  :ensure t)
+(use-package  tuareg
+  :ensure t)
+
+(use-package kotlin )
 (provide 'dmb-coding)
