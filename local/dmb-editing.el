@@ -91,9 +91,9 @@
   :mode "\\.csv$"
   )
 
-(use-package ag
-  :ensure ag
-  :commands ag
+(use-package rg
+  :ensure t
+  :commands rg
   )
 
 (global-unset-key (kbd "C-t"))
