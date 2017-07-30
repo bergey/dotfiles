@@ -79,33 +79,35 @@
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
+(setq dmb-work-agenda-files '("jet.org" "ets.org"))
+
+(setq dmb-home-agenda-files
+      (-remove
+       (lambda (filename) (-any?
+                           (lambda (work) (s-ends-with? work filename))
+                           (cons "cb.org"dmb-work-agenda-files)) )
+       (file-expand-wildcards (concat org-directory "[a-z]*.org"))
+       ))
+
+
 (setq org-agenda-custom-commands
       '(("p" tags "project+LEVEL=1")
         ("P" tags-todo "project")
         ("W" "agenda at work" agenda ""
          ((org-agenda-files
-           (mapcar 'in-org-directory '("jet.org" "research.org")))))
-        ("H" "agenda at home" agenda "" ((org-agenda-files
-                 (-remove
-                  (lambda (fn) (or (s-contains? "jet.org" fn) (s-contains? "cb.org" fn)))
-                  (file-expand-wildcards (concat org-directory "[a-z]*.org"))
-                    ))))
+           (mapcar 'in-org-directory dmb-work-agenda-files))))
+        ("H" "agenda at home" agenda ""
+         ((org-agenda-files dmb-home-agenda-files)))
         ("D" tags-todo "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("w" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files (mapcar 'in-org-directory '("jet.org" "research.org")))))
+          (org-agenda-files (mapcar 'in-org-directory dmb-work-agenda-files))))
         ("h" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files
-           (-remove (lambda (fn) (or
-                                  (s-contains? "jet.org" fn)
-                                  (s-contains? "cb.org" fn)
-                                  ))
-                    (file-expand-wildcards (concat org-directory "[a-z]*.org"))
-                    ))))
+          (org-agenda-files dmb-home-agenda-files)))
         ("n" tags "next+LEVEL=1")
         ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
