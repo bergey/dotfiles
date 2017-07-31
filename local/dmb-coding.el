@@ -33,7 +33,11 @@ preceding paren."
 (defun create-tags (dir-name)
   "Create tags file."
   (interactive "DDirectory: ")
-  (shell-command (format "ctags %s"  (directory-file-name dir-name))))
+  (let ((ctags
+         (if (equal system-type 'windows-nt)
+             "c:/ProgramData/chocolatey/bin/ctags"
+           "ctags")))
+    (shell-command (format "%s %s"  ctags (directory-file-name dir-name)))))
 
 ;; *** C
 (add-hook 'c-initialization-hook
