@@ -1,17 +1,44 @@
+(defun first-member (candidates available)
+  (if (null candidates) nil
+    (if (member (car candidates) available) (car candidates)
+      (first-member (cdr candidates) available))))
+
 ;; fonts
 (measure-time
  "gentium"
- (if (eq system-type 'gnu/linux)
-     (progn
-       (set-face-font 'default (if (member "Gentium" (font-family-list)) "Gentium" "GentiumPlus"))
-       (if (string= system-name "wonderlust")
-           (add-to-list 'default-frame-alist
-                        '(font . "-unknown-Gentium-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1"))
-         (add-to-list 'default-frame-alist
-                      '(font . "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1"))
-         ))
-   (set-face-font 'default "Gentium Plus")))
 
+ (set-face-font 'default
+                (first-member
+                 '("Gentium" "GentiumPlus" "Gentium Plus") (font-family-list)))
+
+ ;; Based on http://arnab-deka.com/posts/2012/09/emacs-change-fonts-dynamically-based-on-screen-resolution/
+ ;; and https://gist.github.com/MatthewDarling/8c232b1780126275c3b4
+ (defun fontify-frame ()
+   "set frame font & font size based on OS & display size"
+   (interactive)
+   (if window-system
+       (cl-case system-type
+         ('gnu/linux
+          (if (> (x-display-pixel-height) 1080)
+              (set-frame-parameter (window-frame) 'font
+                                   "-unknown-Gentium-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1")
+            (set-frame-parameter (window-frame) 'font
+                                 "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1")
+            ))
+         ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
+         ('darwin
+          (if (> (x-display-pixel-height) 1080)
+              (set-frame-parameter (window-frame) 'font "Gentium Plus-14")
+            (set-frame-parameter (window-frame) 'font "Gentium Plus-12")
+            )
+          ))))
+
+;;; Fontify current frame (so that it happens on startup; may be unnecessary if you use focus-in-hook)
+ (fontify-frame)
+
+;;; Only in Emacs 24.4 (currently available as a pretest)
+; see http://emacsredux.com/blog/2014/03/22/a-peek-at-emacs-24-dot-4-focus-hooks/
+(add-hook 'focus-in-hook 'fontify-frame))
 
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
