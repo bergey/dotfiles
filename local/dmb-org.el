@@ -70,10 +70,11 @@
 ;; Set to the location of your Org files on your local system
 
 (setq org-directory
-      (cond
-       ((eq system-type 'gnu/linux) "~/records/org-mode/")
-       ((eq system-type 'windows-nt)
-        (format  "c:/Users/%s/records/org-mode/" (user-login-name)))))
+      (case system-type
+        ('gnu/linux "~/records/org-mode/")
+       ('windows-nt
+        (format  "c:/Users/%s/records/org-mode/" (user-login-name)))
+       ('darwin "~/records/org-mode/")))
 
 (defun in-org-directory (fn) (concat org-directory fn))
 
