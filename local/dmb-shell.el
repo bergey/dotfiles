@@ -36,7 +36,7 @@
                                                     (current-buffer)))))))))
                 nil t))
 
-    (unless (equal system-type 'windows-nt)
+    (if (memq system-type '(gnu gnu/linux))
       (add-hook 'shell-mode-hook 'track-shell-directory/procfs))
 
     (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -90,7 +90,6 @@
 
     (bind-key "s" 'ivy-shell-buffer dmb-jump-keymap)
 
-
     (defun rename-shell-buffer (new-name)
       "rename the current buffer with the form shell<foo>"
       (interactive "M*shell*<_>:")
@@ -99,32 +98,45 @@
     (bind-key "C-M-n" 'rename-shell-buffer comint-mode-map)
 
     (if (equal system-type 'windows-nt)
-        (progn (setq explicit-shell-file-name
+       (progn (setq explicit-shell-file-name
                      "C:/Program Files/Git/bin/bash.exe")
                (setq shell-file-name explicit-shell-file-name)
                (setq explicit-sh.exe-args '("--login" "-i"))
                (setenv "SHELL" shell-file-name)
                (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+               )) ;; if 'windows-nt
 
-               (setq eshell-mode-hook
-                     '(lambda ()
-                        (setq eshell-path-env
-                              (concat
-                               "C:\\Program Files\\Git\\mingw64\\bin;"
-                               "C:\\Program Files\\Git\\usr\\local\\bin;"
-                               "C:\TDM-GCC-64\bin;"
-                         "C:\\Program Files\\Git\\usr\\bin;"
-                         "C:\\Program Files\\Git\\bin;"
-                         "C:\\Program Files\\Git\\cmd;"
-                         eshell-path-env
-                         ";"
-                         "C:\\Program Files\\Git\\usr\\bin\\vendor_perl;"
-                         "C:\\Program Files\\Git\\usr\\bin\\core_perl"
-                         )))))) ;; if 'windows-nt
-    (bind-key "C-M-n" 'rename-shell-buffer eshell-mode-map)
-    (setq eshell-buffer-name "*shell*")
+
 
     ) ;; :config
   ) ;; use-package
+
+(use-package eshell
+  :commands eshell
+  :config
+  (cl-case system-type
+    ('windows-nt
+     (setq eshell-mode-hook
+           '(lambda ()
+              (setq eshell-path-env
+                    (concat
+                     "C:\\Program Files\\Git\\mingw64\\bin;"
+                     "C:\\Program Files\\Git\\usr\\local\\bin;"
+                     "C:\TDM-GCC-64\bin;"
+                     "C:\\Program Files\\Git\\usr\\bin;"
+                     "C:\\Program Files\\Git\\bin;"
+                     "C:\\Program Files\\Git\\cmd;"
+                     eshell-path-env
+                     ";"
+                     "C:\\Program Files\\Git\\usr\\bin\\vendor_perl;"
+                     "C:\\Program Files\\Git\\usr\\bin\\core_perl"
+                     ))))
+     (setq eshell-login-script "/Users/bergey/.emacs.d/eshell/windows-login"))
+    ('darwin
+     (setq eshell-login-script "/Users/bergey/.emacs.d/eshell/macos-login"))
+    )
+  (bind-key "C-M-n" 'rename-shell-buffer eshell-mode-map)
+  (setq eshell-buffer-name "*shell*")
+  )
 
 (provide 'dmb-shell)
