@@ -18,4 +18,7 @@
   :ensure t
   :config (auto-compile-on-load-mode))
 
+(use-package s
+  :ensure t)
+
 (provide 'dmb-package)
