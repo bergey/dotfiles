@@ -78,7 +78,10 @@
                )
 
     ;; override default
-    (define-key interactive-haskell-mode-map (kbd  "M-.") 'haskell-mode-tag-find)
+    (bind-keys :map interactive-haskell-mode-map
+               ("M-." haskell-mode-tag-find)
+               ("C-c C-t" . haskell-mode-show-type-at)
+               )
 
     (setq haskell-process-suggest-remove-import-lines t
           haskell-process-auto-import-loaded-modules t
