@@ -18,7 +18,7 @@
   :ensure t
   :config (auto-compile-on-load-mode))
 
-(use-package s
-  :ensure t)
+(use-package dash :ensure t)
+(use-package s :ensure t)
 
 (provide 'dmb-package)
