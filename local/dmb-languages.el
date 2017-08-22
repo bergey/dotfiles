@@ -138,4 +138,8 @@
 
 (use-package kotlin )
 
+(use-package dockerfile-mode
+  :ensure t
+  :mode "Dockerfile")
+
 (provide 'dmb-languages)
