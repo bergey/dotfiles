@@ -19,12 +19,14 @@
    (if window-system
        (cl-case system-type
          ('gnu/linux
-          (if (> (x-display-pixel-height) 1080)
+          (let ((font-name (first-member
+                            '("Gentium" "GentiumPlus" "Gentium Plus") (font-family-list))))
+            (if (> (x-display-pixel-height) 1080)
+                (set-frame-parameter (window-frame) 'font
+                                     (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" font-name))
               (set-frame-parameter (window-frame) 'font
-                                   "-unknown-Gentium-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1")
-            (set-frame-parameter (window-frame) 'font
-                                 "-unknown-Gentium-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1")
-            ))
+                                   (format "-unknown-Gentium Plus-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1" font-name))
+              )))
          ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
          ('darwin
           (if (> (x-display-pixel-height) 1080)
