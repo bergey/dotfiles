@@ -142,4 +142,7 @@
   :ensure t
   :mode "Dockerfile")
 
+(use-package swift-mode
+  :ensure t)
+
 (provide 'dmb-languages)
