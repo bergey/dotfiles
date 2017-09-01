@@ -7,7 +7,6 @@
   (show-paren-mode 1)
   (whitespace-mode)
   (highlight-quoted-mode)
-  (hl-sexp-mode)
   )
 
 (use-package racket-mode
