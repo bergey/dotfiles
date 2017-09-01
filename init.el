@@ -57,6 +57,7 @@
                  dmb-package ; package management
                  ;; load this stuff early, so I have it even when I
                  ;; introduce bugs in the later config
+                 dmb-environment
                  dmb-keyboard
                  dmb-gui
                  dmb-global-bindings
@@ -196,8 +197,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(add-to-list 'exec-path "/usr/local/bin")
-(add-to-list 'exec-path "~/.cabal/bin" t)
-(add-to-list 'exec-path "~/.nix-profile/bin")
-(add-to-list 'exec-path "/home/bergey/.local/bin/")
