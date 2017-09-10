@@ -22,7 +22,6 @@
                               interactive-haskell-mode
                               dmb-company-short-idle
                               ;;                           smartparens-mode
-                              rainbow-delimeters-mode
                               (lambda ()
                                 (setq-local helm-dash-docsets '("Haskell")))
                               haskell-auto-insert-module-template
@@ -87,7 +86,9 @@
           haskell-process-auto-import-loaded-modules t
           haskell-process-suggest-hoogle-imports t
           haskell-process-log t
-          haskell-process-auto-import-loaded-modules t)))
+          haskell-process-auto-import-loaded-modules t
+          haskell-interactive-popup-errors nil
+          )))
 
 (use-package haskell-snippets
   :ensure t)
