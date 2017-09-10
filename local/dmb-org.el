@@ -132,7 +132,14 @@
          "* %<%Y-%m-%d>\n%?")
         ("n" "note" entry (file+headline "" "Notes")
          "* %<%Y-%m-%d> %?")
+        ;; templates used by the Chrome plugin to save current page / selection
+        ("p" "chrome bookmarks" entry (file+headline "read.org" "Chrome")
+         "* %a\nEntered on %U\n%?")
+        ("L" "chrome selected content" entry (file+headline "read.org" "Chrome")
+         "* %a\nEntered on %U\n \%i\n%?")
         ))
+
+(require 'org-protocol)
 
 (use-package org-notmuch
   :ensure org-plus-contrib
