@@ -126,10 +126,11 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 (add-hook 'calendar-mode-hook 'monospace-mode)
 
 ;; Use system default web browser
-(if (eq system-type 'windows-nt)
-    (setq browse-url-browser-function 'browse-url-default-browser)
+(if (memq system-type '(gnu gnu/linux))
+    (setq browse-url-browser-function 'browse-url-generic browse-url-generic-program "xdg-open")
   ;; browse-url-default-browser calls lynx even if not installed, on Debian, -- 2017-02-23
-  (setq browse-url-browser-function 'browse-url-generic browse-url-generic-program "xdg-open"))
+  (setq browse-url-browser-function 'browse-url-default-browser)
+  )
 
 (use-package ivy
   :ensure t
