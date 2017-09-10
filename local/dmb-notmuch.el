@@ -122,7 +122,7 @@
 
             (bergey-notmuch-toggle-bindings "d" "deleted")
             (bergey-notmuch-toggle-bindings "s" "sched")
-            (bergey-notmuch-toggle-bindings "D" "todo")
+            (bergey-notmuch-toggle-bindings "D" "flagged")
             (bergey-notmuch-toggle-bindings "F" "filter")
             (bergey-notmuch-toggle-bindings "M" "muted")
 
