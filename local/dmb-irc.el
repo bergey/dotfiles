@@ -19,6 +19,7 @@
   :config
   (progn
 
+    (setq erc-join-buffer 'bury)
     (setq erc-prompt-for-nickserv-password nil)
 
     (add-hook 'erc-join-hook 'bitlbee-identify)
