@@ -18,7 +18,9 @@
     ;;           '(lambda () (eldoc-mode 1)))
 
     (add-hook 'python-mode-hook
-              flycheck-mode)
+              flycheck-mode
+              anaconda-mode
+              )
 
     (when (load "flymake" t)
       (defun flymake-pylint-init ()
@@ -36,7 +38,7 @@
     (define-key python-mode-map (kbd "C-c C-e") 'flymake-goto-next-error)))
 
 (use-package anaconda-mode
-  :mode "\\.py"
+  :commands anaconda-mode
   :ensure t)
 
 (provide 'dmb-python)
