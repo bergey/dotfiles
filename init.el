@@ -19,29 +19,9 @@
     (time-package p)))
 
 ;; call add-to-list; sometimes I add paths within a session
-(measure-time "load-path" (setq dmb-add-load-path (list
-                                                   ;; "~/.emacs.d/git-checkouts/haskell-mode/"  ; git checkout
-                                                   "~/.emacs.d/local"
-                                                   "~/.emacs.d/downloaded"
-                                                   "~/.emacs.d/git-checkouts/paket-mode"
-                                                   ;; "~/.cabal/share/ghc-mod-2.0.3"
-                                                   ;; "/home/bergey/code/build/structured-haskell-mode/elisp"
-                                                   ))
-
-              (dolist (default-directory
-                        '(
-                          "~/.emacs.d/git-checkouts/" ; should be managed by mr
-                          "~/.emacs.d/elpa/"
-                          "/usr/share/org-mode/lisp" ; Debian
-                          ))
-                (if (file-exists-p default-directory)
-                    (progn
-                      (add-to-list 'load-path default-directory) ; not a subdir of itself
-                      (normal-top-level-add-subdirs-to-load-path))))
-
-              (dolist (el dmb-add-load-path t)
-                (add-to-list 'load-path el))
-
+(measure-time "load-path"
+	(let ((default-directory "~/.emacs.d"))
+              (normal-top-level-add-subdirs-to-load-path))
               ;; we want the org-mode from elpa, instead
               (delete "/Applications/Emacs.app/Contents/Resources/lisp/org" load-path)
               )
