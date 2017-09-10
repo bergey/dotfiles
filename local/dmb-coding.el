@@ -133,6 +133,9 @@ preceding paren."
   :ensure flycheck
   :commands flycheck-mode
   :diminish flycheck-mode
+  :config
+  ;; TODO show message in minibuffer, but truncate to fit
+  (setq flycheck-display-errors-function nil)
   )
 
 ;; documentation lookup
