@@ -34,7 +34,8 @@
         org-bbdb-store-link)
        (if (not (eq system-type 'windows-nt))
            '(org-notmuch-search-store-link org-notmuch-store-link)
-         '())))
+         '())
+       ))
 
 (setq org-log-done nil)
 
@@ -134,6 +135,7 @@
         ))
 
 (use-package org-notmuch
+  :ensure org-plus-contrib
   :commands org-notmuch-store-link
   :commands org-notmuch-search-store-link)
 

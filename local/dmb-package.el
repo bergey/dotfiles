@@ -2,6 +2,7 @@
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 ;; (add-to-list 'package-archives
 ;;              '("stable" . "http://stable.melpa.org/packages/"))
 
