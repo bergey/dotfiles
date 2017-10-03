@@ -60,6 +60,13 @@ bind them to the specified keys."
   ("S" . "*scratch*"))
  dmb-jump-keymap)
 
+(defun bergey-store-or-edit-password (arg)
+  (interactive "p")
+  (case arg
+    ('4 (call-interactively 'password-store-edit))
+    (t (call-interactively 'password-store-copy)))
+  )
+
 (bind-keys* ("C-c C-x C-j" . org-clock-goto)
             ("C-. g" . magit-status)
             ("C-. P" . emms-pause)
@@ -73,7 +80,7 @@ bind them to the specified keys."
             ;; interferes with org-time-stamp
             ("C-. C-." . kmacro-call-macro)
             ("M-l" . company-show-location)
-            ("C-. C-p" . password-store-copy)
+            ("C-. C-p" . bergey-store-or-edit-password)
             )
 
 (defun window-number-select-1 () (interactive) (window-number-select 1))
