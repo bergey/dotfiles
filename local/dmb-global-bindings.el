@@ -6,10 +6,12 @@
   (shell-command "date"))
 
 (defun datestamp (arg)
-  (interactive "P")
-  (insert (if arg
-              (format-time-string "%Y-%m-%d %H:%M:%S")
-            (format-time-string "%Y-%m-%d"))))
+  (interactive "p")
+  (insert (format-time-string
+           (case arg
+             ('16 "%Y-%m-%dT%H:%M:%S")
+             ('4 "%Y-%m-%d %H:%M:%S")
+             (t "%Y-%m-%d")))))
 
 (bind-keys*
  ("C-x t" . revert-buffer)
