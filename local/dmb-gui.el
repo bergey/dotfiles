@@ -21,7 +21,7 @@
          ('gnu/linux
           (let ((font-name (first-member
                             '("Gentium" "GentiumPlus" "Gentium Plus") (font-family-list))))
-            (if (> (x-display-pixel-height) 1080)
+            (if (> (x-display-pixel-height) 900)
                 (set-frame-parameter (window-frame) 'font
                                      (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" font-name))
               (set-frame-parameter (window-frame) 'font
