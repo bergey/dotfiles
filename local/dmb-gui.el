@@ -1,3 +1,8 @@
+(setq
+ mac-command-modifier 'control
+ mac-control-modifier 'super
+ )
+
 (defun first-member (candidates available)
   (if (null candidates) nil
     (if (member (car candidates) available) (car candidates)
