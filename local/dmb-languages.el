@@ -136,7 +136,7 @@
 (use-package  tuareg
   :ensure t)
 
-(use-package kotlin )
+(use-package kotlin-mode)
 
 (use-package dockerfile-mode
   :ensure t
@@ -144,5 +144,6 @@
 
 (use-package swift-mode
   :ensure t)
+
 
 (provide 'dmb-languages)
