@@ -36,8 +36,8 @@
      )
 
     (defvar dmb-helm-haskell-language-extensions
-      '((name . "Haskell Language Extensions")
-        (candidates . haskell-ghc-supported-extensions)
+      `((name . "Haskell Language Extensions")
+        (candidates . ,(-filter (lambda (s) (not (string-prefix-p "No" s))) haskell-ghc-supported-extensions))
         (action . dmb-haskell-insert-language-pragma)))
 
     (defun dmb-haskell-insert-language-pragma (extension)
