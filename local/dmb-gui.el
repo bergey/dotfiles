@@ -75,7 +75,12 @@
   :commands windresize)
 
 (use-package buffer-move
-  :ensure t)
+  :ensure t
+  :bind          ("C-. <left>" . buf-move-left)
+  ("C-. <right>" . buf-move-right)
+         ;; ("C-. <up>" . buf-move up)
+         ;; ("C-. <down>" . buf-move-down)
+         )
 
 (use-package window-purpose
   :ensure t
