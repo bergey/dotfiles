@@ -96,6 +96,10 @@
   :commands rg
   )
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 (global-unset-key (kbd "C-t"))
 
 ;; from https://www.reddit.com/r/emacs/comments/3vo62x/scroll_so_that_whole_paragraphs_stay_visible/
