@@ -18,7 +18,9 @@
               :ensure t)
             (use-package orgit
               :ensure t)
-            (setq magit-push-always-verify nil))
+            (setq magit-push-always-verify nil)
+            (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
+            )
   )
 
 (defun search-forward-diff-lines ()
