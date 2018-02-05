@@ -129,14 +129,15 @@
 
 (use-package fstar-mode
   :ensure t
-  :mode )
+  :mode "\\.fst")
 
 (use-package merlin
   :ensure t)
 (use-package  tuareg
   :ensure t)
 
-(use-package kotlin-mode)
+(use-package kotlin-mode
+  :ensure t)
 
 (use-package dockerfile-mode
   :ensure t
