@@ -34,7 +34,7 @@
               )))
          ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
          ('darwin
-          (if (> (x-display-pixel-height) 1080)
+          (if (>= (x-display-pixel-height) 1080)
               (set-frame-parameter (window-frame) 'font "Gentium Plus-14")
             (set-frame-parameter (window-frame) 'font "Gentium Plus-12")
             )
