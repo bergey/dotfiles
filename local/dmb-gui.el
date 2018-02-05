@@ -1,6 +1,8 @@
 (setq
  mac-command-modifier 'control
  mac-control-modifier 'super
+ mac-option-modifier 'meta
+ mac-pass-command-to-system nil
  )
 
 (defun first-member (candidates available)
