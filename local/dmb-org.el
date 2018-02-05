@@ -142,7 +142,6 @@
 (require 'org-protocol)
 
 (use-package org-notmuch
-  :ensure org-plus-contrib
   :commands org-notmuch-store-link
   :commands org-notmuch-search-store-link)
 
@@ -193,7 +192,6 @@
 (setq org-refile-use-outline-path t)
 
 (use-package org-trello
-  :ensure t
   :commands org-trello org-trello-mode
   :config
   ;; (setq org-trello-files '("~/records/org-mode/cb.org"))

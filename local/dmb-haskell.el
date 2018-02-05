@@ -4,7 +4,6 @@
 ;; (require 'haskell-mode-autoloads)
 
 (use-package haskell-mode
-  :ensure t
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"
@@ -95,7 +94,6 @@
           haskell-interactive-popup-errors nil
           )))
 
-(use-package haskell-snippets
-  :ensure t)
+(use-package haskell-snippets)
 
 (provide 'dmb-haskell)

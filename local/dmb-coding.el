@@ -20,7 +20,6 @@ preceding paren."
 (bind-key"C-%" 'goto-match-paren)
 
 (use-package yasnippet
-  :ensure yasnippet
   :diminish yas-minor-mode
   :config (progn
             (yas-global-mode)
@@ -55,25 +54,22 @@ preceding paren."
 (time-package 'dmb-smartparens)
 
 (use-package rainbow-delimiters
-  :ensure rainbow-delimiters
   :commands rainbow-delimiters-mode
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package highlight-indent-guides
-  :ensure t
   :commands highlight-indent-guides-mode
   :init
   (setq highlight-indent-guides-method 'column)
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 (use-package highlight-quoted
-  :ensure t)
+  )
 
 (use-package highlight-escape-sequences
-  :ensure t)
+  )
 
 (use-package fic-mode
-  :ensure t
   :commands fic-mode
   :init
   (add-hook 'prog-mode-hook 'fic-mode))
@@ -130,7 +126,6 @@ preceding paren."
 ;; end for org-mode
 
 (use-package flycheck
-  :ensure flycheck
   :commands flycheck-mode
   :diminish flycheck-mode
   :config
@@ -140,16 +135,15 @@ preceding paren."
 
 ;; documentation lookup
 (use-package helm-dash
-  :ensure t
   :config (progn
             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
             )
   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
   )
 (use-package auto-complete
-  :ensure t)
+  )
 
 (use-package edit-indirect
-  :ensure t)
+  )
 
 (provide 'dmb-coding)

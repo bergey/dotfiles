@@ -10,7 +10,6 @@
  )
 
 (use-package unfill
-  :ensure t
   :commands (unfill-paragraph unfill-region))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -69,7 +68,6 @@
 
 ;; auto completion
 (use-package company
-  :ensure company
   :diminish company-mode
   :defer 10
   :init (defun dmb-company-short-idle () (setq company-idle-delay 0.1))
@@ -87,12 +85,10 @@
            company-dabbrev-downcase nil)))
 
 (use-package csv-mode
-  :ensure csv-mode
   :mode "\\.csv$"
   )
 
 (use-package rg
-  :ensure t
   :commands rg
   )
 

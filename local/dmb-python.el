@@ -1,6 +1,5 @@
 ;; *** python ***
 (use-package python-mode
-  :ensure python-mode
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
   :config
@@ -39,6 +38,6 @@
 
 (use-package anaconda-mode
   :commands anaconda-mode
-  :ensure t)
+  )
 
 (provide 'dmb-python)

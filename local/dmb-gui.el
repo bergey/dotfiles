@@ -53,7 +53,7 @@
 (measure-time "theme" (load-theme 'bergey t))
 
 (use-package rainbow-mode
-  :ensure t)
+  )
 
 ;; clean up interface
 (measure-time "interface"
@@ -67,17 +67,14 @@
 
 ;; windows
 (use-package window-number
-  :ensure window-number
   ;; :commands window-number-meta-mode
   ;; :defer 3
   :config (window-number-meta-mode 1)) ; meta-# shortcuts
 
 (use-package windresize
-  :ensure windresize
   :commands windresize)
 
 (use-package buffer-move
-  :ensure t
   :bind          ("C-. <left>" . buf-move-left)
   ("C-. <right>" . buf-move-right)
          ;; ("C-. <up>" . buf-move up)
@@ -85,7 +82,6 @@
          )
 
 (use-package window-purpose
-  :ensure t
   :config
   (setq purpose-user-mode-purposes
         '((Eshell . shell)
@@ -108,7 +104,6 @@
 (require 'uniquify)
 
 (use-package helm
-  :ensure helm
   :bind (("C-x b" . helm-buffers-list))
   ;; :config (require 'helm-config)
   )
@@ -145,7 +140,6 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   )
 
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
   :config (ivy-mode))
 

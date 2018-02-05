@@ -1,5 +1,4 @@
 (use-package w3m
-  :ensure w3m
   :commands w3m)
 
 (defun w3m-browse-current-buffer ()
@@ -12,10 +11,9 @@
         (delete-file filename))))
 
 (use-package emmet-mode
-  :ensure t)
+  )
 
 (use-package color-identifiers-mode
-  :ensure t
   :config
   (push
    '(web-mode
@@ -37,7 +35,6 @@
 
 ;; everything web: HTML,javascript, css
 (use-package web-mode
-  :ensure web-mode
   :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\)\\'"
   :config
   (progn
@@ -66,7 +63,6 @@
         ad-do-it))))
 
 (use-package coffee-mode
-  :ensure t
   :mode "\\.coffee\\'")
 
 (defun xml-pretty-print-region (begin end)
@@ -87,7 +83,7 @@ by using nxml's indentation rules."
 ;; https://github.com/emacsmirror/nodejs-mode
 (use-package nodejs-repl
   :commands nodejs-repl
-  :ensure nodejs-repl)
+  )
 
 ;; mocha runner code from https://gist.github.com/lazywithclass/1582626
 (defun run-mocha()

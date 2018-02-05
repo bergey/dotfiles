@@ -1,6 +1,5 @@
 (use-package emms
-             :ensure emms
-             :commands emms-add-directory-tree
+  :commands emms-add-directory-tree
              :commands emms-add-directory
              :commands emms-add-file
              :init

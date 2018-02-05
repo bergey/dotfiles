@@ -42,6 +42,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     fic-mode
     flycheck
     flycheck-clojure
+    flycheck-rust
     fsharp-mode
     fstar-mode
     ghc

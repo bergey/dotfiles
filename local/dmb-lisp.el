@@ -10,24 +10,20 @@
   )
 
 (use-package racket-mode
-  :ensure
   :config
   (add-hook 'racket-mode-hook 'dmb-lisp-hook))
 
 ;; *** clojure
 (use-package clojure-mode
-  :ensure
   :mode "\\.clj\\'"
   :config (progn
             (add-hook 'clojure-mode-hook 'dmb-lisp-hook)
             (add-hook 'clojure-mode-hook 'flycheck-mode)
             (define-key clojure-mode-map (kbd "RET") 'newline-and-indent))
 
-  (use-package flycheck-clojure
-    :ensure t)
+  (use-package flycheck-clojure)
 
   (use-package cider
-    :ensure cider
     :config (add-hook 'nrepl-mode-hook 'dmb-lisp-hook)))
 
 (add-hook 'emacs-lisp-mode-hook 'dmb-lisp-hook)
