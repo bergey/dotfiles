@@ -134,12 +134,13 @@ preceding paren."
   )
 
 ;; documentation lookup
-(use-package helm-dash
-  :config (progn
-            (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
-            )
-  ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
-  )
+;; (use-package helm-dash
+;;   :config (progn
+;;             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
+;;             )
+;;   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
+;;   )
+
 (use-package auto-complete
   )
 

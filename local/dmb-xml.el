@@ -46,7 +46,7 @@
                           ;; smartparens-strict-mode
                           emmet-mode
                           color-identifiers-mode
-                          (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
+                          ;; (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
                           bergey-yas-by-file-extension
                           ))
 

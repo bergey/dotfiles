@@ -26,8 +26,9 @@
  ("C-. t" . shell-date)
  ("C-. d" . datestamp)
  ("C-. C-f" . find-file-at-point)
- ("C-. ." . helm-dash)
- ("C-. C-j" . helm-org-agenda-files-headings))
+ ;; ("C-. ." . helm-dash)
+ ;; ("C-. C-j" . helm-org-agenda-files-headings)
+ )
 
 ;; Jump to various buffers
 (bind-keys* :prefix-map dmb-jump-keymap

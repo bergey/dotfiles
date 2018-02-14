@@ -82,7 +82,7 @@
       '(whitespace-mode
         smartparens-mode
         flycheck-mode
-        helm-gtags-mode
+        ;; helm-gtags-mode
         dmb-company-short-idle))
 
 (defun my-c-mode-insert-lcurly ()
@@ -108,11 +108,9 @@
 
 (use-package idris-mode
   :mode "\\.idr"
-
   :config
-  (progn
-    (use-package helm-idris)
-    ))
+  (use-package helm-idris)
+  )
 
 (use-package fstar-mode
   :mode "\\.fst")

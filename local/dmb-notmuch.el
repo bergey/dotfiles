@@ -73,7 +73,7 @@
               :group 'notmuch-show
               :group 'notmuch-faces)
 
-          (defun helm-notmuch-count-searches ()
+            (defun dmb-notmuch-count-searches ()
             (let ((searches (notmuch-hello-query-counts
                              (if (and
                                   (boundp 'notmuch-saved-search-sort-function)
@@ -97,13 +97,15 @@
               (candidates . helm-notmuch-count-searches)
               (action . (lambda (query) (notmuch-search query notmuch-search-oldest-first)))))
 
-          (defun helm-notmuch-saved-searches ()
-            (interactive)
-            (helm-other-buffer 'helm-notmuch-saved-searches "*Helm Notmuch*")))
+          ;; (defun helm-notmuch-saved-searches ()
+          ;;   (interactive)
+            ;;   (helm-other-buffer 'helm-notmuch-saved-searches "*Helm Notmuch*"))
+            )
 
-  :bind (("C-. m" . helm-notmuch-saved-searches)
-        ("C-. n" . notmuch-mua-new-mail)
-        ("C-. s" . notmuch-search))
+            :bind (
+                   ;; ("C-. m" . helm-notmuch-saved-searches)
+                   ("C-. n" . notmuch-mua-new-mail)
+                   ("C-. s" . notmuch-search))
 
   :config (progn
 
