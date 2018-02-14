@@ -34,22 +34,20 @@
      haskell-indentation-left-offset 4
      )
 
-    ;; (defvar dmb-helm-haskell-language-extensions
-    ;;   `((name . "Haskell Language Extensions")
-    ;;     (candidates . ,(-filter (lambda (s) (not (string-prefix-p "No" s))) haskell-ghc-supported-extensions))
-    ;;     (action . dmb-haskell-insert-language-pragma)))
+    (defun dmb-haskell-insert-language-pragma (extension)
+      "Insert a language extension pragma at the top of the current buffer."
+      ;; assume that stylish-haskell or other code will sort the
+      ;; pragmas.  Just put it at the top of the file.
+      (save-excursion
+        (goto-char (point-min))
+        (insert "{-# LANGUAGE " extension " #-}\n")))
 
-    ;; (defun dmb-haskell-insert-language-pragma (extension)
-    ;;   "Insert a language extension pragma at the top of the current buffer."
-    ;;   ;; assume that stylish-haskell or other code will sort the
-    ;;   ;; pragmas.  Just put it at the top of the file.
-    ;;   (save-excursion
-    ;;     (goto-char (point-min))
-    ;;     (insert "{-# LANGUAGE " extension " #-}\n")))
-
-    ;; (defun dmb-helm-haskell-language-pragma ()
-    ;;   (interactive)
-    ;;   (helm-other-buffer 'dmb-helm-haskell-language-extensions "*Helm Haskell*"))
+    (defun dmb-ivy-haskell-language-pragma ()
+      (interactive)
+      (ivy-read "Extend LANGUAGE: " haskell-ghc-supported-extensions
+                :predicate (lambda (s) (not (string-prefix-p "No" s)))
+                :action #'dmb-haskell-insert-language-pragma
+                ))
 
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
@@ -57,7 +55,7 @@
                ("C-c i" . haskell-navigate-imports)
                ("C-c C-," . haskell-sort-imports)
                ("M-." . haskell-mode-tag-find)
-               ;; ("C-h C-l" . dmb-helm-haskell-language-pragma)
+               ("C-h C-l" . dmb-ivy-haskell-language-pragma)
                )
 
     (setq haskell-tags-on-save t
