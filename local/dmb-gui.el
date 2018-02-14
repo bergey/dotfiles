@@ -7,18 +7,12 @@
 
 (toggle-frame-fullscreen)
 
-(defun first-member (candidates available)
-  (if (null candidates) nil
-    (if (member (car candidates) available) (car candidates)
-      (first-member (cdr candidates) available))))
-
 ;; fonts
 (measure-time
  "gentium"
 
  (set-face-font 'default
-                (first-member
-                 '("Gentium" "GentiumPlus" "Gentium Plus") (font-family-list)))
+                (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
 
  ;; Based on http://arnab-deka.com/posts/2012/09/emacs-change-fonts-dynamically-based-on-screen-resolution/
  ;; and https://gist.github.com/MatthewDarling/8c232b1780126275c3b4
@@ -97,7 +91,7 @@
   (purpose-compile-user-configuration)
   )
 
-(setq column-number-mode 1)
+(setq column-number-mode t)
 
 (setq mouse-yank-at-point t) ; middle mouse button inserts at point, not at mouse pointer
 
