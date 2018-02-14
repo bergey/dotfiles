@@ -5,6 +5,8 @@
  mac-pass-command-to-system nil
  )
 
+(toggle-frame-fullscreen)
+
 (defun first-member (candidates available)
   (if (null candidates) nil
     (if (member (car candidates) available) (car candidates)
