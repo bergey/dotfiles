@@ -91,7 +91,9 @@
        (file-expand-wildcards (concat org-directory "[a-z]*.org"))
        ))
 
-
+;; TODO add remaining files to task lists
+;; Not everything household related is in house.org now
+;; There's at least one other category - code / study / personal
 (setq org-agenda-custom-commands
       '(("p" tags "project+LEVEL=1")
         ("P" tags-todo "project")
@@ -99,7 +101,7 @@
          ((org-agenda-files
            (mapcar 'in-org-directory dmb-work-agenda-files))))
         ("H" "agenda at home" agenda ""
-         ((org-agenda-files dmb-home-agenda-files)))
+         ((org-agenda-files (list (in-org-directory "house.org")))))
         ("D" tags-todo "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
@@ -109,14 +111,13 @@
           (org-agenda-files (mapcar 'in-org-directory dmb-work-agenda-files))))
         ("h" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files dmb-home-agenda-files)))
+          (org-agenda-files (list (in-org-directory "house.org")))))
         ("n" tags "next+LEVEL=1")
         ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
         ("B" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
         ("b" tags "buy")
-        ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")
-        ))
+        ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")))
 
 (setq org-capture-templates
       '(("t" "task" entry (file+headline "" "Tasks")
