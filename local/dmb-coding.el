@@ -4,6 +4,7 @@
 
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+(bind-key "C-c C-m" 'imenu)
 
 ;; https://www.emacswiki.org/emacs/NavigatingParentheses#toc2
 (defun goto-match-paren (arg)
