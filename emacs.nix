@@ -19,6 +19,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     anaconda-mode
     auto-complete
     avy
+    bazel-mode
     bbdb
     buffer-move
     cider

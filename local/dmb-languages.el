@@ -126,4 +126,7 @@
 
 (use-package swift-mode)
 
+(use-package bazel-mode
+  :mode ("BUILD" "WORKSPACE"))
+
 (provide 'dmb-languages)
