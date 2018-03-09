@@ -168,6 +168,9 @@
         ("ASSIGNED" . (:foreground "chocolate" :weight bold))
         ))
 
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "red")
+               ))
 ;; (setq org-tags-exclude-from-inheritance '("project"))
 ;; (setq org-tags-exclude-from-inheritance nil)
 
