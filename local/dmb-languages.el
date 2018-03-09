@@ -115,8 +115,10 @@
 (use-package fstar-mode
   :mode "\\.fst")
 
-(use-package merlin)
-(use-package  tuareg)
+(use-package merlin
+  :mode "\\.ml"
+  :config
+  (use-package  tuareg))
 
 (use-package kotlin-mode
   :ensure t)
@@ -124,7 +126,9 @@
 (use-package dockerfile-mode
   :mode "Dockerfile")
 
-(use-package swift-mode)
+(use-package swift-mode
+  :mode "\\.swift"
+  )
 
 (use-package bazel-mode
   :mode ("BUILD" "WORKSPACE"))

@@ -10,6 +10,7 @@
   )
 
 (use-package racket-mode
+  :mode "\\.rkt'"
   :config
   (add-hook 'racket-mode-hook 'dmb-lisp-hook))
 

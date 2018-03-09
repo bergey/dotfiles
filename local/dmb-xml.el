@@ -14,6 +14,7 @@
   )
 
 (use-package color-identifiers-mode
+  :commands color-identifiers-mode
   :config
   (push
    '(web-mode
