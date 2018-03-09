@@ -1,6 +1,6 @@
 ;; *** mail ***
 (use-package notmuch
-  :commands notmuch-hello-query-counts
+  :commands (notmuch-hello-query-counts notmuch-hello)
   :init (progn
           ;; for example:
           ;; (setq notmuch-saved-searches (quote (
