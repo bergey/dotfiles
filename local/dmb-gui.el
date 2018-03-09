@@ -11,8 +11,9 @@
 (measure-time
  "gentium"
 
- (set-face-font 'default
-                (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
+ (setq gentium (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
+ (set-face-font 'default gentium)
+
 
  ;; Based on http://arnab-deka.com/posts/2012/09/emacs-change-fonts-dynamically-based-on-screen-resolution/
  ;; and https://gist.github.com/MatthewDarling/8c232b1780126275c3b4
@@ -22,14 +23,12 @@
    (if window-system
        (cl-case system-type
          ('gnu/linux
-          (let ((font-name (first-member
-                            '("Gentium" "GentiumPlus" "Gentium Plus") (font-family-list))))
-            (if (> (x-display-pixel-height) 900)
-                (set-frame-parameter (window-frame) 'font
-                                     (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" font-name))
+          (if (> (x-display-pixel-height) 900)
               (set-frame-parameter (window-frame) 'font
-                                   (format "-unknown-Gentium Plus-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1" font-name))
-              )))
+                                   (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" gentium))
+            (set-frame-parameter (window-frame) 'font
+                                 (format "-unknown-Gentium Plus-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1" gentium))
+            ))
          ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
          ('darwin
           (if (>= (x-display-pixel-height) 1080)
