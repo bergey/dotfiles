@@ -92,18 +92,24 @@
                                     (cons (format "%8s %s" (notmuch-hello-nice-number msg-count) name) query)))
                       searches)))
 
-          (defvar helm-notmuch-saved-searches
+            (defvar ivy-notmuch-saved-searches
             '((name . "Notmuch Mail Searches")
               (candidates . helm-notmuch-count-searches)
               (action . (lambda (query) (notmuch-search query notmuch-search-oldest-first)))))
 
-          ;; (defun helm-notmuch-saved-searches ()
-          ;;   (interactive)
-            ;;   (helm-other-buffer 'helm-notmuch-saved-searches "*Helm Notmuch*"))
+          (defun ivy-notmuch-saved-searches ()
+            (interactive)
+            (ivy-read "search: "
+                      (dmb-notmuch-count-searches)
+                      :require-match t
+                      :action (lambda (query) (notmuch-search (cdr query) notmuch-search-oldest-first))
+                      ))
+
+(notmuch-search "tag:inbox and not tag:list and not tag:deleted and not SPAM" t)
             )
 
             :bind (
-                   ;; ("C-. m" . helm-notmuch-saved-searches)
+                   ("C-. m" . ivy-notmuch-saved-searches)
                    ("C-. n" . notmuch-mua-new-mail)
                    ("C-. s" . notmuch-search))
 
