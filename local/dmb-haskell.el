@@ -43,6 +43,14 @@
                 :action #'dmb-haskell-insert-language-pragma
                 ))
 
+    (defun dmb-haskell-yank-module-name ()
+      (interactive)
+      (save-excursion
+        (goto-char (point-min))
+        ;; should accept unicode module names?
+        (search-forward-regexp "^module +\\([a-zA-Z.]+\\)")
+        (kill-new (match-string 1))))
+
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
                ("C-c c" . haskell-process-cabal)
@@ -50,6 +58,7 @@
                ("C-c C-," . haskell-sort-imports)
                ("M-." . haskell-mode-tag-find)
                ("C-h C-l" . dmb-ivy-haskell-language-pragma)
+               ("C-c m" . dmb-haskell-yank-module-name)
                )
 
     (setq haskell-tags-on-save t
