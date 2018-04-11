@@ -15,6 +15,10 @@
             (use-package orgit)
             (setq magit-push-always-verify nil)
             (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
+
+            (bind-keys :map magit-blame-mode-map
+                       ;; mostly because RET, the default binding, is used by haskell-indentation
+                       ("TAB" . magit-show-commit))
             )
   )
 
