@@ -51,6 +51,8 @@
                          ("C-c C-x m" . org-mark-ring-goto)
                          ("C-M-n" . dmb-org-end-of-subtree)
                          ("M-S-a" . org-forward-sentence)
+                         ("M-n" . org-move-subtree-down)
+                         ("M-p" . org-move-subtree-up)
                          )))
 
 (add-hook 'org-mode-hook '(lambda () (diminish 'org-indent-mode)))
