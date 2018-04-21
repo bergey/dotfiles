@@ -30,6 +30,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     csv-mode
     dash
+    diminish
     dockerfile-mode
     edit-indirect
     editorconfig
@@ -80,12 +81,14 @@ in emacsWithPackages (epkgs: (with epkgs; [
     pocket-mode
     polymode
     pov-mode
+    projectile
     purescript-mode
     qml-mode
     racket-mode
     rainbow-delimiters
     rainbow-mode
     real-auto-save
+    restclient
     rg
     rust-mode
     s

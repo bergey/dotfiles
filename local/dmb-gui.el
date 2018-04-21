@@ -125,4 +125,10 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   :diminish ivy-mode
   :config (ivy-mode))
 
+(use-package diminish
+  :commands diminish
+  )
+
+(use-package projectile)
+
 (provide 'dmb-gui)
