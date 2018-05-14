@@ -83,7 +83,7 @@
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
-(setq dmb-work-agenda-files '("jet.org" "ets.org"))
+(setq dmb-work-agenda-files '("ets.org"))
 
 (setq dmb-home-agenda-files
       (-remove
