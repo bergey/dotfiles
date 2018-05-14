@@ -82,7 +82,7 @@
      (hamlet/basic-offset . 4)
      (python-indent . 8))))
  '(scroll-bar-mode nil)
- '(tramp-default-method "ssh" t)
+ '(tramp-default-method "ssh")
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 (custom-set-faces
