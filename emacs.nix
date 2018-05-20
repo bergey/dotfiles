@@ -22,6 +22,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     bazel-mode
     bbdb
     buffer-move
+    caps-lock
     cider
     clojure-mode
     coffee-mode

@@ -115,4 +115,7 @@
 
 (defalias 'count-lines-region 'count-words-region)
 
+(use-package caps-lock
+  :bind ("C-S-c i" . caps-lock-mode))
+
 (provide 'dmb-editing)
