@@ -131,4 +131,8 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 (use-package projectile)
 
+;; C-RET for nicer rectangle selection
+(setq cua-enable-cua-keys nil)
+(cua-mode)
+
 (provide 'dmb-gui)
