@@ -13,6 +13,9 @@
                                     (setq indent-tabs-mode nil)))
     (add-hook 'python-mode-hook 'whitespace-mode)
 
+    ;; remove binding for `py-hungry-delete-backwards'
+    (define-key python-mode-map (kbd "C-<backspace>") nil)
+
     ;; (add-hook 'python-mode-hook
     ;;           '(lambda () (eldoc-mode 1)))
 
