@@ -65,7 +65,8 @@
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    (quote
-    ((buffer-file-coding-system . utf-8-unix)
+    ((py-shell-local-path . "./virtualenv/bin/ipython")
+     (buffer-file-coding-system . utf-8-unix)
      (eval font-lock-add-keywords nil
            (\`
             (((\,
