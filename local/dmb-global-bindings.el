@@ -34,7 +34,7 @@
 (bind-keys* :prefix-map dmb-jump-keymap
             :prefix "C-. b"
             ("u" . erc-iswitchb)
-            ("o" . org-iswitchb))
+            ("o" . org-switchb))
 
 (defmacro bind-keys-switch-buffer (bindings &optional prefix-map)
   "Define named functions to switch to the given buffers, and
