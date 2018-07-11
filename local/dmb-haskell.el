@@ -28,6 +28,8 @@
      haskell-indentation-left-offset 4
      )
 
+    (setq flycheck-ghc-language-extensions '( "TypeFamilies" "TemplateHaskell" "FlexibleInstances" "TypeOperators" "MultiParamTypeClasses" "DataKinds" "DeriveGeneric" "ExtendedDefaultRules" "OverloadedStrings" "FunctionalDependencies" "FlexibleContexts" "TypeApplications" "DuplicateRecordFields"))
+
     (defun dmb-haskell-insert-language-pragma (extension)
       "Insert a language extension pragma at the top of the current buffer."
       ;; assume that stylish-haskell or other code will sort the
