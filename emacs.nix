@@ -16,6 +16,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     # modelica-mode
     # powershell
     # tuareg
+    pkgs.emacsPackages.proofgeneral_HEAD
     auto-complete
     avy
     bazel-mode

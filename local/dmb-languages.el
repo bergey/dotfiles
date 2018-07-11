@@ -42,13 +42,12 @@
   :config (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
 
 ;; Coq
-;; (if (eq system-type 'gnu/linux)
-;;     (progn
-;;       (use-package proof
-;;         ;; not in MELPA as of 2016-01-19, installed via aptitude
-;;         :mode ("\\.v\'" . Coq))
-
-;;       (load-file "/usr/share/emacs/site-lisp/proofgeneral/generic/proof-site.el")))
+(use-package proof-site
+:config
+  (use-package coq
+    :defer t
+    )
+  )
 
 ;; purescript
 (use-package purescript-mode
@@ -130,7 +129,7 @@
   :mode "\\.swift"
   )
 
-(use-package bazel-mode
-  :mode ("BUILD" "WORKSPACE"))
+;; (use-package bazel-mode
+;;   )
 
 (provide 'dmb-languages)
