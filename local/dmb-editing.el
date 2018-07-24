@@ -33,7 +33,9 @@
   :diminish whitespace-mode
   :config (progn
             (setq whitespace-style '(face tabs trailing empty tab-mark lines-tail))
-            (setq whitespace-action '(auto-cleanup))))
+            (setq whitespace-action '(auto-cleanup))
+            (setq whitespace-line-column 100)
+            ))
 
 ;;----------------------------------------------------------------------------
 ;; By default, shift lines up and down with M-up and M-down. When
