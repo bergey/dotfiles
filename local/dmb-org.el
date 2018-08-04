@@ -1,8 +1,5 @@
 ; *** org mode ***
 ;;(require 'org-install)
-(setq
- org-mobile-directory "~/records/org-mode/MobileOrg"
- org-mobile-inbox-for-pull "~/records/org-mode/MobileOrg/from-mobile.org")
 (use-package org-clock
   :commands org-clock-in
   :config (progn
@@ -77,7 +74,7 @@
         ('gnu/linux "~/records/org-mode/")
        ('windows-nt
         (format  "c:/Users/%s/records/org-mode/" (user-login-name)))
-       ('darwin "~/records/org-mode/")))
+       ('darwin "~/Dropbox/org-mode/")))
 
 (defun in-org-directory (fn) (concat org-directory fn))
 
