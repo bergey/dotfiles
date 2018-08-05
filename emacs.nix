@@ -2,8 +2,8 @@ let
   fetchNixpkgs = import ./fetchNixpkgs.nix;
 
   nixpkgs = fetchNixpkgs {
-     rev = "a8c71037e041725d40fbf2f3047347b6833b1703";
-     sha256 = "1z4cchcw7qgjhy0x6mnz7iqvpswc2nfjpdynxc54zpm66khfrjqw";
+    rev = "2428f5dda13475afba2dee93f4beb2bd97086930";
+    sha256 = "1iwl5yaz36lf7v4hps3z9dl3zyq363jmr5m7y4anf0lpn4lczh18";
   };
 
     pkgs = import nixpkgs { config = {}; };
@@ -67,7 +67,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     kotlin-mode
     ledger-mode
     magit
-    magit-annex
+    # magit-annex # broken 2018-08-05, build needs git
     markdown-mode
     move-text
     nix-mode
