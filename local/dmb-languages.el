@@ -63,7 +63,10 @@
 (use-package systemd)
 
 (use-package yaml-mode
-  :mode "\\.yaml$" )
+  :mode "\\.yaml$"
+  :config
+  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
+  )
 
 ;; C language
 ;; custom, based on k&r
