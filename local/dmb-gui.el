@@ -125,7 +125,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   :diminish ivy-mode
   :config
   (ivy-mode)
-  (bind-key "C-<return>" 'ivy-immediate-done ivy-mode-map)
+    (bind-key "C-<return>" 'ivy-immediate-done ivy-minibuffer-map)
   )
 
 (use-package diminish
