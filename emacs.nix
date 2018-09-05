@@ -42,6 +42,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     ess
     evil
     exec-path-from-shell
+    eyebrowse
     fic-mode
     flycheck
     flycheck-clojure

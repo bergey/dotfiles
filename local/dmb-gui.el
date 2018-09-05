@@ -69,6 +69,11 @@
 (use-package windresize
   :commands windresize)
 
+(use-package eyebrowse
+  ;; TODO lazy loading
+  :config (eyebrowse-mode t)
+  )
+
 (use-package buffer-move
   :bind          ("C-. <left>" . buf-move-left)
   ("C-. <right>" . buf-move-right)
