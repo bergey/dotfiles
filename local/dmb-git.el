@@ -11,7 +11,7 @@
   ;; :diminish magit-auto-revert-mode
   :init (defvar magit-log-edit-confirm-cancellation nil)
   :config (progn
-            (use-package magit-annex)
+            ;; (use-package magit-annex)
             (use-package orgit)
             (setq magit-push-always-verify nil)
             (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
