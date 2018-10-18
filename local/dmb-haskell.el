@@ -29,6 +29,7 @@
      )
 
     (setq flycheck-ghc-language-extensions '( "TypeFamilies" "TemplateHaskell" "FlexibleInstances" "TypeOperators" "MultiParamTypeClasses" "DataKinds" "DeriveGeneric" "ExtendedDefaultRules" "OverloadedStrings" "FunctionalDependencies" "FlexibleContexts" "TypeApplications" "DuplicateRecordFields"))
+    (setq flycheck-ghc-args '("-fno-warn-name-shadowing" "-fno-warn-type-defaults"))
 
     (defun dmb-haskell-insert-language-pragma (extension)
       "Insert a language extension pragma at the top of the current buffer."
