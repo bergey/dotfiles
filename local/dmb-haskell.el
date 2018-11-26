@@ -28,7 +28,7 @@
      haskell-indentation-left-offset 4
      )
 
-    (setq flycheck-ghc-language-extensions '( "TypeFamilies" "TemplateHaskell" "FlexibleInstances" "TypeOperators" "MultiParamTypeClasses" "DataKinds" "DeriveGeneric" "ExtendedDefaultRules" "OverloadedStrings" "FunctionalDependencies" "FlexibleContexts" "TypeApplications" "DuplicateRecordFields"))
+    (setq flycheck-ghc-language-extensions '( "DataKinds" "DeriveDataTypeable" "DeriveFunctor" "DeriveGeneric" "DuplicateRecordFields" "ExtendedDefaultRules" "FlexibleContexts" "FlexibleInstances" "FunctionalDependencies" "GeneralizedNewtypeDeriving" "MultiParamTypeClasses" "OverloadedStrings" "ScopedTypeVariables" "StandaloneDeriving" "TemplateHaskell" "TypeApplications" "TypeFamilies" "TypeOperators" "NoImplicitPrelude"))
     (setq flycheck-ghc-args '("-fno-warn-name-shadowing" "-fno-warn-type-defaults"))
 
     (defun dmb-haskell-insert-language-pragma (extension)
