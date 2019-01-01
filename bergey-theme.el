@@ -86,11 +86,6 @@
  '(rainbow-delimiters-depth-7-face ((((class color) (background dark)) (:foreground "medium purple"))))
  '(rainbow-delimiters-depth-8-face ((((class color) (background dark)) (:foreground "green"))))
  '(rainbow-delimiters-depth-9-face ((((class color) (background dark)) (:foreground "gray"))))
- '(highlight-indent-guides-even-face ((((class color) (background dark)) (:background "dark slate gray"))))
- '(highlight-indent-guides-odd-face ((((class color) (background dark)) (:background "dark slate blue"))))
- ;; '(highlight-indent-guides-even-face ((((class color) (background dark)) (:background "dark green"))))
- ;; '(highlight-indent-guides-odd-face ((((class color) (background dark)) (:background "dark blue"))))
-
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(proof-locked-face ((((class color) (background dark)) (:background "#333"))))
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
@@ -107,3 +102,7 @@
                   :height 100 :width normal)))))
 
 (provide-theme 'bergey)
+
+;; Local Variables:
+;; eval: (rainbow-mode)
+;; End:

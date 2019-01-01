@@ -61,8 +61,14 @@ preceding paren."
 (use-package highlight-indent-guides
   :commands highlight-indent-guides-mode
   :init
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+  :config
   (setq highlight-indent-guides-method 'column)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  (setq highlight-indent-guides-auto-enabled nil)
+  (set-face-background 'highlight-indent-guides-odd-face "gray10")
+  (set-face-background 'highlight-indent-guides-even-face "#1f004d")
+  )
 
 (use-package highlight-quoted
   )
