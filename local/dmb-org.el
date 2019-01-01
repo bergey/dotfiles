@@ -65,6 +65,7 @@
  org-agenda-span 'day
  org-enforce-todo-dependencies t
  org-agenda-dim-blocked-tasks 'invisible
+ org-goto-interface 'outline-path-completion
  )
 
 ;; Set to the location of your Org files on your local system
