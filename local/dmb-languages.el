@@ -66,6 +66,12 @@
   :mode "\\.yaml$"
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'yaml-mode-hook outline-minor-mode)
+  (add-hook 'yaml-mode-hook
+            (lambda ()
+              ;; length of regexp match sets section depth
+              (set (make-local-variable 'outline-regexp) " *\\(- \\)?")
+              ))
   )
 
 ;; C language
