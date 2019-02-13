@@ -67,6 +67,7 @@
  '(company-tooltip-selection ((((class color) (background dark)) (:background "grey20" :foreground "white"))))
  '(org-habit-alert-face ((((class color) (background dark)) (:foreground "black" :background "darkgoldenrod"))))
  '(org-verbatim ((t (:inherit font-lock-string-face))))
+ '(org-tag ((((class color) (background dark)) (:background "#1f004d"))))
  '(org-code
    ((((class color grayscale) (min-colors 88) (background light))
      (:foreground "grey50"))
