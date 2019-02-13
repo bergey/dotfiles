@@ -7,6 +7,7 @@
  kept-new-versions 4
  kept-old-versions 2
  version-control t
+ large-file-warning-threshold 1e6
  )
 
 (use-package unfill
