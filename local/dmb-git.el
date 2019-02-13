@@ -8,7 +8,7 @@
 
 (use-package magit
   :bind ("C-x g" . magit-status)
-  ;; :diminish magit-auto-revert-mode
+  :diminish auto-revert-mode
   :init (defvar magit-log-edit-confirm-cancellation nil)
   :config (progn
             ;; (use-package magit-annex)

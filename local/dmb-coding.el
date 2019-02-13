@@ -60,6 +60,7 @@ preceding paren."
 
 (use-package highlight-indent-guides
   :commands highlight-indent-guides-mode
+  :diminish highlight-indent-guides-mode
   :init
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
