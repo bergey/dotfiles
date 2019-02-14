@@ -73,8 +73,8 @@
 
 (use-package haskell-interactive-mode
   :commands interactive-haskell-mode
+  :diminish 'interactive-haskell-mode
   :config
-  :diminish interactive-haskell-mode
   (progn
 
     ;; ghci buffer
