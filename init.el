@@ -49,7 +49,7 @@
                  ;;dmb-ublog
                  dmb-irc
                  dmb-shell
-                 ;; dmb-evil
+                 dmb-evil
                  epa-file
                  dmb-ledger
                  dmb-dired
