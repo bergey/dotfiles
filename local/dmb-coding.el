@@ -30,6 +30,8 @@ preceding paren."
             (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
             ))
 
+(setq tags-revert-without-query t)
+
 (defun create-tags (dir-name)
   "Create tags file."
   (interactive "DDirectory: ")
