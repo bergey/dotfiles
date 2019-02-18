@@ -19,6 +19,9 @@
   (define-key evil-normal-state-map (kbd "Q") 'call-last-kbd-macro)
   (define-key evil-visual-state-map (kbd "Q") 'call-last-kbd-macro)
 
+  ;; replaces 'evil-repeat-pop-next'; I haven't decided where to rebind that
+  (define-key evil-normal-state-map (kbd "M-.") nil)
+
   (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
 
   ;; new bindings
@@ -29,7 +32,7 @@
   (evil-set-initial-state 'org-capture-mode 'insert) ;; did not work 2017-07-03
   ;; (add-hook 'org-capture-mode-hook 'evil-insert-state)
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
-  (add-hook 'haskell-mode-hook 'evil-emacs-state)
+  (add-hook 'prog-mode-hook 'evil-insert-state)
 
   (setq evil-insert-state-cursor '(bar . 1))
 
