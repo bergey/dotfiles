@@ -1,6 +1,6 @@
 (use-package evil
-  :config
   :diminish undo-tree-mode
+  :config
   ;; (evil-mode 1)
 
   (mapcar (lambda (key-string)
@@ -32,7 +32,7 @@
   (evil-set-initial-state 'org-capture-mode 'insert) ;; did not work 2017-07-03
   ;; (add-hook 'org-capture-mode-hook 'evil-insert-state)
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
-  (add-hook 'prog-mode-hook 'evil-insert-state)
+  (add-hook 'prog-mode-hook 'evil-normal-state)
 
   (setq evil-insert-state-cursor '(bar . 1))
 
