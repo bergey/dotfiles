@@ -89,6 +89,7 @@
                   :caller 'ivy-switch-buffer)))
 
     (bind-key "s" 'ivy-shell-buffer dmb-jump-keymap)
+    (define-key shell-mode-map (kbd "C-c C-w") nil)
 
     (defun rename-shell-buffer (new-name)
       "rename the current buffer with the form shell<foo>"
