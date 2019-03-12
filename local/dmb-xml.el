@@ -36,7 +36,7 @@
 
 ;; everything web: HTML,javascript, css
 (use-package web-mode
-  :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\)\\'"
+  :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\|tmpl\\)\\'"
   :config
   (progn
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
