@@ -104,7 +104,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     unfill
     use-package
     vala-mode
-    w3m
+    # w3m
     web-mode
     window-number
     window-purpose
