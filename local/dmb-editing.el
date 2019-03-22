@@ -93,6 +93,9 @@
 
 (use-package rg
   :commands rg
+  :config
+  (define-key rg-mode-map (kbd "C-o") nil)
+  (define-key rg-mode-map (kbd "M-o") 'compilation-display-error)
   )
 
 (use-package editorconfig
