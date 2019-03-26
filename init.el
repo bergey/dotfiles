@@ -53,6 +53,7 @@
                  epa-file
                  dmb-ledger
                  dmb-dired
+                 dmb-sql
                  ))
 
 (if (eq system-type 'windows-nt)
