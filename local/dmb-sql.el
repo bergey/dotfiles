@@ -8,7 +8,12 @@
                           (sql-user "su_bergey")
                           (sql-database "data_api_prod")
                           (sql-server "localhost")
-                          (sql-port 3306))))
+                          (sql-port 3306))
+        (docker-localhost (sql-product 'postgres)
+                          (sql-user "postgres")
+                          (sql-database "postgres")
+                          (sql-server "localhost")
+                          (sql-port 5432))))
 
 (defun sql-logicicalbuildings ()
   (interactive)
