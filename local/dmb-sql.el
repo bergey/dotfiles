@@ -25,4 +25,19 @@
   (password-store-copy "ets-postgresql-bergey")
   (sql-connect 'logicalbuildings-su))
 
+(defvar my-sql-replacements nil)
+(make-variable-buffer-local 'my-sql-replacements)
+
+(defun bergey/sql-send-buffer-replace ()
+  (interactive)
+  (let ((string (buffer-substring-no-properties (point-min) (point-max))))
+    (while (string-match "[$][0-9]+" string)
+      (let* ((placeholder (match-string 0 string))
+             (replacement (or (cdr (assoc placeholder my-sql-replacements))
+                              (read-string (format "Replacement for %s: " placeholder)))))
+        (unless (assoc placeholder my-sql-replacements)
+          (push (cons placeholder replacement) my-sql-replacements))
+        (setq string (replace-regexp-in-string (regexp-quote placeholder) replacement string))))
+    (sql-send-string string)))
+
 (provide 'dmb-sql)
