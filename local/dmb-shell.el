@@ -1,5 +1,11 @@
 (use-package shell
-  :bind ("C-. h" . shell)
+  :commands shell
+  :init
+  (defun named-shell (new-name)
+    (interactive "M*shell*<_>:")
+    (shell (get-buffer-create (concat "*shell*<" new-name ">"))))
+  (bind-key "C-. h" 'named-shell)
+
   :config
   (progn
     (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
