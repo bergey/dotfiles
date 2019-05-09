@@ -40,4 +40,24 @@
         (setq string (replace-regexp-in-string (regexp-quote placeholder) replacement string))))
     (sql-send-string string)))
 
+
+(defun bergey/sql-send-string-replace ()
+  (interactive)
+  ;; TODO handle \" in quoted strings
+  (save-excursion
+    (let* ((string (buffer-substring-no-properties
+                    (progn (search-backward "\"") (forward-char) (point))
+                    (progn (search-forward "\"") (backward-char) (point))))
+          (sql-replacements nil))
+      (while (string-match "[$][0-9]+" string)
+        (let* ((placeholder (match-string 0 string))
+               (replacement (or (cdr (assoc placeholder sql-replacements))
+                                (read-string (format "Replacement for %s: " placeholder)))))
+          (unless (assoc placeholder sql-replacements)
+            (push (cons placeholder replacement) sql-replacements))
+          (setq string (replace-regexp-in-string (regexp-quote placeholder) replacement string))))
+      (sql-send-string string))))
+
+(define-key sql-interactive-mode-map (kbd "C-c C-w") nil)
+
 (provide 'dmb-sql)
