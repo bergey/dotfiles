@@ -38,6 +38,13 @@
             (setq whitespace-line-column 100)
             ))
 
+(use-package origami
+  :ensure t
+  :config
+  (bind-key "C-TAB" 'origami-recursively-toggle-node origami-mode-map)
+  (bind-key "M-TAB" 'origami-recursively-toggle-node origami-mode-map)
+  )
+
 ;;----------------------------------------------------------------------------
 ;; By default, shift lines up and down with M-up and M-down. When
 ;; paredit is enabled, it will use those keybindings. For this reason,

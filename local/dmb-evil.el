@@ -9,7 +9,7 @@
             (define-key evil-insert-state-map (kbd key-string) nil)
             (define-key evil-visual-state-map (kbd key-string) nil)
             )
-          '("C-a" "C-d" "C-e" "C-k" "C-o" "C-v" "C-w" "C-y" "C-."))
+          '("C-a" "C-d" "C-e" "C-k" "C-o" "C-v" "C-w" "C-y" "C-." "TAB"))
 
   (setcdr evil-insert-state-map nil)
 

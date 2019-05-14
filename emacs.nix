@@ -74,6 +74,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     org-plus-contrib
     org-trello
     orgit
+    origami
     pandoc-mode
     password-store
     perspective

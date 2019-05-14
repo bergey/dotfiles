@@ -72,6 +72,7 @@
               ;; length of regexp match sets section depth
               (set (make-local-variable 'outline-regexp) " *\\(- \\)?")
               ))
+  (bind-key "TAB" 'origami-recursively-toggle-node yaml-mode-map)
   )
 
 ;; C language

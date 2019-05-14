@@ -74,6 +74,7 @@ bind them to the specified keys."
             ("C-. g" . magit-status)
             ("C-. P" . emms-pause)
             ("M-i" . ispell-word)
+            ("M-I" . ispell-complete-word)
             ("C-. M-f" . dired-x-find-file)
             ;; after M-%, query-replace, which I use all the time
             ("M-$" . replace-regexp)
