@@ -54,6 +54,7 @@
                  dmb-ledger
                  dmb-dired
                  dmb-sql
+                 dmb-google
                  ))
 
 (if (eq system-type 'windows-nt)
