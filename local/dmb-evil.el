@@ -1,7 +1,7 @@
 (use-package evil
   :diminish undo-tree-mode
   :config
-  ;; (evil-mode 1)
+  (evil-mode 1)
 
   (mapcar (lambda (key-string)
             (define-key evil-motion-state-map (kbd key-string) nil)
@@ -29,10 +29,10 @@
   (bind-key "M-<up>" 'evil-scroll-line-up evil-motion-state-map)
 
   ;;; per-mode customization
-  (evil-set-initial-state 'org-capture-mode 'insert) ;; did not work 2017-07-03
-  ;; (add-hook 'org-capture-mode-hook 'evil-insert-state)
+  ;; (evil-set-initial-state 'org-capture-mode 'emacs) ;; did not work 2017-07-03 or 2019-04-25
+  (evil-set-initial-state 'org-mode 'emacs)
+  (add-hook 'org-capture-mode-hook 'evil-insert-state)
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
-  (add-hook 'prog-mode-hook 'evil-normal-state)
 
   (setq evil-insert-state-cursor '(bar . 1))
 
