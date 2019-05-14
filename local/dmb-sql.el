@@ -1,3 +1,6 @@
+;; matches \set PROMPT1 '%`date +%H:%M:%S`%R%# ' in ~/.psqlrc
+(sql-set-product-feature 'postgres :prompt-regexp "^[_:[:alnum:]]*[=][#>] ")
+
 (setq sql-connection-alist
       '((logicalbuildings (sql-product 'postgres)
                           (sql-user "bergey")
