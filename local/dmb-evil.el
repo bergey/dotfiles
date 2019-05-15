@@ -35,6 +35,14 @@
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
 
   (setq evil-insert-state-cursor '(bar . 1))
+  (setq evil-cross-lines t)
+
+  ;; This makes the cursor position more like emacs position.  It also
+  ;; makes `sp-forward-sexp' work, for some reason.  I only care about
+  ;; the latter.  In practice, with `evil-move-cursor-back' nil,
+  ;; prefer `i' to `a', so that `i<esc>' brings you back where you
+  ;; started.
+  (setq evil-move-cursor-back nil)
 
   )
 
