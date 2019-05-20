@@ -44,6 +44,11 @@
   ;; started.
   (setq evil-move-cursor-back nil)
 
+  ;; My habit is to type `:q' when I'm done with a file, so rebind
+  ;; `:q' to make that work.  I never learned vim window split
+  ;; commands (using vim in terminal in `screen').
+  (evil-ex-define-cmd "q" 'kill-this-buffer)
+
   )
 
 (provide 'dmb-evil)
