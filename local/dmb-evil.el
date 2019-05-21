@@ -49,6 +49,8 @@
   ;; commands (using vim in terminal in `screen').
   (evil-ex-define-cmd "q" 'kill-this-buffer)
 
+  (use-package org-evil :ensure)
+
   )
 
 (provide 'dmb-evil)
