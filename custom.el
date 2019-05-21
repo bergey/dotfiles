@@ -57,10 +57,10 @@
  '(notmuch-hello-sections
    (quote
     (notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags)))
- '(org-trello-current-prefix-keybinding "C-c o")
+ '(org-trello-current-prefix-keybinding "C-c o" nil (org-trello))
  '(package-selected-packages
    (quote
-    (pyvenv org-plus-contrib org exec-path-from-shell swift-mode window-purpose org-evil yaml-mode windresize window-number web-mode vala-mode use-package unfill toml-mode tide thrift systemd stylus-mode smartparens rust-mode real-auto-save rainbow-mode rainbow-delimiters racket-mode qml-mode python-mode purescript-mode powershell pov-mode password-store pandoc-mode orgit notmuch nodejs-repl nix-mode ng2-mode move-text maxframe markdown-mode magit-annex ledger-mode jade-mode ivy indent-guide idris-mode hl-sexp highlight-quoted highlight-parentheses highlight-indentation highlight-indent-guides highlight-escape-sequences helm-dash haskell-snippets haskell-mode groovy-mode google-this go-mode go-autocomplete git-annex fstar-mode fsharp-mode flycheck-rust fic-mode evil ess erlang ensime emms emmet-mode dired-details+ csv-mode csharp-mode color-theme-modern color-identifiers-mode coffee-mode clojure-mode buffer-move bbdb auto-compile anaconda-mode ag)))
+    (yafolding origami pyvenv org-plus-contrib org exec-path-from-shell swift-mode window-purpose org-evil yaml-mode windresize window-number web-mode vala-mode use-package unfill toml-mode tide thrift systemd stylus-mode smartparens rust-mode real-auto-save rainbow-mode rainbow-delimiters racket-mode qml-mode python-mode purescript-mode powershell pov-mode password-store pandoc-mode orgit notmuch nodejs-repl nix-mode ng2-mode move-text maxframe markdown-mode magit-annex ledger-mode jade-mode ivy indent-guide idris-mode hl-sexp highlight-quoted highlight-parentheses highlight-indentation highlight-indent-guides highlight-escape-sequences helm-dash haskell-snippets haskell-mode groovy-mode google-this go-mode go-autocomplete git-annex fstar-mode fsharp-mode flycheck-rust fic-mode evil ess erlang ensime emms emmet-mode dired-details+ csv-mode csharp-mode color-theme-modern color-identifiers-mode coffee-mode clojure-mode buffer-move bbdb auto-compile anaconda-mode ag)))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    (quote
@@ -82,7 +82,7 @@
      (hamlet/basic-offset . 4)
      (python-indent . 8))))
  '(scroll-bar-mode nil)
- '(tramp-default-method "ssh" t)
+ '(tramp-default-method "ssh" nil (tramp))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
 (custom-set-faces
