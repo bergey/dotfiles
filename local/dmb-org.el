@@ -10,10 +10,19 @@
             (setq org-clock-out-remove-zero-time-clocks t)
             ;; wrap clock entries in a drawer if they exceed this many
             (setq org-clock-into-drawer 5)
-            (setq org-clock-clocked-in-display 'frame-title)
+            (setq org-clock-clocked-in-display 'nil)
             (setq org-log-into-drawer t)
             (setq org-agenda-window-setup 'other-window)
             (setq org-agenda-restore-windows-after-quit t)
+
+            (defun bergey/org-clock-message-clock-string ()
+              (interactive)
+              (message (substring-no-properties (org-clock-get-clock-string)))
+              ;; The above works, but maybe I would like to format better
+              ;; (org-clock-get-clocked-time)
+              ;; (substring-no-properties org-clock-current-task)
+              )
+            (bind-key "C-. C-t" 'bergey/org-clock-message-clock-string)
             ))
 
 (use-package org-archive
