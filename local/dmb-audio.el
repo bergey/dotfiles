@@ -1,4 +1,4 @@
-(use-package emms
+(use-package emms :ensure t
   :commands emms-add-directory-tree
              :commands emms-add-directory
              :commands emms-add-file

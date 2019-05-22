@@ -1,5 +1,5 @@
 ; address book
-(use-package bbdb
+(use-package bbdb :ensure t
   :commands bbdb-search-simple
   :commands bbdb-get-addresses
 

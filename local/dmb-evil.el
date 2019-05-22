@@ -1,4 +1,4 @@
-(use-package evil
+(use-package evil :ensure t
   :diminish undo-tree-mode
   :config
   (evil-mode 1)
@@ -49,7 +49,7 @@
   ;; commands (using vim in terminal in `screen').
   (evil-ex-define-cmd "q" 'kill-this-buffer)
 
-  (use-package org-evil :ensure)
+  (use-package org-evil :ensure t :ensure)
 
   )
 

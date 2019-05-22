@@ -1,6 +1,6 @@
-(use-package password-store)
+(use-package password-store :ensure t)
 
-(use-package erc
+(use-package erc :ensure t
   :commands erc
   :init
   (defun dmb-erc ()

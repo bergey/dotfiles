@@ -197,7 +197,7 @@
 (setq org-refile-targets '((org-agenda-files :maxlevel . 2)))
 (setq org-refile-use-outline-path t)
 
-(use-package org-trello
+(use-package org-trello :ensure t
   :commands org-trello org-trello-mode
   :config
   ;; (setq org-trello-files '("~/records/org-mode/cb.org"))

@@ -9,22 +9,22 @@
   (highlight-quoted-mode)
   )
 
-(use-package racket-mode
+(use-package racket-mode :ensure t
   :mode "\\.rkt'"
   :config
   (add-hook 'racket-mode-hook 'dmb-lisp-hook))
 
 ;; *** clojure
-(use-package clojure-mode
+(use-package clojure-mode :ensure t
   :mode "\\.clj\\'"
   :config (progn
             (add-hook 'clojure-mode-hook 'dmb-lisp-hook)
             (add-hook 'clojure-mode-hook 'flycheck-mode)
             (define-key clojure-mode-map (kbd "RET") 'newline-and-indent))
 
-  (use-package flycheck-clojure)
+  (use-package flycheck-clojure :ensure t)
 
-  (use-package cider
+  (use-package cider :ensure t
     :config (add-hook 'nrepl-mode-hook 'dmb-lisp-hook)))
 
 (add-hook 'emacs-lisp-mode-hook 'dmb-lisp-hook)

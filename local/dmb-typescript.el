@@ -1,8 +1,8 @@
-(use-package typescript-mode
+(use-package typescript-mode :ensure t
   :mode "\\.ts"
   :config
 
-(use-package tide
+(use-package tide :ensure t
   :init
   (defun setup-tide-mode ()
     (interactive)

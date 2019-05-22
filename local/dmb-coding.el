@@ -20,7 +20,7 @@ preceding paren."
         ))
 (bind-key"C-%" 'goto-match-paren)
 
-(use-package yasnippet
+(use-package yasnippet :ensure t
   :diminish yas-minor-mode
   :config (progn
             (yas-global-mode)
@@ -56,11 +56,11 @@ preceding paren."
 
 (time-package 'dmb-smartparens)
 
-(use-package rainbow-delimiters
+(use-package rainbow-delimiters :ensure t
   :commands rainbow-delimiters-mode
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-(use-package highlight-indent-guides
+(use-package highlight-indent-guides :ensure t
   :commands highlight-indent-guides-mode
   :diminish highlight-indent-guides-mode
   :init
@@ -73,18 +73,18 @@ preceding paren."
   (set-face-background 'highlight-indent-guides-even-face "#1f004d")
   )
 
-(use-package highlight-quoted
+(use-package highlight-quoted :ensure t
   )
 
-(use-package highlight-escape-sequences
+(use-package highlight-escape-sequences :ensure t
   )
 
-(use-package fic-mode
+(use-package fic-mode :ensure t
   :commands fic-mode
   :init
   (add-hook 'prog-mode-hook 'fic-mode))
 
-(use-package eldoc
+(use-package eldoc :ensure t
   :config
   (eldoc-add-command
    'paredit-backward-delete
@@ -135,7 +135,7 @@ preceding paren."
   (f-ediff-org-showhide ediff-buffer-C 'hide-sublevels 1))
 ;; end for org-mode
 
-(use-package flycheck
+(use-package flycheck :ensure t
   :commands flycheck-mode
   :diminish flycheck-mode
   :config
@@ -144,17 +144,17 @@ preceding paren."
   )
 
 ;; documentation lookup
-;; (use-package helm-dash
+;; (use-package helm-dash :ensure t
 ;;   :config (progn
 ;;             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
 ;;             )
 ;;   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
 ;;   )
 
-(use-package auto-complete
+(use-package auto-complete :ensure t
   )
 
-(use-package edit-indirect
+(use-package edit-indirect :ensure t
   )
 
 (provide 'dmb-coding)

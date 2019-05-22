@@ -1,5 +1,5 @@
 ;; *** mail ***
-(use-package notmuch
+(use-package notmuch :ensure t
   :commands (notmuch-hello-query-counts notmuch-hello)
   :init (progn
           ;; for example:
@@ -8,7 +8,7 @@
           ;;                                      ("diagrams" . "tag:diagrams and tag:inbox")
           ;;                                      ("org-mode" . "tag:inbox and to:emacs-orgmode@gnu.org"))))
 
-          (use-package dash)
+          (use-package dash :ensure t)
 
           ;; "list-orphan" is a saved search which captures any new mail tagged
           ;; list but not part of a more-specific saved-search

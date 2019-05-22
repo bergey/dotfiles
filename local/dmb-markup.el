@@ -1,4 +1,4 @@
-(use-package markdown-mode
+(use-package markdown-mode :ensure t
   :mode "\\.md\\'"
   :mode "\\.markdown\\'"
   :config (progn
@@ -9,16 +9,16 @@
   )
 
 ; put pandoc-specific code here, rst, etc.
-(use-package pandoc-mode
+(use-package pandoc-mode :ensure t
   :config
   (add-hook 'markdown-mode-hook 'pandoc-mode))
 
-(use-package polymode
+(use-package polymode :ensure t
   :defer t)
 
 ;; TODO poly-markdown interferes with edit-indirect
 ;; `markdown-get-enclosing-fenced-block-construct' doesn't find the block bounds
-(use-package poly-markdown
+(use-package poly-markdown :ensure t
   :defer t
   :mode ("\\.md" . poly-markdown-mode))
 

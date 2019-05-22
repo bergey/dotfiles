@@ -47,7 +47,7 @@
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
 
-(use-package rainbow-mode
+(use-package rainbow-mode :ensure t
   )
 
 ;; clean up interface
@@ -61,27 +61,27 @@
               (setq initial-scratch-message nil))
 
 ;; windows
-(use-package window-number
+(use-package window-number :ensure t
   ;; :commands window-number-meta-mode
   ;; :defer 3
   :config (window-number-meta-mode 1)) ; meta-# shortcuts
 
-(use-package windresize
+(use-package windresize :ensure t
   :commands windresize)
 
-(use-package eyebrowse
+(use-package eyebrowse :ensure t
   ;; TODO lazy loading
   :config (eyebrowse-mode t)
   )
 
-(use-package buffer-move
+(use-package buffer-move :ensure t
   :bind          ("C-. <left>" . buf-move-left)
   ("C-. <right>" . buf-move-right)
          ;; ("C-. <up>" . buf-move up)
          ;; ("C-. <down>" . buf-move-down)
          )
 
-(use-package window-purpose
+(use-package window-purpose :ensure t
   :config
   (setq purpose-user-mode-purposes
         '((Eshell . shell)
@@ -126,18 +126,18 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (setq browse-url-browser-function 'browse-url-default-browser)
   )
 
-(use-package ivy
+(use-package ivy :ensure t
   :diminish ivy-mode
   :config
   (ivy-mode)
     (bind-key "C-<return>" 'ivy-immediate-done ivy-minibuffer-map)
   )
 
-(use-package diminish
+(use-package diminish :ensure t
   :commands diminish
   )
 
-(use-package projectile)
+(use-package projectile :ensure t)
 
 ;; nicer rectangle selection, without other CUA bindings
 (bind-key "C-x r h" 'cua-set-register-mark)

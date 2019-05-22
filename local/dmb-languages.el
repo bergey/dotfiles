@@ -1,56 +1,56 @@
 ;;; *** programming languages that I use occasionally
 
-;; (use-package modelica-mode
+;; (use-package modelica-mode :ensure t
 ;;   :mode "\.mo$"
 ;;   )
 
 ;; POVRay input files
-(use-package pov-mode
+(use-package pov-mode :ensure t
   :mode "\\.pov\\'"
   :config (setq pov-indent-level 4)
   )
 
 ;; vala is created and maintained by Gnome.
 ;; It looks like Java or C#, but compiles down to C instead of using it's own VM.
-(use-package vala-mode
+(use-package vala-mode :ensure t
   :mode "\\.vala\\'")
 
-(use-package thrift
+(use-package thrift :ensure t
   :mode ("\\.thrift\\'" . thrift-mode))
 
 ;; QML / Qt Quick
-(use-package qml-mode
+(use-package qml-mode :ensure t
   :mode "\\.qml\'"
   :config
   (add-hook 'qml-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent))))
 
 ;; scala
-(use-package scala-mode
+(use-package scala-mode :ensure t
   ;; :ensure scala-mode
   ;; :ensure sbt-mode
   ;; :ensure ensime
   :mode ("\\.scala\'" . scala-mode)
   :config (progn
-            (use-package sbt-mode)
-            (use-package ensime) ;; 2014-07-30 upstream broken
+            (use-package sbt-mode :ensure t)
+            (use-package ensime :ensure t) ;; 2014-07-30 upstream broken
             (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
             (add-hook 'scala-mode-hook 'whitespace-mode)))
 
 ;; rust
-(use-package rust-mode
+(use-package rust-mode :ensure t
   :mode ("\\.rs\'" . rust-mode)
   :config (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
 
 ;; Coq
 (use-package proof-site
 :config
-  (use-package coq
+  (use-package coq :ensure t
     :defer t
     )
   )
 
 ;; purescript
-(use-package purescript-mode
+(use-package purescript-mode :ensure t
   :mode "\\.ps$"
   :config (progn
             (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
@@ -60,9 +60,9 @@
 (use-package ess-site
   :commands R)
 
-(use-package systemd)
+(use-package systemd :ensure t)
 
-(use-package yaml-mode
+(use-package yaml-mode :ensure t
   :mode "\\.yaml$"
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
@@ -105,41 +105,41 @@
       (forward-line -1)
       (c-indent-line))))
 
-(use-package toml-mode
+(use-package toml-mode :ensure t
   :mode "\\.toml" )
 
-(use-package groovy-mode
+(use-package groovy-mode :ensure t
   :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
 
-(use-package erlang
+(use-package erlang :ensure t
   :mode "\\.erl"
   )
 
-(use-package idris-mode
+(use-package idris-mode :ensure t
   :mode "\\.idr"
   :config
-  (use-package helm-idris)
+  (use-package helm-idris :ensure t)
   )
 
-(use-package fstar-mode
+(use-package fstar-mode :ensure t
   :mode "\\.fst")
 
-(use-package merlin
+(use-package merlin :ensure t
   :mode "\\.ml"
   :config
-  (use-package  tuareg))
+  (use-package tuareg :ensure t))
 
-(use-package kotlin-mode
+(use-package kotlin-mode :ensure t
   :ensure t)
 
-(use-package dockerfile-mode
+(use-package dockerfile-mode :ensure t
   :mode "Dockerfile")
 
-(use-package swift-mode
+(use-package swift-mode :ensure t
   :mode "\\.swift"
   )
 
-;; (use-package bazel-mode
+;; (use-package bazel-mode :ensure t
 ;;   )
 
 (provide 'dmb-languages)

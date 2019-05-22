@@ -23,7 +23,7 @@
 
 (setq use-package-verbose t)
 
-(use-package auto-compile
+(use-package auto-compile :ensure t
   :config (auto-compile-on-load-mode))
 
 (defun time-package (pkg)

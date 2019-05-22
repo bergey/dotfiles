@@ -1,4 +1,4 @@
-(use-package python
+(use-package python :ensure t
   :config
   (setq python-shell-interpreter "ipython")
   (setq python-shell-interpreter-args "--simple-prompt -i")

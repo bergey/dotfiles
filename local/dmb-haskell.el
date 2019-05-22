@@ -1,7 +1,7 @@
 (add-to-list 'revert-without-query "~/.cabal/logs/*")
 (add-to-list 'revert-without-query ".cabal-sandbox/logs/*")
 
-(use-package haskell-mode
+(use-package haskell-mode :ensure t
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"
@@ -100,6 +100,6 @@
           haskell-interactive-popup-errors nil
           )))
 
-(use-package haskell-snippets)
+(use-package haskell-snippets :ensure t)
 
 (provide 'dmb-haskell)

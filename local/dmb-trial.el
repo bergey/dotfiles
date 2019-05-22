@@ -1,15 +1,15 @@
 ;; New modes I want to try out, but don't want to bury in my long-term config
 
-(use-package avy
+(use-package avy :ensure t
   )
 
-(use-package cperl-mode
+(use-package cperl-mode :ensure t
   )
 
-(use-package swift-mode
+(use-package swift-mode :ensure t
   )
 
-;; (use-package perspective
+;; (use-package perspective :ensure t
 ;;   :init
 ;;   (setq persp-mode-prefix-key (kbd "C-x w"))
 ;;   :config
@@ -17,7 +17,7 @@
 ;;   ;;(bind-keys* :prefix-map perspective-map :prefix "C-x w")
 ;;   )
 
-(use-package company-c-headers
+(use-package company-c-headers :ensure t
   :config
   (add-to-list 'company-backends 'company-c-headers))
 

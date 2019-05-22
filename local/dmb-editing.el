@@ -10,7 +10,7 @@
  large-file-warning-threshold 1e6
  )
 
-(use-package unfill
+(use-package unfill :ensure t
   :commands (unfill-paragraph unfill-region))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -30,7 +30,7 @@
         (setq fname (concat "/sudo:root@localhost:" fname)))
       (find-alternate-file fname))))
 
-(use-package whitespace
+(use-package whitespace :ensure t
   :diminish whitespace-mode
   :config (progn
             (setq whitespace-style '(face tabs trailing empty tab-mark lines-tail))
@@ -38,7 +38,7 @@
             (setq whitespace-line-column 100)
             ))
 
-(use-package origami
+(use-package origami :ensure t
   :ensure t
   :config
   (bind-key "C-TAB" 'origami-recursively-toggle-node origami-mode-map)
@@ -51,13 +51,13 @@
 ;; you might prefer to use M-S-up and M-S-down, which will work even
 ;; in lisp modes.
 ;; ----------------------------------------------------------------------------
-(use-package move-text
+(use-package move-text :ensure t
   :bind ("M-S-<up>" . move-text-up)
   :bind ("M-S-<down>" . move-text-down))
 
 ;; actually save file, on 10 sec (configurable) timer
 ;; I'm considering using this with OpenSCAD and Etherpad
-(use-package real-auto-save
+(use-package real-auto-save :ensure t
   :commands (real-auto-save turn-on-real-auto-save))
 
 ;; view mode bindings
@@ -77,7 +77,7 @@
   (indent-according-to-mode))
 
 ;; auto completion
-(use-package company
+(use-package company :ensure t
   :diminish company-mode
   :defer 10
   :init (defun dmb-company-short-idle () (setq company-idle-delay 0.1))
@@ -94,18 +94,18 @@
            company-dabbrev-ignore-case nil ; in code, case matters
            company-dabbrev-downcase nil)))
 
-(use-package csv-mode
+(use-package csv-mode :ensure t
   :mode "\\.csv$"
   )
 
-(use-package rg
+(use-package rg :ensure t
   :commands rg
   :config
   (define-key rg-mode-map (kbd "C-o") nil)
   (define-key rg-mode-map (kbd "M-o") 'compilation-display-error)
   )
 
-(use-package editorconfig
+(use-package editorconfig :ensure t
   :ensure t
   :diminish editorconfig-mode
   :config
@@ -129,7 +129,7 @@
 
 (defalias 'count-lines-region 'count-words-region)
 
-(use-package caps-lock
+(use-package caps-lock :ensure t
   :bind ("C-S-c i" . caps-lock-mode))
 
 (provide 'dmb-editing)

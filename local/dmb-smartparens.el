@@ -1,6 +1,6 @@
 ;; smartparens is like paredit, for many languages
 
-(use-package smartparens
+(use-package smartparens :ensure t
   :commands (smartparens-strict-mode smartparens-mode)
   :diminish smartparens-mode
   :config

@@ -1,3 +1,3 @@
-(use-package nix-mode)
+(use-package nix-mode :ensure t)
 
 (provide 'dmb-nix)

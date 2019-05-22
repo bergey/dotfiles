@@ -1,4 +1,4 @@
-(use-package ledger-mode
+(use-package ledger-mode :ensure t
   :mode "\\.ledger\\'"
   :config (progn
             (bind-key "M-m" 'ledger-set-month ledger-mode-map)

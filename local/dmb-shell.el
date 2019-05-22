@@ -1,4 +1,4 @@
-(use-package shell
+(use-package shell :ensure t
   :commands shell
   :init
   (defun named-shell (new-name)
@@ -119,7 +119,7 @@
     ) ;; :config
   ) ;; use-package
 
-(use-package eshell
+(use-package eshell :ensure t
   :commands eshell
   :config
   (cl-case system-type

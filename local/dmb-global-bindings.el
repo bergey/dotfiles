@@ -108,7 +108,7 @@ bind them to the specified keys."
             ("C-S-l" . downcase-region)
             ("C-S-c" . capitalize-region))
 
-(use-package google-this
+(use-package google-this :ensure t
   :bind ("C-. w" . google-this-mode-submap)
   )
 

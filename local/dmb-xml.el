@@ -1,4 +1,4 @@
-(use-package w3m
+(use-package w3m :ensure t
   :commands w3m)
 
 (defun w3m-browse-current-buffer ()
@@ -10,10 +10,10 @@
             (w3m-find-file filename))
         (delete-file filename))))
 
-(use-package emmet-mode
+(use-package emmet-mode :ensure t
   )
 
-(use-package color-identifiers-mode
+(use-package color-identifiers-mode :ensure t
   :commands color-identifiers-mode
   :config
   (push
@@ -35,7 +35,7 @@
   )
 
 ;; everything web: HTML,javascript, css
-(use-package web-mode
+(use-package web-mode :ensure t
   :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\|tmpl\\)\\'"
   :config
   (progn
@@ -63,7 +63,7 @@
             ad-do-it)
         ad-do-it))))
 
-(use-package coffee-mode
+(use-package coffee-mode :ensure t
   :mode "\\.coffee\\'")
 
 (defun xml-pretty-print-region (begin end)
@@ -82,7 +82,7 @@ by using nxml's indentation rules."
     (message "Ah, much better!"))
 
 ;; https://github.com/emacsmirror/nodejs-mode
-(use-package nodejs-repl
+(use-package nodejs-repl :ensure t
   :commands nodejs-repl
   )
 
