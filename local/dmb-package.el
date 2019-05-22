@@ -1,5 +1,13 @@
 (require 'package)
 
+(defmacro measure-time  (name &rest body)
+  "Measure the time it takes to evaluate BODY."
+  `(let ((time (current-time)))
+     ,@body
+     (let ((dt (float-time (time-since time))))
+       (if (>= dt 0.1)
+           (message "%.06f in %s" dt ,name)))))
+
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
@@ -17,14 +25,6 @@
 
 (use-package auto-compile
   :config (auto-compile-on-load-mode))
-
-(defmacro measure-time  (name &rest body)
-  "Measure the time it takes to evaluate BODY."
-  `(let ((time (current-time)))
-     ,@body
-     (let ((dt (float-time (time-since time))))
-       (if (>= dt 0.1)
-           (message "%.06f in %s" dt ,name)))))
 
 (defun time-package (pkg)
   "Measure the time it takes to require PKG"
