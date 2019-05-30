@@ -63,6 +63,7 @@
             (setq string (replace-regexp-in-string (regexp-quote placeholder) replacement string))))
         (sql-send-string string))))
 
-  (define-key sql-interactive-mode-map (kbd "C-c C-w") nil))
+  (define-key sql-interactive-mode-map (kbd "C-c C-w") nil)
+  (define-key sql-interactive-mode-map (kbd "C-c C-x") nil) )
 
 (provide 'dmb-sql)
