@@ -5,6 +5,7 @@
   (setq python-mode-hook '(
                            flycheck-mode
                            whitespace-mode
+                           electric-pair-local-mode
                            ))
   )
 
