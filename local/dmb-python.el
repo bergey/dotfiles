@@ -9,4 +9,8 @@
                            ))
   )
 
+(use-package py-isort :ensure t
+  :config
+  (bind-key "C-c C-," 'py-isort-buffer python-mode-map))
+
 (provide 'dmb-python)
