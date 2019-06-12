@@ -20,7 +20,7 @@
                             (sql-server "localhost")
                             (sql-port 5432))))
 
-  (defun sql-logicicalbuildings ()
+  (defun sql-logicalbuildings ()
     (interactive)
     (password-store-copy "ets-postgresql-bergey")
     (sql-connect 'logicalbuildings))
