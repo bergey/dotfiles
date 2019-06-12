@@ -8,6 +8,7 @@
  kept-old-versions 2
  version-control t
  large-file-warning-threshold 1e6
+ electric-pair-skip-self 'electric-pair-default-skip-self
  )
 
 (use-package unfill :ensure t
