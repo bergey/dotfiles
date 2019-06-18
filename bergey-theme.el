@@ -117,7 +117,7 @@
                   :inverse-video nil :box nil :strike-through
                   nil :overline nil
                   :underline nil :slant normal :weight normal
-                  :height 100 :width normal)))))
+                  :width normal)))))
 
 (provide-theme 'bergey)
 
