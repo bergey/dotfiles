@@ -112,4 +112,15 @@ bind them to the specified keys."
   :bind ("C-. w" . google-this-mode-submap)
   )
 
+(defun bergey/browse-url-or-xref ()
+  (interactive)
+  (let* ((url (thing-at-point 'url))
+        (backend (xref-find-backend))
+        (id (xref-backend-identifier-at-point backend)))
+  (cond
+   (url (browse-url url))
+   (id (xref--find-definitions id nil))
+   (t (call-interactively 'xref-find-definitions)))))
+(bind-key "M-." 'bergey/browse-url-or-xref)
+
 (provide 'dmb-global-bindings)
