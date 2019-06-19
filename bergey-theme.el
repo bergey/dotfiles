@@ -1,11 +1,8 @@
 (deftheme bergey
   "Created 2013-01-18.")
 
-(defface monospace
-  '((t (:family "Inconsolata" :height 90)))
-  "Face for fixed-width text")
-
 (custom-theme-set-faces 'bergey
+ '(fixed-pitch ((t (:family "Inconsolata"))))
  '(italic ((t (:underline nil :slant italic))))
  '(monospace ((t (:family "Inconsolata"))))
  '(cursor ((((class color) (min-colors 89)) (:background "thistle"))))

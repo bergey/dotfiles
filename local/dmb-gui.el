@@ -113,8 +113,7 @@
 An interface to `buffer-face-mode' which uses the `monospace' face.
 Besides the choice of face, it is the same as `buffer-face-mode'."
   (interactive (list (or current-prefix-arg 'toggle)))
-  (buffer-face-mode)
-  (buffer-face-mode-invoke 'monospace arg
+  (buffer-face-mode-invoke 'fixed-pitch arg
                            (called-interactively-p 'interactive)))
 
 (add-hook 'calendar-mode-hook 'monospace-mode)
