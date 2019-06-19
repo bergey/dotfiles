@@ -35,8 +35,8 @@
  '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground "cyan"))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
- '(font-lock-string-face ((t (:foreground "gold"))))
- '(font-lock-type-face ((t (:foreground "magenta"))))
+ '(font-lock-string-face ((t (:foreground "#eb0"))))
+ '(font-lock-type-face ((t (:foreground "#d4e"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(mmm-default-submode-face ((t (:background "gray1"))))
  '(show-paren-match ((((class color) (background dark)) (:background "steelblue3" :foreground "black"))))
@@ -46,7 +46,8 @@
  ;; syntax for particular languages
  '(font-mediawiki-sedate-face ((t (:foreground "gold"))) t)
  '(highlight-quoted-quote ((((class color) (min-colors 89)) (:foreground "white"))))
- '(highlight-quoted-symbol ((((class color) (min-colors 89)) (:foreground "LimeGreen"))))
+ '(highlight-quoted-symbol ((t (:foreground "#95f"))))
+ '(haskell-constructor-face ((t (:foreground "#95f"))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(markdown-bold-face ((((class color) (background dark)) (:foreground "red" :inherit bold))))
  '(proof-locked-face ((((class color) (background dark)) (:background "#333"))))
@@ -113,7 +114,7 @@
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
 
  '(default
-    ((t (:inherit nil :stipple nil :background "black" :foreground "Chartreuse"
+    ((t (:inherit nil :stipple nil :background "black" :foreground "#1a7"
                   :inverse-video nil :box nil :strike-through
                   nil :overline nil
                   :underline nil :slant normal :weight normal
