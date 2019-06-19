@@ -39,6 +39,8 @@
  '(show-paren-match ((((class color) (background dark)) (:background "steelblue3" :foreground "black"))))
  '(show-paren-mismatch ((((class color)) (:background "purple" :foreground "black"))))
  '(whitespace-line ((((class color) (background dark)) (:underline "DeepSkyBlue" :foreground nil :background nil))))
+ '(highlight-indent-guides-even-face ((t (:family "Inconsolata" :background "#103"))))
+ '(highlight-indent-guides-odd-face ((t (:family "Inconsolata" :background "gray10"))))
 
  ;; syntax for particular languages
  '(font-mediawiki-sedate-face ((t (:foreground "gold"))) t)

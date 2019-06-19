@@ -67,11 +67,14 @@ preceding paren."
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
   :config
-  (setq highlight-indent-guides-method 'column)
+  (setq highlight-indent-guides-method 'fill)
   (setq highlight-indent-guides-auto-enabled nil)
-  (set-face-background 'highlight-indent-guides-odd-face "gray10")
-  (set-face-background 'highlight-indent-guides-even-face "#1f004d")
   )
+
+(defun bergey/fixed-pitch-indent ()
+  (font-lock-add-keywords nil '(("^  *" . 'fixed-pitch))))
+
+(add-hook 'prog-mode-hook 'bergey/fixed-pitch-indent)
 
 (use-package highlight-quoted :ensure t
   )
