@@ -26,6 +26,7 @@
  '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground "LightSteelBlue"))))
  '(font-lock-builtin-face ((t (:foreground "gold"))))
  '(font-lock-comment-face ((t (:foreground "chocolate1"))))
+ '(font-lock-doc-face ((t (:foreground "#afa"))))
  '(font-lock-constant-face ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "red"))))
  '(font-lock-keyword-face ((t (:foreground "deep sky blue"))))
@@ -41,6 +42,7 @@
  '(whitespace-line ((((class color) (background dark)) (:underline "DeepSkyBlue" :foreground nil :background nil))))
  '(highlight-indent-guides-even-face ((t (:family "Inconsolata" :background "#103"))))
  '(highlight-indent-guides-odd-face ((t (:family "Inconsolata" :background "gray10"))))
+ '(highlight-indent-guides-character-face ((t (:foreground "#530"))))
 
  ;; syntax for particular languages
  '(font-mediawiki-sedate-face ((t (:foreground "gold"))) t)
@@ -92,7 +94,7 @@
  '(org-column ((t (:family "Inconsolata" :height 90))))
  '(org-habit-alert-face ((((class color) (background dark)) (:foreground "black" :background "darkgoldenrod"))))
  '(org-tag ((((class color) (background dark)) (:background "#1f004d"))))
- '(org-verbatim ((t (:inherit font-lock-string-face))))
+ '(org-verbatim ((t (:foreground "gold"))))
  '(org-table ((t (:foreground "gray70" :inherit fixed-pitch))))
 
  ;; email messages (2019-06-18 not currently using)
@@ -119,6 +121,11 @@
                   nil :overline nil
                   :underline nil :slant normal :weight normal
                   :width normal)))))
+
+(set-face-foreground 'font-lock-string-face "#6b3")
+(set-face-background 'font-lock-string-face nil)
+(set-face-foreground 'font-lock-doc-face "#afa")
+(set-face-foreground 'org-verbatim "gold")
 
 (provide-theme 'bergey)
 
