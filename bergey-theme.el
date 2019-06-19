@@ -91,6 +91,7 @@
  '(org-habit-alert-face ((((class color) (background dark)) (:foreground "black" :background "darkgoldenrod"))))
  '(org-tag ((((class color) (background dark)) (:background "#1f004d"))))
  '(org-verbatim ((t (:inherit font-lock-string-face))))
+ '(org-table ((t (:foreground "gray70" :inherit fixed-pitch))))
 
  ;; email messages (2019-06-18 not currently using)
  '(message-cited-text ((((class color) (min-colors 89)) (:foreground "SpringGreen3"))))
