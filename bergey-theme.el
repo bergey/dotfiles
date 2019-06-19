@@ -18,8 +18,8 @@
  '(isearch ((((class color) (min-colors 88) (background dark)) (:background "palevioletred2" :foreground "black"))))
  '(lazy-highlight ((((class color) (min-colors 88) (background dark)) (:background "paleturquoise4" :foreground "black"))))
  '(lazy-highlight ((((class color) (min-colors 89)) (:background "gray25"))))
- '(link ((((class color) (min-colors 89)) (:underline t :foreground "cyan"))))
- '(link-visited ((((class color) (min-colors 89)) (:underline t :foreground "dark cyan"))))
+ '(link ((((class color) (min-colors 89)) (:foreground "cyan" :background "#134"))))
+ '(link-visited ((((class color) (min-colors 89)) (:foreground "#59c" :background "#134"))))
  '(secondary-selection ((t (:background "paleturquoise" :foreground "black"))))
 
  ;; programming language syntax, general
