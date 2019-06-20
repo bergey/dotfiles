@@ -33,7 +33,7 @@
  '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground "cyan"))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
- '(font-lock-string-face ((t (:foreground "#eb0"))))
+ '(font-lock-string-face ((t (:foreground "#6b3"))))
  '(font-lock-type-face ((t (:foreground "#d4e"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(mmm-default-submode-face ((t (:background "gray1"))))
@@ -51,6 +51,7 @@
  '(haskell-constructor-face ((t (:foreground "#95f"))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(markdown-bold-face ((((class color) (background dark)) (:foreground "red" :inherit bold))))
+ '(markdown-code-face ((t (:inherit org-verbatim))))
  '(proof-locked-face ((((class color) (background dark)) (:background "#333"))))
  '(shm-quarantine-face ((((class color) (background dark)) (:background "saddle brown")))) ; structured haskell mode
  '(web-mode-html-attr-name-face ((((class color) (background dark)) (:foreground "white"))))
