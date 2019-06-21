@@ -1,18 +1,8 @@
-(define-key 'iso-transl-ctl-x-8-map "d" [?δ])
-(define-key 'iso-transl-ctl-x-8-map "D" [?Δ])
-(define-key 'iso-transl-ctl-x-8-map "R" [?ℝ])
-
-(define-key 'iso-transl-ctl-x-8-map "t" [?θ])
-(define-key 'iso-transl-ctl-x-8-map "h" [?φ])
-(define-key 'iso-transl-ctl-x-8-map "p" [?π])
-(define-key 'iso-transl-ctl-x-8-map "T" [?§])
-(define-key 'iso-transl-ctl-x-8-map "s" [?σ])
-(define-key 'iso-transl-ctl-x-8-map "S" [?Σ])
-(define-key 'iso-transl-ctl-x-8-map "r" [?ρ])
-(define-key 'iso-transl-ctl-x-8-map "G" [?Γ])
-
-(define-key 'iso-transl-ctl-x-8-map "M" [?—])
-(define-key 'iso-transl-ctl-x-8-map "#" [?♯])
+(mapcar
+ (lambda (s) (define-key 'iso-transl-ctl-x-8-map (string (elt s 0)) (vector(elt s 1))))
+ '("dδ" "DΔ" "GΓ" "hφ" "pπ" "rρ" "sσ" "SΣ" "tθ"
+   "Rℝ"
+   "T§" "M—" "#♯"))
 
 ;; greek input (for math & science, not language)
 (require 'greek-unicode-insert)
