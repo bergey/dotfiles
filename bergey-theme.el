@@ -123,10 +123,10 @@
                   :underline nil :slant normal :weight normal
                   :width normal)))))
 
-(set-face-foreground 'font-lock-string-face "#6b3")
-(set-face-background 'font-lock-string-face nil)
-(set-face-foreground 'font-lock-doc-face "#afa")
-(set-face-foreground 'org-verbatim "gold")
+;; (set-face-foreground 'font-lock-string-face "#6b3")
+;; (set-face-background 'font-lock-string-face nil)
+;; (set-face-foreground 'font-lock-doc-face "#afa")
+;; (set-face-attribute 'markdown-code-face :inherit nil)
 
 (provide-theme 'bergey)
 
