@@ -65,6 +65,8 @@ preceding paren."
   :diminish highlight-indent-guides-mode
   :init
   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  ;; :bind doesn't put the binding in override-global-map, and it doesn't show up in Haskell
+  (bind-key "C-c C-x h" #'highlight-indent-guides-mode override-global-map)
 
   :config
   (setq highlight-indent-guides-method 'character)
