@@ -25,6 +25,7 @@
                  dmb-global-bindings
                  dmb-isearch
                  dmb-editing
+                 dmb-system
                  dmb-unicode
                  ;; org mode
                  dmb-org
