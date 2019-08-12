@@ -92,7 +92,7 @@
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
-(setq dmb-work-agenda-files '("ets.org"))
+(setq dmb-work-agenda-files '("teal.org" ))
 
 (setq dmb-home-agenda-files
       (-remove
