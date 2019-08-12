@@ -56,6 +56,7 @@ or outputs error message on failure."
     ;; retain channel preference across sessions
     ;; within session, reconnect automatically after first connect
     ;; (autojoin module enabled by default)
+    (setq erc-autojoin-timing 'ident)
     (setq erc-autojoin-channels-alist
           '(;("localhost" "&bitlbee")
             ("freenode.net" "#diagrams" "#haskell" "#ghcjs"
