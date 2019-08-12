@@ -49,6 +49,7 @@
 
     (setenv "EDITOR" "emacsclient") ; no -nw; just open in an emacs buffer
     (setenv "PAGER" "cat") ; let emacs take care of scrolling
+    (setenv "MANPAGER" "cat") ; same, for programs that use `man' for `--help'
 
     (defun set-scroll-conservatively ()
       "Add to shell-mode-hook to prevent jump-scrolling on newlines in shell buffers."
