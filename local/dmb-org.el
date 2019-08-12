@@ -106,7 +106,7 @@
 ;; Not everything household related is in house.org now
 ;; There's at least one other category - code / study / personal
 (setq org-agenda-custom-commands
-      '(("p" tags "project+LEVEL=1")
+      '(("p" tags "project+LEVEL=1|contract+LEVEL=1")
         ("P" tags-todo "project")
         ("W" "agenda at work" agenda ""
          ((org-agenda-files
