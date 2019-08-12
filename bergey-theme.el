@@ -33,7 +33,7 @@
  '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground "cyan"))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
- '(font-lock-string-face ((t (:foreground "#6b3"))))
+ '(font-lock-string-face ((t (:foreground "#bea"))))
  '(font-lock-type-face ((t (:foreground "#d4e"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(mmm-default-submode-face ((t (:background "gray1"))))
@@ -42,7 +42,7 @@
  '(whitespace-line ((((class color) (background dark)) (:underline "DeepSkyBlue" :foreground nil :background nil))))
  '(highlight-indent-guides-even-face ((t (:family "Inconsolata" :background "#103"))))
  '(highlight-indent-guides-odd-face ((t (:family "Inconsolata" :background "gray10"))))
- '(highlight-indent-guides-character-face ((t (:foreground "#530"))))
+ '(highlight-indent-guides-character-face ((t (:foreground "#d70"))))
 
  ;; syntax for particular languages
  '(font-mediawiki-sedate-face ((t (:foreground "gold"))) t)
@@ -123,12 +123,11 @@
                   :underline nil :slant normal :weight normal
                   :width normal)))))
 
-;; (set-face-foreground 'font-lock-string-face "#6b3")
+;; (set-face-foreground 'font-lock-string-face "#bea")
 ;; (set-face-background 'font-lock-string-face nil)
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
 ;; (set-face-attribute 'markdown-code-face :inherit nil)
-
-(provide-theme 'bergey)
+;; (set-face-foreground 'highlight-indent-guides-character-face "#d70")
 
 ;; Local Variables:
 ;; eval: (rainbow-mode)
