@@ -1,7 +1,11 @@
 let
-  fetchNixpkgs = import ./fetchNixpkgs.nix;
-
-    nixpkgs = fetchNixpkgs (builtins.fromJSON (builtins.readFile ./nixpkgs-snapshot.json));
+    nixpkgs =
+        let snapshot = builtins.fromJSON (builtins.readFile ./nixpkgs-snapshot.json);
+        inherit (snapshot) owner repo rev;
+        in builtins.fetchTarball {
+            inherit (snapshot) sha256;
+            url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
+            };
     pkgs = import nixpkgs { config = {}; };
 
 myEmacs = if pkgs.stdenv.isDarwin then pkgs.emacsMacport else pkgs.emacs;
@@ -48,6 +52,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     fstar-mode
     ghc
     git-annex
+    gnomenm
     google-this
     groovy-mode
     haskell-mode
@@ -72,6 +77,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     nodejs-repl
     notmuch
     org-plus-contrib
+    org-pomodoro
     org-trello
     orgit
     origami
@@ -84,6 +90,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     projectile
     purescript-mode
     pyvenv
+    py-isort
     qml-mode
     racket-mode
     rainbow-delimiters
@@ -105,7 +112,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     unfill
     use-package
     vala-mode
-    # w3m
+    w3m
     web-mode
     window-number
     window-purpose
