@@ -83,7 +83,7 @@
 
 (setq org-directory
       (case system-type
-        ('gnu/linux "~/records/org-mode/")
+        ('gnu/linux "~/Dropbox/org-mode/")
        ('windows-nt
         (format  "c:/Users/%s/records/org-mode/" (user-login-name)))
        ('darwin "~/Dropbox/org-mode/")))
