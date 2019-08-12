@@ -87,7 +87,7 @@
         (awk-mode . "awk")
         (other . "kar")))
 
-(add-to-list 'auto-mode-alist '("\.cl" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.cl" . c-mode))
 
 (setq c-mode-hook
       '(whitespace-mode
