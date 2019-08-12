@@ -28,6 +28,10 @@
 (use-package org-archive
   :commands org-archive-subtree-default)
 
+(use-package org-pomodoro
+  :commands org-pomodoro
+  )
+
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cl" 'org-store-link)
 ;; set this without org-git-store-link, which is nifty but usually not what I want.
