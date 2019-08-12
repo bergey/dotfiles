@@ -64,6 +64,8 @@
                ("C-c m" . dmb-haskell-yank-module-name)
                )
 
+    (add-to-list 'auto-mode-alist '("cabal.project" . haskell-cabal-mode))
+
     (setq haskell-tags-on-save t
           haskell-stylish-on-save t
           haskell-ask-also-kill-buffers nil
