@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+
+set -euxo pipefail
+
+FILENAME=$1
+EXT=${FILENAME##*.}
+
+DEST=bergey_android@kindle.com
+
+export EMAIL=bergey@fastmail.fm # Becomes FROM header of email
+
+case ${EXT} in
+    epub)
+        MOBI=${FILENAME%.epub}.mobi
+        ebook-convert "$FILENAME" "$MOBI"
+        mutt $DEST -s $(basename $0) -a "$MOBI" < /dev/null
+        rm "$MOBI"
+        ;;
+    *) mutt $DEST -s $(basename $0) -a "$FILENAME" < /dev/null
+       ;;
+esac
