@@ -64,6 +64,8 @@
                          ("M-S-a" . org-forward-sentence)
                          ("M-n" . org-move-subtree-down)
                          ("M-p" . org-move-subtree-up)
+                         ("C-S-n" . org-move-item-down)
+                         ("C-S-p" . org-move-item-up)
                          ("C-c C-x r" . org-refile)
                          )))
 
