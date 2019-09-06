@@ -44,8 +44,10 @@
 ;; Coq
 (use-package proof-site
 :config
-  (use-package coq :ensure t
+  (use-package coq
     :defer t
+    :config
+      (setq coq-compile-before-require t)
     )
   )
 
