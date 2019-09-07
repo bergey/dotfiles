@@ -108,6 +108,8 @@
 ;; in the usual places.
 ;;(add-to-list 'tramp-remote-path "/run/current-system/sw/bin")
 
+(autoload 'buffer-face-mode-invoke "face-remap" )
+
 (defun monospace-mode (&optional arg)
   "Fixed-pitch default-face mode.
 An interface to `buffer-face-mode' which uses the `monospace' face.
