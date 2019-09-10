@@ -110,7 +110,7 @@
       (c-indent-line))))
 
 (use-package toml-mode :ensure t
-  :mode "\\.toml" )
+  :mode "\\.toml\\|Cargo.lock" )
 
 (use-package groovy-mode :ensure t
   :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
