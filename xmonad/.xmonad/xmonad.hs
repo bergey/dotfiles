@@ -44,6 +44,7 @@ main = xmonad $ defaults
 
 defaults = defaultConfig {
       -- simple stuff
+        modMask = mod4Mask,
         terminal           = "alacritty",
         layoutHook         = myLayout,
         manageHook         = forceDesktopOrFloat <+>
