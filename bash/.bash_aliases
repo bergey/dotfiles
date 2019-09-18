@@ -23,13 +23,8 @@ else
 fi
 
 # xrandr commands
-alias dual="xrandr --output HDMI-1 --rotate left --left-of eDP-1 --mode 1600x900"
-alias xr2=dual
+alias xr2="xrandr --output HDMI-1 --rotate left --left-of eDP-1 --mode 1600x900"
 alias xr1="xrandr --output HDMI-1 --off"
-
-# keyboard
-alias laptop='xmodmap ~/records/dotfiles/Xmodmap/laptop'
-alias keyboardio='xmodmap ~/records/dotfiles/Xmodmap/keyboardio'
 
 # emacs
 alias edit='emacsclient -nw'
@@ -41,10 +36,10 @@ alias wup='nmcli conn up'
 alias pong='ping google.com'
 
 alias mail="mbsync -a; python ~/code/utility/sort_mail.py"
-alias sentweek='notmuch search tag:sent $(date -v-mon -v-1w +%s)..'
+# sentweek broken as of 2019-09-18
+# alias sentweek='notmuch search tag:sent $(date -v-mon -v-1w +%s)..'
 
 # mount helpers
-alias webdav='mount ~/records/org-mode/MobileOrg/'
 alias phone='cadaver 192.168.1.8:8080'
 
 # haskell aliases
@@ -82,8 +77,8 @@ alias 'make-virtualenv'='virtualenv virtualenv --prompt "($(basename $(pwd))) "'
 # file / application shortcuts
 alias pylab='ipython --pylab'
 alias off='libreoffice'
-alias ashrae='okular ~/Library/non-fiction/ASHRAE/2009\ ASHRAE\ Handbook/FRONT/NAV.pdf &'
-alias hvac='okular ~/Library/ASHRAE/2012\ ASHRAE\ Handbook/FRONT/S12_NAV.pdf &'
+alias ashrae='zathura ~/annex/non-fiction/ASHRAE/2009\ ASHRAE\ Handbook/FRONT/NAV.pdf &'
+alias hvac='zathura ~/annex/non-fiction/ASHRAE/2012\ ASHRAE\ Handbook/FRONT/S12_NAV.pdf &'
 
 alias snapshot='sudo zfs snapshot zpool/crypt/home@$(date -u +%FT%TZ)'
 alias backup='borg create /mnt/babel/$(hostname)::$(date +%F) ~ --exclude sh:**/.stack-work --exclude sh:**/.stack --one-file-system'
