@@ -34,11 +34,8 @@ alias edit='emacsclient -nw'
 alias save='emacsclient -e "(save-some-buffers t)"'
 
 # networking
-WIFI_DEV=wlp3s0
-alias wscan='sudo iw dev $WIFI_DEV scan'
-alias wup='sudo ifup $WIFI_DEV'
-alias wdown='sudo ifdown $WIFI_DEV'
-alias wreset='wdown && sleep 1 && wup'
+alias wscan='nmcli dev wifi list'
+alias wup='nmcli conn up'
 alias pong='ping google.com'
 
 alias mail="mbsync -a; python ~/code/utility/sort_mail.py"
