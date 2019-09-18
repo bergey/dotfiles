@@ -9,11 +9,13 @@ alias duh='du -shc *'
 alias largest='du -shc * | sort -h'
 alias dudot='ls -a|grep -v '\''\.$'\''|xargs du -sh'
 
-if [ "$(uname)" = "Darwin" ]
-then
+if [ "$(uname)" = "Darwin" ]; then
     alias install='sudo port install'
     alias up='sudo port upgrade installed'
     alias emacs='open ~/.nix-profile/Applications/Emacs.app'
+elif [ -d /etc/nixos ]; then
+    alias install='nix-env -i'
+    alias up='sudo nixos-rebuild switch --upgrade'
 else
     alias install='sudo aptitude install'
     alias up='apt update; apt upgrade -y'
