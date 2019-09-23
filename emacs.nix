@@ -53,7 +53,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     fstar-mode
     ghc
     git-annex
-    gnomenm
     google-this
     groovy-mode
     haskell-mode
