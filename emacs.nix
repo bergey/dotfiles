@@ -33,6 +33,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     csv-mode
     dash
     diminish
+    direnv
     dockerfile-mode
     edit-indirect
     editorconfig
