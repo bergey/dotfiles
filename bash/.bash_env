@@ -13,7 +13,6 @@ export GOPATH=/home/$USER/.local/gocode
 # echo "PATH was $PATH"
 
 export PATH=`paste -d ':' -s - << EOF 
-./node_modules/.bin
 $HOME/bin
 $HOME/.local/bin/
 $HOME/.local/gocode/bin

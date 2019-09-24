@@ -129,3 +129,5 @@ if [ -f '/usr/local/stow/google-cloud-sdk/completion.bash.inc' ]; then source '/
 # For Arduino & other Java GUIs
 # http://www.simonrichter.eu/blog/2016-11-01-arduino-tiling-window-manager.html
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+eval "$(direnv hook bash)"
