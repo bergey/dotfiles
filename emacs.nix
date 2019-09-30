@@ -40,7 +40,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     emmet-mode
     emms
     ensime
-    erlang
+    # erlang # broken 2019-09-30
     ess
     evil
     exec-path-from-shell

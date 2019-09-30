@@ -115,9 +115,10 @@
 (use-package groovy-mode :ensure t
   :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
 
-(use-package erlang :ensure t
-  :mode "\\.erl"
-  )
+;; broken 2019-09-30
+;; (use-package erlang :ensure t
+;;   :mode "\\.erl"
+;;   )
 
 (use-package idris-mode :ensure t
   :mode "\\.idr"
