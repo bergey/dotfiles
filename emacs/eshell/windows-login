@@ -1,0 +1,2 @@
+setenv PATH $(concat eshell-path-env)
+setenv HOME C:\\Users\\daniel.bergey
