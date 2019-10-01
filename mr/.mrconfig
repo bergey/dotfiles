@@ -9,11 +9,8 @@ checkout = git clone 'git@github.com:bergey/dot-emacs.git' '.emacs.d'
 checkout = git clone -o gitlab 'git@gitlab.com:bergey/library.git' 'annex'
 update = git pull gitlab
 
-[records/public-dotfiles]
-checkout = git clone 'git@github.com:bergey/dotfiles.git' 'public-dotfiles'
-
 [records/dotfiles]
-checkout = git clone 'git@bitbucket.org:bergey/dotfiles.git' 'dotfiles'
+checkout = git clone 'git@github.com:bergey/dotfiles.git' 'public-dotfiles'
 
 [records/keys]
 heckout = git clone 'keybase://private/dmbergey/keys' 'keys'
