@@ -1,0 +1,80 @@
+# -*- mode: toml; -*-
+[code/active/nix]
+checkout = git clone 'git@github.com:bergey/nix-config.git' 'nix'
+
+[.emacs.d]
+checkout = git clone 'git@github.com:bergey/dot-emacs.git' '.emacs.d'
+
+[annex]
+checkout = git clone -o gitlab 'git@gitlab.com:bergey/library.git' 'annex'
+update = git pull gitlab
+
+[records/public-dotfiles]
+checkout = git clone 'git@github.com:bergey/dotfiles.git' 'public-dotfiles'
+
+[records/dotfiles]
+checkout = git clone 'git@bitbucket.org:bergey/dotfiles.git' 'dotfiles'
+
+[records/keys]
+heckout = git clone 'keybase://private/dmbergey/keys' 'keys'
+
+[.password-store]
+checkout = git clone 'git@bitbucket.org:bergey/passwords.git' '.password-store'
+
+[records/resume]
+checkout = git clone 'ssh://git@bitbucket.org/bergey/resume.git' 'resume'
+
+[Dropbox/org-mode]
+checkout = git clone 'ssh://git@bitbucket.org/bergey/org-mode.git' 'org-mode'
+update = emacsclient -e '(save-some-buffers t)'; git diff-index --quiet HEAD || git commit -am "automatic commit on $(hostname) $(date '+%Y-%m-%d %R')"; git pull --rebase; git push
+
+[records/finances]
+checkout = git clone 'git@bitbucket.org:bergey/finances.git' 'finances'
+
+[records/teallabs]
+checkout = git clone 'git@github.com:christalee/teallabs.git' 'teallabs'
+
+[code/utility]
+checkout = git clone 'ssh://git@bitbucket.org/bergey/utility.git' 'utility'
+
+[code/active/scratch]
+checkout = git clone 'ssh://git@bitbucket.org/bergey/scratch.git' 'scratch'
+
+[code/active/STL]
+checkout = git clone 'git@github.com:bergey/STL.git' 'STL'
+
+[code/active/haskell-OpenGL-examples]
+checkout = git clone 'https://github.com/bergey/haskell-OpenGL-examples' 'haskell-OpenGL-examples'
+
+[code/active/vcatt]
+checkout = git clone 'git@github.com:bergey/vcatt.git' 'vcatt'
+
+[code/active/haskell-sql]
+checkout = git clone 'git@github.com:bergey/haskell-sql.git' 'haskell-sql'
+
+[code/active/postgresql-dynamic]
+checkout = git clone 'git@github.com:bergey/postgresql-dynamic.git' 'postgresql-dynamic'
+
+[code/active/postgresql-simple]
+checkout = git clone 'git@github.com:bergey/postgresql-simple.git' 'postgresql-simple'
+
+[code/active/red-brass]
+checkout = git clone 'git@github.com:bergey/red-brass.git' 'red-brass'
+
+[code/active/crispy-broccoli]
+checkout = git clone 'git@github.com:bergey/crispy-broccoli.git' 'crispy-broccoli'
+
+[code/active/expert-robot]
+checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
+
+[code/active/studious-telegram]
+checkout = git clone 'git@github.com:bergey/studious-telegram' 'studious-telegram'
+
+[code/active/codex]
+checkout = git clone 'https://github.com/ekmett/codex.git' 'codex'
+
+[code/active/coreutils]
+checkout = git clone 'git@github.com:uutils/coreutils.git' 'coreutils'
+
+[code/active/Model01-Firmware]
+checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'

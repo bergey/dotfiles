@@ -1,0 +1,53 @@
+[tetris]
+checkout = git clone 'git@github.com:bergey/tetris.git' 'tetris'
+
+[panther]
+checkout = git clone 'git@github.com:bergey/panther.git' 'panther'
+
+[gooey]
+checkout = git clone 'git@github.com:bergey/gooey.git' 'gooey'
+
+[webidl]
+checkout = git clone 'git@github.com:bergey/webidl.git' 'webidl'
+
+[nusselt]
+checkout = git clone 'git@github.com:bergey/nusselt.git' 'nusselt'
+
+[nesting]
+checkout = git clone 'git@bitbucket.org:bergey/nesting.git' 'nesting'
+
+[pandemic]
+checkout = git clone 'git@bitbucket.org:bergey/pandemic.git' 'pandemic'
+
+[pywunder]
+checkout = git clone 'ssh://git@bitbucket.org/bergey/pywunder.git' 'pywunder'
+
+[thingspeak]
+checkout = git clone 'git@github.com:bergey/thingspeak.git' 'thingspeak'
+
+[school-districts]
+checkout = git clone 'git@github.com:bergey/school-districts.git' 'school-districts'
+
+[meta]
+checkout = git clone 'git@github.com:bergey/metastic.git' 'meta'
+
+[hacktorylightbox]
+checkout = git clone 'https://github.com/sharph/hacktorylightbox' 'hacktorylightbox'
+
+[berrybasket]
+checkout = git clone 'git@github.com:bergey/berrybasket.git' 'berrybasket'
+
+[genderGapTimeline]
+checkout = git clone 'git@github.com:allteramy/genderGapTimeline.git' 'genderGapTimeline'
+
+[sluice-graph]
+checkout = git clone 'git@github.com:bergey/sluice-graph.git' 'sluice-graph'
+
+[level]
+checkout = git clone 'git@github.com:bergey/level.git' 'level'
+
+[handwriting]
+checkout = git clone 'git@github.com:bergey/handwriting.git' 'handwriting'
+
+[cabal-edit]
+checkout = git clone 'git@github.com:bergey/cabal-edit.git' 'cabal-edit'
