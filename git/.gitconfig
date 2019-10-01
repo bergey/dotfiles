@@ -1,0 +1,40 @@
+[user]
+	email = bergey@teallabs.org
+	name = Daniel Bergey
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	excludesfile = /home/bergey/code/utility/dotfiles/gitignore-global
+[github]
+	user = bergey
+[push]
+	default = simple
+[diff]
+        tool = ediff
+        guitool = ediff
+
+[difftool "ediff"]
+        cmd = /PATH/TO/ediff.sh $LOCAL $REMOTE $MERGED
+
+[merge]
+        tool = ediff
+
+[mergetool "ediff"]
+        cmd = /PATH/TO/ediff.sh $LOCAL $REMOTE $MERGED $BASE
+        trustExitCode = true
+[url "git://github.com/ghc/packages-"]
+	insteadOf = git://github.com/ghc/packages/
+
+# for $deity's sake, check that anything we're getting is complete and sane on a regular basis
+[transfer]
+        fsckobjects = false
+[fetch]
+        fsckobjects = false
+[receive]
+        fsckObjects = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
