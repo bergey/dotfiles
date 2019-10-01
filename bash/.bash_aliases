@@ -35,7 +35,7 @@ alias wscan='nmcli dev wifi list'
 alias wup='nmcli conn up'
 alias pong='ping google.com'
 
-alias mail="mbsync -a; python ~/code/utility/sort_mail.py"
+alias mail="mbsync -a; ~/code/utility/sort_mail.py'"
 # sentweek broken as of 2019-09-18
 # alias sentweek='notmuch search tag:sent $(date -v-mon -v-1w +%s)..'
 
