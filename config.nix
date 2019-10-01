@@ -4,36 +4,6 @@ pkgs :
   # allowBroken = true;
   packageOverrides = self: with self; rec {
 
-    haskellTools = spec: ([
-        spec.ghc
-        sloccount
-    ] ++ (with spec.hsPkgs; [
-        hlint
-        cabalInstall
-    ]) ++ (with haskellPackages_ghc784; [
-        cabal2nix
-        hasktags
-        # threadscope # broken 2014-11-19
-    ]));
-
-
-    pythonEnv = myEnvFun {
-        name = "python";
-        # ps1 = "[\\$NIX_MYENV_NAME] \\t \\# \\h \\\\\\$? $ ";
-        buildInputs = with python33Packages; [
-            git
-            stdenv
-            zlib
-            ipython
-            pandas
-            matplotlib
-            scipy
-            # tkinter
-            notmuch
-            self.notmuch
-            ];
-      };
-
       # jsEnv = myEnvFun {
       jsEnv = myEnvFun {
         name = "jsTools";
