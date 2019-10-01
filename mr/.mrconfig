@@ -1,4 +1,4 @@
-# -*- mode: toml; -*-
+# -*- mode: conf; -*-
 [code/active/nix]
 checkout = git clone 'git@github.com:bergey/nix-config.git' 'nix'
 

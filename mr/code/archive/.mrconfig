@@ -1,3 +1,4 @@
+# -*- mode: conf; -*-
 [tetris]
 checkout = git clone 'git@github.com:bergey/tetris.git' 'tetris'
 
