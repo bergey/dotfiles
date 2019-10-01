@@ -63,6 +63,8 @@ alias 'stack-cabal-freeze'="echo -n 'constraints: ' >> cabal.config && stack lis
 
 # git
 alias shortlog='git log --pretty=format:"%ai %s"'
+# report directories (and files, uselessly) in the current dir not registered with mr
+alias mrdiff='diff <(ls) <(sed -nE "s/\[(.*)\]/\1/p" .mrconfig | sort)'
 
 # 'system' utils
 alias serve='python3 -m http.server'
