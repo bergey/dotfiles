@@ -1,10 +1,4 @@
 # -*- mode: conf; -*-
-[code/active/nix]
-checkout = git clone 'git@github.com:bergey/nix-config.git' 'nix'
-
-[.emacs.d]
-checkout = git clone 'git@github.com:bergey/dot-emacs.git' '.emacs.d'
-
 [annex]
 checkout = git clone -o gitlab 'git@gitlab.com:bergey/library.git' 'annex'
 update = git pull gitlab
