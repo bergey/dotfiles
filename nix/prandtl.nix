@@ -69,7 +69,6 @@ virtualisation.docker.enable = true;
    environment.systemPackages = with pkgs; [
      cacert
      wget vim
-     xlibs.xmodmap
      bash-completion
      # pavucontrol
    ];
