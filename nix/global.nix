@@ -129,7 +129,6 @@ buildEnv {
         gitAndTools.git-annex
         gnumake
         google-cloud-sdk
-        (haskellPackages.callPackage ../../utility/Sieve {})
         inotifyTools
         kubectl
         linuxPackages.virtualbox
