@@ -74,6 +74,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     markdown-mode
     move-text
     nix-mode
+    nix-sandbox
     nodejs-repl
     notmuch
     org-plus-contrib

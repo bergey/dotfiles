@@ -30,6 +30,7 @@
                  ;; org mode
                  dmb-org
                  ;; programming
+                 dmb-nix
                  dmb-coding
                  dmb-haskell
                  dmb-lisp
@@ -38,7 +39,6 @@
                  dmb-python
                  dmb-languages
                  dmb-git
-                 dmb-nix
                  ;; mail
                  dmb-notmuch
                  dmb-bbdb

@@ -148,15 +148,19 @@ preceding paren."
   :config
   ;; TODO show message in minibuffer, but truncate to fit
   (setq flycheck-display-errors-function nil)
-  )
+  (setq flycheck-command-wrapper-function
+        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command)))
+  (setq flycheck-executable-find
+        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
 
-;; documentation lookup
-;; (use-package helm-dash :ensure t
-;;   :config (progn
-;;             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
-;;             )
-;;   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
-;;   )
+  ;; documentation lookup
+  ;; (use-package helm-dash :ensure t
+  ;;   :config (progn
+  ;;             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
+  ;;             )
+  ;;   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
+  ;;   )
+)
 
 (use-package auto-complete :ensure t
   )
