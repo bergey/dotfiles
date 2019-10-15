@@ -28,7 +28,7 @@
      haskell-indentation-left-offset 4
      )
 
-    (setq flycheck-ghc-language-extensions '( "DataKinds" "DeriveDataTypeable" "DeriveFunctor" "DeriveGeneric" "DuplicateRecordFields" "ExtendedDefaultRules" "FlexibleContexts" "FlexibleInstances" "FunctionalDependencies" "GeneralizedNewtypeDeriving" "MultiParamTypeClasses" "OverloadedStrings" "ScopedTypeVariables" "StandaloneDeriving" "TemplateHaskell" "TypeApplications" "TypeFamilies" "TypeOperators" ))
+    (setq flycheck-ghc-language-extensions '( "DataKinds" "DeriveDataTypeable" "DeriveFunctor" "DeriveGeneric" "DuplicateRecordFields" "ExtendedDefaultRules" "FlexibleContexts" "FlexibleInstances" "FunctionalDependencies" "GeneralizedNewtypeDeriving" "MultiParamTypeClasses" "OverloadedStrings" "ScopedTypeVariables" "StandaloneDeriving" "TemplateHaskell" "TypeApplications" "TypeFamilies" "TypeOperators" "CPP" ))
     (setq flycheck-ghc-args '("-fno-warn-name-shadowing" "-fno-warn-type-defaults"))
 
     (defun dmb-haskell-insert-language-pragma (extension)
@@ -73,6 +73,10 @@
     )
     (setq haskell-process-wrapper-function
         (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+
+    (use-package lsp-haskell
+      :config
+      (add-hook 'haskell-mode-hook #'lsp))
   ))
 
 (use-package haskell-interactive-mode

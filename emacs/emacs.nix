@@ -69,6 +69,9 @@ in emacsWithPackages (epkgs: (with epkgs; [
     ivy
     kotlin-mode
     ledger-mode
+    lsp-haskell
+    lsp-mode
+    lsp-ui
     magit
     # magit-annex # broken 2018-08-05, build needs git
     markdown-mode

@@ -168,4 +168,10 @@ preceding paren."
 (use-package edit-indirect :ensure t
   )
 
+(use-package lsp-mode
+  :config
+  (use-package lsp-ui)
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+
 (provide 'dmb-coding)
