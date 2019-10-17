@@ -74,9 +74,9 @@
     (setq haskell-process-wrapper-function
         (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
 
-    (use-package lsp-haskell
-      :config
-      (add-hook 'haskell-mode-hook #'lsp))
+    ;; (use-package lsp-haskell
+    ;;   :config
+    ;;   (add-hook 'haskell-mode-hook #'lsp))
   ))
 
 (use-package haskell-interactive-mode
