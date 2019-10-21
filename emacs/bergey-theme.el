@@ -122,7 +122,8 @@
                   nil :overline nil
                   :underline nil :slant normal :weight normal
                   :width normal)))))
-
+(set-face-foreground 'ediff-current-diff-A "light gray")
+(set-face-foreground 'ediff-current-diff-B "light gray")
 ;; (set-face-foreground 'font-lock-string-face "#bea")
 ;; (set-face-background 'font-lock-string-face nil)
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
