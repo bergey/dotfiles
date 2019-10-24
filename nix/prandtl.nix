@@ -89,6 +89,21 @@ virtualisation.docker.enable = true;
     };
    };
 
+   environment.etc = {
+     "firejail/chromium.local" = {
+       mode = "0444";
+       text = ''
+            ignore private-dev
+            '';
+     };
+     "firejail/firefox.local" = {
+       mode = "0444";
+       text = ''
+            ignore private-dev
+            '';
+     };
+   };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.bash.enableCompletion = true;
