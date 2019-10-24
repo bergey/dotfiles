@@ -22,6 +22,8 @@
  ;; programming language syntax, general
  '(diff-added ((t (:inherit diff-changed :foreground "green"))))
  '(diff-removed ((t (:inherit diff-changed :foreground "red"))))
+ '(ediff-current-diff-A ((t (:foreground"light gray" :background "#553333"))))
+ '(ediff-current-diff-B ((t (:foreground"light gray" :background "#335533"))))
  '(fic-face ((t (:background "chocolate1" :foreground "black"))))
  '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground "LightSteelBlue"))))
  '(font-lock-builtin-face ((t (:foreground "gold"))))
@@ -52,6 +54,7 @@
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(markdown-bold-face ((((class color) (background dark)) (:foreground "red" :inherit bold))))
  '(markdown-code-face ((t (:inherit org-verbatim))))
+ '(markdown-table-face ((t (:inherit org-table))))
  '(proof-locked-face ((((class color) (background dark)) (:background "#333"))))
  '(shm-quarantine-face ((((class color) (background dark)) (:background "saddle brown")))) ; structured haskell mode
  '(web-mode-html-attr-name-face ((((class color) (background dark)) (:foreground "white"))))
@@ -122,8 +125,8 @@
                   nil :overline nil
                   :underline nil :slant normal :weight normal
                   :width normal)))))
-(set-face-foreground 'ediff-current-diff-A "light gray")
-(set-face-foreground 'ediff-current-diff-B "light gray")
+
+
 ;; (set-face-foreground 'font-lock-string-face "#bea")
 ;; (set-face-background 'font-lock-string-face nil)
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
