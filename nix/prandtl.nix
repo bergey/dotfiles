@@ -8,6 +8,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [ (self: super: {
+    firejail = super.lib.overrideDerivation super.firejail (attrs: {
+        postInstall = ''
+    sed -E -e 's@^include (.*/)?(.*.local)$@include /etc/firejail/\2@g' -i $out/etc/firejail/*.profile
+  '';
+    });
+  }) ];
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
