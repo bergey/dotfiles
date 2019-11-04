@@ -153,6 +153,8 @@ virtualisation.docker.enable = true;
     displayManager.slim.enable = true;
   };
 
+  services.autorandr.enable = true;
+
  hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver beignet ];
 
