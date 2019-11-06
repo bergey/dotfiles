@@ -39,7 +39,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     editorconfig
     emmet-mode
     emms
-    ensime
     # erlang # broken 2019-09-30
     ess
     evil
