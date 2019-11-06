@@ -19,4 +19,4 @@ jq '{owner: "NixOS", repo: "nixpkgs", rev: $rev, sha256: $sha}' <<< '{}' \
     > nixpkgs-snapshot.json
 git reset # make sure we aren't commiting anything else
 git add nixpkgs-snapshot.json
-git commit -m 'update nixpkgs snapshot'
+git commit -m "$(basename $(pwd)): update nixpkgs snapshot"
