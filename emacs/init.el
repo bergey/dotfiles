@@ -56,6 +56,7 @@
                  dmb-dired
                  dmb-sql
                  dmb-google
+                 happy-mode
                  ))
 
 (if (eq system-type 'windows-nt)

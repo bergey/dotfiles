@@ -3,14 +3,13 @@
 (defvar happy-mode-map (make-keymap)
   "Keymap for happy major mode")
 
-(add-to-list 'auto-mode-alist '("\\.y\\'" . happy-mode))
-
 (defvar happy-mode-syntax-table
   (let ((synTable (make-syntax-table)))
     (modify-syntax-entry ?\' "\"")
     (modify-syntax-entry ?: "_")
     (modify-syntax-entry ?| "_")
     (modify-syntax-entry ?% "_")
+    ;; TODO {- -} are block comments
     synTable)
   "Syntax table for `happy-mode'"
   )
@@ -34,7 +33,7 @@
     ("[:|]" . 'happy-grammer-rule-face)
     ("[{}]" . 'happy-haskell-face)
     ("%%" . 'font-lock-comment-face)
-    ("^[A-Z][a-zA-Z]*\\>" . 'font-lock-type-face)
+    ("^[A-Z][a-zA-Z0-9]*\\>" . 'font-lock-type-face)
     ))
 
 (define-derived-mode happy-mode fundamental-mode "Y"
@@ -58,6 +57,8 @@
 (define-polymode poly-happy-mode
   :hostmode 'poly-happy-hostmode
   :innermodes '(poly-happy-haskell-innermode))
+
+(add-to-list 'auto-mode-alist '("\\.y\\'" . poly-happy-mode))
 
 
 (provide 'happy-mode)
