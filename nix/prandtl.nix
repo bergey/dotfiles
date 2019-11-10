@@ -38,7 +38,7 @@
     enable = true;
     zetup = {
       "zpool/crypt/home" = {
-        plan = "1h=>15min,1d=>1h,7d=>1d,4w=>1w,1y=>1month";
+        plan = "30d=>1d,1y=>1month";
         timestampFormat = "%Y-%m-%d_%H:%M:%SZ";
         recursive = true;
         # destinations takes arbitrary names as attrs
