@@ -43,6 +43,11 @@
       fsType = "zfs";
     };
 
+  fileSystems."/var/lib/transmission/Downloads" =
+    { device = "zpool/crypt/transmission";
+      fsType = "zfs";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/8006dab3-3e3c-4ceb-b325-b8ed98d72f66"; }
     ];
