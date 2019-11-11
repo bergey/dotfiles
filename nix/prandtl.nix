@@ -201,6 +201,8 @@ virtualisation.docker.enable = true;
         wantedBy = [ "graphical-session.target" ];
   };
 
+  systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
+  
   services.transmission.enable = true;
 
   fileSystems."/mnt/babel" = {
