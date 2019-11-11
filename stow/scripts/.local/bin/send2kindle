@@ -2,20 +2,28 @@
 
 set -euxo pipefail
 
-FILENAME=$1
-EXT=${FILENAME##*.}
+ORIG=$1
+EXT=${ORIG##*.}
 
 DEST=bergey_android@kindle.com
 
 export EMAIL=bergey@fastmail.fm # Becomes FROM header of email
 
+RM=false
 case ${EXT} in
     epub)
-        MOBI=${FILENAME%.epub}.mobi
-        ebook-convert "$FILENAME" "$MOBI"
+        FILENAME="${ORIG%.epub}.mobi"
+        ebook-convert "$ORIG" "$FILENAME"
         mutt $DEST -s $(basename $0) -a "$MOBI" < /dev/null
-        rm "$MOBI"
         ;;
-    *) mutt $DEST -s $(basename $0) -a "$FILENAME" < /dev/null
-       ;;
+    cbr)
+        BASE=${ORIG%.cbr}
+        FILENAME="$BASE".pdf
+        atool -x "$ORIG"
+        shopt -s nullglob nocaseglob
+        convert "$BASE"/*.{png,jpg,jpeg} "$FILENAME"
+        ;;
 esac
+
+mutt $DEST -s $(basename $0) -a "$FILENAME" < /dev/null
+rm "$FILENAME"
