@@ -1,4 +1,6 @@
-#! /usr/bin/env bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash
+#! nix-shell -p calibre mutt imagemagick
 
 set -euxo pipefail
 
@@ -16,7 +18,7 @@ case ${EXT} in
         ebook-convert "$ORIG" "$FILENAME"
         mutt $DEST -s $(basename $0) -a "$MOBI" < /dev/null
         ;;
-    cbr)
+    cbr|cbz)
         BASE=${ORIG%.cbr}
         FILENAME="$BASE".pdf
         atool -x "$ORIG"
