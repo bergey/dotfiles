@@ -17,7 +17,7 @@ in with pkgs; mkEnv {
         paths = [
             bazaar
             cvs
-            # darcs
+            darcs
             mercurial
             subversion
         ];
