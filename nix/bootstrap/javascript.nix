@@ -19,5 +19,11 @@ in with pkgs.nodePackages; mkEnv {
             node2nix
             bower
             pkgs.python3.pkgs.jsmin
+            # more tools that I haven't needed in a long time
+            # jshint
+            # gulp
+            # grunt-cli
+            # mocha
+            # pkgs.sass
         ];
     }
