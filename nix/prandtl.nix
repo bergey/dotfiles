@@ -68,14 +68,15 @@
     ];
 
     extraConfig = ''
-      private-address: 192.168.0.0/16
-      private-domain: fios-router.home
-      domain-insecure: "fios-router.home"
 
-      forward-zone:
-          name: fios-router.home
-          forward-addr: 192.168.1.1
-          forward-tls-upstream: no
+    private-address: 192.168.0.0/16
+    private-domain: fios-router.home
+    domain-insecure: "fios-router.home"
+
+    forward-zone:
+        name: fios-router.home
+        forward-addr: 192.168.1.1
+        forward-tls-upstream: no
           
     '';
   };
