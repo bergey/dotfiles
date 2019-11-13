@@ -68,7 +68,11 @@
     ];
 
     extraConfig = ''
+    module-config: "validator iterator"
     private-address: 192.168.0.0/16
+    harden-dnssec-stripped: yes
+    harden-algo-downgrade: yes
+
     private-domain: fios-router.home
     domain-insecure: "fios-router.home"
     local-zone: fios-router.home nodefault
