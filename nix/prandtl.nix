@@ -68,10 +68,10 @@
     ];
 
     extraConfig = ''
-
     private-address: 192.168.0.0/16
     private-domain: fios-router.home
     domain-insecure: "fios-router.home"
+    local-zone: fios-router.home nodefault
 
     forward-zone:
         name: fios-router.home
