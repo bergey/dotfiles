@@ -70,6 +70,12 @@
     extraConfig = ''
     module-config: "validator iterator"
     private-address: 192.168.0.0/16
+    private-address: 10.0.0.0/8
+    private-address: 172.16.0.0/12
+    private-address: 169.254.0.0/16
+    private-address: fd00::/8
+    private-address: fe80::/10
+    private-address: ::ffff:0:0/96
     harden-dnssec-stripped: yes
     harden-algo-downgrade: yes
 
