@@ -49,11 +49,36 @@
     };
     pure = true;
   };
-  networking.hostId = "a9d1a9c2"; # required for ZFS
+  networking = {
+    hostName = "prandtl"; # Define your hostname.
+    hostId = "a9d1a9c2"; # required for ZFS
 
-  networking.hostName = "prandtl"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # NetworkManager, including nmcli & nmtui (no applet)
+    networkmanager.enable = true; # NetworkManager, including nmcli & nmtui (no applet)
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  };
+
+  services.unbound = {
+    enable = true;
+    
+    forwardAddresses = [
+      "8.8.8.8"
+      "8.8.4.4"
+      "2001:4860:4860::8888"
+      "2001:4860:4860::8844"
+    ];
+
+    extraConfig = ''
+      private-address: 192.168.0.0/16
+      private-domain: fios-router.home
+      domain-insecure: "fios-router.home"
+
+      forward-zone:
+          name: fios-router.home
+          forward-addr: 192.168.1.1
+          forward-tls-upstream: no
+          
+    '';
+  };
 
   # Select internationalisation properties.
    i18n = {
