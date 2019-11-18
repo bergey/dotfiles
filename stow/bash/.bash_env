@@ -37,7 +37,7 @@ $HOME/.nix-profile/lib/kde4/libexec
 /usr/sbin
 /sbin
 $HOME/code/utility
-$HOME/.cabal/bin"
+$HOME/.cabal/bin
 EOF`
 
 export NIX_PATH=$HOME/.nix-defexpr/channels
