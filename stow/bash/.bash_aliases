@@ -23,7 +23,7 @@ else
 fi
 
 # xrandr commands
-alias xr2="xrandr --output HDMI-1 --rotate left --left-of eDP-1 --mode 1600x900"
+alias xr2="xrandr --output HDMI-1 --left-of eDP-1 --mode 1920x1080"
 alias xr1="xrandr --output HDMI-1 --off"
 
 # emacs
