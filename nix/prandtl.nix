@@ -150,7 +150,6 @@ virtualisation.docker.enable = true;
     };
 
     desktopManager.xterm.enable = false;
-    displayManager.slim.enable = true;
   };
 
   services.autorandr.enable = true;
