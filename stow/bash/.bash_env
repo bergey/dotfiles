@@ -13,31 +13,21 @@ export GOPATH=/home/$USER/.local/gocode
 # echo "PATH was $PATH"
 
 export PATH=`paste -d ':' -s - << EOF 
-$HOME/bin
 $HOME/.local/bin/
-$HOME/.local/gocode/bin
 $HOME/.nix-profile/bin
 /usr/local/bin
-/usr/local/heroku/bin
 /opt/local/bin
 /opt/local/sbin
 $HOME/.nix-profile/sbin
 $HOME/.nix-profile/bin
-$HOME/.nix-profile/lib/kde4/libexec
-/nix/var/nix/profiles/default/bin
-/nix/var/nix/profiles/default/sbin
-/nix/var/nix/profiles/default/kde4/libexec
 /Applications/git-annex.app/Contents/MacOS
 /run/wrappers/bin
-/etc/per-user-pkgs/$USER/bin
-/nix/var/nix/profiles/default/bin
 /run/current-system/sw/bin
 /usr/bin
 /bin
 /usr/sbin
 /sbin
 $HOME/code/utility
-$HOME/.cabal/bin
 EOF`
 
 export NIX_PATH=$HOME/.nix-defexpr/channels
