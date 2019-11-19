@@ -1,25 +1,29 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-import XMonad
-import XMonad.Layout.Tabbed (tabbed, def, Shrinker(..))
-import XMonad.Layout.Master
-import XMonad.StackSet (shift)
-import XMonad.Layout.SimpleDecoration
-import XMonad.Layout.Decoration
-import XMonad.Util.EZConfig
+import           Data.List
+import           XMonad
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
+import           XMonad.Layout.Combo
+import           XMonad.Layout.Decoration
+import           XMonad.Layout.Master
+import           XMonad.Layout.SimpleDecoration
+import           XMonad.Layout.Tabbed (tabbed, def, Shrinker(..))
+import           XMonad.Layout.TwoPane
+import           XMonad.Layout.WindowNavigation
+import           XMonad.StackSet (shift)
 import qualified XMonad.StackSet as W
-import Data.List
-import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.ManageDocks
+import           XMonad.Util.EZConfig
 
-import XMonad.Layout.Simplest ( Simplest(Simplest) )
+import           XMonad.Layout.Simplest ( Simplest(Simplest) )
 
-myLayout = avoidStruts $ tiled ||| Full ||| tabbed DropBoring def ||| leftTabbed (4/20)
+myLayout = avoidStruts $
+    dualTabs ||| topTabs ||| leftTabbed (3/20)
   where
-    tiled   = Tall nmaster delta ratio
+    dualTabs = windowNavigation (combineTwo (TwoPane delta (1/2)) topTabs topTabs)
+    topTabs = tabbed DropBoring def
     nmaster = 2 -- The default number of windows in the master pane
-    ratio   = 1/2 -- Default proportion of screen occupied by master pane
     delta   = 3/100 -- Percent of screen to increment by when resizing panes
 
 forceDesktopOrFloat = composeAll $
@@ -40,7 +44,11 @@ main = xmonad $ defaults
         , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
          ]
         `additionalKeysP`
-        [ ("M--", spawn "xscreensaver-command -lock"), ("M-s", spawn "xscreensaver-command -suspend && systemctl suspend") ]
+        [ ("M--", spawn "xscreensaver-command -lock")
+        , ("M-s", spawn "xscreensaver-command -suspend && systemctl suspend")
+        , ("M-,", sendMessage (Move L))
+        , ("M-.", sendMessage (Move R))
+        ]
 
 defaults = defaultConfig {
       -- simple stuff
