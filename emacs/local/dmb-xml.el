@@ -110,4 +110,12 @@ by using nxml's indentation rules."
   (interactive)
   (set-face-background 'mode-line "gray"))
 
+
+(use-package nov
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+  (setq nov-variable-pitch nil) ;; use default face instead
+  )
+
 (provide 'dmb-xml)

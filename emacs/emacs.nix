@@ -79,6 +79,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     nix-sandbox
     nodejs-repl
     notmuch
+    nov
     org-plus-contrib
     org-pomodoro
     org-trello
