@@ -103,49 +103,49 @@
       (case system-type
         ('gnu/linux "~/Dropbox/org-mode/")
        ('windows-nt
-        (format  "c:/Users/%s/records/org-mode/" (user-login-name)))
+        (format  "c:/Users/%s/Dropbox/org-mode/" (user-login-name)))
        ('darwin "~/Dropbox/org-mode/")))
 
 (defun in-org-directory (fn) (concat org-directory fn))
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
-(setq dmb-work-agenda-files '("teal.org" ))
-
-(setq dmb-home-agenda-files
-      (-remove
-       (lambda (filename) (-any?
-                           (lambda (work) (s-ends-with? work filename))
-                           (cons "cb.trello"dmb-work-agenda-files)) )
-       (file-expand-wildcards (concat org-directory "[a-z]*.org"))
-       ))
+(setq bergey/work-agenda-files (mapcar #'in-org-directory '("simspace.org")))
+(setq bergey/home-agenda-files (mapcar #'in-org-directory '("house.org")))
+(setq bergey/teal-agenda-files (mapcar #'in-org-directory '("teal.org")))
 
 ;; TODO add remaining files to task lists
 ;; Not everything household related is in house.org now
 ;; There's at least one other category - code / study / personal
 (setq org-agenda-custom-commands
-      '(("p" tags "project+LEVEL=1|contract+LEVEL=1")
-        ("P" tags-todo "project")
+      '(
+        ("w" tags-todo "TODO at work" "-someday-next-TODO=\"DELAY\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-files bergey/work-agenda-files)))
+        ("h" tags-todo "TODO at home" "-someday-next-TODO=\"DELAY\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-files bergey/home-agenda-files)))
+        ("b" tags-todo "TODO for teallabs" "-someday-next-TODO=\"DELAY\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-files bergey/teal-agenda-files)))
         ("W" "agenda at work" agenda ""
-         ((org-agenda-files
-           (mapcar 'in-org-directory dmb-work-agenda-files))))
+         ((org-agenda-files bergey/work-agenda-files)))
         ("H" "agenda at home" agenda ""
-         ((org-agenda-files (list (in-org-directory "house.org")))))
+         ((org-agenda-files bergey/home-agenda-files)))
+        ("B" "agenda for teallabs" agenda ""
+         ((org-agenda-files bergey/teal-agenda-files)))
+
+        ("p" tags "project+LEVEL=1|contract+LEVEL=1")
+        ("P" tags-todo "project")
         ("D" tags-todo "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
-        ("w" tags-todo "-someday-next-TODO=\"DELAY\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files (mapcar 'in-org-directory dmb-work-agenda-files))))
-        ("h" tags-todo "-someday-next-TODO=\"DELAY\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
-          (org-agenda-files (list (in-org-directory "house.org")))))
         ("n" tags "next+LEVEL=1")
         ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
         ("q" tags-todo "quick-someday")
-        ("B" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
-        ("b" tags "buy")
+        ("X" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
+        ("$" tags "buy")
         ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")))
 
 (setq org-capture-templates
