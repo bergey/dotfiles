@@ -10,26 +10,40 @@ fi
 
 export GOPATH=/home/$USER/.local/gocode
 
-# echo "PATH was $PATH"
-
-export PATH=`paste -d ':' -s - << EOF 
+NEW_PATH=`paste -d ':' -s - << EOF 
 $HOME/.local/bin/
 $HOME/.nix-profile/bin
-/usr/local/bin
+$HOME/.nix-profile/sbin
+EOF`
+
+if [ $(uname -s) == MacOS ]; then
+   NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
 /opt/local/bin
 /opt/local/sbin
-$HOME/.nix-profile/sbin
-$HOME/.nix-profile/bin
 /Applications/git-annex.app/Contents/MacOS
+EOF`
+fi
+
+if [ -d /run/current-system/sw/bin ]; then # NixOS
+    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
 /run/wrappers/bin
 /run/current-system/sw/bin
+EOF`
+else # Not NixOS, can be Linux or MacOS
+    # On MacOS, these should come after the /opt dirs
+    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
 /nix/var/nix/profiles/default/bin
+/usr/local/bin
 /usr/bin
 /bin
 /usr/sbin
 /sbin
-$HOME/code/utility
 EOF`
+fi
+
+echo $NEW_PATH
+export PATH=$NEW_PATH
+unset NEW_PATH
 
 export NIX_PATH=$HOME/.nix-defexpr/channels
 
