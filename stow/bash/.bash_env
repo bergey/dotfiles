@@ -23,6 +23,7 @@ $HOME/.nix-profile/bin
 /Applications/git-annex.app/Contents/MacOS
 /run/wrappers/bin
 /run/current-system/sw/bin
+/nix/var/nix/profiles/default/bin
 /usr/bin
 /bin
 /usr/sbin
