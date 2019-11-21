@@ -114,18 +114,15 @@
 (setq bergey/home-agenda-files (mapcar #'in-org-directory '("house.org")))
 (setq bergey/teal-agenda-files (mapcar #'in-org-directory '("teal.org")))
 
-;; TODO add remaining files to task lists
-;; Not everything household related is in house.org now
-;; There's at least one other category - code / study / personal
 (setq org-agenda-custom-commands
       '(
-        ("w" tags-todo "TODO at work" "-someday-next-TODO=\"DELAY\""
+        ("w" "TODO at work" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files bergey/work-agenda-files)))
-        ("h" tags-todo "TODO at home" "-someday-next-TODO=\"DELAY\""
+        ("h" "TODO at home" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files bergey/home-agenda-files)))
-        ("b" tags-todo "TODO for teallabs" "-someday-next-TODO=\"DELAY\""
+        ("b" "TODO for teallabs" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files bergey/teal-agenda-files)))
         ("W" "agenda at work" agenda ""
