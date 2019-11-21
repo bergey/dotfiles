@@ -80,6 +80,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     nodejs-repl
     notmuch
     nov
+    org-cliplink
     org-plus-contrib
     org-pomodoro
     org-trello
