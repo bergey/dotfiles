@@ -7,10 +7,12 @@ update = git pull gitlab
 checkout = git clone 'git@github.com:bergey/dotfiles.git' 'public-dotfiles'
 
 [records/keys]
-heckout = git clone 'keybase://private/dmbergey/keys' 'keys'
+checkout = git clone 'keybase://private/dmbergey/keys' 'keys'
+update = git pull --rebase; git push
 
 [.password-store]
 checkout = git clone 'git@bitbucket.org:bergey/passwords.git' '.password-store'
+update = git pull --rebase; git push
 
 [records/resume]
 checkout = git clone 'ssh://git@bitbucket.org/bergey/resume.git' 'resume'
