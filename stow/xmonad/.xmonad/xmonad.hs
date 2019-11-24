@@ -24,7 +24,9 @@ myLayout = avoidStruts $
     dualTabs = windowNavigation (combineTwo (TwoPane delta (1/2)) topTabs topTabs)
     topTabs = tabbed DropBoring def
     nmaster = 2 -- The default number of windows in the master pane
-    delta   = 3/100 -- Percent of screen to increment by when resizing panes
+    -- Percent of screen to increment by when resizing panes
+    -- 1/2, 1/3 - adjust by 1/6
+    delta   = 1/6
 
 forceDesktopOrFloat = composeAll $
                  (className =? "firefox-bin"                    --> doF (shift "2")) :
