@@ -64,6 +64,10 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+fi
+
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 [ -f /opt/local/share/bash-completion/completions/pass ] && . /opt/local/share/bash-completion/completions/pass
 [ -f /usr/share/bash-completion/completions/pass ] && . /usr/share/bash-completion/completions/pass

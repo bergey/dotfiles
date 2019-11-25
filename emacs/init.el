@@ -27,6 +27,7 @@
                  dmb-editing
                  dmb-system
                  dmb-unicode
+                 dmb-evil
                  ;; org mode
                  dmb-org
                  ;; programming
@@ -50,7 +51,6 @@
                  ;;dmb-ublog
                  dmb-irc
                  dmb-shell
-                 dmb-evil
                  epa-file
                  dmb-ledger
                  dmb-dired

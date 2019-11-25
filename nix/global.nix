@@ -56,13 +56,11 @@ buildEnv {
   name = "bergey-env";
   paths= [
     alacritty
-    arduino
     aspell
     aspellDicts.en
     atool
     bench
 #    ctags
-    curl
     direnv
     editorconfig-core-c
     git
@@ -88,7 +86,6 @@ buildEnv {
     ledger3
     lftp
     lrzip
-    maim # screenshots
     mr
     msmtp
     nix-prefetch-git
@@ -97,7 +94,6 @@ buildEnv {
     notmuch
     pass
     perlPackages.ImageExifTool
-    psmisc # pstree &c
     pwgen
     ripgrep
     rsync
@@ -116,10 +112,12 @@ buildEnv {
         nix
     ] else [
         acpi
+        arduino
         borgbackup
         cadaver
         calibre
         crawl
+        curl
         dmenu
         docker
         dropbox-cli
@@ -133,7 +131,9 @@ buildEnv {
         kubectl
         linuxPackages.virtualbox
         loc
+        maim # screenshots
         pavucontrol
+        psmisc # pstree &c
         slack
         transmission
         xorg.xev
