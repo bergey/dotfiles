@@ -1,6 +1,6 @@
 (setq
  mac-command-modifier 'control
- mac-control-modifier 'super
+ mac-control-modifier 'control
  mac-option-modifier 'meta
  mac-pass-command-to-system nil
  )
