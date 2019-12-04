@@ -87,4 +87,8 @@ alias backup='borg create /mnt/babel/$(hostname)::$(date +%F) ~ --exclude sh:**/
 
 alias urldecode='python -c "import sys;import urllib.parse as ul;print(ul.unquote_plus(sys.argv[1]))"'
 
-. ~/code/active/nix/bash_aliases
+# docker / kubernetes
+alias k=kubectl
+alias d=docker
+
+. ~/dotfiles/nix/bash_aliases
