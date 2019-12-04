@@ -32,7 +32,8 @@
     (setq flycheck-ghc-args '("-fno-warn-name-shadowing" "-fno-warn-type-defaults"))
     (setq haskell-font-lock-quasi-quote-modes
           (append
-           '(("aritySql" . sql-mode))
+           '(("aritySql" . sql-mode)
+             '("qq" . sql-mode))
            haskell-font-lock-quasi-quote-modes))
 
     (defun dmb-haskell-insert-language-pragma (extension)
