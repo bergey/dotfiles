@@ -1,4 +1,4 @@
-BOOTSTRAPS := $(shell ls bootstrap)
+BOOTSTRAPS := $(subst .nix,-env,$(shell ls bootstrap))
 OLD := 7d
 
 .PHONY: all os os-update user global bootstrap-envs ${BOOTSTRAPS}
@@ -19,10 +19,11 @@ os-update:
 global:
 	nix-env -if global.nix
 
-bootstrap-envs:
-	for env in $(shell ls bootstrap | sed 's/\.nix$$//'); do \
-		nix-env -p /nix/var/nix/profiles/per-user/${USER}/bootstrap-$$env -if bootstrap/$$env.nix; \
-	done;
+bootstrap-envs: $(BOOTSTRAPS)
+
+$(BOOTSTRAPS): %-env: bootstrap/%.nix nixpkgs-snapshot.json
+	@echo $*
+	nix-env -p /nix/var/nix/profiles/per-user/${USER}/bootstrap-$* -if bootstrap/$*.nix
 
 prune:
 	sudo nix-collect-garbage --delete-older-than ${OLD}
