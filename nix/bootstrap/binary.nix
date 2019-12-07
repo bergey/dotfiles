@@ -17,11 +17,13 @@ in with pkgs; mkEnv {
   paths = [
     bind
     binutils
-    glxinfo
+  ] ++ (if stdenv.isDarwin then [
+  ] else [
     intel-gpu-tools
+    glxinfo
     opencl-info
-    pciutils
     smem
-  ];
+    pciutils
+  ]);
 }
     
