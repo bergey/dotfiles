@@ -19,7 +19,7 @@ in with pkgs; mkEnv {
             cabal-install
             # ghc
             haskellPackages.hpack
-            haskellPackages.shake
+            # haskellPackages.shake
             # haskellPackages.alex
             stack
             (haskell.packages.ghc865.ghcWithPackages
