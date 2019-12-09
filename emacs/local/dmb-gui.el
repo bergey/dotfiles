@@ -144,7 +144,11 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   :commands diminish
   )
 
-(use-package projectile :ensure t)
+(use-package projectile :ensure t
+  :config
+  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
+  (projectile-mode +1)
+  )
 
 ;; nicer rectangle selection, without other CUA bindings
 (bind-key "C-x r h" 'cua-set-register-mark)
