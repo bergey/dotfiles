@@ -140,3 +140,13 @@ fi
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 eval "$(direnv hook bash)"
+
+function loc-lang {
+    # report lines of code in each sub-directory, in a particular language
+    lang="$1"
+    for d in $(find . -type d -maxdepth 1); do
+        echo $d
+        loc $d | grep -i "$lang"
+        echo ''
+    done
+}
