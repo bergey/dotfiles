@@ -130,6 +130,10 @@ if [ -f '/usr/local/stow/google-cloud-sdk/path.bash.inc' ]; then source '/usr/lo
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/stow/google-cloud-sdk/completion.bash.inc' ]; then source '/usr/local/stow/google-cloud-sdk/completion.bash.inc'; fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 if [ -f "$HOME/code/simspace/ci/deploy/portal" ]; then
     eval $($HOME/code/simspace/ci/deploy/portal env)
     export POOL_ALLOCATION=2965-2969
