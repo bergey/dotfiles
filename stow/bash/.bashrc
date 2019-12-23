@@ -148,9 +148,12 @@ eval "$(direnv hook bash)"
 function loc-lang {
     # report lines of code in each sub-directory, in a particular language
     lang="$1"
-    for d in $(find . -type d -maxdepth 1); do
-        echo $d
-        loc $d | grep -i "$lang"
-        echo ''
-    done
+    {     echo "LOC Directory"
+          for d in $(find . -type d -maxdepth 1); do
+              echo -n '*' >&2
+          count=$(loc $d | grep -i "$lang")
+          if [ $? == 0 ]; then echo "$d $count" | awk '{print $7, $1;}'; fi
+          done
+          echo '' >&2
+    } | sort -h | column -t
 }
