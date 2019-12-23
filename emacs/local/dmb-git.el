@@ -26,4 +26,7 @@
   (interactive)
   (re-search-forward "<<<<<<<\\|=======\\|>>>>>>>"))
 
+(use-package git-link
+  :ensure t)
+
 (provide 'dmb-git)
