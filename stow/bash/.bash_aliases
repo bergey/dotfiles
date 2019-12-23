@@ -90,5 +90,6 @@ alias urldecode='python -c "import sys;import urllib.parse as ul;print(ul.unquot
 # docker / kubernetes
 alias k=kubectl
 alias d=docker
+alias stack-fast='stack build --fast --ghc-options=-j'
 
 . ~/dotfiles/nix/bash_aliases

@@ -5,13 +5,16 @@
 
 (defvar happy-mode-syntax-table
   (let ((synTable (make-syntax-table)))
-    (modify-syntax-entry ?\' "\"")
-    (modify-syntax-entry ?: "_")
-    (modify-syntax-entry ?| "_")
-    (modify-syntax-entry ?% "_")
-    ;; TODO {- -} are block comments
+    (modify-syntax-entry ?\' "\"" synTable)
+    (modify-syntax-entry ?: "_" synTable)
+    (modify-syntax-entry ?| "_" synTable)
+    (modify-syntax-entry ?% "_" synTable)
+    (modify-syntax-entry ?{ "(} 1b" synTable)
+    (modify-syntax-entry ?} "){4" synTable)
+    (modify-syntax-entry ?- "_ 12b" synTable)
+    (modify-syntax-entry ?\n "> b" synTable)
     synTable)
-  "Syntax table for `happy-mode'"
+  ;; "Syntax table for `happy-mode'"
   )
 
 (defface happy-haskell-face
@@ -29,7 +32,7 @@
 
 (defconst happy-font-lock-keywords
   '(
-    ("\\<%[a-z]*\\>" . 'happy-directive-face)
+    ("%[a-z]*\\>" . 'happy-directive-face)
     ("[:|]" . 'happy-grammer-rule-face)
     ("[{}]" . 'happy-haskell-face)
     ("%%" . 'font-lock-comment-face)

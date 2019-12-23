@@ -130,8 +130,30 @@ if [ -f '/usr/local/stow/google-cloud-sdk/path.bash.inc' ]; then source '/usr/lo
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/stow/google-cloud-sdk/completion.bash.inc' ]; then source '/usr/local/stow/google-cloud-sdk/completion.bash.inc'; fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+if [ -f "$HOME/code/simspace/ci/deploy/portal" ]; then
+    eval $($HOME/code/simspace/ci/deploy/portal env)
+    export POOL_ALLOCATION=2965-2969
+fi
+
 # For Arduino & other Java GUIs
 # http://www.simonrichter.eu/blog/2016-11-01-arduino-tiling-window-manager.html
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 eval "$(direnv hook bash)"
+
+function loc-lang {
+    # report lines of code in each sub-directory, in a particular language
+    lang="$1"
+    {     echo "LOC Directory"
+          for d in $(find . -type d -maxdepth 1); do
+              echo -n '*' >&2
+          count=$(loc $d | grep -i "$lang")
+          if [ $? == 0 ]; then echo "$d $count" | awk '{print $7, $1;}'; fi
+          done
+          echo '' >&2
+    } | sort -h | column -t
+}

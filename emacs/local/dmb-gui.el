@@ -1,10 +1,3 @@
-(setq
- mac-command-modifier 'control
- mac-control-modifier 'control
- mac-option-modifier 'meta
- mac-pass-command-to-system nil
- )
-
 (toggle-frame-fullscreen)
 
 ;; fonts
@@ -31,9 +24,12 @@
             ))
          ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
          ('darwin
-          (if (>= (x-display-pixel-height) 1080)
-              (set-frame-parameter (window-frame) 'font "Gentium Plus-14")
-            (set-frame-parameter (window-frame) 'font "Gentium Plus-12")
+          (cond
+           ((>= (x-display-pixel-height) 2060)
+            (set-frame-parameter (window-frame) 'font "Gentium Plus-10"))
+           ((>= (x-display-pixel-height) 1080)
+            (set-frame-parameter (window-frame) 'font "Gentium Plus-14"))
+           (t (set-frame-parameter (window-frame) 'font "Gentium Plus-12"))
             )
           ))))
 
@@ -75,11 +71,12 @@
   )
 
 (use-package buffer-move :ensure t
-  :bind          ("C-. <left>" . buf-move-left)
-  ("C-. <right>" . buf-move-right)
-         ;; ("C-. <up>" . buf-move up)
-         ;; ("C-. <down>" . buf-move-down)
-         )
+  :bind
+    ("C-. <left>" . buf-move-left)
+    ("C-. <right>" . buf-move-right)
+    ;; ("C-. <up>" . buf-move up)
+    ;; ("C-. <down>" . buf-move-down)
+    )
 
 (use-package window-purpose :ensure t
   :config
@@ -132,14 +129,19 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   :diminish ivy-mode
   :config
   (ivy-mode)
-    (bind-key "C-<return>" 'ivy-immediate-done ivy-minibuffer-map)
+  (bind-key "C-<return>" 'ivy-immediate-done ivy-minibuffer-map)
+  (setq ivy-extra-directories '())
   )
 
 (use-package diminish :ensure t
   :commands diminish
   )
 
-(use-package projectile :ensure t)
+(use-package projectile :ensure t
+  :config
+  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
+  (projectile-mode +1)
+  )
 
 ;; nicer rectangle selection, without other CUA bindings
 (bind-key "C-x r h" 'cua-set-register-mark)

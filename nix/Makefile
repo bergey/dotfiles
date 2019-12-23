@@ -2,9 +2,10 @@ BOOTSTRAPS := $(subst .nix,-env,$(shell ls bootstrap))
 OLD := 7d
 
 .PHONY: all os os-update user global bootstrap-envs ${BOOTSTRAPS}
-all: user os
 
 user: global bootstrap-envs
+
+all: user os
 
 update:
 	@./update.sh

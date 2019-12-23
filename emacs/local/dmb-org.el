@@ -9,7 +9,7 @@
             ;; Removes clocked tasks with 0:00 duration
             (setq org-clock-out-remove-zero-time-clocks t)
             ;; wrap clock entries in a drawer if they exceed this many
-            (setq org-clock-into-drawer 5)
+            (setq org-clock-into-drawer 3)
             (setq org-clock-clocked-in-display 'nil)
             (setq org-log-into-drawer t)
             (setq org-agenda-window-setup 'other-window)
