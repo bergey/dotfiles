@@ -17,24 +17,21 @@
    "set frame font & font size based on OS & display size"
    (interactive)
    (if window-system
-       (cl-case system-type
-         ('gnu/linux
-          (if (> (x-display-pixel-height) 900)
-              (set-frame-parameter (window-frame) 'font
-                                   (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" gentium))
-            (set-frame-parameter (window-frame) 'font
-                                 (format "-unknown-Gentium Plus-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1" gentium))
-            ))
-         ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
-         ('darwin
-          (cond
-           ((>= (x-display-pixel-height) 2060)
-            (set-frame-parameter (window-frame) 'font "Gentium Plus-10"))
-           ((>= (x-display-pixel-height) 1080)
-            (set-frame-parameter (window-frame) 'font "Gentium Plus-14"))
-           (t (set-frame-parameter (window-frame) 'font "Gentium Plus-12"))
-            )
-          ))))
+       (set-frame-parameter (window-frame) 'font
+                            (cl-case system-type
+                              ('gnu/linux
+                               (if (> (x-display-pixel-height) 900)
+                                   (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" gentium)
+                                 (format "-unknown-Gentium Plus-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1" gentium)
+                                 ))
+                              ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
+                              ('darwin
+                               (cond
+                                ((>= (x-display-mm-height) 250) "Gentium Plus-8")
+                                ((>= (x-display-pixel-height) 1080) "Gentium Plus-14")
+                                (t "Gentium Plus-12")
+                                )))
+                            )))
 
 ;;; Fontify current frame (so that it happens on startup; may be unnecessary if you use focus-in-hook)
  (fontify-frame)
