@@ -1,3 +1,6 @@
+;; never split vertically (into 2 windows above eachother)
+(setq split-height-threshold nil)
+
 (toggle-frame-fullscreen)
 
 ;; fonts
