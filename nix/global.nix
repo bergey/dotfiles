@@ -32,7 +32,6 @@ buildEnv {
   name = "bergey-env";
   paths= [
     alacritty
-    aspell
     aspellDicts.en
     atool
     bench
@@ -89,6 +88,7 @@ buildEnv {
     ] else [
         acpi
         arduino
+        aspell
         borgbackup
         cadaver
         calibre
