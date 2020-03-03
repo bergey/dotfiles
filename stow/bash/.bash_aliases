@@ -87,9 +87,11 @@ alias backup='borg create /mnt/babel/$(hostname)::$(date +%F) ~ --exclude sh:**/
 
 alias urldecode='python -c "import sys;import urllib.parse as ul;print(ul.unquote_plus(sys.argv[1]))"'
 
+# simspace
+alias range-server='export RANGE_HOST=$(ifconfig | awk '"'"'$2 ~ /^192.168.(207|205)/  {print $2;}'"'"'); stack run range-server'
+
 # docker / kubernetes
 alias k=kubectl
 alias d=docker
-alias stack-fast='stack build --fast --ghc-options=-j'
 
 . ~/dotfiles/nix/bash_aliases

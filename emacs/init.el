@@ -42,9 +42,6 @@
                  dmb-python
                  dmb-languages
                  dmb-git
-                 ;; mail
-                 dmb-notmuch
-                 dmb-bbdb
                  ;; misc
                  dmb-emacsclient
                  dmb-xml

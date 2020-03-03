@@ -8,6 +8,10 @@
   :config
   (progn
 
+    ;; better flycheck with info from cabal / hpack files
+    (use-package flycheck-haskell
+      :ensure t)
+
     (setq haskell-mode-hook '(
     ;;                           ;;structured-haskell-mode
                               whitespace-mode
@@ -20,6 +24,7 @@
                               ;;   (setq-local helm-dash-docsets '("Haskell")))
                               haskell-auto-insert-module-template
     ;;                           ;; ghc-init  ; doesn't work with GHC-7.10?
+                              flycheck-haskell-setup
                               ))
 
     (setq
