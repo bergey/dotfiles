@@ -150,14 +150,28 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;; nicer rectangle selection, without other CUA bindings
 (bind-key "C-x r h" 'cua-set-register-mark)
 
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (setq sml/theme 'dark)
+  (setq sml/shorten-directory t)
+  (setq sml/shorten-modes t)
+  (setq sml/mode-width 0)
+  (sml/setup)
+  (setq rm-blacklist '("hl-p" "Interactive" "SMerge"))
+
+  (use-package smart-mode-line-powerline-theme
+    :ensure t)
+  )
+
 ;; mode line
-(setq mode-line-percent-position nil)
-(setq-default mode-line-format
-            '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-remote
-              ;; mode-line-buffer-identification
-              "%f"
-              " " evil-mode-line-tag mode-line-position
- (vc-mode vc-mode)
- "  <" mode-name "> " mode-line-misc-info mode-line-end-spaces))
+;; (setq mode-line-percent-position nil)
+;; (setq-default mode-line-format
+;;             '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-remote
+;;               mode-line-buffer-identification
+;;               ;; "%f"
+;;               " " evil-mode-line-tag mode-line-position
+;;  (vc-mode vc-mode)
+;;  "  <" mode-name "> " mode-line-misc-info mode-line-end-spaces))
 
 (provide 'dmb-gui)
