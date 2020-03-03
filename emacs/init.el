@@ -1,11 +1,8 @@
-;; (package-initialize) ; in dmb-package instead
-
 ;; from https://github.com/bodil/ohai-emacs
 ;; Figure out the path to our .emacs.d by getting the path part of the
 ;; current file (`init.el`).
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) (file-chase-links load-file-name))))
-
 (setq load-prefer-newer t)
 
 ;; load-path
@@ -15,6 +12,11 @@
 (delete "/Applications/Emacs.app/Contents/Resources/lisp/org" load-path)
 
 (require 'dmb-package)
+
+;; Load Customize UI settings from `custom.el`.
+(setq custom-file (concat dotfiles-dir "custom.el"))
+(load custom-file 'noerror)
+
 
 (time-packages '(
                  ;; load this stuff early, so I have it even when I
@@ -75,8 +77,3 @@
 
 ;; kept seperate so the rest can be shared, succeed even if not present
 (with-library 'dmb-passwords)
-
-;; from https://github.com/bodil/ohai-emacs
-;; Load Customize UI settings from `custom.el`.
-(setq custom-file (concat dotfiles-dir "custom.el"))
-(load custom-file 'noerror)
