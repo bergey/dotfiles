@@ -1,7 +1,8 @@
 ;; never split vertically (into 2 windows above eachother)
 (setq split-height-threshold nil)
 
-(toggle-frame-fullscreen)
+;; this is more annoying than convenient when Emacs starts on the wrong monitor
+;; (toggle-frame-fullscreen)
 
 ;; fonts
 (measure-time
