@@ -64,11 +64,16 @@
         (search-forward-regexp "^module +\\([a-zA-Z.]+\\)")
         (kill-new (match-string 1))))
 
+    (defun bergey/simformat ()
+      (interactive)
+      "format buffer with https://github.com/Simspace/simformat"
+      (save-excursion (shell-command-on-region (point-min) (point-max) "simformat" nil t)))
+
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
                ("C-c c" . haskell-process-cabal)
                ("C-c i" . haskell-navigate-imports)
-               ("C-c C-," . haskell-mode-format-imports)
+               ("C-c C-," . bergey/simformat)
                ("M-." . haskell-mode-tag-find)
                ("C-h C-l" . dmb-ivy-haskell-language-pragma)
                ("C-c m" . dmb-haskell-yank-module-name)
