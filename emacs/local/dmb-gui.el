@@ -65,10 +65,14 @@
 (use-package windresize :ensure t
   :commands windresize)
 
-(use-package eyebrowse :ensure t
-  ;; TODO lazy loading
-  :config (eyebrowse-mode t)
+(use-package perspective
+  :ensure t
+  :config
+  (use-package persp-projectile
+    :ensure t)
+  (bind-key "C-x x w" #'persp-switch)
   )
+(persp-mode)
 
 (use-package buffer-move :ensure t
   :bind
