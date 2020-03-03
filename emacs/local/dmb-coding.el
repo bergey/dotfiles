@@ -148,10 +148,10 @@ preceding paren."
   :config
   ;; TODO show message in minibuffer, but truncate to fit
   (setq flycheck-display-errors-function nil)
-  (setq flycheck-command-wrapper-function
-        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command)))
-  (setq flycheck-executable-find
-        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
+  ;; (setq flycheck-command-wrapper-function
+  ;;       (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command)))
+  ;; (setq flycheck-executable-find
+  ;;       (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
 
   ;; documentation lookup
   ;; (use-package helm-dash :ensure t

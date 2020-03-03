@@ -81,8 +81,8 @@
           haskell-ask-also-kill-buffers nil
           haskell-process-type 'ghci
     )
-    (setq haskell-process-wrapper-function
-        (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
+    ;; (setq haskell-process-wrapper-function
+    ;;     (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
 
     ;; (use-package lsp-haskell
     ;;   :config
