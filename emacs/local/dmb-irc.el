@@ -32,7 +32,7 @@ or outputs error message on failure."
                                         (read-passwd "freenode password: ")
                                         (progn
                                           (message "prompting for GPG password")
-                                          (password-store-get "freenode"))))))))
+                                          (password-store-get "shared/freenode"))))))))
     (erc :server "irc.freenode.net" :nick "bergey")
     (erc :server "irc.mozilla.org" :nick "bergey")
     ;;  (erc :server "localhost"        :nick "bergey" :password (assoc 'bitlbee dmb-passwords))
