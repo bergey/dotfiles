@@ -95,7 +95,7 @@
                   :keymap ivy-switch-buffer-map
                   :caller 'ivy-switch-buffer)))
 
-    (bind-key "s" 'ivy-shell-buffer dmb-jump-keymap)
+    (bind-key "h" 'ivy-shell-buffer dmb-jump-keymap)
     (define-key shell-mode-map (kbd "C-c C-w") nil)
     (define-key shell-mode-map (kbd "C-c C-x") nil) ;; was comint-get-next-from-history which sounds useful
 
