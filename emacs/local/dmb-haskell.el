@@ -61,7 +61,7 @@
       (save-excursion
         (goto-char (point-min))
         ;; should accept unicode module names?
-        (search-forward-regexp "^module +\\([a-zA-Z.]+\\)")
+        (search-forward-regexp "^module +\\([a-zA-Z0-9.]+\\)")
         (kill-new (match-string 1))))
 
     (defun bergey/simformat ()
