@@ -65,9 +65,12 @@
         (kill-new (match-string 1))))
 
     (defun bergey/simformat ()
-      (interactive)
       "format buffer with https://github.com/Simspace/simformat"
-      (save-excursion (shell-command-on-region (point-min) (point-max) "simformat" nil t)))
+      (interactive)
+      (let ((old-point (point)))
+        ;; save-excursion doesn't work, I'm not sure why
+        (shell-command-on-region (point-min) (point-max) "simformat" nil t)
+        (goto-char old-point)))
 
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
