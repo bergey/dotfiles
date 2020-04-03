@@ -63,6 +63,10 @@
   ;; :defer 3
   :config (window-number-meta-mode 1)) ; meta-# shortcuts
 
+(advice-add 'split-window-right :after #'balance-windows)
+(advice-add 'split-window-below :after #'balance-windows)
+(advice-add 'delete-window :after #'balance-windows)
+
 (use-package windresize :ensure t
   :commands windresize)
 
