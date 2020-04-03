@@ -48,3 +48,6 @@ snippets/*/.yas-compiled-snippets.el
 /emacs/nov-places
 /emacs/url/cookies
 /emacs/projectile-bookmarks.eld
+/stow/cabal/.cabal/logs/
+/stow/cabal/.cabal/packages/
+/stow/cabal/.cabal/store/
