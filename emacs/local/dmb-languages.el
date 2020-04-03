@@ -43,9 +43,10 @@
 
 ;; Coq
 (use-package proof-site
-:config
+  :defer t
+  :config
   (use-package coq
-    :defer t
+    :mode "\\.v\\'"
     :config
       (setq coq-compile-before-require t)
     )
