@@ -11,9 +11,4 @@
  (when (memq window-system '(mac ns x))
    (exec-path-from-shell-initialize)))
 
-(use-package direnv
-  :config
-  (direnv-mode)                         ; global minor mode
-  )
-
 (provide 'dmb-environment)
