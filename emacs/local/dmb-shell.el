@@ -122,6 +122,7 @@
 
 (use-package eshell :ensure t
   :commands eshell
+  :bind ((:map eshell-mode-map ("C-M-n" . rename-shell-buffer)))
   :config
   (cl-case system-type
     ('windows-nt
@@ -144,7 +145,6 @@
     ('darwin
      (setq eshell-login-script "/Users/bergey/.emacs.d/eshell/macos-login"))
     )
-  (bind-key "C-M-n" 'rename-shell-buffer eshell-mode-map)
   (setq eshell-buffer-name "*shell*")
   )
 
