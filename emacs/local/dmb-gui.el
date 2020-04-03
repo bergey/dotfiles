@@ -35,11 +35,7 @@
                             )))
 
 ;;; Fontify current frame (so that it happens on startup; may be unnecessary if you use focus-in-hook)
- (fontify-frame)
-
-;;; Only in Emacs 24.4 (currently available as a pretest)
-; see http://emacsredux.com/blog/2014/03/22/a-peek-at-emacs-24-dot-4-focus-hooks/
-(add-hook 'focus-in-hook 'fontify-frame))
+ (fontify-frame))
 
 ;; https://github.com/purcell/default-text-scale
 (use-package default-text-scale
