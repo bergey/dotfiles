@@ -35,19 +35,19 @@
        (size-gt . 2000)))
      ("gnus"
       ((or
-	(mode . message-mode)
-	(mode . mail-mode)
-	(mode . gnus-group-mode)
-	(mode . gnus-summary-mode)
-	(mode . gnus-article-mode))))
+        (mode . message-mode)
+        (mode . mail-mode)
+        (mode . gnus-group-mode)
+        (mode . gnus-summary-mode)
+        (mode . gnus-article-mode))))
      ("programming"
       ((or
-	(mode . emacs-lisp-mode)
-	(mode . cperl-mode)
-	(mode . c-mode)
-	(mode . java-mode)
-	(mode . idl-mode)
-	(mode . lisp-mode)))))))
+        (mode . emacs-lisp-mode)
+        (mode . cperl-mode)
+        (mode . c-mode)
+        (mode . java-mode)
+        (mode . idl-mode)
+        (mode . lisp-mode)))))))
  '(ido-everywhere t)
  '(latex-run-command "pdflatex")
  '(max-lisp-eval-depth 1000)
@@ -68,16 +68,16 @@
      (py-shell-local-path . "./virtualenv/bin/ipython")
      (buffer-file-coding-system . utf-8-unix)
      (eval font-lock-add-keywords nil
-	   (\`
-	    (((\,
-	       (concat "("
-		       (regexp-opt
-			(quote
-			 ("sp-do-move-op" "sp-do-move-cl" "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op" "sp-do-del-cl"))
-			t)
-		       "\\_>"))
-	      1
-	      (quote font-lock-variable-name-face)))))
+           (\`
+            (((\,
+               (concat "("
+                       (regexp-opt
+                        (quote
+                         ("sp-do-move-op" "sp-do-move-cl" "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op" "sp-do-del-cl"))
+                        t)
+                       "\\_>"))
+              1
+              (quote font-lock-variable-name-face)))))
      (haskell-indent-spaces . 4)
      (haskell-process-use-ghci . t)
      (hamlet/basic-offset . 4)
