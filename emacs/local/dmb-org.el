@@ -93,7 +93,7 @@
  org-startup-indented t
  org-agenda-span 'day
  org-enforce-todo-dependencies t
- org-agenda-dim-blocked-tasks 'invisible
+ org-agenda-dim-blocked-tasks t
  org-goto-interface 'outline-path-completion
  )
 
