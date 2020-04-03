@@ -41,6 +41,14 @@
 ; see http://emacsredux.com/blog/2014/03/22/a-peek-at-emacs-24-dot-4-focus-hooks/
 (add-hook 'focus-in-hook 'fontify-frame))
 
+;; https://github.com/purcell/default-text-scale
+(use-package default-text-scale
+  ;; binds C-M-= and C-M--
+  :ensure t
+  )
+(default-text-scale-mode)
+
+
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
 
