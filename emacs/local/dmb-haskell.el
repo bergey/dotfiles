@@ -72,6 +72,15 @@
         (shell-command-on-region (point-min) (point-max) "simformat" nil t)
         (goto-char old-point)))
 
+    (defun bergey/haskell-no-warn-orphans ()
+      "insert pragma to silence warning about orphan instances"
+      (interactive)
+      (save-excursion
+        (goto-char (point-min))
+        (insert "{-# OPTIONS_GHC -fno-warn-orphans #-}\n")
+        )
+      )
+
     (bind-keys :map haskell-mode-map
                ("M-C-h" . haskell-hoogle)
                ("C-c c" . haskell-process-cabal)
