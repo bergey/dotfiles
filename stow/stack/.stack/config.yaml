@@ -8,3 +8,6 @@ templates:
     author-name: Daniel Bergey
     copyright: BSD3
     github-username: bergey
+
+build:
+  interleaved-output: false
