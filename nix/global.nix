@@ -58,7 +58,7 @@ buildEnv {
     isync # mbsync
     jq
     keybase
-    ledger3
+    ledger
     lftp
     lrzip
     mr
