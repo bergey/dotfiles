@@ -9,6 +9,7 @@
  version-control t
  large-file-warning-threshold 1e6
  electric-pair-skip-self 'electric-pair-default-skip-self
+ fill-column 90
  )
 
 (use-package unfill :ensure t
