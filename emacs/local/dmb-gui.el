@@ -172,7 +172,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (setq sml/shorten-modes t)
   (setq sml/mode-width 0)
   (sml/setup)
-  (setq rm-blacklist '("hl-p" "Interactive" "SMerge"))
+  (setq rm-blacklist "ElDoc\\|counsel\\|Projectile.*")
 
   (use-package smart-mode-line-powerline-theme
     :ensure t)
