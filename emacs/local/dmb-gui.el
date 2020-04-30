@@ -146,6 +146,10 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (setq ivy-extra-directories '())
   )
 
+(use-package counsel :ensure t
+  :config
+  (counsel-mode))
+
 (use-package diminish :ensure t
   :commands diminish
   )
