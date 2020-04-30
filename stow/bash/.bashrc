@@ -136,7 +136,7 @@ export NVM_DIR="$HOME/.nvm"
 
 if [ -f "$HOME/code/simspace/ci/deploy/portal" ]; then
     eval $($HOME/code/simspace/ci/deploy/portal env)
-    export POOL_ALLOCATION=2965-2969
+    export POOL_ALLOCATION=2965-2969,2700-2709
 fi
 
 # For Arduino & other Java GUIs
