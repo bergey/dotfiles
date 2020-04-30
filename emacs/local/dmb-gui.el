@@ -77,6 +77,7 @@
 (use-package perspective
   :ensure t
   :config
+  (setq persp-show-modestring nil)
   (use-package persp-projectile
     :ensure t)
   (bind-key "C-x x w" #'persp-switch)
