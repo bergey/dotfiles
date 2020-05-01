@@ -54,8 +54,8 @@ checkout = git clone 'git@github.com:bergey/postgresql-simple.git' 'postgresql-s
 [code/active/red-brass]
 checkout = git clone 'git@github.com:bergey/red-brass.git' 'red-brass'
 
-[code/active/crispy-broccoli]
-checkout = git clone 'git@github.com:bergey/crispy-broccoli.git' 'crispy-broccoli'
+[code/active/preql]
+checkout = git clone 'git@github.com:bergey/preql.git' 'preql'
 
 [code/active/expert-robot]
 checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
