@@ -3,8 +3,8 @@
 checkout = git clone -o gitlab 'git@gitlab.com:bergey/library.git' 'annex'
 update = git pull gitlab
 
-[records/dotfiles]
-checkout = git clone 'git@github.com:bergey/dotfiles.git' 'public-dotfiles'
+[dotfiles]
+checkout = git clone 'git@github.com:bergey/dotfiles.git' 'dotfiles'
 
 [records/keys]
 checkout = git clone 'keybase://private/dmbergey/keys' 'keys'
