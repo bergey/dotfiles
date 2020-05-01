@@ -32,6 +32,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     csv-mode
     dash
+    default-text-scale
     diminish
     direnv
     dockerfile-mode
@@ -52,6 +53,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     fstar-mode
     ghc
     git-annex
+    git-link
     google-this
     groovy-mode
     haskell-mode
@@ -92,6 +94,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     pocket-mode
     polymode
     pov-mode
+    powerline
     projectile
     purescript-mode
     pyvenv
