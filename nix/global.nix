@@ -90,7 +90,6 @@ buildEnv {
         arduino
         aspell
         borgbackup
-        cadaver
         calibre
         crawl
         curl
