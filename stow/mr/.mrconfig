@@ -45,12 +45,6 @@ checkout = git clone 'git@github.com:bergey/vcatt.git' 'vcatt'
 [code/active/haskell-sql]
 checkout = git clone 'git@github.com:bergey/haskell-sql.git' 'haskell-sql'
 
-[code/active/postgresql-dynamic]
-checkout = git clone 'git@github.com:bergey/postgresql-dynamic.git' 'postgresql-dynamic'
-
-[code/active/postgresql-simple]
-checkout = git clone 'git@github.com:bergey/postgresql-simple.git' 'postgresql-simple'
-
 [code/active/red-brass]
 checkout = git clone 'git@github.com:bergey/red-brass.git' 'red-brass'
 
