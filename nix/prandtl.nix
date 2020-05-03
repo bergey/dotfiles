@@ -55,12 +55,15 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true; # NetworkManager, including nmcli & nmtui (no applet)
 
-  # Select internationalisation properties.
-   i18n = {
-     consoleFont = "Lat2-Terminus16";
-     consoleKeyMap = "dvorak";
-     defaultLocale = "en_US.UTF-8";
-   };
+    # Select internationalisation properties.
+    i18n = {
+        defaultLocale = "en_US.UTF-8";
+    };
+
+    console = {
+        font = "Lat2-Terminus16";
+        keyMap = "dvorak";
+    };
 
   # Set your time zone.
   time.timeZone = "UTC";
