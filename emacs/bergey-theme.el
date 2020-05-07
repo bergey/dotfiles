@@ -101,6 +101,12 @@
  '(org-verbatim ((t (:foreground "gold"))))
  '(org-table ((t (:foreground "gray70" :inherit fixed-pitch))))
 
+
+ ;; (smart-)mode-line
+ '(mode-line-inactive ((t (:background "#222"))))
+ '(sml/global ((t (:background "#005"))))
+ '(mode-line ((t ("#005"))))
+
  ;; email messages (2019-06-18 not currently using)
  '(message-cited-text ((((class color) (min-colors 89)) (:foreground "SpringGreen3"))))
  '(message-header-cc ((((class color) (min-colors 89)) (:foreground "yellow green"))))
@@ -128,9 +134,12 @@
 
 
 ;; (set-face-foreground 'font-lock-string-face "#bea")
-;; (set-face-background 'font-lock-string-face nil)
+;; (set-face-background 'sml/pre-id-separator "#700")
+;; (set-face-background 'powerline-active1 "#222")
+;; (set-face-background 'powerline-active2 "#599")
+
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
-;; (set-face-attribute 'markdown-code-face :inherit nil)
+;; (set-face-attribute 'powerline-active1 nil :inherit nil)
 ;; (set-face-foreground 'highlight-indent-guides-character-face "#d70")
 
 ;; Local Variables:
