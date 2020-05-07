@@ -149,7 +149,9 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 (use-package counsel :ensure t
   :config
-  (counsel-mode))
+  (counsel-mode)
+  (ivy-configure 'counsel-M-x :initial-input "")
+  )
 
 (use-package diminish :ensure t
   :commands diminish
