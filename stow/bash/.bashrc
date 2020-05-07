@@ -124,6 +124,12 @@ function headgrep {
     awk "NR==1 || \$1 ~ /$1/"
 }
 
+# redirect STDIN to the file passed as $1; print progress dots to STDOUT
+function quiet {
+    # unescaped: awk '{ print $0 >> "quiet.log"; dots+=1 }; dots < 80 { printf "." }; dots >= 80 { printf ".\n"; dots=0 }'
+    awk "{ print \$0 >> \"$1\"; dots+=1 }; dots < 80 { printf \".\" }; dots >= 80 { printf \".\n\"; dots=0 }"
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/stow/google-cloud-sdk/path.bash.inc' ]; then source '/usr/local/stow/google-cloud-sdk/path.bash.inc'; fi
 
