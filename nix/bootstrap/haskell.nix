@@ -15,7 +15,7 @@ in with pkgs; mkEnv {
             # haskellPackages.shake
             # haskellPackages.alex
             stack
-            (haskell.packages.ghc865.ghcWithPackages
+            (haskell.packages.ghc8101.ghcWithPackages
                 (ps: [ ps.shake ]))
         ];
     }
