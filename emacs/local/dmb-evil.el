@@ -2,6 +2,7 @@
   :diminish undo-tree-mode
   :config
   (evil-mode 1)
+  (global-undo-tree-mode -1)
 
   (mapcar (lambda (key-string)
             (define-key evil-motion-state-map (kbd key-string) nil)
