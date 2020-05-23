@@ -1,5 +1,4 @@
 (use-package evil :ensure t
-  :diminish undo-tree-mode
   :config
   (evil-mode 1)
   (global-undo-tree-mode -1)
