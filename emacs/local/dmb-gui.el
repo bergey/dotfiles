@@ -180,6 +180,10 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
     :ensure t)
   )
 
+(defun bergey/buffer-file-name-as-kill ()
+  (interactive)
+  (kill-new (buffer-file-name)))
+
 ;; mode line
 ;; (setq mode-line-percent-position nil)
 ;; (setq-default mode-line-format
