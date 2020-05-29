@@ -14,6 +14,10 @@
     sed -E -e 's@^include (.*/)?(.*.local)$@include /etc/firejail/\2@g' -i $out/etc/firejail/*.profile
   '';
     });
+
+    xscreensaver = super.xscreensaver.overrideAttrs (oldAttrs: {
+            patches = [ ./xscreensaver.xpm.patch ./teal.xpm.patch ];
+        });
   }) ];
 
   imports =
@@ -81,6 +85,7 @@ virtualisation.docker.enable = true;
      cacert
      wget vim
      bash-completion
+     xscreensaver
      # pavucontrol
    ];
 
@@ -204,7 +209,7 @@ virtualisation.docker.enable = true;
   };
 
   systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
-  
+
   services.transmission.enable = true;
 
   fileSystems."/mnt/babel" = {

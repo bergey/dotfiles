@@ -112,9 +112,6 @@ buildEnv {
         slack
         transmission
         xorg.xev
-        (xscreensaver.overrideAttrs (oldAttrs: {
-            patches = [ ./xscreensaver.xpm.patch ./teal.xpm.patch ];
-        }))
         zathura
         zoom-us
     ]);
