@@ -1,5 +1,5 @@
 let
-    pkgs = import ./nixpkgs.nix;
+    pkgs = import ./nixpkgs.nix {};
 
     sizes =
         ({ mkDerivation, base, bytestring, cmdargs, deepseq, dlist, lens

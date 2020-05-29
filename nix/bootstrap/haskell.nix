@@ -1,5 +1,5 @@
 let
-    pkgs = import ../nixpkgs.nix;
+    pkgs = import ../nixpkgs.nix {};
 
     mkEnv = env: if pkgs.lib.inNixShell
         then pkgs.mkShell (env // {buildInputs = env.paths;})
