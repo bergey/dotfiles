@@ -15,7 +15,6 @@ let
 in with pkgs; mkEnv {
         name = "bootstrap-vcs";
         paths = [
-            bazaar
             cvs
             darcs
             mercurial
