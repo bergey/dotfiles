@@ -24,7 +24,7 @@ bootstrap-envs: $(BOOTSTRAPS)
 
 $(BOOTSTRAPS): %-env: bootstrap/%.nix nixpkgs-snapshot.json
 	@echo $*
-	nix-env -p /nix/var/nix/profiles/per-user/${USER}/bootstrap-$* -if bootstrap/$*.nix
+	nix-env -p /nix/var/nix/profiles/per-user/${USER}/bootstraps -if bootstrap/$*.nix
 
 prune:
 	sudo nix-collect-garbage --delete-older-than ${OLD}
