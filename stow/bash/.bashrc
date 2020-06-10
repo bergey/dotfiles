@@ -37,10 +37,10 @@ fi
 # from https://github.com/NixOS/nix/issues/1268
 function restore_prompt_after_nix_shell() {
     if [ "$PS1" != "$PROMPT" ]; then
-        nix_env=$(echo $out | sed 's,/nix/store/[^-]*-,,')
-        if echo $nix_env | grep -q ^bootstrap- ;
-        then nix_env="($(echo $nix_env | sed 's,bootstrap-,,'))"
-        else nix_env="[$nix_env]"
+        nix_env=$(echo $out | sed -E 's,/nix/store/[^-]*-(bootstrap-)?,,')
+        if echo $out | grep -q bootstrap- ;
+        then nix_env="\[\e[35m\][$(echo $nix_env | sed 's,bootstrap-,,')]"
+        else nix_env="\[\e[34m\][$nix_env]"
         fi
         PS1="${nix_env} $PROMPT"
         PROMPT_COMMAND=""
@@ -49,7 +49,7 @@ function restore_prompt_after_nix_shell() {
 
 PROMPT_COMMAND=restore_prompt_after_nix_shell
 # time, command number, hostname, return code, $ sign
-PROMPT="\t \# \h \$? \$ "
+PROMPT='\[\e[36m\]\t \# \h $? \[\e[1;37m\]$ \[\e[m\]'
 export PS1=$PROMPT
 
 # enable color support of ls and also add handy aliases

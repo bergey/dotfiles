@@ -132,6 +132,7 @@
                   :underline nil :slant normal :weight normal
                   :width normal)))))
 
+(set-face-attribute 'comint-highlight-prompt nil :inherit nil)
 
 ;; (set-face-foreground 'font-lock-string-face "#bea")
 ;; (set-face-background 'sml/pre-id-separator "#700")

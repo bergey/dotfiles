@@ -45,6 +45,7 @@
     (if (memq system-type '(gnu gnu/linux))
       (add-hook 'shell-mode-hook 'track-shell-directory/procfs))
 
+    (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
     (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
     (setenv "EDITOR" "emacsclient") ; no -nw; just open in an emacs buffer
