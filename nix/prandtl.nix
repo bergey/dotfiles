@@ -187,6 +187,17 @@ virtualisation.docker.enable = true;
         after = [ "graphical-session-pre.target" ];
   };
 
+  systemd.user.services.xcape = {
+        enable = true;
+        description = "xcape";
+        serviceConfig = {
+            PartOf = [ "graphical-session.target" ];
+            ExecStart = "${pkgs.xcape}/bin/xcape -e 'Alt_L=Escape;Alt_R=Escape'";
+        };
+        wantedBy = [ "graphical-session.target" ];
+        after = [ "graphical-session-pre.target" ];
+  };
+
   services.keybase.enable = true;
   services.kbfs.enable = true;
 
