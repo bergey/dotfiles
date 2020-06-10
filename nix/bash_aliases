@@ -16,7 +16,7 @@ function nix-prefetch-pkgs {
 }
 
 function bootstrap {
-    nix-shell "$HOME/dotfiles/nix/bootstrap/$1.nix" --command "export PS1='[$1] \t \# \h $? $ '; return"
+    nix-shell "$HOME/dotfiles/nix/bootstrap/$1.nix"
 }
 
 alias nix-snapshot='cp ~/code/active/nix/nixpkgs-snapshot.json .'

@@ -34,8 +34,23 @@ else
     export MANPAGER=less
 fi
 
+# from https://github.com/NixOS/nix/issues/1268
+function restore_prompt_after_nix_shell() {
+    if [ "$PS1" != "$PROMPT" ]; then
+        nix_env=$(echo $out | sed 's,/nix/store/[^-]*-,,')
+        if echo $nix_env | grep -q ^bootstrap- ;
+        then nix_env="($(echo $nix_env | sed 's,bootstrap-,,'))"
+        else nix_env="[$nix_env]"
+        fi
+        PS1="${nix_env} $PROMPT"
+        PROMPT_COMMAND=""
+    fi
+}
+
+PROMPT_COMMAND=restore_prompt_after_nix_shell
 # time, command number, hostname, return code, $ sign
-export PS1="\t \# \h \$? \$ "
+PROMPT="\t \# \h \$? \$ "
+export PS1=$PROMPT
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
