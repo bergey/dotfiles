@@ -31,6 +31,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     color-identifiers-mode
     company
     company-c-headers
+    counsel
     csv-mode
     dash
     default-text-scale
