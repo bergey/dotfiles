@@ -145,6 +145,8 @@
   :mode "\\.swift"
   )
 
+(use-package agda2)
+
 ;; (use-package bazel-mode :ensure t
 ;;   )
 

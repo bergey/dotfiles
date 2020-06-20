@@ -17,6 +17,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     # modelica-mode
     # powershell
     # tuareg
+    agda2-mode
     pkgs.emacsPackages.proofgeneral_HEAD
     auto-complete
     avy

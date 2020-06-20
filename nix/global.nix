@@ -31,6 +31,7 @@ in with pkgs;
 buildEnv {
   name = "bergey-env";
   paths= [
+    (agda.agdaWithPackages (a: [ a.standard-library ]))
     alacritty
     aspellDicts.en
     atool
