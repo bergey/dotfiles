@@ -15,6 +15,7 @@ in with pkgs; mkEnv {
             # haskellPackages.shake
             # haskellPackages.alex
             stack
+            zlib
             (haskell.packages.ghc8101.ghcWithPackages
                 (ps: [ ps.shake ]))
         ];
