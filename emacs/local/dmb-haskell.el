@@ -85,11 +85,13 @@
                ("M-C-h" . haskell-hoogle)
                ("C-c c" . haskell-process-cabal)
                ("C-c i" . haskell-navigate-imports)
-               ("C-c C-," . bergey/simformat)
                ("M-." . haskell-mode-tag-find)
                ("C-h C-l" . dmb-ivy-haskell-language-pragma)
                ("C-c m" . dmb-haskell-yank-module-name)
                )
+
+    (if (executable-find "simformat")
+        (bind-keys :map haskell-mode-map ("C-c C-," . bergey/simformat)))
 
     (add-to-list 'auto-mode-alist '("cabal.project" . haskell-cabal-mode))
 
