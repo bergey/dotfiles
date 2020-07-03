@@ -16,8 +16,10 @@ function nix-prefetch-pkgs {
 }
 
 function bootstrap {
-    nix-shell "$HOME/dotfiles/nix/bootstrap/$1.nix"
+    nix-shell "$HOME/dotfiles/nix/bootstrap.nix" -A "$1"
 }
+
+alias list-bootstraps="nix eval --raw '(builtins.concatStringsSep \"\n\" (builtins.attrNames  (import ${HOME}/dotfiles/nix/bootstrap.nix)) + \"\n\")'"
 
 alias nix-snapshot='cp ~/code/active/nix/nixpkgs-snapshot.json .'
 

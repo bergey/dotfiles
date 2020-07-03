@@ -26,6 +26,8 @@ let
             broken = false;
             });
 
+    bootstrap = import ./bootstrap.nix;
+
 in with pkgs;
 
 buildEnv {
@@ -85,6 +87,12 @@ buildEnv {
     xlsfonts
     yaml2json
     python.pkgs.yamllint
+
+    (myEnvFun {
+      name = "bootstrap-envs";
+      buildInputs = (builtins.attrValues bootstrap);
+    })
+
     ] ++ (if stdenv.isDarwin then [
         nix
     ] else [
