@@ -31,7 +31,7 @@ in with pkgs;
 buildEnv {
   name = "bergey-env";
   paths= [
-    (agda.agdaWithPackages (a: [ a.standard-library ]))
+    (agda.withPackages (a: [ a.standard-library ]))
     alacritty
     aspellDicts.en
     atool
@@ -75,6 +75,7 @@ buildEnv {
     rsync
     # stack
     stow
+    stylish-haskell
     textql
     tmux
     unison
