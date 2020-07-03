@@ -88,10 +88,14 @@ buildEnv {
     yaml2json
     python.pkgs.yamllint
 
-    (myEnvFun {
+    # minimal derivation, ensures that we depend on all bootstrap envs
+    (derivation (bootstrap // {
       name = "bootstrap-envs";
-      buildInputs = (builtins.attrValues bootstrap);
-    })
+      builder = "${bash}/bin/bash";
+      args = [ "-c" "$coreutils/bin/mkdir $out; echo foo > $out/bootstrap-envs" ];
+      system = builtins.currentSystem;
+      inherit coreutils;
+    }))
 
     ] ++ (if stdenv.isDarwin then [
         nix
