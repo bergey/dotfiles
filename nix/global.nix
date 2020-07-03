@@ -91,7 +91,7 @@ buildEnv {
         arduino
         aspell
         borgbackup
-        calibre
+        # calibre # broken apsw 2020-06-21
         crawl
         curl
         dmenu
@@ -114,6 +114,6 @@ buildEnv {
         transmission
         xorg.xev
         zathura
-        zoom-us
+        # zoom-us
     ]);
   }
