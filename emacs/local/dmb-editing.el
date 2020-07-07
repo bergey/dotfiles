@@ -134,4 +134,7 @@
 (use-package caps-lock :ensure t
   :bind ("C-S-c i" . caps-lock-mode))
 
+(setq hi-lock-face-defaults
+      '("hi-pink" "hi-green" "hi-blue" "hi-yellow" "hi-black-b" "hi-blue-b" "hi-red-b" "hi-green-b" "hi-black-hb"))
+
 (provide 'dmb-editing)
