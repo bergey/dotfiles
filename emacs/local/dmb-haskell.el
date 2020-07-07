@@ -106,6 +106,11 @@
     ;; (use-package lsp-haskell
     ;;   :config
     ;;   (add-hook 'haskell-mode-hook #'lsp))
+
+
+    ;; redefine so that we make one TAGS file for the whole project
+    (advice-add 'haskell-cabal--find-tags-dir :override
+                'projectile-project-root)
   ))
 
 (use-package haskell-interactive-mode
