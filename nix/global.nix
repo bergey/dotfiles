@@ -33,7 +33,6 @@ in with pkgs;
 buildEnv {
   name = "bergey-env";
   paths= [
-    (agda.withPackages (a: [ a.standard-library ]))
     alacritty
     aspellDicts.en
     atool
@@ -100,6 +99,7 @@ buildEnv {
     ] ++ (if stdenv.isDarwin then [
         nix
     ] else [
+        (agda.withPackages (a: [ a.standard-library ]))
         acpi
         arduino
         aspell
