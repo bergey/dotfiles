@@ -81,8 +81,15 @@
         )
       )
 
+    (defun bergey/haskell-hoogle-or-simspace (&optional flag)
+      (interactive "P")
+      (if flag (let ((haskell-hoogle-url "https://hoogle.simspace.com/?hoogle=%s"))
+                 (call-interactively #'haskell-hoogle))
+        (call-interactively #'haskell-hoogle))
+      )
+
     (bind-keys :map haskell-mode-map
-               ("M-C-h" . haskell-hoogle)
+               ("M-h" . bergey/haskell-hoogle-or-simspace)
                ("C-c c" . haskell-process-cabal)
                ("C-c i" . haskell-navigate-imports)
                ("M-." . haskell-mode-tag-find)
