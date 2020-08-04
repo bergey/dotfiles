@@ -27,4 +27,13 @@
           ))
   )
 
+(use-package add-node-modules-path
+  :ensure t
+  :init
+  (add-hook 'web-mode-hook #'add-node-modules-path)
+  (add-hook 'ts-mode-hook #'add-node-modules-path)
+  )
+
+(add-hook 'web-mode-hook #'bergey/fixed-pitch-indent)
+
 (provide 'dmb-typescript)
