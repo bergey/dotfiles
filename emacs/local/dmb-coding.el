@@ -2,7 +2,7 @@
 
 ;; tags
 
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (bind-key "C-c C-m" 'imenu)
 
