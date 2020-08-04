@@ -104,7 +104,7 @@
     (add-to-list 'auto-mode-alist '("cabal.project" . haskell-cabal-mode))
 
     (setq haskell-tags-on-save t
-          haskell-stylish-on-save t
+          haskell-stylish-on-save (not (executable-find "simformat"))
           haskell-ask-also-kill-buffers nil
           haskell-process-type 'ghci
     )
