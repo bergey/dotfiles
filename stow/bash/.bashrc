@@ -187,3 +187,7 @@ function jq-grep {
         fi
     done
 }
+
+function datelog {
+    stack exec $1 2>&1 > $(date -u +"%Y-%m-%dT%H:%M:%SZ-$1.log")
+}
