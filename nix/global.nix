@@ -79,7 +79,6 @@ buildEnv {
     stylish-haskell
     textql
     tmux
-    unison
     # vagrant
     w3m
     wget
@@ -125,6 +124,7 @@ buildEnv {
         psmisc # pstree &c
         slack
         transmission
+        unison
         xorg.xev
         zathura
         # zoom-us
