@@ -39,7 +39,9 @@
     (setq haskell-font-lock-quasi-quote-modes
           (append
            '(("aritySql" . sql-mode)
-             '("qq" . sql-mode))
+             ("qq" . sql-mode)
+             ("aesonQQ" . js-mode)
+             )
            haskell-font-lock-quasi-quote-modes))
 
     (defun dmb-haskell-insert-language-pragma (extension)
