@@ -25,15 +25,6 @@ in with pkgs; {
     ]);
   };
 
-  coq = mkBootstrap {
-    name = "coq";
-    paths = [
-        coq_8_6
-        #    coqPackages_8_6.dpdgraph
-        #    coqPackages_8_6.coq-ext-lib
-    ];
-  };
-  
   haskell = mkBootstrap {
     name = "haskell";
     paths = [
@@ -44,13 +35,6 @@ in with pkgs; {
       zlib
       (haskell.packages.ghc8101.ghcWithPackages
         (ps: [ ps.shake ]))
-    ];
-  };
-
-  idris = mkBootstrap {
-    name = "idris";
-    paths = [
-      idris
     ];
   };
 
@@ -98,7 +82,7 @@ in with pkgs; {
   racket = mkBootstrap {
     name = "racket";
     paths = [
-      racket
+      (if stdenv.isDarwin then racket-minimal else racket)
     ];
   };
 
@@ -121,4 +105,22 @@ in with pkgs; {
     ];
   };
   
-}
+} // (if stdenv.isDarwin then {} else {
+
+    coq = mkBootstrap {
+      name = "coq";
+      paths = [
+        coq_8_6
+        #    coqPackages_8_6.dpdgraph
+        #    coqPackages_8_6.coq-ext-lib
+      ];
+    };
+
+  idris = mkBootstrap {
+    name = "idris";
+    paths = [
+      idris
+    ];
+  };
+
+})
