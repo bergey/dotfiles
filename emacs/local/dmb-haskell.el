@@ -34,7 +34,8 @@
      )
 
     (setq flycheck-ghc-language-extensions '( "DataKinds" "DeriveDataTypeable" "DeriveFunctor" "DeriveGeneric" "DuplicateRecordFields" "ExtendedDefaultRules" "FlexibleContexts" "FlexibleInstances" "FunctionalDependencies" "GeneralizedNewtypeDeriving" "MultiParamTypeClasses" "OverloadedStrings" "ScopedTypeVariables" "StandaloneDeriving" "TemplateHaskell" "TypeApplications" "TypeFamilies" "TypeOperators" "CPP" ))
-    (setq flycheck-ghc-args '("-fno-warn-name-shadowing" "-fno-warn-type-defaults"))
+    ;; TODO make default args different per-project
+    (setq flycheck-ghc-args '("-fno-warn-type-defaults"))
     (setq haskell-font-lock-quasi-quote-modes
           (append
            '(("aritySql" . sql-mode)
