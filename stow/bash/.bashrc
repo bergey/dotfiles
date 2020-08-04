@@ -178,3 +178,12 @@ function loc-lang {
           echo '' >&2
     } | sort -h | column -t
 }
+
+function jq-grep {
+    while IFS= read -r line; do
+        if [[ ${line:0:1} == "{" ]] ;
+        then echo "$line" | jq -c "$1" | sed -e '/^$/d' -e '/^null$/d'
+        else echo "$line" | grep "$2"
+        fi
+    done
+}
