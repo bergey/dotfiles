@@ -8,6 +8,8 @@
 ;; load-path
 (let ((default-directory dotfiles-dir))
   (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path (concat (file-name-as-directory (getenv "HOME"))
+                                "code/simspace/avaleryar/tools/emacs")) ;; soutei
 ;; we want the org-mode from elpa, instead
 (delete "/Applications/Emacs.app/Contents/Resources/lisp/org" load-path)
 
