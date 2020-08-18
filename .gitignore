@@ -51,3 +51,6 @@ snippets/*/.yas-compiled-snippets.el
 /stow/cabal/.cabal/logs/
 /stow/cabal/.cabal/packages/
 /stow/cabal/.cabal/store/
+/stow/cabal/.cabal/bin/
+/emacs/.org-id-locations
+/emacs/ido.last
