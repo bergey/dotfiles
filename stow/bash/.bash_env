@@ -11,7 +11,7 @@ fi
 export GOPATH=/home/$USER/.local/gocode
 
 NEW_PATH=`paste -d ':' -s - << EOF 
-$HOME/.local/bin/
+$HOME/.local/bin
 $HOME/.nix-profile/bin
 $HOME/.nix-profile/sbin
 EOF`
