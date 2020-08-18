@@ -191,3 +191,12 @@ function jq-grep {
 function datelog {
     stack exec $1 2>&1 > $(date -u +"%Y-%m-%dT%H:%M:%SZ-$1.log")
 }
+
+# commit of currently-running pod for a given deployment name
+function pod-commit {
+    imageID=$(k get pod $(k8-pod $1) -o json | jq -r '.status.containerStatuses[].imageID' | sed 's,docker-pullable://registry.hub.docker.com/,,')
+    docker pull $imageID
+    commit=$(docker image inspect $imageID | jq -r '.[].ContainerConfig.Labels.git_commit')
+    echo $commit
+    git show $commit
+}
