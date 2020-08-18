@@ -65,3 +65,6 @@ checkout = git clone 'git@github.com:uutils/coreutils.git' 'coreutils'
 
 [code/active/Model01-Firmware]
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
+
+[code/simspace/avaleryar]
+checkout = git clone 'https://github.com/Simspace/avaleryar.git' 'avaleryar'
