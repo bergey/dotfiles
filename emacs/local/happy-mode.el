@@ -36,7 +36,7 @@
     ("[:|]" . 'happy-grammer-rule-face)
     ("[{}]" . 'happy-haskell-face)
     ("%%" . 'font-lock-comment-face)
-    ("^[A-Z][a-zA-Z0-9]*\\>" . 'font-lock-type-face)
+    ("^[a-zA-Z0-9_]*\\>" . 'font-lock-type-face)
     ))
 
 (define-derived-mode happy-mode fundamental-mode "Y"
