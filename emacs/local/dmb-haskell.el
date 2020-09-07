@@ -1,4 +1,4 @@
-(setq lexical-binding t)
+;; -*- lexical-binding: true; -*-
 (add-to-list 'revert-without-query "~/.cabal/logs/*")
 (add-to-list 'revert-without-query ".cabal-sandbox/logs/*")
 
@@ -20,9 +20,8 @@
 Return the configuration."
       ;; (message "in flycheck-haskell-read-and-cache-configuration")
       (let* ((modtime (nth 5 (file-attributes config-file)))
-             (config-file config-file) ;; this looks redundant but empirically is not
              (continue (lambda (config)
-                         ;; (message "in continue")
+                         (message "in continue: %s" config)
                          (puthash config-file (cons modtime config) flycheck-haskell-config-cache)
                          (flycheck-haskell-configure) ;; this time with cached value
                          )))
@@ -44,8 +43,7 @@ Return the configuration."
          (flycheck-haskell-runghc-command args) c2)))
 
     (defun bergey/flycheck-haskell--read-configuration-with-helper (command c3)
-      (let* ((c3 c3)
-             (continue-or-print-err
+      (let ((continue-or-print-err
              (lambda (proc)
                (message "in continue-or-print-err")
                (pcase (process-exit-status proc)

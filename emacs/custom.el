@@ -63,7 +63,8 @@
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    (quote
-    ((haskell-process-type . cabal-new-repl)
+    ((lexical-binding . true)
+     (haskell-process-type . cabal-new-repl)
      (haskell-process-type . ghci)
      (py-shell-local-path . "./virtualenv/bin/ipython")
      (buffer-file-coding-system . utf-8-unix)
