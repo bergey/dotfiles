@@ -1,3 +1,4 @@
+(setq lexical-binding t)
 (add-to-list 'revert-without-query "~/.cabal/logs/*")
 (add-to-list 'revert-without-query ".cabal-sandbox/logs/*")
 
@@ -120,6 +121,52 @@
   ;; redefine so that we make one TAGS file for the whole project
   (advice-add 'haskell-cabal--find-tags-dir :override
               'projectile-project-root)
+
+  (defun flycheck-haskell-read-and-cache-configuration (config-file)
+    "Read and cache configuration from CABAL-FILE.
+
+Return the configuration."
+    ;; (message "in flycheck-haskell-read-and-cache-configuration")
+    (let* ((modtime (nth 5 (file-attributes config-file)))
+           (config-file config-file) ;; this looks redundant but empirically is not
+           (continue (lambda (config)
+                       ;; (message "in continue")
+                       (puthash config-file (cons modtime config) flycheck-haskell-config-cache)
+                       (flycheck-haskell-configure) ;; this time with cached value
+                       )))
+      (if (equal "yaml" (file-name-extension config-file))
+          (bergey/flycheck-haskell-read-hpack-configuration config-file continue)
+        (funcall continue (flycheck-haskell-read-cabal-configuration config-file)))
+      ))
+
+  ;; (advice-add #'flycheck-haskell-read-and-cache-configuration
+  ;;             :override #'bergey/flycheck-haskell-read-and-cache-configuration)
+
+  (defun bergey/flycheck-haskell-read-hpack-configuration (hpack-file c2)
+    "Read the hpack configuration from HPACK-FILE."
+    (cl-assert flycheck-haskell-hpack-executable)
+    (let ((args (list flycheck-haskell-helper
+                      "--hpack-exe" flycheck-haskell-hpack-executable
+                      "--hpack-file" (expand-file-name hpack-file))))
+      (bergey/flycheck-haskell--read-configuration-with-helper
+                  (flycheck-haskell-runghc-command args) c2)))
+
+   (defun bergey/flycheck-haskell--read-configuration-with-helper (command c3)
+     (let ((continue-or-print-err
+            (lambda (proc)
+              ;; (message "in continue-or-print-err")
+              (pcase (process-exit-status proc)
+                (0
+                   (goto-char (point-min))
+                   (funcall c3 (read (process-buffer proc))))
+                (retcode
+                 (message "Reading Haskell configuration failed with exit code %s and output:\n%s"
+                          retcode (with-current-buffer (process-buffer proc) (buffer-string)))
+                 nil) ))
+            ))
+       ;; (message "command=%s" command)
+       (apply #'async-start-process (car command) (car command) continue-or-print-err (cdr command))
+       '()))
 
    )
 
