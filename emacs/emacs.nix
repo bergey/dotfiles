@@ -50,6 +50,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     fic-mode
     flycheck
     flycheck-clojure
+    flycheck-haskell
     flycheck-rust
     fsharp-mode
     fstar-mode
