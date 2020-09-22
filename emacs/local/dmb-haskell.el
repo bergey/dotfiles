@@ -77,9 +77,9 @@ Return the configuration."
                             ))
 
   (setq
-   haskell-indentation-layout-offset 4
-   haskell-indentation-starter-offset 4
-   haskell-indentation-left-offset 4
+   haskell-indentation-layout-offset 2
+   haskell-indentation-starter-offset 2
+   haskell-indentation-left-offset 2
    )
 
   (setq flycheck-ghc-language-extensions '( "DataKinds" "DeriveDataTypeable" "DeriveFunctor" "DeriveGeneric" "DuplicateRecordFields" "ExtendedDefaultRules" "FlexibleContexts" "FlexibleInstances" "FunctionalDependencies" "GeneralizedNewtypeDeriving" "MultiParamTypeClasses" "OverloadedStrings" "ScopedTypeVariables" "StandaloneDeriving" "TemplateHaskell" "TypeApplications" "TypeFamilies" "TypeOperators" "CPP" ))

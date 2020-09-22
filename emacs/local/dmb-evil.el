@@ -36,6 +36,7 @@
 
   (setq evil-insert-state-cursor '(bar . 1))
   (setq evil-cross-lines t)
+  (setq evil-shift-width 2)
 
   ;; This makes the cursor position more like emacs position.  It also
   ;; makes `sp-forward-sexp' work, for some reason.  I only care about
