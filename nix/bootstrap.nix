@@ -33,8 +33,8 @@ in with pkgs; {
       haskellPackages.hpack
       stack
       zlib
-      (haskell.packages.ghc8101.ghcWithPackages
-        (ps: [ ps.shake ]))
+      (haskellPackages.ghcWithPackages
+        (ps: with ps; [ containers vector bytestring text hashable deepseq unordered-containers shake ]))
     ];
   };
 
