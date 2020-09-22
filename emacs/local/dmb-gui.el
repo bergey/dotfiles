@@ -69,7 +69,13 @@
 
 (advice-add 'split-window-right :after #'balance-windows)
 (advice-add 'split-window-below :after #'balance-windows)
-(advice-add 'delete-window :after #'balance-windows)
+;; causes problems with dired-do-flagged-delete? (advice-add 'delete-window :after #'balance-windows)
+(defun bergey/delete-window-rebalance ()
+  (interactive)
+  (delete-window)
+  (balance-windows)
+  )
+(bind-key "C-x 0" #'bergey/delete-window-rebalance)
 
 (use-package windresize :ensure t
   :commands windresize)
