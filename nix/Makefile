@@ -17,7 +17,7 @@ os-update:
 	sudo nixos-rebuild switch --upgrade
 
 global:
-	nix-env -if global.nix
+	nix-env --no-build-output -if global.nix
 
 prune:
 	sudo nix-collect-garbage --delete-older-than ${OLD}
