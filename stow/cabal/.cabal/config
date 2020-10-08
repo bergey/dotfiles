@@ -25,7 +25,7 @@ repository hackage.haskell.org
 -- ignore-expiry: False
 -- http-transport:
 -- nix: False
-remote-repo-cache: /home/bergey/.cabal/packages
+remote-repo-cache: $HOME/.cabal/packages
 -- local-repo:
 -- logs-dir: $HOME/.cabal/logs
 world-file: $HOME/.cabal/world
