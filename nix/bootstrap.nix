@@ -30,7 +30,9 @@ in with pkgs; {
     paths = [
       cabal2nix
       cabal-install
+      haskellPackages.alex
       haskellPackages.hpack
+      haskellPackages.happy_1_20_0
       stack
       zlib
       (haskellPackages.ghcWithPackages
