@@ -151,13 +151,14 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (ivy-mode)
   (bind-key "C-<return>" 'ivy-immediate-done ivy-minibuffer-map)
   (setq ivy-extra-directories '())
+  (ido-everywhere -1) ;; disable
   )
 
-(use-package counsel :ensure t
-  :config
-  (counsel-mode)
-  (ivy-configure 'counsel-M-x :initial-input "")
-  )
+;; (use-package counsel :ensure t
+;;   :config
+;;   (counsel-mode)
+;;   (ivy-configure 'counsel-M-x :initial-input "test")
+;;   )
 
 (use-package diminish :ensure t
   :commands diminish
