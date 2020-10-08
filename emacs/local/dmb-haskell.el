@@ -108,6 +108,8 @@ Return the configuration."
               :action #'dmb-haskell-insert-language-pragma
               ))
 
+(add-to-list 'haskell-ghc-supported-extensions "BlockArguments")
+
   (defun dmb-haskell-yank-module-name ()
     (interactive)
     (save-excursion
@@ -154,7 +156,7 @@ Return the configuration."
 
   (add-to-list 'auto-mode-alist '("cabal.project" . haskell-cabal-mode))
 
-  (setq haskell-tags-on-save t
+  (setq haskell-tags-on-save nil ;; TODO async tags, at most one at once
         haskell-stylish-on-save (not (executable-find "simformat"))
         haskell-ask-also-kill-buffers nil
         haskell-process-type 'ghci
