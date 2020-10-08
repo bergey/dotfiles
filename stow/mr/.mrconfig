@@ -1,8 +1,4 @@
 # -*- mode: conf; -*-
-[annex]
-checkout = git clone -o gitlab 'git@gitlab.com:bergey/library.git' 'annex'
-update = git pull gitlab
-
 [dotfiles]
 checkout = git clone 'git@github.com:bergey/dotfiles.git' 'dotfiles'
 
