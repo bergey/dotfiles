@@ -50,7 +50,7 @@
   (evil-ex-define-cmd "q" 'kill-this-buffer)
 
   (use-package org-evil :ensure t :ensure)
-  (setq evil-shift-width 2)
+  (add-hook 'evil-mode-hook (lambda () (setq evil-shift-width 2)))
 
   )
 
