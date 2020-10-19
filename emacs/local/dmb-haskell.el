@@ -123,7 +123,7 @@ Return the configuration."
     (interactive)
     (let ((old-point (point)))
       ;; save-excursion doesn't work, I'm not sure why
-      (shell-command-on-region (point-min) (point-max) "simformat" nil t)
+      (shell-command-on-region (point-min) (point-max) "simformat --editor" nil t)
       (goto-char old-point)))
 
   (defun bergey/haskell-no-warn-orphans ()
