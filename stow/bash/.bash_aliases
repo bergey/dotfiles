@@ -89,6 +89,7 @@ alias urldecode='python -c "import sys;import urllib.parse as ul;print(ul.unquot
 
 # simspace
 alias range-server='export RANGE_HOST=$(ifconfig | awk '"'"'$2 ~ /^192.168.(207|206|205)/  {print $2;}'"'"'); stack exec range-server 2>&1 > $(date -u +"%Y-%m-%dT%H:%M:%SZ")-range-server.log'
+alias ts-gen='TSC=tsc PRETTIER=prettier stack run ts-gen'
 
 # docker / kubernetes
 alias k=kubectl
