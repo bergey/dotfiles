@@ -174,5 +174,7 @@ preceding paren."
   (use-package lsp-ui)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
+(use-package protobuf-mode :ensure t
+  :mode "\\.proto\\'")
 
 (provide 'dmb-coding)
