@@ -40,6 +40,14 @@ in with pkgs; {
     ];
   };
 
+  scala = mkBootstrap {
+    name = "scala";
+    paths = with pkgs; [
+      sbt
+      scala
+    ];
+  };
+
   java = mkBootstrap {
     name = "java";
     paths = [
