@@ -99,9 +99,10 @@ in emacsWithPackages (epkgs: (with epkgs; [
     pov-mode
     powerline
     projectile
+    protobuf-mode
     purescript-mode
-    pyvenv
     py-isort
+    pyvenv
     qml-mode
     racket-mode
     rainbow-delimiters
