@@ -114,6 +114,15 @@ in with pkgs; {
       subversion
     ];
   };
+
+  packer = mkBootstrap {
+    name = "packer";
+    paths = [
+      packer
+      r10k
+      vagrant
+    ];
+  };
   
 } // (if stdenv.isDarwin then {} else {
 
