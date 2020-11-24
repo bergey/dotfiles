@@ -148,6 +148,13 @@ in with pkgs; {
       vagrant
     ];
   };
+
+  souffle = mkBootstrap {
+      name = "souffle";
+      paths = [
+      souffle
+      ];
+  };
   
 } // (if stdenv.isDarwin then {} else {
 
