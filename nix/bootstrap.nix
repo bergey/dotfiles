@@ -40,6 +40,31 @@ in with pkgs; {
     ];
   };
 
+  haskell-prof = mkBootstrap {
+    name = "haskell-prof";
+    paths = [
+      cabal2nix
+      cabal-install
+      haskellPackages.alex
+      haskellPackages.haddock
+      haskellPackages.happy_1_20_0
+      haskellPackages.hpack
+      zlib
+      # (stack.overrideAttrs (oldAttrs: {
+      #   patches = [ ./0001-hack-always-accept-system-ghc.patch ];
+      # }))
+      ((haskell.compiler.ghc883.override { ghcFlavour = "prof"; })
+        .overrideAttrs (oldAttrs: rec {
+          patches = [ ./0001-DYNAMIC_GHC_PROGRAMS-for-prof-build.patch ];
+          # pass RTS options to ghc on every call
+          # RTS opts in stack --ghc-options doesn't reach the build invocation, only configure
+          postInstall = oldAttrs.postInstall + ''
+            sed -i -e 's/exec "$executablename"/exec "$executablename" +RTS -p -t -s -RTS/' "$out/bin/ghc"
+            '';
+        }))
+    ];
+  };
+
   scala = mkBootstrap {
     name = "scala";
     paths = with pkgs; [
