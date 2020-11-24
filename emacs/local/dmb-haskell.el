@@ -87,8 +87,8 @@ Return the configuration."
   (setq flycheck-ghc-args '("-fno-warn-type-defaults"))
   (setq haskell-font-lock-quasi-quote-modes
         (append
-         '(("aritySql" . sql-mode)
-           ("qq" . sql-mode)
+         '(("validSql" . sql-mode)
+           ("select" . sql-mode)
            ("aesonQQ" . js-mode)
            )
          haskell-font-lock-quasi-quote-modes))
