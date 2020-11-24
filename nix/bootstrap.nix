@@ -40,6 +40,20 @@ in with pkgs; {
     ];
   };
 
+  "haskell-8.10" = mkBootstrap {
+    name = "haskell";
+    paths = [
+      cabal2nix
+      cabal-install
+      haskellPackages.alex
+      haskellPackages.hpack
+      haskellPackages.happy_1_20_0
+      stack
+      zlib
+      haskell.compiler.ghc8102
+    ];
+  };
+
   haskell-prof = mkBootstrap {
     name = "haskell-prof";
     paths = [
