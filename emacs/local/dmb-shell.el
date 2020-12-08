@@ -28,6 +28,8 @@
      comint-move-point-for-output nil
      )
 
+    (set-face-attribute 'comint-highlight-prompt nil :inherit nil)
+
     ;; track current directory
     ;; from: http://www.emacswiki.org/emacs/ShellDirtrackByProcfs
     (defun track-shell-directory/procfs ()
