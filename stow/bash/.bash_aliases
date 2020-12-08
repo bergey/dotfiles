@@ -89,7 +89,10 @@ alias urldecode='python -c "import sys;import urllib.parse as ul;print(ul.unquot
 
 # simspace
 alias range-server='export RANGE_HOST=$(ifconfig | awk '"'"'$2 ~ /^192.168.(207|206|205)/  {print $2;}'"'"'); stack exec range-server 2>&1 > $(date -u +"%Y-%m-%dT%H:%M:%SZ")-range-server.log'
+alias docker-rmq='docker run -d -p 127.0.0.1:5672:5672 -p 15672:15672 --env RABBITMQ_DEFAULT_USER=guest --env RABBITMQ_DEFAULT_PASS=guest rabbitmq:3.8.3-management'
 alias ts-gen='TSC=tsc PRETTIER=prettier stack run ts-gen'
+alias kubes-beta='export KUBECONFIG="${HOME}/.kube/config-kubes-beta-portal"; export K8S=[kubes-beta]'
+alias kubeconfig='[ -n "$KUBECONFIG" ] && ( echo -n "["; basename "$KUBECONFIG"| tr -d "\\n"; echo -n "] " ) || echo '''
 
 # docker / kubernetes
 alias k=kubectl
