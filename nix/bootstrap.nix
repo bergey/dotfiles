@@ -13,7 +13,7 @@ let
       cabal-install
       haskellPackages.alex
       haskellPackages.hpack
-      haskellPackages.happy_1_20_0
+      haskellPackages.happy
       stack
       zlib
       ghc
