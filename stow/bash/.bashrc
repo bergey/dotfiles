@@ -136,7 +136,7 @@ function boundtest {
 }
 
 function headgrep {
-    awk "NR==1 || \$1 ~ /$1/"
+    awk "NR==1 || \$0 ~ /$1/"
 }
 
 # redirect STDIN to the file passed as $1; print progress dots to STDOUT
