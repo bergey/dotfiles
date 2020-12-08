@@ -43,7 +43,7 @@ in with pkgs; {
   };
 
   "haskell-810" = mkBootstrap {
-    name = "haskell";
+    name = "haskell-810";
     paths = haskellEnv haskell.compiler.ghc8102;
   };
 
