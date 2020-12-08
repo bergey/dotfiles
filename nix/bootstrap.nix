@@ -8,6 +8,17 @@ let
                })
     else pkgs.buildEnv env;
 
+  haskellEnv = ghc: with pkgs; [
+      cabal2nix
+      cabal-install
+      haskellPackages.alex
+      haskellPackages.hpack
+      haskellPackages.happy_1_20_0
+      stack
+      zlib
+      ghc
+    ];
+  
 in with pkgs; {
 
   binary = mkBootstrap {
@@ -27,46 +38,18 @@ in with pkgs; {
 
   haskell = mkBootstrap {
     name = "haskell";
-    paths = [
-      cabal2nix
-      cabal-install
-      haskellPackages.alex
-      haskellPackages.hpack
-      haskellPackages.happy_1_20_0
-      stack
-      zlib
-      (haskellPackages.ghcWithPackages
-        (ps: with ps; [ containers vector bytestring text hashable deepseq unordered-containers shake ]))
-    ];
+    paths = haskellEnv (haskellPackages.ghcWithPackages
+      (ps: with ps; [ containers vector bytestring text hashable deepseq unordered-containers shake ]));
   };
 
-  "haskell-8.10" = mkBootstrap {
+  "haskell-810" = mkBootstrap {
     name = "haskell";
-    paths = [
-      cabal2nix
-      cabal-install
-      haskellPackages.alex
-      haskellPackages.hpack
-      haskellPackages.happy_1_20_0
-      stack
-      zlib
-      haskell.compiler.ghc8102
-    ];
+    paths = haskellEnv haskell.compiler.ghc8102;
   };
 
   haskell-prof = mkBootstrap {
     name = "haskell-prof";
-    paths = [
-      cabal2nix
-      cabal-install
-      haskellPackages.alex
-      haskellPackages.haddock
-      haskellPackages.happy_1_20_0
-      haskellPackages.hpack
-      zlib
-      # (stack.overrideAttrs (oldAttrs: {
-      #   patches = [ ./0001-hack-always-accept-system-ghc.patch ];
-      # }))
+    paths = haskellEnv
       ((haskell.compiler.ghc883.override { ghcFlavour = "prof"; })
         .overrideAttrs (oldAttrs: rec {
           patches = [ ./0001-DYNAMIC_GHC_PROGRAMS-for-prof-build.patch ];
@@ -75,8 +58,10 @@ in with pkgs; {
           postInstall = oldAttrs.postInstall + ''
             sed -i -e 's/exec "$executablename"/exec "$executablename" +RTS -p -t -s -RTS/' "$out/bin/ghc"
             '';
-        }))
-    ];
+        }));
+      # ++ (stack.overrideAttrs (oldAttrs: {
+      #   patches = [ ./0001-hack-always-accept-system-ghc.patch ];
+      # }))
   };
 
   scala = mkBootstrap {

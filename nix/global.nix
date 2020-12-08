@@ -74,7 +74,7 @@ buildEnv {
     pwgen
     ripgrep
     rsync
-    # stack
+   stack
     stow
     stylish-haskell
     textql
