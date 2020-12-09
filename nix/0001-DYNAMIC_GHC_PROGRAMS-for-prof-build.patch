@@ -1,0 +1,21 @@
+From ff50e519f6671559c94473b93ef440d76dfb152d Mon Sep 17 00:00:00 2001
+From: Daniel Bergey <bergey@simspace.com>
+Date: Wed, 18 Nov 2020 15:39:38 -0500
+Subject: [PATCH] DYNAMIC_GHC_PROGRAMS for prof build
+
+---
+ mk/flavours/prof.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/mk/flavours/prof.mk b/mk/flavours/prof.mk
+index 67f89e61af..cd54632fe1 100644
+--- a/mk/flavours/prof.mk
++++ b/mk/flavours/prof.mk
+@@ -10,3 +10,4 @@ BUILD_SPHINX_PDF   = NO
+ BUILD_MAN          = NO
+ 
+ GhcProfiled        = YES
++DYNAMIC_GHC_PROGRAMS = YES
+-- 
+2.28.0
+
