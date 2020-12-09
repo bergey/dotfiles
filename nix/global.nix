@@ -43,6 +43,7 @@ buildEnv {
     git
     git-lfs
     gitAndTools.hub
+    gnumake
     gnupg
     gphoto2
     graphviz
@@ -60,6 +61,7 @@ buildEnv {
     isync # mbsync
     jq
     keybase
+    kubectl
     ledger
     lftp
     lrzip
@@ -82,6 +84,7 @@ buildEnv {
     # vagrant
     w3m
     wget
+    wireshark
     xlsfonts
     yaml2json
     python.pkgs.yamllint
@@ -96,7 +99,9 @@ buildEnv {
     }))
 
     ] ++ (if stdenv.isDarwin then [
-        nix
+      govc
+      nix
+      yarn
     ] else [
         (agda.withPackages (a: [ a.standard-library ]))
         acpi
@@ -113,7 +118,6 @@ buildEnv {
         file
         # freeciv_gtk
         gitAndTools.git-annex
-        gnumake
         google-cloud-sdk
         inotifyTools
         kubectl
