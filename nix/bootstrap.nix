@@ -166,11 +166,11 @@ in with pkgs; {
       ];
     };
 
-  idris = mkBootstrap {
-    name = "idris";
-    paths = [
-      idris
-    ];
-  };
+  # idris = mkBootstrap {
+  #   name = "idris";
+  #   paths = [
+  #     idris
+  #   ];
+  # };
 
 })
