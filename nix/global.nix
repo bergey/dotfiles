@@ -35,6 +35,7 @@ buildEnv {
   name = "bergey-env";
   paths= [
     alacritty
+    aspell
     aspellDicts.en
     atool
     bench
@@ -102,6 +103,7 @@ buildEnv {
     ] ++ (if stdenv.isDarwin then [
       govc
       nix
+      powershell
       # it happens that my Mac is for work & my Linux boxen aren't
       work.yarn
       work.postgresqlWithPackages
@@ -109,7 +111,6 @@ buildEnv {
         (agda.withPackages (a: [ a.standard-library ]))
         acpi
         arduino
-        aspell
         borgbackup
         # calibre # broken apsw 2020-06-21
         crawl
