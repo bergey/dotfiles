@@ -200,3 +200,12 @@ function pod-commit {
     echo $commit
     git show $commit
 }
+
+if [ "$(uname)" = "Darwin" ]; then
+    function nix-open {
+        # Apple Spotlight finds *every* version Nix has installed,
+        # but provides no indication which is symlinked from .nix-profile
+        application=$1
+        open "$HOME/.nix-profile/Applications/${application}.app"
+    }
+fi
