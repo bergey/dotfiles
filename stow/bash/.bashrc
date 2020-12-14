@@ -194,7 +194,7 @@ function datelog {
 
 # commit of currently-running pod for a given deployment name
 function pod-commit {
-    imageID=$(k get pod $(k8-pod $1) -o json | jq -r '.status.containerStatuses[].imageID' | sed 's,docker-pullable://registry.hub.docker.com/,,')
+    imageID=$(k get deploy $1 -o json | jq -r '.spec.template.spec.containers[0].image' | sed 's,registry.hub.docker.com/,,')
     docker pull $imageID
     commit=$(docker image inspect $imageID | jq -r '.[].ContainerConfig.Labels.git_commit')
     echo $commit
