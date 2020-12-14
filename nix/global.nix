@@ -1,5 +1,6 @@
 let
     pkgs = import ./nixpkgs.nix {};
+    work = (import ../../code/simspace/ps/dev {}).pkgs;
 
     sizes =
         ({ mkDerivation, base, bytestring, cmdargs, deepseq, dlist, lens
@@ -62,6 +63,7 @@ buildEnv {
     jq
     keybase
     kubectl
+    kubernetes-helm 
     ledger
     lftp
     lrzip
@@ -101,7 +103,9 @@ buildEnv {
     ] ++ (if stdenv.isDarwin then [
       govc
       nix
-      yarn
+      # it happens that my Mac is for work & my Linux boxen aren't
+      work.yarn
+      work.postgresqlWithPackages
     ] else [
         (agda.withPackages (a: [ a.standard-library ]))
         acpi
