@@ -28,20 +28,6 @@ function nia {
     nix-env -iA nixos.pkgs.$1
 }
 
-# helper function for cabalc below
-function incl_path {
-         outpath=$(nix-env -qa $1 --out-path --no-name)
-         echo -n "--extra-include-dirs=$outpath/include --extra-lib-dirs=$outpath/lib "
-}
-
-# cabal install with a bunch of nix library paths added
-# I don't use this anymore, in favor of nix-shell, but maybe it's useful to someone.
-function cabalc {
-         pkg=$1
-         shift
-         cabal install $pkg $(for n in $@; do incl_path $n; done)
-}
-
 # shorter nix-shell commands
 alias nsh='nix-shell --pure'
 alias nixc='eval "$configurePhase"'
