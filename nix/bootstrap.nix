@@ -154,6 +154,13 @@ in with pkgs; {
       souffle
       ];
   };
+
+  c = mkBootstrap {
+    name = "c";
+    paths = [
+      gcc
+    ];
+  };
   
 } // (if stdenv.isDarwin then {} else {
 
