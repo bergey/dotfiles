@@ -104,7 +104,7 @@ in with pkgs; {
 
   python = mkBootstrap {
     name = "python";
-    paths = with python.pkgs; [
+    paths = with python3.pkgs; [
       flake8
       ipython
       python
