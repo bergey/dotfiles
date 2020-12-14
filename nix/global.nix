@@ -38,7 +38,6 @@ buildEnv {
     aspellDicts.en
     atool
     bench
-#    ctags
     direnv
     editorconfig-core-c
     git
@@ -59,13 +58,13 @@ buildEnv {
     id3v2
     imagemagick
     inkscape
-    isync # mbsync
     jq
     keybase
     kubectl
     kubernetes-helm 
     ledger
     lftp
+    loc
     lrzip
     mr
     msmtp
@@ -124,9 +123,8 @@ buildEnv {
         gitAndTools.git-annex
         google-cloud-sdk
         inotifyTools
-        kubectl
+        isync # mbsync
         linuxPackages.virtualbox
-        loc
         maim # screenshots
         pavucontrol
         psmisc # pstree &c
