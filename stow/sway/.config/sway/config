@@ -37,12 +37,13 @@ set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" -
 #
 # Example configuration:
 #
+set $lock 'swaylock -f -c 005533'
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 005533' \
+         timeout 300  $lock \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 005533'
+         before-sleep $lock
 
-bindsym F9 exec swaylock -f -c 005533
+bindsym F9 exec $lock
 bindsym F10 exec systemctl suspend-then-hibernate
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
