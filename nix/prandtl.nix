@@ -151,13 +151,27 @@ virtualisation.docker.enable = true;
     # Enable touchpad support.
     libinput.enable = true;
 
-    windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-    };
+    # windowManager.xmonad = {
+    #     enable = true;
+    #     enableContribAndExtras = true;
+    # };
 
     desktopManager.xterm.enable = false;
   };
+
+programs.sway = {
+  enable = true;
+  wrapperFeatures.gtk = true; # so that gtk works properly
+  extraPackages = with pkgs; [
+    swaylock
+    swayidle
+    wl-clipboard
+    mako # notification daemon
+    alacritty # Alacritty is the default terminal in the config
+    # dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+    bemenu
+  ];
+};
 
   services.autorandr.enable = true;
 
