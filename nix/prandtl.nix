@@ -15,9 +15,6 @@
   '';
     });
 
-    xscreensaver = super.xscreensaver.overrideAttrs (oldAttrs: {
-            patches = [ ./xscreensaver.xpm.patch ./teal.xpm.patch ];
-        });
   }) ];
 
   imports =
@@ -85,7 +82,6 @@ virtualisation.docker.enable = true;
      cacert
      wget vim
      bash-completion
-     xscreensaver
      # pavucontrol
    ];
 
@@ -188,17 +184,6 @@ programs.sway = {
             KEYBOARD_KEY_b7=rightalt # print screen to right alt
             KEYBOARD_KEY_9d=esc    # right control to escape
         '';
-
-  systemd.user.services.xscreensaver = {
-        enable = true;
-        description = "XScreensaver";
-        serviceConfig = {
-            PartOf = [ "graphical-session.target" ];
-            ExecStart = "${pkgs.xscreensaver}/bin/xscreensaver -no-splash";
-        };
-        wantedBy = [ "graphical-session.target" ];
-        after = [ "graphical-session-pre.target" ];
-  };
 
   systemd.user.services.xcape = {
         enable = true;
