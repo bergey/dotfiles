@@ -1,7 +1,10 @@
 (use-package evil :ensure t
   :config
   (evil-mode 1)
-  (global-undo-tree-mode -1)
+  (use-package undo-fu :ensure t
+    :config
+    (setq evil-undo-system 'undo-redo)
+  )
 
   (mapcar (lambda (key-string)
             (define-key evil-motion-state-map (kbd key-string) nil)
