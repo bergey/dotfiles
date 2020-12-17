@@ -64,3 +64,6 @@ checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmw
 
 [code/simspace/avaleryar]
 checkout = git clone 'https://github.com/Simspace/avaleryar.git' 'avaleryar'
+
+[code/active/anomura]
+checkout = git clone 'git@github.com:bergey/anomura.git' 'anomura'
