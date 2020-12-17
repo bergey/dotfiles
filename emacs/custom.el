@@ -40,7 +40,6 @@
         (mode . java-mode)
         (mode . idl-mode)
         (mode . lisp-mode))))))
- '(ido-everywhere t)
  '(latex-run-command "pdflatex")
  '(max-lisp-eval-depth 1000)
  '(max-mini-window-height 2)
