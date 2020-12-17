@@ -1,4 +1,4 @@
-emacs:
+emacs: emacs.nix nixpkgs-snapshot.json
 	nix-env -if emacs.nix
 
 update:
