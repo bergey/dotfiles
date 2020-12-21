@@ -39,7 +39,11 @@
 ;; rust
 (use-package rust-mode :ensure t
   :mode ("\\.rs\'" . rust-mode)
-  :config (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
+  :config
+  (use-package flycheck-rust :ensure t
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
 
 ;; Coq
 (use-package proof-site
