@@ -106,6 +106,7 @@ buildEnv {
       powershell
       # it happens that my Mac is for work & my Linux boxen aren't
       work.yarn
+      work.nodejs
       work.postgresqlWithPackages
     ] else [
         (agda.withPackages (a: [ a.standard-library ]))
