@@ -109,7 +109,7 @@ buildEnv {
       work.nodejs
       work.postgresqlWithPackages
     ] else [
-        (agda.withPackages (a: [ a.standard-library ]))
+        # (agda.withPackages (a: [ a.standard-library ]))
         acpi
         arduino
         borgbackup
