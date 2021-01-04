@@ -27,6 +27,7 @@
      protect-buffer-bury-p nil
      comint-move-point-for-output nil
      )
+    (add-to-list 'warning-suppress-types '(undo discard-info))
 
     (set-face-attribute 'comint-highlight-prompt nil :inherit nil)
 
