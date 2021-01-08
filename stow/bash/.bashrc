@@ -36,7 +36,7 @@ fi
 
 # from https://github.com/NixOS/nix/issues/1268
 function restore_prompt_after_nix_shell() {
-    if [ "$PS1" != "$PROMPT" ]; then
+    if [ -n "$IN_NIX_SHELL" ]; then
         nix_env=$(echo $out | sed -E 's,/nix/store/[^-]*-(bootstrap-)?,,')
         if echo $out | grep -q bootstrap- ;
         then nix_env="\[\e[35m\][$(echo $nix_env | sed 's,bootstrap-,,')]"
