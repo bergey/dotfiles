@@ -25,10 +25,10 @@ repository hackage.haskell.org
 -- ignore-expiry: False
 -- http-transport:
 -- nix: False
-remote-repo-cache: $HOME/.cabal/packages
+remote-repo-cache: /home/bergey/.cabal/packages
 -- local-repo:
--- logs-dir: $HOME/.cabal/logs
-world-file: $HOME/.cabal/world
+-- logs-dir: /home/bergey/.cabal/logs
+world-file: /home/bergey/.cabal/world
 -- store-dir:
 -- verbose: 1
 -- compiler: ghc
@@ -63,7 +63,7 @@ world-file: $HOME/.cabal/world
 -- cid:
 -- extra-lib-dirs:
 -- extra-framework-dirs:
-extra-prog-path: $HOME/.cabal/bin
+extra-prog-path: /home/bergey/.cabal/bin
 -- instantiate-with:
 -- tests: False
 -- coverage: False
@@ -99,7 +99,7 @@ extra-prog-path: $HOME/.cabal/bin
 -- index-state:
 -- root-cmd:
 -- symlink-bindir:
-build-summary: $HOME/.cabal/logs/build.log
+build-summary: /home/bergey/.cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
 -- report-planning-failure: False
@@ -114,7 +114,7 @@ jobs: $ncpus
 -- package-env:
 -- overwrite-policy:
 -- install-method:
-installdir: $HOME/.cabal/bin
+installdir: /home/bergey/.cabal/bin
 -- username:
 -- password:
 -- password-command:
@@ -148,7 +148,7 @@ init
   -- source-dir:
 
 install-dirs user
-  -- prefix: $HOME/.cabal
+  -- prefix: /home/bergey/.cabal
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
   -- libsubdir: $abi/$libname
