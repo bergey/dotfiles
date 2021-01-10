@@ -69,6 +69,7 @@ buildEnv {
     lrzip
     mr
     msmtp
+    niv
     nix-prefetch-git
     nmap
     nodePackages.jsonlint
