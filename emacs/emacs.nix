@@ -52,7 +52,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     flycheck-clojure
     flycheck-haskell
     flycheck-rust
-    fsharp-mode
+    # fsharp-mode
     fstar-mode
     ghc
     git-annex

@@ -39,7 +39,7 @@
                  dmb-coding
                  dmb-haskell
                  dmb-lisp
-                 dmb-fsharp
+                 ;; dmb-fsharp
                  dmb-typescript
                  dmb-python
                  dmb-languages
