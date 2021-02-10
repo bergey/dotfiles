@@ -7,7 +7,7 @@ checkout = git clone 'keybase://private/dmbergey/keys' 'keys'
 update = git pull --rebase; git push
 
 [.password-store]
-checkout = git clone 'git@bitbucket.org:bergey/passwords.git' '.password-store'
+checkout = git clone 'git@github.com:bergey/passwords.git' '.password-store'
 update = git pull --rebase; git push
 
 [records/resume]
