@@ -156,7 +156,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 if [ -f "$HOME/code/simspace/ci/deploy/portal" ]; then
-    eval $($HOME/code/simspace/ci/deploy/portal env)
+    export PATH="$PATH:$HOME/code/simspace/ci/scripts:$HOME/code/simspace/ci/deploy"
     export POOL_ALLOCATION=2965-2969,2700-2709
 fi
 
