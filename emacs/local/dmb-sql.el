@@ -13,7 +13,7 @@
            (sql-port 5432))
           (kubes-beta
            (sql-product 'postgres)
-           (sql-user "postgres")
+           (sql-user "range-data-server")
            (sql-database "range-data-server")
            (sql-server "localhost")
            (sql-port 54320))
@@ -42,6 +42,11 @@
            (sql-server "localhost")
            (sql-port 5432))
           ))
+
+  (defun sql-kubes-beta ()
+    (interactive)
+    (password-store-copy "simspace/kubes-beta-postgres")
+    (sql-connect 'kubes-beta))
 
   (defun sql-logicalbuildings ()
     (interactive)
