@@ -116,7 +116,11 @@ Return the configuration."
       (goto-char (point-min))
       ;; should accept unicode module names?
       (search-forward-regexp "^module +\\([a-zA-Z0-9.]+\\)")
-      (kill-new (match-string 1))))
+      (let ((module-name (kill-new (match-string 1))))
+        (if (equal module-name "Main")
+            ;; special case, because :l Main does not work in ghci
+            (bergey/buffer-file-name-as-kill)
+          module-name))))
 
   (defun bergey/simformat ()
     "format buffer with https://github.com/Simspace/simformat"
