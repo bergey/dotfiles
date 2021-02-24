@@ -110,6 +110,7 @@ buildEnv {
       work.nodejs
       work.postgresqlWithPackages
       work.minio
+      work.zstd
     ] else [
         # (agda.withPackages (a: [ a.standard-library ]))
         acpi
