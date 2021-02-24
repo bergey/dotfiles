@@ -59,8 +59,7 @@ or outputs error message on failure."
     (setq erc-autojoin-timing 'ident)
     (setq erc-autojoin-channels-alist
           '(;("localhost" "&bitlbee")
-            ("freenode.net" "#diagrams" "#haskell" "#haskell-emacs" "#ghc"
-             "#ghcjs" "#reflex-frp")
+            ( "freenode.net" "#haskell" "#haskell-emacs" "#ghc" )
             ("irc.mozilla.org" "#rust")))
 
     (setq erc-hide-list '("JOIN" "PART" "QUIT" "MODE"))
