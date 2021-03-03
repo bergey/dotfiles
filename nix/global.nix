@@ -22,8 +22,8 @@ let
                 system-fileio system-filepath text unix
             ];
             description = "Recursively show space (size and i-nodes) used in subdirectories";
-            license = pkgs.stdenv.lib.licenses.bsd3;
-            hydraPlatforms = pkgs.stdenv.lib.platforms.none;
+            license = pkgs.lib.licenses.bsd3;
+            hydraPlatforms = pkgs.lib.platforms.none;
             broken = false;
             });
 
