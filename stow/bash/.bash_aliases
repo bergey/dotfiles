@@ -60,6 +60,7 @@ alias trynix='/home/bergey/code/active/ghcjs/reflex-platform/work-on ./ghcjs.nix
 # maybe a better version: https://github.com/commercialhaskell/stack/issues/1843
 alias 'stack-all-dependencies'="stack ls dependencies | sed 's/ /-/' | grep  \"$(pwd)\|rts\" -v | xargs stack unpack"
 alias 'stack-cabal-freeze'="echo -n 'constraints: ' >> cabal.config && stack list-dependencies | sed -e 's/ / == /' -e 's/$/,/' -e 's/^/             /' >> cabal.config"
+alias 'stack-build=stack build --test --no-run-tests'
 
 # git
 alias shortlog='git log --pretty=format:"%ai %s"'
