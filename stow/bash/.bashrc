@@ -209,3 +209,5 @@ if [ "$(uname)" = "Darwin" ]; then
         open "$HOME/.nix-profile/Applications/${application}.app"
     }
 fi
+
+source <(kustomize completion bash)
