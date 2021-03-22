@@ -66,7 +66,7 @@ buildEnv {
     ledger
     lftp
     loc
-    lrzip
+    # lrzip # broken 2021-03-03 MacOS
     mr
     msmtp
     niv
