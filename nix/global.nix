@@ -90,7 +90,7 @@ buildEnv {
     wireshark
     xlsfonts
     yaml2json
-    python.pkgs.yamllint
+    # python3.pkgs.yamllint # broken 2021-03-22
 
     # minimal derivation, ensures that we depend on all bootstrap envs
     (derivation (bootstrap // {
@@ -104,7 +104,7 @@ buildEnv {
     ] ++ (if stdenv.isDarwin then [
       govc
       nix
-      powershell
+      # powershell # broken 2021-03-22
       # it happens that my Mac is for work & my Linux boxen aren't
       work.yarn
       work.nodejs

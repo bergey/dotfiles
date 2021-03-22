@@ -44,25 +44,25 @@ in with pkgs; {
 
   "haskell-810" = mkBootstrap {
     name = "haskell-810";
-    paths = haskellEnv haskell.compiler.ghc8102;
+    paths = haskellEnv haskell.compiler.ghc8104;
   };
 
-  haskell-prof = mkBootstrap {
-    name = "haskell-prof";
-    paths = haskellEnv
-      ((haskell.compiler.ghc883.override { ghcFlavour = "prof"; })
-        .overrideAttrs (oldAttrs: rec {
-          patches = [ ./0001-DYNAMIC_GHC_PROGRAMS-for-prof-build.patch ];
-          # pass RTS options to ghc on every call
-          # RTS opts in stack --ghc-options doesn't reach the build invocation, only configure
-          postInstall = oldAttrs.postInstall + ''
-            sed -i -e 's/exec "$executablename"/exec "$executablename" +RTS -p -t -s -RTS/' "$out/bin/ghc"
-            '';
-        }));
-      # ++ (stack.overrideAttrs (oldAttrs: {
-      #   patches = [ ./0001-hack-always-accept-system-ghc.patch ];
-      # }))
-  };
+  # haskell-prof = mkBootstrap {
+  #   name = "haskell-prof";
+  #   paths = haskellEnv
+  #     ((haskell.compiler.ghc884.override { ghcFlavour = "prof"; })
+  #       .overrideAttrs (oldAttrs: rec {
+  #         patches = [ ./0001-DYNAMIC_GHC_PROGRAMS-for-prof-build.patch ];
+  #         # pass RTS options to ghc on every call
+  #         # RTS opts in stack --ghc-options doesn't reach the build invocation, only configure
+  #         postInstall = oldAttrs.postInstall + ''
+  #           sed -i -e 's/exec "$executablename"/exec "$executablename" +RTS -p -t -s -RTS/' "$out/bin/ghc"
+  #           '';
+  #       }));
+  #     # ++ (stack.overrideAttrs (oldAttrs: {
+  #     #   patches = [ ./0001-hack-always-accept-system-ghc.patch ];
+  #     # }))
+  # };
 
 #   scala = mkBootstrap {
 #     name = "scala";
@@ -133,7 +133,6 @@ in with pkgs; {
     name = "vcs";
     paths = [
       cvs
-      darcs
       mercurial
       subversion
     ];
