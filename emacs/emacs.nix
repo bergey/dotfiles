@@ -32,7 +32,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     company
     company-c-headers
     counsel
-    csv-mode
+    # csv-mode # broken 2021-03-16
     dash
     default-text-scale
     diminish
@@ -54,7 +54,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     flycheck-rust
     # fsharp-mode
     fstar-mode
-    ghc
     git-annex
     git-link
     google-this
@@ -69,7 +68,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     highlight-indent-guides
     highlight-quoted
     idris-mode
-    intero
     ivy
     kotlin-mode
     ledger-mode
