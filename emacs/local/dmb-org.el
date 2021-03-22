@@ -110,13 +110,13 @@
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
-(setq bergey/work-agenda-files (mapcar #'in-org-directory '("simspace.org")))
+(setq bergey/work-agenda-files (mapcar #'in-org-directory '("simspace.org" "scaling.org")))
 (setq bergey/home-agenda-files (mapcar #'in-org-directory '("house.org")))
 (setq bergey/teal-agenda-files (mapcar #'in-org-directory '("teal.org")))
 
 (setq org-agenda-custom-commands
       '(
-        ("w" "TODO at work" tags-todo "-someday-next-TODO=\"DELAY\""
+        ("w" "TODO at work" tags-todo "-someday-next-administrata-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
           (org-agenda-files bergey/work-agenda-files)))
         ("h" "TODO at home" tags-todo "-someday-next-TODO=\"DELAY\""
