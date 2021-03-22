@@ -126,7 +126,8 @@
 
 (use-package eshell :ensure t
   :commands eshell
-  :bind ((:map eshell-mode-map ("C-M-n" . rename-shell-buffer)))
+  ;; TODO lazy bind, only when eshell is actually loaded, and variable is declared
+  ;; :bind ((:map eshell-mode-map ("C-M-n" . rename-shell-buffer)))
   :config
   (cl-case system-type
     ('windows-nt
