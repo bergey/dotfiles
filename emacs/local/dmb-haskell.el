@@ -164,6 +164,7 @@ Return the configuration."
         haskell-stylish-on-save (not (executable-find "simformat"))
         haskell-ask-also-kill-buffers nil
         haskell-process-type 'ghci
+        fill-column 80
         )
   ;; (setq haskell-process-wrapper-function
   ;;     (lambda (args) (apply 'nix-shell-command (nix-current-sandbox) args)))
