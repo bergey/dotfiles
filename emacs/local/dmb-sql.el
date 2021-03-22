@@ -41,6 +41,12 @@
            (sql-database "postgres")
            (sql-server "localhost")
            (sql-port 5432))
+          (load-test
+           (sql-product 'postgres)
+           (sql-user "postgres")
+           (sql-database "range-data-server")
+           (sql-server "localhost")
+           (sql-port 54323))
           ))
 
   (defun sql-kubes-beta ()
