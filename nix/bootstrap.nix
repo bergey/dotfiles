@@ -47,6 +47,11 @@ in with pkgs; {
     paths = haskellEnv haskell.compiler.ghc8104;
   };
 
+  "haskell-head" = mkBootstrap {
+    name = "haskell-head";
+    paths = haskellEnv haskell.compiler.ghcHEAD;
+  };
+
   # haskell-prof = mkBootstrap {
   #   name = "haskell-prof";
   #   paths = haskellEnv
@@ -59,9 +64,9 @@ in with pkgs; {
   #           sed -i -e 's/exec "$executablename"/exec "$executablename" +RTS -p -t -s -RTS/' "$out/bin/ghc"
   #           '';
   #       }));
-  #     # ++ (stack.overrideAttrs (oldAttrs: {
-  #     #   patches = [ ./0001-hack-always-accept-system-ghc.patch ];
-  #     # }))
+  #     ++ (stack.overrideAttrs (oldAttrs: {
+  #       patches = [ ./0001-hack-always-accept-system-ghc.patch ];
+  #     }))
   # };
 
 #   scala = mkBootstrap {
