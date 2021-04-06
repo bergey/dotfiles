@@ -213,3 +213,10 @@ fi
 if type kustomize
 then source <(kustomize completion bash)
 fi
+
+function rename-metrics {
+    mv ../metrics.csv.zst .
+    zstd -d metrics.csv.zst
+    rm metrics.csv.zst
+    mv metrics.csv $1
+}
