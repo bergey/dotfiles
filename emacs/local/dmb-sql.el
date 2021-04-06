@@ -43,7 +43,7 @@
            (sql-port 5432))
           (load-test
            (sql-product 'postgres)
-           (sql-user "postgres")
+           (sql-user "range-data-server")
            (sql-database "range-data-server")
            (sql-server "localhost")
            (sql-port 54323))
@@ -53,6 +53,11 @@
     (interactive)
     (password-store-copy "simspace/kubes-beta-postgres")
     (sql-connect 'kubes-beta))
+
+  (defun sql-scalability ()
+    (interactive)
+    (password-store-copy "simspace/kubes-beta-postgres")
+    (sql-connect 'load-test))
 
   (defun sql-logicalbuildings ()
     (interactive)
