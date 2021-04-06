@@ -38,6 +38,7 @@ buildEnv {
     aspell
     aspellDicts.en
     atool
+    bash-completion
     bench
     direnv
     dtach

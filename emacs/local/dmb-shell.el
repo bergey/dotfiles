@@ -6,8 +6,14 @@
     (shell (get-buffer-create (concat "*shell*<" new-name ">"))))
   (bind-key "C-. h" 'named-shell)
 
+  (use-package bash-completion
+    :commands bash-completion-dynamic-complete)
+
   :config
   (progn
+    (add-hook 'shell-dynamic-complete-functions
+              'bash-completion-dynamic-complete)
+
     (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
     (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
 
