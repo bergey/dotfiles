@@ -96,7 +96,8 @@ alias ts-gen='TSC=tsc PRETTIER=prettier stack run ts-gen'
 # docker / kubernetes
 alias k=kubectl
 alias kb='kubectl --context=kubes-beta'
-alias ks='kubectl --kubeconfig ~/.kube/scaling-portal'
+alias ks='kubectl --context=kubes-beta-editor --namespace=scalability'
+# alias ks='kubectl --kubeconfig ~/.kube/scaling-portal'
 alias d=docker
 
 . ~/dotfiles/nix/bash_aliases
