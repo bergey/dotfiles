@@ -8,8 +8,9 @@ let
                })
     else pkgs.buildEnv env;
 
-  haskellEnv = ghc: with pkgs; [
-      cabal2nix
+  haskellEnv = ghc: with pkgs;
+    (if stdenv.isDarwin then [] else [ cabal2nix ]) ++
+    [
       cabal-install
       haskellPackages.alex
       haskellPackages.hpack
