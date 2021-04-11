@@ -210,7 +210,7 @@ if [ "$(uname)" = "Darwin" ]; then
     }
 fi
 
-if type kustomize
+if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
 
