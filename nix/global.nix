@@ -40,6 +40,7 @@ buildEnv {
     atool
     bench
     direnv
+    dtach
     editorconfig-core-c
     git
     git-lfs
@@ -111,7 +112,7 @@ buildEnv {
       work.postgresqlWithPackages
       work.minio
       work.zstd
-    ] else [
+    ] else [ # Linux
         # (agda.withPackages (a: [ a.standard-library ]))
         acpi
         arduino
