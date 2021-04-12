@@ -33,7 +33,6 @@
      protect-buffer-bury-p nil
      comint-move-point-for-output nil
      )
-    (add-to-list 'warning-suppress-types '(undo discard-info))
 
     (set-face-attribute 'comint-highlight-prompt nil :inherit nil)
 
@@ -125,7 +124,10 @@
                (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
                )) ;; if 'windows-nt
 
-
+    (if (boundp 'warning-suppress-types)
+      (add-to-list 'warning-suppress-types '(undo discard-info))
+      (setq warning-suppress-types '((undo discard-info)))
+      )
 
     ) ;; :config
   ) ;; use-package
