@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-engine 'xetex)
+ '(auth-source-save-behavior nil)
  '(c-default-style '((java-mode . "java") (awk-mode . "awk") (other . "k&r")))
  '(calendar-date-style 'iso)
  '(completion-ignored-extensions

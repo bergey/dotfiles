@@ -58,7 +58,6 @@ bind them to the specified keys."
 
 (bind-keys-switch-buffer
  (("y" . "*Ipython*")
-  ("U" . "#diagrams")
   ("S" . "*scratch*"))
  dmb-jump-keymap)
 
