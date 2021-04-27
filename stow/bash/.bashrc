@@ -194,11 +194,17 @@ function datelog {
 
 # commit of currently-running pod for a given deployment name
 function pod-commit {
-    imageID=$(k get deploy $1 -o json | jq -r '.spec.template.spec.containers[0].image' | sed 's,registry.hub.docker.com/,,')
+    imageID=$(kb --namespace=$1 get deploy $2 -o json | jq -r '.spec.template.spec.containers[0].image' | sed 's,registry.hub.docker.com/,,')
     docker pull $imageID
     commit=$(docker image inspect $imageID | jq -r '.[].ContainerConfig.Labels.git_commit')
     echo $commit
     git show $commit
+}
+
+function restart-haskell {
+    kubectl --context=kubes-beta-editor --namespace=$1 get deploy -l app=portal-appliance \
+        | awk '$1 !~ /grafana|jaeger|telegraf|minio|NAME|nginx/ { print $1; }' \
+        | xargs -L1 kubectl --context=kubes-beta-editor --namespace=$1 rollout restart deployment
 }
 
 if [ "$(uname)" = "Darwin" ]; then
@@ -219,4 +225,12 @@ function rename-metrics {
     zstd -d metrics.csv.zst
     rm metrics.csv.zst
     mv metrics.csv $1
+}
+
+function answer-time {
+ textql -sql "select * from (select user, substr(subtask, -2, 2) as question, (end-start)/1000 as duration from (select c0 as user, c1 as task, c2 as subtask, c3 as step, c4 as start, c5 as end from $1) as me where step='Answer' group by user, question) as grouped order by duration asc" $1.csv 
+}
+
+function console-time {
+    textql -sql "select * from (select count(*) as steps_completed, user, substr(step, -2, 1) as console, sum(end-start)/1000 as duration from (select c0 as user, c1 as task, c2 as subtask, c3 as step, c4 as start, c5 as end from $1) as me where subtask='Open (3) Console Sessions' group by user, console) as grouped where steps_completed = 4 order by duration asc" $1.csv
 }
