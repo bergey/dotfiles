@@ -48,6 +48,7 @@
  '(mm-verify-option 'known)
  '(notmuch-hello-sections
    '(notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags))
+ '(org-agenda-files '("~/Dropbox/org-mode/simspace.org"))
  '(org-export-backends '(ascii html icalendar latex md odt confluence))
  '(package-selected-packages
    '(protobuf-mode add-node-modules-path lsp-mode counsel ledger-mode w3m dumb-jump default-text-scale docker-tramp flycheck-haskell nix-sandbox persp-projectile perspective smart-mode-line-powerline-theme smart-mode-line yaml-mode windresize window-purpose window-number web-mode vala-mode use-package unfill toml-mode tide thrift systemd swift-mode rust-mode rg real-auto-save rainbow-mode rainbow-delimiters qml-mode py-isort purescript-mode pov-mode poly-markdown password-store pandoc-mode origami orgit org-trello org-evil org-cliplink nov notmuch nix-mode move-text merlin kotlin-mode ivy idris-mode highlight-quoted highlight-indent-guides highlight-escape-sequences haskell-snippets haskell-mode groovy-mode google-this git-link git-annex fstar-mode fsharp-mode font-lock-studio fic-mode eyebrowse exec-path-from-shell ensime emms emmet-mode editorconfig edit-indirect dockerfile-mode diminish csv-mode color-identifiers-mode coffee-mode clojure-mode caps-lock buffer-move bison-mode bbdb auto-complete auto-compile))

@@ -110,7 +110,7 @@
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
-(setq bergey/work-agenda-files (mapcar #'in-org-directory '("simspace.org" "scaling.org")))
+(setq bergey/work-agenda-files (mapcar #'in-org-directory '("simspace.org")))
 (setq bergey/home-agenda-files (mapcar #'in-org-directory '("house.org")))
 (setq bergey/teal-agenda-files (mapcar #'in-org-directory '("teal.org")))
 
