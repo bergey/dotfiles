@@ -35,6 +35,7 @@ buildEnv {
   name = "bergey-env";
   paths= [
     alacritty
+    ansible
     aspell
     aspellDicts.en
     atool
