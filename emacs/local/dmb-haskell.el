@@ -108,7 +108,7 @@ Return the configuration."
               :action #'dmb-haskell-insert-language-pragma
               ))
 
-  (mapcar (lambda (ext) (add-to-list 'haskell-ghc-supported-extensions ext)) '("BlockArguments" "DerivingStrategies"))
+  (mapcar (lambda (ext) (add-to-list 'haskell-ghc-supported-extensions ext)) '("BlockArguments" "DerivingStrategies" "NumericUnderscores"))
 
   (defun dmb-haskell-yank-module-name ()
     (interactive)
