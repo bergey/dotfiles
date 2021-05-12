@@ -160,6 +160,13 @@ in with pkgs; {
       ];
   };
 
+  alloy = mkBootstrap {
+    name = "alloy";
+    paths = [
+      alloy
+    ];
+  };
+
   c = mkBootstrap {
     name = "c";
     paths = [
