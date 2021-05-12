@@ -224,7 +224,7 @@ function rename-metrics {
     mv ../metrics.csv.zst .
     zstd -d metrics.csv.zst
     rm metrics.csv.zst
-    mv metrics.csv $1
+    mv metrics.csv $1.csv
 }
 
 function answer-time {
