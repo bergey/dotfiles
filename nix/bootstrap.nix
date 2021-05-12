@@ -164,6 +164,8 @@ in with pkgs; {
     name = "alloy";
     paths = [
       alloy
+      minisat
+      cryptominisat
     ];
   };
 
