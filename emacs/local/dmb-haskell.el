@@ -178,8 +178,26 @@ Return the configuration."
   (advice-add 'haskell-cabal--find-tags-dir :override
               'projectile-project-root)
 
+  )
 
-   )
+(use-package lsp-mode :ensure t
+  :hook (haskell-mode . lsp)
+  :commands lsp
+  )
+
+(use-package lsp-ui :ensure t
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-doc-enable nil)
+  )
+
+(use-package lsp-haskell :ensure t
+  :config
+  (setq lsp-haskell-server-path "haskell-language-server-wrapper")
+  (setq lsp-haskell-server-args ())
+  )
 
 
 (use-package haskell-interactive-mode

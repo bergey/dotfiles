@@ -167,12 +167,6 @@ preceding paren."
 (use-package edit-indirect :ensure t
   )
 
-(use-package lsp-mode :ensure t
-  :commands lsp
-  :config
-  (use-package lsp-ui)
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
-
 (use-package protobuf-mode :ensure t
   :mode "\\.proto\\'")
 
