@@ -62,7 +62,7 @@ buildEnv {
     id3v2
     imagemagick
     inkscape
-    jq
+    jq yq
     keybase
     kubectl
     kubernetes-helm 
