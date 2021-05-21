@@ -114,6 +114,7 @@ buildEnv {
       work.postgresqlWithPackages
       work.minio
       work.zstd
+      work.rabbitmq-server
     ] else [ # Linux
         # (agda.withPackages (a: [ a.standard-library ]))
         acpi
