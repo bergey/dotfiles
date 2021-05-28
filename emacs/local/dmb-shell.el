@@ -6,13 +6,12 @@
     (shell (get-buffer-create (concat "*shell*<" new-name ">"))))
   (bind-key "C-. h" 'named-shell)
 
-  (use-package bash-completion
-    :commands bash-completion-dynamic-complete)
+  (use-package native-complete :ensure t)
 
   :config
+  (native-complete-setup-bash)
+
   (progn
-    (add-hook 'shell-dynamic-complete-functions
-              'bash-completion-dynamic-complete)
 
     (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
     (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
@@ -22,7 +21,6 @@
      comint-scroll-to-bottom-on-input t  ; always insert at the bottom
      comint-scroll-to-bottom-on-output nil ; always add output at the bottom
      comint-scroll-show-maximum-output t ; scroll to show max possible output
-     ;; '(comint-completion-autolist t)     ; show completion list when ambiguous
      comint-input-ignoredups t           ; no duplicates in command history
      comint-completion-addsuffix t       ; insert space/slash after file completion
      comint-buffer-maximum-size 50000    ; max length of the buffer in lines
@@ -65,6 +63,11 @@
       (set (make-local-variable 'scroll-conservatively) 10))
 
     (add-hook 'shell-mode-hook 'set-scroll-conservatively)
+
+    (defun bergey/set-bash-completion ()
+      (setq completion-at-point-functions '(native-complete-at-point t)))
+    (add-hook 'shell-mode-hook 'bergey/set-bash-completion)
+
     ;; (add-hook 'shell-mode-hook (lambda ()
     ;;                              (shell-dirtrack-mode 0)
     ;;                               (setq dirtrack-list '("^\\(.*\\)|" 1 nil))
@@ -115,14 +118,18 @@
 
     (bind-key "C-M-n" 'rename-shell-buffer comint-mode-map)
 
-    (if (equal system-type 'windows-nt)
+    (pcase system-type
+      ('windows-nt
        (progn (setq explicit-shell-file-name
                      "C:/Program Files/Git/bin/bash.exe")
                (setq shell-file-name explicit-shell-file-name)
                (setq explicit-sh.exe-args '("--login" "-i"))
                (setenv "SHELL" shell-file-name)
                (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-               )) ;; if 'windows-nt
+               )) ;; 'windows-nt
+      ('darwin
+       (setq explicit-shell-file-name "~/.nix-profile/bin/bash")
+       ))
 
     (if (boundp 'warning-suppress-types)
       (add-to-list 'warning-suppress-types '(undo discard-info))

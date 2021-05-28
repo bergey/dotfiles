@@ -78,6 +78,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     # magit-annex # broken 2018-08-05, build needs git
     markdown-mode
     move-text
+    native-complete
     nix-mode
     nix-sandbox
     nodejs-repl
