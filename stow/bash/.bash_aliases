@@ -12,7 +12,7 @@ alias dudot='ls -a|grep -v '\''\.$'\''|xargs du -sh'
 if [ "$(uname)" = "Darwin" ]; then
     alias install='sudo port install'
     alias up='sudo port upgrade installed'
-    alias emacs='open ~/.nix-profile/Applications/Emacs.app'
+    alias emacs='open ~/.nix-profile/Applications/Emacs.app --args'
 elif [ -d /etc/nixos ]; then
     alias install='nix-env -i'
     alias up='sudo nixos-rebuild switch --upgrade'
