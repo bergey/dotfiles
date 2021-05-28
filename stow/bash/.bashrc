@@ -83,9 +83,8 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-[ -f /opt/local/share/bash-completion/completions/pass ] && . /opt/local/share/bash-completion/completions/pass
-[ -f /usr/share/bash-completion/completions/pass ] && . /usr/share/bash-completion/completions/pass
+export XDG_DATA_DIRS="$HOME/.nix-profile/share/:$XDG_DATA_DIRS"
+[ -f "$HOME/.nix-profile/etc/profile.d/bash_completion.sh" ] && . "$HOME/.nix-profile/etc/profile.d/bash_completion.sh"  && echo 'loaded bash_completion.sh'
 
 [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh

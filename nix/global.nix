@@ -105,6 +105,7 @@ buildEnv {
     }))
 
     ] ++ (if stdenv.isDarwin then [
+      bashInteractive
       govc
       nix
       # powershell # broken 2021-03-22
