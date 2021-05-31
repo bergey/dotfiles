@@ -54,3 +54,6 @@ snippets/*/.yas-compiled-snippets.el
 /stow/cabal/.cabal/bin/
 /emacs/.org-id-locations
 /emacs/ido.last
+/emacs/projects
+/emacs/.cache/
+/emacs/projectile.cache
