@@ -126,15 +126,6 @@ in with pkgs; {
     ];
   };
 
-  rust = mkBootstrap {
-    name = "rust";
-    paths = [
-      cargo
-      rustc
-      carnix
-    ];
-  };
-
   vcs = mkBootstrap {
     name = "vcs";
     paths = [
@@ -186,6 +177,16 @@ in with pkgs; {
         #    coqPackages_8_6.coq-ext-lib
       ];
     };
+
+  # broken MacOS 2021-06-02
+  rust = mkBootstrap {
+    name = "rust";
+    paths = [
+      cargo
+      rustc
+      carnix
+    ];
+  };
 
   # idris = mkBootstrap {
   #   name = "idris";
