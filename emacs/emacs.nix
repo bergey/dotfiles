@@ -21,7 +21,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     pkgs.emacsPackages.proofgeneral_HEAD
     auto-complete
     avy
-    bazel-mode
     bbdb
     buffer-move
     caps-lock
