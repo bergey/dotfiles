@@ -5,9 +5,9 @@
 
   (setq sql-connection-alist
         '(
-          (range-server
+          (local-portal
            (sql-product 'postgres)
-           (sql-user "postgres")
+           (sql-user "range-data-server")
            (sql-database "range-data-server")
            (sql-server "localhost")
            (sql-port 5432))
@@ -51,23 +51,13 @@
 
   (defun sql-kubes-beta ()
     (interactive)
-    (password-store-copy "simspace/kubes-beta-postgres")
+    (bergey/password-store-copy "simspace/kubes-beta-postgres")
     (sql-connect 'kubes-beta))
 
   (defun sql-scalability ()
     (interactive)
-    (password-store-copy "simspace/kubes-beta-postgres")
+    (bergey/password-store-copy "simspace/scalability-postgres")
     (sql-connect 'load-test))
-
-  (defun sql-logicalbuildings ()
-    (interactive)
-    (password-store-copy "ets-postgresql-bergey")
-    (sql-connect 'logicalbuildings))
-
-  (defun sql-logicalbuildings-su ()
-    (interactive)
-    (password-store-copy "ets-postgresql-bergey")
-    (sql-connect 'logicalbuildings-su))
 
   (defvar my-sql-replacements nil)
   (make-variable-buffer-local 'my-sql-replacements)
