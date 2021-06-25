@@ -66,7 +66,6 @@ buildEnv {
     keybase
     kubectl
     kubernetes-helm 
-    ledger
     lftp
     loc
     # lrzip # broken 2021-03-03 MacOS
@@ -76,13 +75,11 @@ buildEnv {
     nix-prefetch-git
     nmap
     nodePackages.jsonlint
-    notmuch
     pass
     perlPackages.ImageExifTool
-    pwgen
     ripgrep
     rsync
-   stack
+    stack
     stow
     stylish-haskell
     textql
@@ -140,7 +137,6 @@ buildEnv {
         psmisc # pstree &c
         slack
         transmission
-        unison
         xorg.xev
         zathura
         # zoom-us
