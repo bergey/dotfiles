@@ -17,7 +17,7 @@ os-update:
 	sudo nixos-rebuild switch --upgrade
 
 global:
-	nix-env --no-build-output -if global.nix
+	nix-env --no-build-output -if global.nix -A default
 
 prune:
 	date > prune.log
