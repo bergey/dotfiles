@@ -27,7 +27,7 @@ let
             broken = false;
             });
 
-    bootstrap = import ./bootstrap.nix;
+    bootstrap = import ./bootstrap.nix {inherit pkgs;};
 
 in with pkgs;
 
