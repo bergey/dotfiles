@@ -68,7 +68,6 @@ let
         jq yq
         keybase
         kubectl
-        kubernetes-helm 
         lftp
         loc
         mr
@@ -81,13 +80,14 @@ let
         perlPackages.ImageExifTool
         ripgrep
         rsync
+        shellcheck
         stack
         stow
         stylish-haskell
         textql
         tmux
-        # vagrant
         w3m
+        watch
         wget
         wireshark
         xlsfonts
