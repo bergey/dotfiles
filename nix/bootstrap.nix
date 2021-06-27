@@ -166,6 +166,18 @@ in with pkgs; {
       gcc
     ];
   };
+
+  ansible = mkBootstrap {
+    name = "ansible";
+    paths = [
+      ansible
+      (python3.withPackages (pyp: with pyp; [
+        requests
+        pyvmomi
+      ]))
+    ];
+  };
+
   
 } // (if stdenv.isDarwin then {} else {
 
