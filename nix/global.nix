@@ -39,6 +39,7 @@ let
 
     bergey = {
       global = with pkgs; [
+        age
         ansible
         aspell
         aspellDicts.en
