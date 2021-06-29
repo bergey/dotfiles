@@ -24,8 +24,7 @@
 
   (use-package flycheck-clojure :ensure t)
 
-  (use-package cider :ensure t
-    :config (add-hook 'nrepl-mode-hook 'dmb-lisp-hook)))
+  )
 
 (add-hook 'emacs-lisp-mode-hook 'dmb-lisp-hook)
 (add-hook 'lisp-mode-hook 'dmb-lisp-hook)

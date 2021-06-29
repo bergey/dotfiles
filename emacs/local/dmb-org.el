@@ -28,22 +28,6 @@
 (use-package org-archive
   :commands org-archive-subtree-default)
 
-(use-package org-pomodoro
-  :commands org-pomodoro
-  :config
-  (setq org-pomodoro-audio-player "pacat") ;TODO non-Linux option
-  (mapcar (lambda (v)
-            (set v "--file-format=wav  --volume=32768"))
-          '(org-pomodoro-start-sound-args
-            org-pomodoro-finished-sound-args
-            org-pomodoro-overtime-sound-args
-            org-pomodoro-killed-sound-args
-            org-pomodoro-short-break-sound-args
-            org-pomodoro-long-break-sound-args
-            org-pomodoro-ticking-sound-args)
-          )
-  )
-
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cl" 'org-store-link)
 ;; set this without org-git-store-link, which is nifty but usually not what I want.

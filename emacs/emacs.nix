@@ -20,18 +20,16 @@ in emacsWithPackages (epkgs: (with epkgs; [
     agda2-mode
     pkgs.emacsPackages.proofgeneral_HEAD
     auto-complete
-    avy
     bbdb
     buffer-move
     caps-lock
-    cider
     clojure-mode
     coffee-mode
     color-identifiers-mode
     company
     company-c-headers
     counsel
-    # csv-mode # broken 2021-03-16
+    csv-mode
     dash
     default-text-scale
     diminish
@@ -41,8 +39,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     editorconfig
     emmet-mode
     emms
-    # erlang # broken 2019-09-30
-    ess
+    erlang # broken 2019-09-30
     evil
     exec-path-from-shell
     eyebrowse
@@ -51,9 +48,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     flycheck-clojure
     flycheck-haskell
     flycheck-rust
-    # fsharp-mode
     fstar-mode
-    git-annex
     git-link
     google-this
     groovy-mode
@@ -62,7 +57,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     helm
     helm-dash
     helm-gtags
-    helm-idris
     highlight-escape-sequences
     highlight-indent-guides
     highlight-quoted
@@ -74,7 +68,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     lsp-mode
     lsp-ui
     magit
-    # magit-annex # broken 2018-08-05, build needs git
     markdown-mode
     move-text
     native-complete
@@ -85,14 +78,12 @@ in emacsWithPackages (epkgs: (with epkgs; [
     nov
     org-cliplink
     org-plus-contrib
-    org-pomodoro
     org-trello
     orgit
     origami
     pandoc-mode
     password-store
     perspective
-    pocket-mode
     polymode
     pov-mode
     powerline
@@ -101,7 +92,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     purescript-mode
     py-isort
     pyvenv
-    qml-mode
     racket-mode
     rainbow-delimiters
     rainbow-mode
@@ -121,11 +111,9 @@ in emacsWithPackages (epkgs: (with epkgs; [
     typescript-mode
     unfill
     use-package
-    vala-mode
     w3m
     web-mode
     window-number
-    window-purpose
     windresize
     yaml-mode
     yasnippet

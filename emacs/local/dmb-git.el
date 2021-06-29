@@ -2,10 +2,6 @@
 
 (setq vc-follow-symlinks t)
 
-(use-package git-annex :ensure t
-  :commands git-annex
-  :defer 20)
-
 (use-package magit :ensure t
   :bind ("C-x g" . magit-status)
   :diminish auto-revert-mode

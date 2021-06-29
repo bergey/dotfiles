@@ -10,19 +10,8 @@
   :config (setq pov-indent-level 4)
   )
 
-;; vala is created and maintained by Gnome.
-;; It looks like Java or C#, but compiles down to C instead of using it's own VM.
-(use-package vala-mode :ensure t
-  :mode "\\.vala\\'")
-
 (use-package thrift :ensure t
   :mode ("\\.thrift\\'" . thrift-mode))
-
-;; QML / Qt Quick
-(use-package qml-mode :ensure t
-  :mode "\\.qml\'"
-  :config
-  (add-hook 'qml-mode-hook '(lambda () (local-set-key (kbd "RET") 'newline-and-indent))))
 
 ;; scala
 (use-package scala-mode :ensure t
@@ -62,10 +51,6 @@
   :config (progn
             (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
             ))
-
-;; R stats
-(use-package ess-site
-  :commands R)
 
 (use-package systemd :ensure t)
 
@@ -128,7 +113,6 @@
 (use-package idris-mode :ensure t
   :mode "\\.idr"
   :config
-  (use-package helm-idris :ensure t)
   )
 
 (use-package fstar-mode :ensure t
