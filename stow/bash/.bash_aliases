@@ -97,7 +97,7 @@ alias ts-gen='TSC=tsc PRETTIER=prettier stack run ts-gen'
 alias k=kubectl
 alias kt='kubectl --context=tkg-test-cluster01-editor'
 alias kb='kubectl --context=kubes-beta'
-alias ks='kubectl --context=kubes-beta-editor --namespace=scalability'
+alias ks='kubectl --context=ev2-editor --namespace=scalability'
 # alias ks='kubectl --kubeconfig ~/.kube/scaling-portal'
 alias d=docker
 
