@@ -82,6 +82,7 @@ let
         perlPackages.ImageExifTool
         ripgrep
         rsync
+        rustup
         shellcheck
         stack
         stow
@@ -122,9 +123,12 @@ let
       simspace = with work; [
         minio
         nodejs
+        haskellPackages.ormolu
         postgresqlWithPackages
         rabbitmq-server
+        stern
         yarn
+        xsv
         zstd
       ];
 
