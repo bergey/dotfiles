@@ -29,13 +29,14 @@ let
 
     bootstrap = import ./bootstrap.nix {inherit pkgs;};
     # minimal derivation, ensures that we depend on all bootstrap envs
-    bootstrap-prebuild = with pkgs; (derivation (bootstrap // {
+    bootstrap-prebuild = with pkgs; (derivation {
       name = "bootstrap-envs";
       builder = "${bash}/bin/bash";
       args = [ "-c" "$coreutils/bin/mkdir $out; echo foo > $out/bootstrap-envs" ];
       system = builtins.currentSystem;
       inherit coreutils;
-    }));
+      inherit (bootstrap) haskell javascript psql python;
+    });
 
     bergey = {
       global = with pkgs; [
@@ -128,6 +129,7 @@ let
       ];
 
       workstation = with pkgs; [
+        bootstrap-prebuild
         inkscape
       ];
 
