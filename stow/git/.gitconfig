@@ -35,5 +35,6 @@
         fsckObjects = true
 [init]
 	templateDir = /home/bergey/.git_template
+	defaultBranch = trunk
 [pull]
 	ff = only
