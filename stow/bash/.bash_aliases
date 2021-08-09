@@ -98,6 +98,8 @@ alias k=kubectl
 alias kt='kubectl --context=tkg-test-cluster01-editor'
 alias kb='kubectl --context=kubes-beta'
 alias ks='kubectl --context=ev2-editor --namespace=scalability'
+alias kx='kubectl --context=tkg-vxr1-cluster01-viewer'
+alias kxe='kubectl --context=tkg-vxr1-cluster01-editor'
 # alias ks='kubectl --kubeconfig ~/.kube/scaling-portal'
 alias d=docker
 
