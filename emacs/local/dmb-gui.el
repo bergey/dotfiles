@@ -173,9 +173,13 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
     :ensure t)
   )
 
-(defun bergey/buffer-file-name-as-kill ()
-  (interactive)
-  (kill-new (buffer-file-name)))
+(defun bergey/buffer-file-name-as-kill (arg)
+  (interactive "p")
+  (kill-new
+   (case arg
+     ('4 (file-name-nondirectory (buffer-file-name)))
+     (t (buffer-file-name)))
+   ))
 
 ;; mode line
 ;; (setq mode-line-percent-position nil)
