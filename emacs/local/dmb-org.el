@@ -259,4 +259,6 @@
     (let (()))(org-map-entries (lambda () (cons (current-buffer) (point))) (format "+%s" tag) 'agenda)
     )
 
+(use-package ox-jira :ensure t)
+
 (provide 'dmb-org)
