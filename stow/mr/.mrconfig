@@ -20,9 +20,6 @@ update = emacsclient -e '(save-some-buffers t)'; git diff-index --quiet HEAD || 
 [records/finances]
 checkout = git clone 'git@bitbucket.org:bergey/finances.git' 'finances'
 
-[records/teallabs]
-checkout = git clone 'git@github.com:christalee/teallabs.git' 'teallabs'
-
 [code/utility]
 checkout = git clone 'ssh://git@bitbucket.org/bergey/utility.git' 'utility'
 
@@ -67,3 +64,6 @@ checkout = git clone 'https://github.com/Simspace/avaleryar.git' 'avaleryar'
 
 [code/active/anomura]
 checkout = git clone 'git@github.com:bergey/anomura.git' 'anomura'
+
+[records/bergey.github.io]
+checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'bergey.github.io'
