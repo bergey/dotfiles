@@ -49,18 +49,11 @@ checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
 
 [code/active/studious-telegram]
 checkout = git clone 'git@github.com:bergey/studious-telegram' 'studious-telegram'
-
-[code/active/codex]
-checkout = git clone 'https://github.com/ekmett/codex.git' 'codex'
-
 [code/active/coreutils]
 checkout = git clone 'git@github.com:uutils/coreutils.git' 'coreutils'
 
 [code/active/Model01-Firmware]
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
-
-[code/simspace/avaleryar]
-checkout = git clone 'https://github.com/Simspace/avaleryar.git' 'avaleryar'
 
 [code/active/anomura]
 checkout = git clone 'git@github.com:bergey/anomura.git' 'anomura'
