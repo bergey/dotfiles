@@ -41,7 +41,6 @@ let
     bergey = {
       global = with pkgs; [
         age
-        ansible
         aspell
         aspellDicts.en
         atool
@@ -106,7 +105,6 @@ let
         docker
         file
         gitAndTools.git-annex
-        google-cloud-sdk
         inotifyTools
         linuxPackages.virtualbox
         lrzip # broken 2021-03-03 MacOS
@@ -134,6 +132,7 @@ let
 
       workstation = with pkgs; [
         bootstrap-prebuild
+        google-cloud-sdk
         inkscape
       ];
 
@@ -161,7 +160,7 @@ let
 in rec {
   linux-workstation = pkgs.buildEnv {
     name = "bergey-linux-workstation";
-    paths = with bergey; global ++ linux ++ worstation ++ linux-workstation;
+    paths = with bergey; global ++ linux ++ workstation ++ bergey.linux-workstation;
   };
 
   linux-server = pkgs.buildEnv {
@@ -172,7 +171,7 @@ in rec {
   darwin = pkgs.buildEnv {
     name = "bergey-darwin";
     # it happens that my Mac is for work & my Linux boxen aren't
-    paths = bergey.global ++ bergey.darwin ++ bergey.simspace;
+    paths = with bergey; global ++ bergey.darwin ++ workstation ++ simspace;
   };
 
   default = if pkgs.stdenv.isDarwin then darwin else linux-workstation;

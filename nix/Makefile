@@ -21,7 +21,7 @@ global:
 
 prune:
 	date > prune.log
-	sudo nix-collect-garbage --delete-older-than ${OLD} 2>&1 | awk '{ print $$0 >> "prune.log"; dots+=1 }; dots < 80 { printf "." }; dots >= 80 { printf ".\n"; dots=0 }'
+	sudo nix-collect-garbage --delete-older-than ${OLD} 2>&1 | awk '{ print $$0 >> "prune.log"; dots+=1 }; dots < 100 { printf "." }; dots >= 100 { printf ".\n%s ", $lines; dots=0; lines += 80 }'
 
 roots:
 	for r in $$(nix-store --gc --print-roots | awk '$$1 ~ /^\/home\/bergey/ {print $$1;}'); do \
