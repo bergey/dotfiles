@@ -11,17 +11,14 @@ checkout = git clone 'git@github.com:bergey/passwords.git' '.password-store'
 update = git pull --rebase; git push
 
 [records/resume]
-checkout = git clone 'ssh://git@bitbucket.org/bergey/resume.git' 'resume'
+checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
 
 [Dropbox/org-mode]
 checkout = git clone 'ssh://git@github.com/bergey/org-mode.git' 'org-mode'
 update = emacsclient -e '(save-some-buffers t)'; git diff-index --quiet HEAD || git commit -am "automatic commit on $(hostname) $(date '+%Y-%m-%d %R')"; git pull --rebase; git push
 
-[records/finances]
-checkout = git clone 'git@bitbucket.org:bergey/finances.git' 'finances'
-
 [code/utility]
-checkout = git clone 'ssh://git@bitbucket.org/bergey/utility.git' 'utility'
+checkout = git clone 'ssh://git@github.com/bergey/utility.git' 'utility'
 
 [code/active/scratch]
 checkout = git clone 'ssh://git@github.com/bergey/scratch.git' 'scratch'
@@ -49,8 +46,6 @@ checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
 
 [code/active/studious-telegram]
 checkout = git clone 'git@github.com:bergey/studious-telegram' 'studious-telegram'
-[code/active/coreutils]
-checkout = git clone 'git@github.com:uutils/coreutils.git' 'coreutils'
 
 [code/active/Model01-Firmware]
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
