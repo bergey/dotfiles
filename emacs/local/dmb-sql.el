@@ -19,7 +19,7 @@
            (sql-port 54320))
           (qa-portal
            (sql-product 'postgres)
-           (sql-user "postgres")
+           (sql-user "range-data-server")
            (sql-database "range-data-server")
            (sql-server "localhost")
            (sql-port 54321))
@@ -58,6 +58,11 @@
     (interactive)
     (bergey/password-store-copy "simspace/scalability-postgres")
     (sql-connect 'load-test))
+
+  (defun sql-qa ()
+    (interactive)
+    (bergey/password-store-copy "simspace/qa-postgres")
+    (sql-connect 'qa-portal))
 
   (defvar my-sql-replacements nil)
   (make-variable-buffer-local 'my-sql-replacements)
