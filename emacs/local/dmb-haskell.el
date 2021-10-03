@@ -64,7 +64,7 @@ Return the configuration."
   (setq haskell-mode-hook '(
                             ;;                           ;;structured-haskell-mode
                             whitespace-mode
-                            flycheck-mode
+                            ;; flycheck-mode ;; cache broken 2021-09-21
                             ;;                           subword-mode
                             ;; interactive-haskell-mode
                             dmb-company-short-idle
