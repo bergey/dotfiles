@@ -1,6 +1,6 @@
 let
     pkgs = import ./nixpkgs.nix {};
-    work = (import ../../code/simspace/ps/dev {}).pkgs;
+    work = (import ../../code/simspace/ps/dev {});
 
     sizes =
         ({ mkDerivation, base, bytestring, cmdargs, deepseq, dlist, lens
@@ -118,12 +118,13 @@ let
         powershell
       ];
 
-      simspace = with work; [
+      simspace = with work.pkgs; [
         minio
         nodejs
         haskellPackages.ormolu
         postgresqlWithPackages
         rabbitmq-server
+        work.project.hsPkgs.simformat.components.exes.simformat
         stern
         yarn
         xsv
