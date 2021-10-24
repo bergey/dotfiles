@@ -89,6 +89,7 @@ Return the configuration."
         (append
          '(("validSql" . sql-mode)
            ("select" . sql-mode)
+           ("rawSql" . sql-mode)
            ("aesonQQ" . js-mode)
            )
          haskell-font-lock-quasi-quote-modes))
