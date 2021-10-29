@@ -186,6 +186,14 @@ in with pkgs; {
       carnix
     ];
   };
+
+  latex = mkBootstrap {
+    name = "latex";
+    paths = [
+      (texlive.combine { inherit (texlive) scheme-small tex-gyre; })
+    ];
+    FONTCONFIG_FILE = makeFontsConf { fontDirectories = texlive.tex-gyre.pkgs; };
+  };
   
 } // (if stdenv.isDarwin then {} else {
 
