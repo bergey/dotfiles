@@ -78,6 +78,15 @@ in with pkgs; {
 #     ];
 #   };
 
+  erlang = mkBootstrap {
+    name = "erlang";
+    paths = [
+      erlang
+      elixir
+      rebar
+    ];
+  };
+
   java = mkBootstrap {
     name = "java";
     paths = [
