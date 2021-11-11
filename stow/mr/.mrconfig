@@ -9,7 +9,7 @@ update = git pull --rebase; git push
 [records/resume]
 checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
 
-[Dropbox/org-mode]
+[Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org-mode]
 checkout = git clone 'ssh://git@github.com/bergey/org-mode.git' 'org-mode'
 update = emacsclient -e '(save-some-buffers t)'; git diff-index --quiet HEAD || git commit -am "automatic commit on $(hostname) $(date '+%Y-%m-%d %R')"; git pull --rebase; git push
 
