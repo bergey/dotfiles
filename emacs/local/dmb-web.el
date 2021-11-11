@@ -10,6 +10,7 @@
                           dmb-company-short-idle
                           emmet-mode
                           flycheck-mode
+                          lsp-deferred
                           prettier-mode
                           ;; smartparens-strict-mode
                           whitespace-mode

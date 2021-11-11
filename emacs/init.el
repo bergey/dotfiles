@@ -35,6 +35,7 @@
                  ;; org mode
                  dmb-org
                  ;; programming
+                 dmb-language-server
                  dmb-nix
                  dmb-coding
                  dmb-haskell
