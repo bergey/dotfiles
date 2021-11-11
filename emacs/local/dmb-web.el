@@ -1,27 +1,3 @@
-(use-package emmet-mode :ensure t
-  )
-
-(use-package color-identifiers-mode :ensure t
-  :commands color-identifiers-mode
-  :config
-  (push
-   '(web-mode
-     "</?!?"
-     "\\_</?!?\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)"
-     (nil web-mode-html-tag-face))
-   color-identifiers:modes-alist)
-  )
-
-(defun bergey-yas-by-file-extension ()
-  (interactive)  ; for debugging
-;;  (let ((ext )))
-  (pcase (downcase (file-name-extension (buffer-file-name)))
-    ((pred (string-equal "js" )) (yas-activate-extra-mode 'js-mode))
-    ((pred (string-equal "html")) (yas-activate-extra-mode 'html-mode)))
-    ;; ((pred (string-equal "js" )) (message "js"))
-    ;; ((pred (string-equal "html")) (message "html")))
-  )
-
 ;; everything web: HTML,javascript, css
 (use-package web-mode :ensure t
   :mode "\\.\\(p?html\\|tsx?\\|tpl\\|php\\|erb\\|mustach\\|jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\|tmpl\\)\\'"
@@ -29,14 +5,14 @@
   (progn
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
     (setq web-mode-hook '(
-                          flycheck-mode
-                          whitespace-mode
-                          dmb-company-short-idle
-                          ;; smartparens-strict-mode
-                          emmet-mode
-                          color-identifiers-mode
-                          ;; (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
                           bergey-yas-by-file-extension
+                          color-identifiers-mode
+                          dmb-company-short-idle
+                          emmet-mode
+                          flycheck-mode
+                          ;; smartparens-strict-mode
+                          whitespace-mode
+                          ;; (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
                           ))
 
     (define-key web-mode-map (kbd "C-j") 'newline)
@@ -52,27 +28,33 @@
             ad-do-it)
         ad-do-it))))
 
-(use-package coffee-mode :ensure t
-  :mode "\\.coffee\\'")
+(use-package emmet-mode :ensure t
+  )
 
-(defun xml-pretty-print-region (begin end)
-  "Pretty format XML markup in region. You need to have nxml-mode
-http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
-this.  The function inserts linebreaks to separate tags that have
-nothing but whitespace between them.  It then indents the markup
-by using nxml's indentation rules."
-  (interactive "r")
-  (save-excursion
-    (nxml-mode)
-      (goto-char begin)
-      (while (search-forward-regexp "\>[ \\t]*\<" nil t)
-        (backward-char) (insert "\n"))
-      (indent-region begin end))
-    (message "Ah, much better!"))
+(use-package color-identifiers-mode :ensure t
+  :commands color-identifiers-mode
+  :config
+  (push
+   '(web-mode
+     "</?!?"
+     "\\_</?!?\\([a-zA-Z_$]\\(?:\\s_\\|\\sw\\)*\\)"
+     (nil web-mode-html-tag-face))
+   color-identifiers:modes-alist)
+  )
 
 ;; https://github.com/emacsmirror/nodejs-mode
 (use-package nodejs-repl :ensure t
   :commands nodejs-repl
+  )
+
+(defun bergey-yas-by-file-extension ()
+  (interactive)  ; for debugging
+;;  (let ((ext )))
+  (pcase (downcase (file-name-extension (buffer-file-name)))
+    ((pred (string-equal "js" )) (yas-activate-extra-mode 'js-mode))
+    ((pred (string-equal "html")) (yas-activate-extra-mode 'html-mode)))
+    ;; ((pred (string-equal "js" )) (message "js"))
+    ;; ((pred (string-equal "html")) (message "html")))
   )
 
 ;; mocha runner code from https://gist.github.com/lazywithclass/1582626
@@ -98,5 +80,20 @@ by using nxml's indentation rules."
   "No color for the modeline"
   (interactive)
   (set-face-background 'mode-line "gray"))
+
+(defun xml-pretty-print-region (begin end)
+  "Pretty format XML markup in region. You need to have nxml-mode
+http://www.emacswiki.org/cgi-bin/wiki/NxmlMode installed to do
+this.  The function inserts linebreaks to separate tags that have
+nothing but whitespace between them.  It then indents the markup
+by using nxml's indentation rules."
+  (interactive "r")
+  (save-excursion
+    (nxml-mode)
+      (goto-char begin)
+      (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+        (backward-char) (insert "\n"))
+      (indent-region begin end))
+    (message "Ah, much better!"))
 
 (provide 'dmb-web)
