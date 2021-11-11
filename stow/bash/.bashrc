@@ -192,13 +192,14 @@ function datelog {
 }
 
 # commit of currently-running pod for a given deployment name
-function pod-commit {
-    imageID=$(kubectl --context=$1 get deploy $2 -o json | jq -r '.spec.template.spec.containers[0].image' | sed 's,registry.hub.docker.com/,,')
+function pod-commit (
+    set -e
+    imageID=$(kubectl --context=$1 get pod -l kind=$2 -o json | jq -r '.items[].status.containerStatuses[].imageID' | sed 's,registry.hub.docker.com/,,')
     docker pull $imageID
     commit=$(docker image inspect $imageID | jq -r '.[].ContainerConfig.Labels.git_commit')
     echo $commit
     git show $commit
-}
+)
 
 function restart-haskell {
     kubectl --context=kubes-beta-editor --namespace=$1 get deploy -l app=portal-appliance \
