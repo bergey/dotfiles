@@ -88,6 +88,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     polymode
     pov-mode
     powerline
+    prettier
     projectile
     protobuf-mode
     purescript-mode

@@ -10,6 +10,7 @@
                           dmb-company-short-idle
                           emmet-mode
                           flycheck-mode
+                          prettier-mode
                           ;; smartparens-strict-mode
                           whitespace-mode
                           ;; (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
@@ -27,6 +28,9 @@
           (let ((web-mode-enable-part-face nil))
             ad-do-it)
         ad-do-it))))
+
+(use-package prettier :ensure t
+  )
 
 (use-package emmet-mode :ensure t
   )
