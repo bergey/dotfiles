@@ -147,9 +147,6 @@
   ;;   )
 )
 
-(use-package auto-complete :ensure t
-  )
-
 (use-package edit-indirect :ensure t
   )
 
