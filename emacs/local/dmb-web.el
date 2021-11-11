@@ -20,6 +20,7 @@
     (define-key web-mode-map (kbd "C-j") 'newline)
     (define-key web-mode-map (kbd "RET") 'newline-and-indent)
     (define-key web-mode-map (kbd "C-c C-r") 'run-mocha)
+    (define-key web-mode-map (kbd "C-c C-m") nil) ;; masks imenu
     (setq web-mode-code-indent-offset 2)
     (bind-keys :map web-mode-map
                ("C--" . web-mode-comment-or-uncomment))
