@@ -1,15 +1,3 @@
-(use-package w3m :ensure t
-  :commands w3m)
-
-(defun w3m-browse-current-buffer ()
-    (interactive)
-    (let ((filename (concat (make-temp-file "w3m-") ".html")))
-      (unwind-protect
-          (progn
-            (write-region (point-min) (point-max) filename)
-            (w3m-find-file filename))
-        (delete-file filename))))
-
 (use-package emmet-mode :ensure t
   )
 
@@ -54,6 +42,7 @@
     (define-key web-mode-map (kbd "C-j") 'newline)
     (define-key web-mode-map (kbd "RET") 'newline-and-indent)
     (define-key web-mode-map (kbd "C-c C-r") 'run-mocha)
+    (setq web-mode-code-indent-offset 2)
     (bind-keys :map web-mode-map
                ("C--" . web-mode-comment-or-uncomment))
 
@@ -110,12 +99,4 @@ by using nxml's indentation rules."
   (interactive)
   (set-face-background 'mode-line "gray"))
 
-
-(use-package nov
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-  (setq nov-variable-pitch nil) ;; use default face instead
-  )
-
-(provide 'dmb-xml)
+(provide 'dmb-web)

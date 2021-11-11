@@ -39,6 +39,7 @@
                  dmb-coding
                  dmb-haskell
                  dmb-lisp
+                 dmb-web
                  ;; dmb-fsharp
                  dmb-typescript
                  dmb-python
@@ -46,7 +47,7 @@
                  dmb-git
                  ;; misc
                  dmb-emacsclient
-                 dmb-xml
+                 dmb-web-reading
                  dmb-markup
                  dmb-audio
                  ;;dmb-ublog
