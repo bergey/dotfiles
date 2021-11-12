@@ -23,18 +23,6 @@
            (sql-database "range-data-server")
            (sql-server "localhost")
            (sql-port 54321))
-          (prod-portal
-           (sql-product 'postgres)
-           (sql-user "readonly")
-           (sql-database "range-data-server")
-           (sql-server "localhost")
-           (sql-port 54322))
-          (prod-portal-superuser
-           (sql-product 'postgres)
-           (sql-user "postgres")
-           (sql-database "range-data-server")
-           (sql-server "localhost")
-           (sql-port 54322))
           (docker-localhost
            (sql-product 'postgres)
            (sql-user "postgres")
