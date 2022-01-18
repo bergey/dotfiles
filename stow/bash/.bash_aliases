@@ -101,7 +101,7 @@ alias kb='kubectl --context=kubes-beta'
 alias ks='kubectl --context=scalability'
 alias kq='kubectl --context=qa'
 alias kx='kubectl --context=tkg-vxr1-cluster01-viewer'
-alias kxe='kubectl --context=tkg-vxr1-cluster01-editor'
+alias kxe='kubectl --context=vxr-editor'
 alias d=docker
 alias pg-scalability='ks port-forward svc/postgres 54323:5432'
 alias pg-qa='ks port-forward svc/postgres 54321:5432'
