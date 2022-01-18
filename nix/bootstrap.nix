@@ -193,6 +193,7 @@ in with pkgs; {
       cargo
       rustc
       carnix
+      libiconv
     ];
   };
 
