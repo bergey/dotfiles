@@ -77,7 +77,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     notmuch
     nov
     org-cliplink
-    org-plus-contrib
+    # org-plus-contrib
     org-trello
     orgit
     origami
