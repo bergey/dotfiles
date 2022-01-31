@@ -44,8 +44,12 @@
 
   (defun sql-scalability ()
     (interactive)
-    (bergey/password-store-copy "simspace/scalability-postgres")
-    (sql-connect 'load-test))
+    ;; (bergey/password-store-copy "simspace/scalability-postgres")
+    (let*
+        ( (pw (shell-command-to-string "kubectl --context=scalability get secret  haskell-env -o yaml | yq .data.POSTGRES_RANGEDATA_PASSWORD -r | base64 -d") )
+          ;; (sql-connection-alist (--map (-snoc it `(sql-password ,pw)) (--filter (eq (car it) 'load-test) sql-connection-alist))) )
+      (kill-new pw) ;; not sure why setting sql-password is not working
+      (sql-connect 'load-test))))
 
   (defun sql-qa ()
     (interactive)
