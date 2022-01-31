@@ -93,6 +93,7 @@ let
         wget
         wireshark
         xlsfonts
+        xz
         yaml2json
         python3.pkgs.yamllint
       ];
