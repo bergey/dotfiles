@@ -60,7 +60,7 @@
   )
 
 (defun bergey/fixed-pitch-indent ()
-  (font-lock-add-keywords nil '(("^  *" . 'fixed-pitch))))
+  (font-lock-add-keywords nil '(("^[ -] *" . 'fixed-pitch))))
 (add-hook 'prog-mode-hook 'bergey/fixed-pitch-indent)
 
 (font-lock-add-keywords 'yaml-mode '(("^  *" . 'fixed-pitch)))
