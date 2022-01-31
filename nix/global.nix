@@ -124,7 +124,7 @@ let
         haskellPackages.ormolu
         postgresqlWithPackages
         rabbitmq-server
-        work.project.hsPkgs.simformat.components.exes.simformat
+        # work.project.hsPkgs.simformat.components.exes.simformat
         stern
         yarn
         xsv
