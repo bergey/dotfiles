@@ -195,7 +195,7 @@ function datelog {
 # commit of currently-running pod for a given deployment name
 function pod-commit (
     set -e
-    imageID=$(kubectl --context=$1 get pod -l kind=$2 -o json | jq -r '.items[].status.containerStatuses[].imageID' | sed 's,registry.hub.docker.com/,,')
+    imageID=$(kubectl --context=$1 get pod -l kind=$2 -o json | jq -r '.items[].status.containerStatuses[].imageID' | sed 's,registry.hub.docker.com/,,' | head -n 1)
     docker pull $imageID
     commit=$(docker image inspect $imageID | jq -r '.[].ContainerConfig.Labels.git_commit')
     echo $commit
