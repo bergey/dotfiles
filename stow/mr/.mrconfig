@@ -54,3 +54,6 @@ checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'bergey.github
 
 [code/active/simpledb]
 checkout = git clone 'git@github.com:shterrett/simpledb.git' 'simpledb'
+
+[code/active/red]
+checkout = git clone 'git@github.com:bergey/red.git' 'red'
