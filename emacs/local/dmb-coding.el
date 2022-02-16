@@ -147,6 +147,21 @@
   ;;   )
 )
 
+;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column
+(defun jump-down-to-non-whitespace-char-in-same-column ()
+  (interactive)
+  (evil-next-line)
+  (while (or (= (char-after (point)) 32)
+            (= (char-after (point)) 10))
+    (evil-next-line)))
+
+(defun jump-up-to-non-whitespace-char-in-same-column ()
+  (interactive)
+  (evil-previous-line)
+  (while (or (= (char-after (point)) 32)
+            (= (char-after (point)) 10))
+    (evil-previous-line)))
+
 (use-package edit-indirect :ensure t
   )
 
