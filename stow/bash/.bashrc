@@ -235,3 +235,7 @@ function answer-time {
 function console-time {
     textql -sql "select * from (select count(*) as steps_completed, user, substr(step, -2, 1) as console, sum(end-start)/1000 as duration from (select c0 as user, c1 as task, c2 as subtask, c3 as step, c4 as start, c5 as end from $1) as me where subtask='Open (3) Console Sessions' group by user, console) as grouped where steps_completed = 4 order by duration asc" $1.csv
 }
+
+export PATH="$PATH:/$HOME/code/simspace/s3k/bin"
+source "$HOME/code/simspace/s3k/completion/s3k-completion.bash"
+# complete -F __s3k_completion s3k
