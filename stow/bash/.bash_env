@@ -47,9 +47,6 @@ unset NEW_PATH
 
 export NIX_PATH=$HOME/.nix-defexpr/channels
 
-LEDGER_FILE=~/records/finances/ledger
-export LEDGER_FILE
-#alias largest='du -sh *|grep "^[.0-9]\+[MG]"|sort -rn'
 EDITOR='emacsclient'; export EDITOR
 # export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 # export JENAROOT=/usr/local/stow/apache-jena-2.11.

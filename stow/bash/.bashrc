@@ -102,36 +102,8 @@ export PASSWORD_STORE_X_SELECTION=clipboard
 
 # functions break .xsessionrc
 
-function s3 {
-s3cmd put $2 s3://bergey/$1/$2 -P;
-}
-
-# photo helpers
-function photorefile {
-         exiftool '-filename<CreateDate' -d %FT%H:%M:%S%%-c.%%le -r $1
-         exiftool '-Directory<CreateDate' -d ~/Library/photos/%Y/%Y-%m -r $1
-}
-
 function wepub {
 wget $1; ebook-convert $(basename $1) $(basename $1 | sed 's/\.[a-zA-Z]\+$/.epub/'); rm $(basename $1)
-}
-
-function diagramwatch {
-         while true
-               do inotifywait $1.hs && ghcsandbox $1 && $1
-               done
-}
-
-function povwatch {
-         while true
-               do inotifywait -e modify $1.hs && cabal exec runhaskell $1 > $1.pov && povray -W1280 -H960 $1.pov
-               done
-}
-
-function boundtest {
-    cabal sandbox delete
-    cabal sandbox init
-    cabal install --constraint="$1"
 }
 
 function headgrep {
@@ -188,6 +160,7 @@ function jq-grep {
     done
 }
 
+# TODO generalize for not-stack; or factor out the inner date call
 function datelog {
     stack exec $1 2>&1 > $(date -u +"%Y-%m-%dT%H:%M:%SZ-$1.log")
 }
@@ -202,12 +175,6 @@ function pod-commit (
     git show $commit
 )
 
-function restart-haskell {
-    kubectl --context=kubes-beta-editor --namespace=$1 get deploy -l app=portal-appliance \
-        | awk '$1 !~ /grafana|jaeger|telegraf|minio|NAME|nginx/ { print $1; }' \
-        | xargs -L1 kubectl --context=kubes-beta-editor --namespace=$1 rollout restart deployment
-}
-
 if [ "$(uname)" = "Darwin" ]; then
     function nix-open {
         # Apple Spotlight finds *every* version Nix has installed,
@@ -220,21 +187,6 @@ fi
 if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
-
-function rename-metrics {
-    mv ../metrics.csv.zst .
-    zstd -d metrics.csv.zst
-    rm metrics.csv.zst
-    mv metrics.csv $1.csv
-}
-
-function answer-time {
- textql -sql "select * from (select user, substr(subtask, -2, 2) as question, (end-start)/1000 as duration from (select c0 as user, c1 as task, c2 as subtask, c3 as step, c4 as start, c5 as end from $1) as me where step='Answer' group by user, question) as grouped order by duration asc" $1.csv 
-}
-
-function console-time {
-    textql -sql "select * from (select count(*) as steps_completed, user, substr(step, -2, 1) as console, sum(end-start)/1000 as duration from (select c0 as user, c1 as task, c2 as subtask, c3 as step, c4 as start, c5 as end from $1) as me where subtask='Open (3) Console Sessions' group by user, console) as grouped where steps_completed = 4 order by duration asc" $1.csv
-}
 
 export PATH="$PATH:/$HOME/code/simspace/s3k/bin"
 source "$HOME/code/simspace/s3k/completion/s3k-completion.bash"
