@@ -7,6 +7,7 @@
               (local-set-key (kbd "C-x k") 'server-edit))))
 
 ;; start server, so I can call emacsclient from bash
+(require 'server)
 (unless (server-running-p) (server-start))
 (add-hook 'mail-mode-hook '(lambda ()
                              (auto-fill-mode 1)
