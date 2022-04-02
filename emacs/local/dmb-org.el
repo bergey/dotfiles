@@ -260,4 +260,6 @@
 
 (use-package ox-jira :ensure t)
 
+(use-package ox-gfm :ensure t)
+
 (provide 'dmb-org)
