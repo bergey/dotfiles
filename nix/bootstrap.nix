@@ -99,6 +99,7 @@ in with pkgs; {
     paths = with nodePackages; [
       pkgs.nodejs
       node2nix
+      deno
       # bower
       pkgs.python3.pkgs.jsmin
       # more tools that I haven't needed in a long time
