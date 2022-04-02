@@ -89,8 +89,9 @@ in with pkgs; {
 
   java = mkBootstrap {
     name = "java";
-    paths = [
-      pkgs.jdk11
+    paths = with pkgs; [
+      jdk
+      scala
     ];
   };
 
