@@ -114,9 +114,7 @@ let
 
       darwin = with pkgs; [
         bashInteractive
-        govc
         nix
-        powershell
       ];
 
       simspace = with work.pkgs; [
