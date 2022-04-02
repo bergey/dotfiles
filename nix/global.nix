@@ -67,6 +67,7 @@ let
         id3v2
         imagemagick
         jq yq
+        just
         keybase
         kubectl
         lftp
