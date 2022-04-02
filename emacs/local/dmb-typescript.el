@@ -11,7 +11,11 @@
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
     ;; (tide-hl-identifier-mode +1)
-    ))
+    )
+  :hook (before-save . tide-format-before-save))
+  :bind (:map tide-mode-map
+              ("C-c C-," . tide-format))
+  )
 
   (defun typescript-sort-imports ()
   "sort the current region according to typescript import rules"
