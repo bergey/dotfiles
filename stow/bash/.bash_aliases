@@ -104,7 +104,7 @@ alias kx='kubectl --context=tkg-vxr1-cluster01-viewer'
 alias kxe='kubectl --context=vxr-editor'
 alias d=docker
 alias pg-scalability='ks port-forward svc/postgres 54323:5432'
-alias pg-qa='ks port-forward svc/postgres 54321:5432'
-alias pg-beta='ks port-forward svc/postgres 54320:5432'
+alias pg-qa='kq port-forward svc/postgres 54321:5432'
+alias pg-beta='kb port-forward svc/postgres 54320:5432'
 
 . ~/dotfiles/nix/bash_aliases
