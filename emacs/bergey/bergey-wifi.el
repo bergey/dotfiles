@@ -14,4 +14,4 @@
     )
   )
 
-(provide 'bergey-system)
+(provide 'bergey-wifi)

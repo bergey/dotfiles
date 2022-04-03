@@ -29,7 +29,6 @@
                  bergey-global-bindings
                  bergey-isearch
                  bergey-editing
-                 bergey-system
                  bergey-unicode
                  bergey-evil
                  ;; org mode
@@ -58,6 +57,7 @@
                  bergey-ledger
                  bergey-dired
                  bergey-sql
+                 bergey-wifi
                  bergey-google
                  happy-mode
                  ))
