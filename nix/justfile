@@ -1,0 +1,38 @@
+all: global os bootstrap
+
+global:
+  nix-env --no-build-output -if global.nix -A default
+
+update:
+  @./update.sh
+  make global
+
+bootstrap:
+  nix-build bootstrap.nix
+  rm result*
+
+os:
+  sudo nixos-rebuild switch
+
+os-update:
+  sudo nixos-rebuild switch --upgrade
+
+OLD := "7d"
+dots := quote('
+     NL == 1 { lines=0; };
+     { print $0 >> "prune.log"; dots+=1 };
+     dots < 100 { printf "." };
+     dots >= 100 { printf ".\n%s ", lines; dots=0; lines += 100 }
+     ')
+
+prune:
+  date > prune.log
+  sudo nix-collect-garbage --delete-older-than {{OLD}} 2>&1 | awk {{dots}}
+
+roots:
+  for r in $(nix-store --gc --print-roots | awk '$1 ~ /^\/home\/bergey/ {print $1;}'); do \
+    du -shc $(nix-store -qR $r 2>/dev/null) | awk -v r="$r" '$2 ~ /total/ {print $1, r;}' ;  done \
+    | sort -h
+
+iso:
+  nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
