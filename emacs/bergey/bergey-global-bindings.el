@@ -62,7 +62,7 @@ bind them to the specified keys."
   (kill-new (auth-source-pass-get 'secret entry))
   )
 
-(defun bergey-store-or-edit-password (arg)
+(defun bergey/store-or-edit-password (arg)
   (interactive "p")
   (case arg
     ('4 (call-interactively 'password-store-edit))
@@ -83,7 +83,7 @@ bind them to the specified keys."
             ;; interferes with org-time-stamp
             ("C-. C-." . kmacro-call-macro)
             ("M-l" . company-show-location)
-            ("C-. C-p" . bergey-store-or-edit-password)
+            ("C-. C-p" . bergey/store-or-edit-password)
             )
 
 ;; move case-change commands under a prefix
@@ -95,10 +95,6 @@ bind them to the specified keys."
             ("C-S-u" . upcase-region)
             ("C-S-l" . downcase-region)
             ("C-S-c" . capitalize-region))
-
-(use-package google-this :ensure t
-  :bind ("C-. w" . google-this-mode-submap)
-  )
 
 (defun bergey/browse-url-or-xref ()
   (interactive)

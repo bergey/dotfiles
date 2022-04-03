@@ -18,7 +18,6 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook (lambda() (diminish 'visual-line-mode)))
 (bind-key "C-. v" 'visual-line-mode)
-(bind-key "M-S-a" 'end-of-sentence) ;; like M-a, since I rebind M-e
 
 (defun find-alternative-file-with-sudo ()
   (interactive)
@@ -57,26 +56,11 @@
   :bind ("M-S-<up>" . move-text-up)
   :bind ("M-S-<down>" . move-text-down))
 
-;; actually save file, on 10 sec (configurable) timer
-;; I'm considering using this with OpenSCAD and Etherpad
-(use-package real-auto-save :ensure t
-  :commands (real-auto-save turn-on-real-auto-save))
-
 ;; view mode bindings
 (add-hook 'view-mode-hook
           (lambda ()
             (define-key view-mode-map (kbd "j") 'View-scroll-line-forward)
             (define-key view-mode-map (kbd "k") 'View-scroll-line-back)))
-
-;; alternative to open-line, bound to C-S-o in global-bindings
-(defun vi-open-line-above ()
-  "Insert a newline above the current line and put point at beginning."
-  (interactive)
-  (unless (bolp)
-    (beginning-of-line))
-  (newline)
-  (forward-line -1)
-  (indent-according-to-mode))
 
 ;; auto completion
 (use-package company :ensure t
@@ -103,7 +87,6 @@
 (use-package rg :ensure t
   :commands rg
   :config
-  (define-key rg-mode-map (kbd "C-o") nil)
   (define-key rg-mode-map (kbd "M-o") 'compilation-display-error)
   )
 
@@ -131,10 +114,7 @@
 
 (defalias 'count-lines-region 'count-words-region)
 
-(use-package caps-lock :ensure t
-  :bind ("C-S-c i" . caps-lock-mode))
-
 (setq hi-lock-face-defaults
-      '("hi-pink" "hi-green" "hi-blue" "hi-yellow" "hi-black-b" "hi-blue-b" "hi-red-b" "hi-green-b" "hi-black-hb"))
+      '("hi-green" "hi-blue" "hi-pink" "hi-aquamarine" "hi-salmon" "hi-yellow" ))
 
 (provide 'bergey-editing)
