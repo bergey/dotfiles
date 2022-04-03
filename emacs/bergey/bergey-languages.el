@@ -1,8 +1,49 @@
 ;;; *** programming languages that I use occasionally
 
-;; (use-package modelica-mode :ensure t
-;;   :mode "\.mo$"
+(use-package agda2)
+
+;; Coq
+(use-package proof-site
+  :defer t
+  :config
+  (use-package coq
+    :mode "\\.v\\'"
+    :config
+      (setq coq-compile-before-require t)
+    )
+  )
+
+(use-package dockerfile-mode :ensure t
+  :mode "Dockerfile")
+
+;; broken 2019-09-30
+;; (use-package erlang :ensure t
+;;   :mode "\\.erl"
 ;;   )
+
+(use-package fstar-mode :ensure t
+  :mode "\\.fst")
+
+(use-package groovy-mode :ensure t
+  :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
+
+(use-package idris-mode :ensure t
+  :mode "\\.idr"
+  :config
+  )
+
+(use-package just-mode :ensure t)
+
+(use-package kotlin-mode :ensure t
+  :ensure t)
+
+;; ocaml
+(use-package merlin :ensure t
+  :mode "\\.ml"
+  :config
+  (use-package tuareg :ensure t))
+
+(use-package nix-mode :ensure t)
 
 ;; POVRay input files
 (use-package pov-mode :ensure t
@@ -10,8 +51,12 @@
   :config (setq pov-indent-level 4)
   )
 
-(use-package thrift :ensure t
-  :mode ("\\.thrift\\'" . thrift-mode))
+;; purescript
+(use-package purescript-mode :ensure t
+  :mode "\\.ps$"
+  :config (progn
+            (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
+            ))
 
 ;; scala
 (use-package scala-mode :ensure t
@@ -25,43 +70,16 @@
             (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
             (add-hook 'scala-mode-hook 'whitespace-mode)))
 
-;; rust
-(use-package rust-mode :ensure t
-  :mode ("\\.rs\'" . rust-mode)
-  :bind (:map rust-mode-map
-              ("C-c C-," . rust-format-buffer))
-  :config
-  (use-package flycheck-rust :ensure t
-    :config
-    ;; upstream doesn't cope when there's more on the line than the subcommand
-    (defun flycheck-rust-cargo-has-command-p (command)
-      (let ((cargo (funcall flycheck-executable-find "cargo")))
-        (member command
-          (mapcar
-           (lambda (s) (car (s-split-words s)))
-           (ignore-errors (process-lines cargo "--list"))))))
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-  (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
+(use-package soutei-mode)
 
-;; Coq
-(use-package proof-site
-  :defer t
-  :config
-  (use-package coq
-    :mode "\\.v\\'"
-    :config
-      (setq coq-compile-before-require t)
-    )
+(use-package swift-mode :ensure t
+  :mode "\\.swift"
   )
 
-;; purescript
-(use-package purescript-mode :ensure t
-  :mode "\\.ps$"
-  :config (progn
-            (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
-            ))
-
 (use-package systemd :ensure t)
+
+(use-package thrift :ensure t
+  :mode ("\\.thrift\\'" . thrift-mode))
 
 (use-package yaml-mode :ensure t
   :mode "\\.yaml$"
@@ -75,93 +93,5 @@
               ))
   (bind-key "TAB" 'origami-recursively-toggle-node yaml-mode-map)
   )
-
-;; C language
-;; custom, based on k&r
-(c-add-style
- "kar"
- '("k&r"
-   (c-basic-offset . 4)))
-
-(setq c-default-style
-      '((java-mode . "java")
-        (awk-mode . "awk")
-        (other . "kar")))
-
-(add-to-list 'auto-mode-alist '("\\.cl" . c-mode))
-
-(setq c-mode-hook
-      '(whitespace-mode
-        smartparens-mode
-        flycheck-mode
-        ;; helm-gtags-mode
-        bergey/company-short-idle))
-
-;; *** C
-(defun bergey/c-mode-insert-lcurly ()
-  (interactive)
-  (insert "{")
-  (let ((pps (syntax-ppss)))
-    (when (and (eolp) (not (or (nth 3 pps) (nth 4 pps)))) ;; EOL and not in string or comment
-      (c-indent-line)
-      (insert "\n\n}")
-      (c-indent-line)
-      (forward-line -1)
-      (c-indent-line))))
-
-(add-hook 'c-initialization-hook
-          (lambda ()
-            (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-            (define-key c-mode-base-map "{" 'bergey/c-mode-insert-lcurly)))
-
-(add-to-list 'auto-mode-alist '("\.pde" . c-mode)) ; arduino
-(add-to-list 'auto-mode-alist '("\.ino" . c-mode)) ; arduino
-(add-to-list 'auto-mode-alist '("\.glsl" . c-mode)) ; OpengGL
-(add-to-list 'auto-mode-alist '("\.frag" . c-mode)) ; OpengGL
-(add-to-list 'auto-mode-alist '("\.vert" . c-mode)) ; OpengGL
-(add-to-list 'auto-mode-alist '("\.geom" . c-mode)) ; OpengGL
-
-
-(use-package toml-mode :ensure t
-  :mode "\\.toml\\|Cargo.lock" )
-
-(use-package groovy-mode :ensure t
-  :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
-
-;; broken 2019-09-30
-;; (use-package erlang :ensure t
-;;   :mode "\\.erl"
-;;   )
-
-(use-package idris-mode :ensure t
-  :mode "\\.idr"
-  :config
-  )
-
-(use-package fstar-mode :ensure t
-  :mode "\\.fst")
-
-(use-package merlin :ensure t
-  :mode "\\.ml"
-  :config
-  (use-package tuareg :ensure t))
-
-(use-package kotlin-mode :ensure t
-  :ensure t)
-
-(use-package dockerfile-mode :ensure t
-  :mode "Dockerfile")
-
-(use-package swift-mode :ensure t
-  :mode "\\.swift"
-  )
-
-(use-package soutei-mode)
-
-(use-package agda2)
-
-(use-package just-mode :ensure t)
-
-(use-package nix-mode :ensure t)
 
 (provide 'bergey-languages)

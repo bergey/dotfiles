@@ -34,14 +34,16 @@
                  ;; org mode
                  bergey-org
                  ;; programming
-                 bergey-language-server
                  bergey-coding
+                 bergey-language-server
+                 bergey-c
                  bergey-haskell
                  bergey-lisp
+                 bergey-python
+                 bergey-rust
+                 bergey-typescript
                  bergey-web
                  ;; bergey-fsharp
-                 bergey-typescript
-                 bergey-python
                  bergey-languages
                  bergey-git
                  ;; misc
