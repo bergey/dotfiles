@@ -5,25 +5,24 @@
   (progn
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
     (setq web-mode-hook '(
-                          bergey-yas-by-file-extension
+                          bergey/yas-by-file-extension
                           color-identifiers-mode
                           bergey/company-short-idle
                           emmet-mode
                           flycheck-mode
                           lsp-deferred
                           prettier-mode
-                          ;; smartparens-strict-mode
                           whitespace-mode
-                          ;; (lambda () (setq-local helm-dash-docsets '("HTML" "CSS" "Sass" "Bourbon" "Neat")))
                           ))
 
-    (define-key web-mode-map (kbd "C-j") 'newline)
-    (define-key web-mode-map (kbd "RET") 'newline-and-indent)
-    (define-key web-mode-map (kbd "C-c C-r") 'run-mocha)
-    (define-key web-mode-map (kbd "C-c C-m") nil) ;; masks imenu
+    (bind-keys*
+      :map web-mode-map
+      ("C-j" . newline)
+      ("RET" . newline-and-indent)
+      ("C-c C-r" . run-mocha)
+      ("C--" . web-mode-comment-or-uncomment)
+      ("C-c C-m" . nil)) ;; masks imenu
     (setq web-mode-code-indent-offset 2)
-    (bind-keys :map web-mode-map
-               ("C--" . web-mode-comment-or-uncomment))
 
     (defadvice web-mode-highlight-part (around tweak-jsx activate)
       (if (equal web-mode-content-type "jsx")
@@ -53,7 +52,7 @@
   :commands nodejs-repl
   )
 
-(defun bergey-yas-by-file-extension ()
+(defun bergey/yas-by-file-extension ()
   (interactive)  ; for debugging
 ;;  (let ((ext )))
   (pcase (downcase (file-name-extension (buffer-file-name)))
