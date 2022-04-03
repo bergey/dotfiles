@@ -1,3 +1,5 @@
+default: update emacs
+
 emacs:
 	nix-env -if emacs.nix
 
@@ -9,4 +11,3 @@ update:
 		then git commit -m "$$(basename $$(pwd)): update nixpkgs snapshot"; \
 		else echo "nothing to commit"; \
 		fi
-
