@@ -146,4 +146,6 @@
 
 (use-package agda2)
 
+(use-package just-mode :ensure t)
+
 (provide 'dmb-languages)

@@ -62,6 +62,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     highlight-quoted
     idris-mode
     ivy
+    just-mode
     kotlin-mode
     ledger-mode
     lsp-haskell
