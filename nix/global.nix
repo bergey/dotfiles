@@ -54,7 +54,6 @@ let
         gitAndTools.hub
         gnumake
         gnupg
-        gphoto2
         graphviz
         (haskell.lib.dontCheck haskellPackages.hasktags)
         haskellPackages.pandoc
@@ -62,31 +61,25 @@ let
         haskellPackages.graphmod
         # haskellPackages.HaRe
         (haskellPackages.callPackage sizes {})
-        haskellPackages.wai-app-static # warp
         htop
-        id3v2
-        imagemagick
         jq yq
         just
         keybase
         kubectl
         lftp
         loc
+        lrzip
         mr
-        msmtp
-        niv
         nix-prefetch-git
         nmap
         nodePackages.jsonlint
         pass
-        perlPackages.ImageExifTool
         ripgrep
         rsync
         rustup
         shellcheck
         stack
         stow
-        stylish-haskell
         textql
         tmux
         w3m
@@ -94,6 +87,7 @@ let
         wget
         wireshark
         xlsfonts
+        xsv
         xz
         yaml2json
         python3.pkgs.yamllint
@@ -106,10 +100,7 @@ let
         curl
         docker
         file
-        gitAndTools.git-annex
         inotifyTools
-        linuxPackages.virtualbox
-        lrzip # broken 2021-03-03 MacOS
         psmisc # pstree &c
       ];
 
@@ -121,13 +112,11 @@ let
       simspace = with work.pkgs; [
         minio
         nodejs
-        haskellPackages.ormolu
         postgresqlWithPackages
         rabbitmq-server
         # work.project.hsPkgs.simformat.components.exes.simformat
         stern
         yarn
-        xsv
         zstd
       ];
 
@@ -140,14 +129,17 @@ let
       linux-workstation = with pkgs; [
         alacritty
         arduino
-        # calibre # broken apsw 2020-06-21
+        # calibre # broken 2020-06-21
         crawl
         dmenu
         dropbox-cli
         feh
-        # freeciv_gtk
+        gphoto2
+        id3v2
+        imagemagick
         maim # screenshots
         pavucontrol
+        perlPackages.ImageExifTool
         slack
         transmission
         xorg.xev

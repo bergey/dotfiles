@@ -1,12 +1,13 @@
 {pkgs ? import ./nixpkgs.nix {} }:
 
 let
-  mkBootstrap = env: if pkgs.lib.inNixShell
-               then pkgs.mkShell (env // {
-                 buildInputs = env.paths;
-                 name = "bootstrap-" + env.name;
-               })
-    else pkgs.buildEnv env;
+  mkBootstrap = env:
+    if pkgs.lib.inNixShell
+    then pkgs.mkShell (env // {
+      buildInputs = env.paths;
+      name = "bootstrap-" + env.name;
+    })
+    else pkgs.buildEnv {inherit (env) name paths;};
 
   haskellEnv = ghc: with pkgs;
     (if stdenv.isDarwin then [] else [ cabal2nix ]) ++
@@ -22,6 +23,26 @@ let
   
 in with pkgs; {
 
+  alloy = mkBootstrap {
+    name = "alloy";
+    paths = [
+      alloy
+      minisat
+      cryptominisat
+    ];
+  };
+
+  ansible = mkBootstrap {
+    name = "ansible";
+    paths = [
+      ansible
+      (python3.withPackages (pyp: with pyp; [
+        requests
+        pyvmomi
+      ]))
+    ];
+  };
+
   binary = mkBootstrap {
     name = "binary";
     paths = [
@@ -35,6 +56,22 @@ in with pkgs; {
       smem
       pciutils
     ]);
+  };
+
+  c = mkBootstrap {
+    name = "c";
+    paths = [
+      gcc
+    ];
+  };
+
+  erlang = mkBootstrap {
+    name = "erlang";
+    paths = [
+      erlang
+      elixir
+      rebar
+    ];
   };
 
   haskell = mkBootstrap {
@@ -70,20 +107,10 @@ in with pkgs; {
   #     }))
   # };
 
-#   scala = mkBootstrap {
-#     name = "scala";
-#     paths = with pkgs; [
-#       sbt
-#       scala
-#     ];
-#   };
-
-  erlang = mkBootstrap {
-    name = "erlang";
+  idris = mkBootstrap {
+    name = "idris";
     paths = [
-      erlang
-      elixir
-      rebar
+      idris
     ];
   };
 
@@ -101,14 +128,8 @@ in with pkgs; {
       pkgs.nodejs
       node2nix
       deno
-      # bower
       pkgs.python3.pkgs.jsmin
-      # more tools that I haven't needed in a long time
-      # jshint
-      # gulp
-      # grunt-cli
-      # mocha
-      # pkgs.sass
+      yarn
     ];
   };
 
@@ -137,12 +158,11 @@ in with pkgs; {
     ];
   };
 
-  vcs = mkBootstrap {
-    name = "vcs";
-    paths = [
-      cvs
-      mercurial
-      subversion
+  scala = mkBootstrap {
+    name = "scala";
+    paths = with pkgs; [
+      sbt
+      scala
     ];
   };
 
@@ -155,49 +175,6 @@ in with pkgs; {
     ];
   };
 
-  souffle = mkBootstrap {
-      name = "souffle";
-      paths = [
-      souffle
-      ];
-  };
-
-  alloy = mkBootstrap {
-    name = "alloy";
-    paths = [
-      alloy
-      minisat
-      cryptominisat
-    ];
-  };
-
-  c = mkBootstrap {
-    name = "c";
-    paths = [
-      gcc
-    ];
-  };
-
-  ansible = mkBootstrap {
-    name = "ansible";
-    paths = [
-      ansible
-      (python3.withPackages (pyp: with pyp; [
-        requests
-        pyvmomi
-      ]))
-    ];
-  };
-
-  rust = mkBootstrap {
-    name = "rust";
-    paths = [
-      cargo
-      rustc
-      carnix
-      libiconv
-    ];
-  };
 
   latex = mkBootstrap {
     name = "latex";
@@ -207,6 +184,15 @@ in with pkgs; {
     FONTCONFIG_FILE = makeFontsConf { fontDirectories = texlive.tex-gyre.pkgs; };
   };
   
+  vcs = mkBootstrap {
+    name = "vcs";
+    paths = [
+      cvs
+      mercurial
+      subversion
+    ];
+  };
+
 } // (if stdenv.isDarwin then {} else {
 
     coq = mkBootstrap {
@@ -218,11 +204,20 @@ in with pkgs; {
       ];
     };
 
-  # idris = mkBootstrap {
-  #   name = "idris";
-  #   paths = [
-  #     idris
-  #   ];
-  # };
+  rust = mkBootstrap { # rustup simpler
+    name = "rust";
+    paths = [
+      cargo
+      rustc
+      carnix
+      libiconv
+    ];
+  };
 
+  souffle = mkBootstrap { # broken MacOS 2022-04-03
+      name = "souffle";
+      paths = [
+      souffle
+      ];
+  };
 })
