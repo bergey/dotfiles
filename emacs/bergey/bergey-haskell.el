@@ -62,17 +62,10 @@ Return the configuration."
     )
 
   (setq haskell-mode-hook '(
-                            ;;                           ;;structured-haskell-mode
                             whitespace-mode
                             flycheck-mode
-                            ;;                           subword-mode
-                            ;; interactive-haskell-mode
                             bergey/company-short-idle
-                            ;;                           smartparens-mode
-                            ;; (lambda ()
-                            ;;   (setq-local helm-dash-docsets '("Haskell")))
                             haskell-auto-insert-module-template
-                            ;;                           ;; ghc-init  ; doesn't work with GHC-7.10?
                             flycheck-haskell-setup
                             ))
 
@@ -215,7 +208,5 @@ Return the configuration."
           haskell-process-auto-import-loaded-modules t
           haskell-interactive-popup-errors nil
           )))
-
-(use-package haskell-snippets :ensure t)
 
 (provide 'bergey-haskell)
