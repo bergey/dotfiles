@@ -29,7 +29,6 @@
 
 (use-package idris-mode :ensure t
   :mode "\\.idr"
-  :config
   )
 
 (use-package just-mode :ensure t)
@@ -54,21 +53,20 @@
 ;; purescript
 (use-package purescript-mode :ensure t
   :mode "\\.ps$"
-  :config (progn
-            (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
-            ))
+  :config
+    (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
+    )
 
 ;; scala
 (use-package scala-mode :ensure t
-  ;; :ensure scala-mode
   ;; :ensure sbt-mode
   ;; :ensure ensime
   :mode ("\\.scala\'" . scala-mode)
-  :config (progn
-            (use-package sbt-mode :ensure t)
-            (use-package ensime :ensure t) ;; 2014-07-30 upstream broken
-            (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-            (add-hook 'scala-mode-hook 'whitespace-mode)))
+  :config
+    (use-package sbt-mode :ensure t)
+    (use-package ensime :ensure t) ;; 2014-07-30 upstream broken
+    (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+    (add-hook 'scala-mode-hook 'whitespace-mode))
 
 (use-package soutei-mode)
 
