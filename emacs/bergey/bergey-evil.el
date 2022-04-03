@@ -52,8 +52,8 @@
   (evil-ex-define-cmd "q" 'kill-this-buffer)
 
   (use-package org-evil :ensure t :ensure)
-  (add-hook 'evil-mode-hook (lambda () (setq evil-shift-width 2)))
 
+  (setq-default evil-shift-width 2)
   )
 
 (provide 'bergey-evil)
