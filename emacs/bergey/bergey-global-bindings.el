@@ -31,7 +31,7 @@
  )
 
 ;; Jump to various buffers
-(bind-keys* :prefix-map dmb-jump-keymap
+(bind-keys* :prefix-map bergey/jump-keymap
             :prefix "C-. b"
             ("u" . erc-iswitchb)
             ("o" . org-switchb))
@@ -59,7 +59,7 @@ bind them to the specified keys."
 (bind-keys-switch-buffer
  (("y" . "*Ipython*")
   ("S" . "*scratch*"))
- dmb-jump-keymap)
+ bergey/jump-keymap)
 
 ;; 2021-06-03 upstream password-store-copy is broken
 (defun bergey/password-store-copy (entry)
@@ -103,7 +103,7 @@ bind them to the specified keys."
  )
 
 ;; move case-change commands under a prefix
-(bind-keys* :prefix-map dmb-case-keymap
+(bind-keys* :prefix-map bergey/case-keymap
             :prefix "C-S-c"
             ("u" . upcase-word)
             ("l" . downcase-word)

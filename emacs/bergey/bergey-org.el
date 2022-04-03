@@ -46,7 +46,7 @@
 
 (setq org-log-done nil)
 
-(defun dmb-org-end-of-subtree ()
+(defun bergey/org-end-of-subtree ()
   (interactive)
   (org-end-of-subtree))
 
@@ -56,7 +56,7 @@
                          ;; ("C-c C-m" . helm-imenu)
                          ("C-c C-x C-i" . org-clock-in)
                          ("C-c C-x m" . org-mark-ring-goto)
-                         ("C-M-n" . dmb-org-end-of-subtree)
+                         ("C-M-n" . bergey/org-end-of-subtree)
                          ("M-S-a" . org-forward-sentence)
                          ("M-n" . org-move-subtree-down)
                          ("M-p" . org-move-subtree-up)
@@ -236,7 +236,7 @@
 (defun strip-text-properties(txt)
   (set-text-properties 0 (length txt) nil txt) txt)
 
-(defun dmb-pick-n (n input)
+(defun bergey/pick-n (n input)
   "Pick n random elements from lst.  If there are not n items, return lst entire.  If the input list contains no duplicates, neither will the output."
   (cl-labels
       ((worker (n l acc lst)
@@ -247,13 +247,13 @@
       (if (>= n l) lst (worker n l '() input))
       )))
 
-(defun dmb-pick-n-stable (n input)
-  "Like `dmb-pick-n', but the elements will appear in the output
+(defun bergey/pick-n-stable (n input)
+  "Like `bergey/pick-n', but the elements will appear in the output
   in the same order as in the input"
   (let ((range (-iterate '1+ 0 (length input))))
-    (-select-by-indices (sort (dmb-pick-n n range) '<) input)))
+    (-select-by-indices (sort (bergey/pick-n n range) '<) input)))
 
-  (defun dmb-schedule-n-tasks (n tag)
+  (defun bergey/schedule-n-tasks (n tag)
     (interactive "nSchedule how many tasks? \nMPick tasks with tag: ")
     (let (()))(org-map-entries (lambda () (cons (current-buffer) (point))) (format "+%s" tag) 'agenda)
     )

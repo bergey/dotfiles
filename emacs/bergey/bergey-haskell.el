@@ -67,7 +67,7 @@ Return the configuration."
                             flycheck-mode
                             ;;                           subword-mode
                             ;; interactive-haskell-mode
-                            dmb-company-short-idle
+                            bergey/company-short-idle
                             ;;                           smartparens-mode
                             ;; (lambda ()
                             ;;   (setq-local helm-dash-docsets '("Haskell")))
@@ -94,7 +94,7 @@ Return the configuration."
            )
          haskell-font-lock-quasi-quote-modes))
 
-  (defun dmb-haskell-insert-language-pragma (extension)
+  (defun bergey/haskell-insert-language-pragma (extension)
     "Insert a language extension pragma at the top of the current buffer."
     ;; assume that stylish-haskell or other code will sort the
     ;; pragmas.  Just put it at the top of the file.
@@ -102,16 +102,16 @@ Return the configuration."
       (goto-char (point-min))
       (insert "{-# LANGUAGE " extension " #-}\n")))
 
-  (defun dmb-ivy-haskell-language-pragma ()
+  (defun bergey/ivy-haskell-language-pragma ()
     (interactive)
     (ivy-read "Extend LANGUAGE: " haskell-ghc-supported-extensions
               :predicate (lambda (s) (not (string-prefix-p "No" s)))
-              :action #'dmb-haskell-insert-language-pragma
+              :action #'bergey/haskell-insert-language-pragma
               ))
 
   (mapcar (lambda (ext) (add-to-list 'haskell-ghc-supported-extensions ext)) '("BlockArguments" "DerivingStrategies" "NumericUnderscores"))
 
-  (defun dmb-haskell-yank-module-name ()
+  (defun bergey/haskell-yank-module-name ()
     (interactive)
     (save-excursion
       (goto-char (point-min))
@@ -152,8 +152,8 @@ Return the configuration."
              ("C-c c" . haskell-process-cabal)
              ("C-c i" . haskell-navigate-imports)
              ("M-." . haskell-mode-tag-find)
-             ("C-h C-l" . dmb-ivy-haskell-language-pragma)
-             ("C-c m" . dmb-haskell-yank-module-name)
+             ("C-h C-l" . bergey/ivy-haskell-language-pragma)
+             ("C-c m" . bergey/haskell-yank-module-name)
              )
 
   (if (executable-find "simformat")

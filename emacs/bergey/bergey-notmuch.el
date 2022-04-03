@@ -73,7 +73,7 @@
               :group 'notmuch-show
               :group 'notmuch-faces)
 
-            (defun dmb-notmuch-count-searches ()
+            (defun bergey/notmuch-count-searches ()
             (let ((searches (notmuch-hello-query-counts
                              (if (and
                                   (boundp 'notmuch-saved-search-sort-function)
@@ -100,7 +100,7 @@
           (defun ivy-notmuch-saved-searches ()
             (interactive)
             (ivy-read "search: "
-                      (dmb-notmuch-count-searches)
+                      (bergey/notmuch-count-searches)
                       :require-match t
                       :action (lambda (query) (notmuch-search (cdr query) notmuch-search-oldest-first))
                       ))
@@ -258,7 +258,7 @@ from strings as used by bbdb-get-addresses")
             (interactive)
             (if (bbdb/notmuch-known-sender) (message "Sender is known") (message "Sender is not known")))
 
-          (defun dmb-delete-email-name-part ()
+          (defun bergey/delete-email-name-part ()
             "Delete the name part of an email from or to header on the
   current line, leaving only the address part (and removing the
   <>)"
@@ -267,7 +267,7 @@ from strings as used by bbdb-get-addresses")
               ;; (message ln)
               (replace-regexp ".*<\\(.*\\)>" "\\1" nil (car ln) (cdr ln))))
 
-          (defun dmb-notmuch-show-stash-email-addr ()
+          (defun bergey/notmuch-show-stash-email-addr ()
             "Copy the email part (between <>) of From line."
             (interactive)
             ;; (notmuch-show-stash-from)
@@ -290,7 +290,7 @@ from strings as used by bbdb-get-addresses")
             (bind-key "g" 'notmuch-hello-update notmuch-hello-mode-map)
 
             (bind-key "C-c C-o" 'browse-url notmuch-show-mode-map)
-            (bind-key "c e" 'dmb-notmuch-show-stash-email-addr notmuch-show-mode-map)
+            (bind-key "c e" 'bergey/notmuch-show-stash-email-addr notmuch-show-mode-map)
             (bind-key "F" 'notmuch-show-forward-message notmuch-show-mode-map)
 
 

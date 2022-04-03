@@ -25,7 +25,7 @@
     (setq typescript-mode-hook
           '(whitespace-mode
             smartparens-strict-mode
-            dmb-company-short-idle
+            bergey/company-short-idle
             setup-tide-mode
             ))
     )

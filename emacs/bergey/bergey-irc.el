@@ -25,7 +25,7 @@ or outputs error message on failure."
 (use-package erc :ensure t
   :commands erc
   :init
-  (defun dmb-erc ()
+  (defun bergey/erc ()
     (interactive)
     (setq erc-nickserv-passwords
           `((freenode (("bergey" . ,(if (equal system-type 'windows-nt)
@@ -35,7 +35,7 @@ or outputs error message on failure."
                                           (password-store-get "shared/freenode"))))))))
     (erc :server "irc.freenode.net" :nick "bergey")
     (erc :server "irc.mozilla.org" :nick "bergey")
-    ;;  (erc :server "localhost"        :nick "bergey" :password (assoc 'bitlbee dmb-passwords))
+    ;;  (erc :server "localhost"        :nick "bergey" :password (assoc 'bitlbee bergey-passwords))
     )
   :config
   (progn
@@ -76,16 +76,16 @@ or outputs error message on failure."
 
     (bind-key "C-c C-o" 'browse-url erc-mode-map)
 
-    (defun dmb-shorten-haskell (name)
+    (defun bergey/shorten-haskell (name)
       (replace-regexp-in-string "haskell" "h"
                                 (replace-regexp-in-string "^#haskell$" "#H"
                                                           name)))
 
-    (defun dmb-erc-track-shorten-haskell (names)
-      (-map 'dmb-shorten-haskell
+    (defun bergey/erc-track-shorten-haskell (names)
+      (-map 'bergey/shorten-haskell
             (erc-track-shorten-names names)))
 
-    (setq erc-track-shorten-function 'dmb-erc-track-shorten-haskell)
+    (setq erc-track-shorten-function 'bergey/erc-track-shorten-haskell)
 
     (defun irc-activity-string ()
       (if (functionp erc-track-shorten-function)

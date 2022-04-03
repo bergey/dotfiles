@@ -82,7 +82,7 @@
 (use-package company :ensure t
   :diminish company-mode
   :defer 10
-  :init (defun dmb-company-short-idle () (setq company-idle-delay 0.1))
+  :init (defun bergey/company-short-idle () (setq company-idle-delay 0.1))
   :config (progn
           (setq company-show-numbers t)
           (global-company-mode)

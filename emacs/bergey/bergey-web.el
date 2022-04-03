@@ -7,7 +7,7 @@
     (setq web-mode-hook '(
                           bergey-yas-by-file-extension
                           color-identifiers-mode
-                          dmb-company-short-idle
+                          bergey/company-short-idle
                           emmet-mode
                           flycheck-mode
                           lsp-deferred

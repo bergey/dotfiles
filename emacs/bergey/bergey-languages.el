@@ -95,7 +95,7 @@
         smartparens-mode
         flycheck-mode
         ;; helm-gtags-mode
-        dmb-company-short-idle))
+        bergey/company-short-idle))
 
 (defun my-c-mode-insert-lcurly ()
   (interactive)
