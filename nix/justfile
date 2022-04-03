@@ -1,3 +1,4 @@
+default: update global
 all: global os bootstrap
 
 global:
@@ -5,7 +6,6 @@ global:
 
 update:
   @./update.sh
-  make global
 
 bootstrap:
   nix-build bootstrap.nix
