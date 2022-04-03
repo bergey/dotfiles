@@ -11,32 +11,6 @@
  (setq gentium (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
  (set-face-font 'default gentium)
 
-
- ;; Based on http://arnab-deka.com/posts/2012/09/emacs-change-fonts-dynamically-based-on-screen-resolution/
- ;; and https://gist.github.com/MatthewDarling/8c232b1780126275c3b4
- (defun fontify-frame ()
-   "set frame font & font size based on OS & display size"
-   (interactive)
-   (if window-system
-       (set-frame-parameter (window-frame) 'font
-                            (cl-case system-type
-                              ('gnu/linux
-                               (if (> (x-display-pixel-height) 900)
-                                   (format "-unknown-%s-normal-normal-normal-*-15-*-*-*-*-0-iso10646-1" gentium)
-                                 (format "-unknown-Gentium Plus-normal-normal-normal-*-13-*-*-*-*-0-iso10646-1" gentium)
-                                 ))
-                              ;; ('windows-nt (set-face-font 'default "Gentium Plus"))
-                              ('darwin
-                               (cond
-                                ((>= (x-display-mm-height) 250) "Gentium Plus-8")
-                                ((>= (x-display-pixel-height) 1080) "Gentium Plus-14")
-                                (t "Gentium Plus-12")
-                                )))
-                            )))
-
-;;; Fontify current frame (so that it happens on startup; may be unnecessary if you use focus-in-hook)
- (fontify-frame))
-
 ;; https://github.com/purcell/default-text-scale
 (use-package default-text-scale
   ;; binds C-M-= and C-M--
@@ -84,11 +58,15 @@
   :ensure t
   :config
   (setq persp-show-modestring nil)
-  (use-package persp-projectile
-    :ensure t)
-  (bind-key "C-x x w" #'persp-switch)
+  (use-package persp-projectile :ensure t)
   )
 (persp-mode)
+
+(use-package projectile :ensure t
+  :config
+  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
+  (projectile-mode +1)
+  )
 
 (use-package buffer-move :ensure t
   :bind
@@ -150,15 +128,6 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   :commands diminish
   )
 
-(use-package projectile :ensure t
-  :config
-  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
-  (projectile-mode +1)
-  )
-
-;; nicer rectangle selection, without other CUA bindings
-(bind-key "C-x r h" 'cua-set-register-mark)
-
 (use-package smart-mode-line
   :ensure t
   :config
@@ -180,15 +149,5 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
      ('4 (file-name-nondirectory (buffer-file-name)))
      (t (buffer-file-name)))
    ))
-
-;; mode line
-;; (setq mode-line-percent-position nil)
-;; (setq-default mode-line-format
-;;             '("%e" mode-line-front-space mode-line-mule-info mode-line-client mode-line-remote
-;;               mode-line-buffer-identification
-;;               ;; "%f"
-;;               " " evil-mode-line-tag mode-line-position
-;;  (vc-mode vc-mode)
-;;  "  <" mode-name "> " mode-line-misc-info mode-line-end-spaces))
 
 (provide 'bergey-gui)

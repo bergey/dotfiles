@@ -16,9 +16,6 @@
 (bind-keys*
  ("C-x t" . revert-buffer)
  ("C-o" . other-window)
- ;; ("C-x w" . evil-window-map)
- ("C-S-o" . vi-open-line-above)
- ;;("C-x x" . execute-extended-command)
  ;; M-; is hard to type on my keymapping; rebind to something easier
  ;; -- inspired by haskell comment char, and negative-argument is bound to several keys
  ("C--" . comment-dwim)
@@ -26,8 +23,6 @@
  ("C-. t" . shell-date)
  ("C-. d" . datestamp)
  ("C-. C-f" . find-file-at-point)
- ;; ("C-. ." . helm-dash)
- ;; ("C-. C-j" . helm-org-agenda-files-headings)
  )
 
 ;; Jump to various buffers
@@ -76,13 +71,13 @@ bind them to the specified keys."
 
 (bind-keys* ("C-c C-x C-j" . org-clock-goto)
             ("C-. g" . magit-status)
-            ("C-. P" . emms-pause)
             ("M-i" . ispell-word)
             ("M-I" . ispell-complete-word)
             ("C-. M-f" . dired-x-find-file)
             ;; after M-%, query-replace, which I use all the time
             ("M-$" . replace-regexp)
             ("M-#" . replace-string)
+            ("M-@" . query-replace-regexp)
             ("C-. n" . (lambda () (interactive) (scroll-down 1)))
             ("C-. p" . (lambda () (interactive) (scroll-up 1)))
             ;; interferes with org-time-stamp
@@ -90,17 +85,6 @@ bind them to the specified keys."
             ("M-l" . company-show-location)
             ("C-. C-p" . bergey-store-or-edit-password)
             )
-
-(defun window-number-select-1 () (interactive) (window-number-select 1))
-(defun window-number-select-2 () (interactive) (window-number-select 2))
-(defun window-number-select-3 () (interactive) (window-number-select 3))
-(bind-keys*
- ("M-S-a" . backward-sentence)
- ("M-S-e" . forward-sentence)
- ("M-o" . window-number-select-1)
- ("M-e" . window-number-select-2)
- ("M-u" . window-number-select-3)
- )
 
 ;; move case-change commands under a prefix
 (bind-keys* :prefix-map bergey/case-keymap
