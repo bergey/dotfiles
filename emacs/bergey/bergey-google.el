@@ -1,6 +1,6 @@
 ;; https://gist.github.com/scjody/287f8ca88d0055b7da9969357b762e7f
 (add-to-list 'tramp-methods
-  '("gce"
+  '("gcloud"
     (tramp-login-program        "gcloud compute ssh")
     (tramp-login-args           (("%h")))
     (tramp-async-args           (("-q")))
