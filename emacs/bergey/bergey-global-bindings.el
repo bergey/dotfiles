@@ -78,8 +78,6 @@ bind them to the specified keys."
             ("M-$" . replace-regexp)
             ("M-#" . replace-string)
             ("M-@" . query-replace-regexp)
-            ("C-. n" . (lambda () (interactive) (scroll-down 1)))
-            ("C-. p" . (lambda () (interactive) (scroll-up 1)))
             ;; interferes with org-time-stamp
             ("C-. C-." . kmacro-call-macro)
             ("M-l" . company-show-location)
