@@ -69,20 +69,20 @@ bind them to the specified keys."
     (t (call-interactively 'bergey/password-store-copy)))
   )
 
-(bind-keys* ("C-c C-x C-j" . org-clock-goto)
-            ("C-. g" . magit-status)
-            ("M-i" . ispell-word)
-            ("M-I" . ispell-complete-word)
-            ("C-. M-f" . dired-x-find-file)
-            ;; after M-%, query-replace, which I use all the time
-            ("M-$" . replace-regexp)
-            ("M-#" . replace-string)
-            ("M-@" . query-replace-regexp)
-            ;; interferes with org-time-stamp
-            ("C-. C-." . kmacro-call-macro)
-            ("M-l" . company-show-location)
-            ("C-. C-p" . bergey/store-or-edit-password)
-            )
+(bind-keys*
+  ("C-c C-x C-j" . org-clock-goto)
+  ("M-i" . ispell-word)
+  ("M-I" . ispell-complete-word)
+  ("C-. M-f" . dired-x-find-file)
+  ;; after M-%, query-replace, which I use all the time
+  ("M-$" . replace-regexp)
+  ("M-#" . replace-string)
+  ("M-@" . query-replace-regexp)
+  ;; interferes with org-time-stamp
+  ("C-. C-." . kmacro-call-macro)
+  ("M-l" . company-show-location)
+  ("C-. C-p" . bergey/store-or-edit-password)
+  )
 
 ;; move case-change commands under a prefix
 (bind-keys* :prefix-map bergey/case-keymap
