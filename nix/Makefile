@@ -4,7 +4,11 @@ OLD := 7d
 
 user: global
 
-all: user os
+all: user os bootstrap
+
+bootstrap:
+	nix-build bootstrap.nix
+	rm result*
 
 update:
 	@./update.sh
