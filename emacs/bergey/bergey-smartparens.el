@@ -62,4 +62,4 @@
   ;; (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
   )
 
-(provide 'dmb-smartparens)
+(provide 'bergey-smartparens)

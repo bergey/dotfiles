@@ -33,4 +33,4 @@
 
 (define-key emacs-lisp-mode-map (kbd "RET") 'newline-and-indent)
 
-(provide 'dmb-lisp)
+(provide 'bergey-lisp)

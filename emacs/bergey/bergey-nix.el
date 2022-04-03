@@ -2,4 +2,4 @@
 
 ;; (use-package nix-sandbox :ensure t)
 
-(provide 'dmb-nix)
+(provide 'bergey-nix)

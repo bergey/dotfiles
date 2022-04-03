@@ -40,4 +40,4 @@
 
 (add-hook 'web-mode-hook #'bergey/fixed-pitch-indent)
 
-(provide 'dmb-typescript)
+(provide 'bergey-typescript)

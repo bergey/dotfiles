@@ -31,4 +31,4 @@
 (require 'inf-modelica)
 (add-hook 'modelica-mode-hook (lambda () (define-key mdc-mode-map (kbd "C-c C-l") 'inferior-modelica-load-file)))
 
-(provide 'dmb-modelica)
+(provide 'bergey-modelica)

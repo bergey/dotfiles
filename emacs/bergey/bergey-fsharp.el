@@ -52,4 +52,4 @@ formatting convention."
 ;;  https://github.com/mars888/paket-mode.git
   )
 
-(provide 'dmb-fsharp)
+(provide 'bergey-fsharp)

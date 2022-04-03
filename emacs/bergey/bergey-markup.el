@@ -22,4 +22,4 @@
   :defer t
   :mode ("\\.md" . poly-markdown-mode))
 
-(provide 'dmb-markup)
+(provide 'bergey-markup)

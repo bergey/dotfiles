@@ -17,4 +17,4 @@
   (setq nov-variable-pitch nil) ;; use default face instead
   )
 
-(provide 'dmb-web-reading)
+(provide 'bergey-web-reading)

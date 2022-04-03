@@ -418,4 +418,4 @@ from strings as used by bbdb-get-addresses")
 
             ))
 
-(provide 'dmb-notmuch)
+(provide 'bergey-notmuch)

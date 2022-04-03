@@ -148,4 +148,4 @@
 
 (use-package just-mode :ensure t)
 
-(provide 'dmb-languages)
+(provide 'bergey-languages)

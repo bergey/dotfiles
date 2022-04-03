@@ -191,4 +191,4 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;;  (vc-mode vc-mode)
 ;;  "  <" mode-name "> " mode-line-misc-info mode-line-end-spaces))
 
-(provide 'dmb-gui)
+(provide 'bergey-gui)

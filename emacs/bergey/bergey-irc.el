@@ -51,7 +51,7 @@ or outputs error message on failure."
                  (string= "&bitlbee" (buffer-name)))
         (erc-message "PRIVMSG" (format "%s identify %s"
                                        (erc-default-target)
-                                       (assoc 'bitlbee dmb-passwords)))))
+                                       (assoc 'bitlbee bergey-passwords)))))
 
     ;; retain channel preference across sessions
     ;; within session, reconnect automatically after first connect
@@ -96,4 +96,4 @@ or outputs error message on failure."
 
     ))
 
-(provide 'dmb-irc)
+(provide 'bergey-irc)

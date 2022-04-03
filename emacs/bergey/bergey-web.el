@@ -102,4 +102,4 @@ by using nxml's indentation rules."
       (indent-region begin end))
     (message "Ah, much better!"))
 
-(provide 'dmb-web)
+(provide 'bergey-web)

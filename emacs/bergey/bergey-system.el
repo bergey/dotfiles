@@ -14,4 +14,4 @@
     )
   )
 
-(provide 'dmb-system)
+(provide 'bergey-system)

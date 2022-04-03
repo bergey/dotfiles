@@ -24,4 +24,4 @@
   (while (re-search-forward "\\([0-9]\\{1,2\\}\\)/\\([0-9]\\{1,2\\}\\)/\\([0-9]\\{4\\}\\)" nil t)
     (replace-match "\\3-\\1-\\2")))
 
-(provide 'dmb-ledger)
+(provide 'bergey-ledger)

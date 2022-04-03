@@ -218,4 +218,4 @@ Return the configuration."
 
 (use-package haskell-snippets :ensure t)
 
-(provide 'dmb-haskell)
+(provide 'bergey-haskell)

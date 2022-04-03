@@ -262,4 +262,4 @@
 
 (use-package ox-gfm :ensure t)
 
-(provide 'dmb-org)
+(provide 'bergey-org)

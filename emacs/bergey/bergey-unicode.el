@@ -9,4 +9,4 @@
 (define-key 'iso-transl-ctl-x-8-map "g" 'greek-unicode-insert-map)
 (define-key 'greek-unicode-insert-map "g" [?γ])
 
-(provide 'dmb-unicode)
+(provide 'bergey-unicode)

@@ -13,4 +13,4 @@
                              (auto-fill-mode 1)
                              (setq fill-column 72)))
 
-(provide 'dmb-emacsclient)
+(provide 'bergey-emacsclient)

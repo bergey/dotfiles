@@ -17,4 +17,4 @@
  mac-pass-command-to-system nil
  )
 
-(provide 'dmb-keyboard)
+(provide 'bergey-keyboard)

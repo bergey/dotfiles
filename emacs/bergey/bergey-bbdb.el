@@ -34,4 +34,4 @@
                      )
   )
 
-(provide 'dmb-bbdb)
+(provide 'bergey-bbdb)

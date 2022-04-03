@@ -13,7 +13,7 @@
 ;; we want the org-mode from elpa, instead
 (delete "/Applications/Emacs.app/Contents/Resources/lisp/org" load-path)
 
-(require 'dmb-package)
+(require 'bergey-package)
 
 ;; Load Customize UI settings from `custom.el`.
 (setq custom-file (concat dotfiles-dir "custom.el"))
@@ -23,47 +23,47 @@
 (time-packages '(
                  ;; load this stuff early, so I have it even when I
                  ;; introduce bugs in the later config
-                 dmb-environment
-                 dmb-keyboard
-                 dmb-gui
-                 dmb-global-bindings
-                 dmb-isearch
-                 dmb-editing
-                 dmb-system
-                 dmb-unicode
-                 dmb-evil
+                 bergey-environment
+                 bergey-keyboard
+                 bergey-gui
+                 bergey-global-bindings
+                 bergey-isearch
+                 bergey-editing
+                 bergey-system
+                 bergey-unicode
+                 bergey-evil
                  ;; org mode
-                 dmb-org
+                 bergey-org
                  ;; programming
-                 dmb-language-server
-                 dmb-nix
-                 dmb-coding
-                 dmb-haskell
-                 dmb-lisp
-                 dmb-web
-                 ;; dmb-fsharp
-                 dmb-typescript
-                 dmb-python
-                 dmb-languages
-                 dmb-git
+                 bergey-language-server
+                 bergey-nix
+                 bergey-coding
+                 bergey-haskell
+                 bergey-lisp
+                 bergey-web
+                 ;; bergey-fsharp
+                 bergey-typescript
+                 bergey-python
+                 bergey-languages
+                 bergey-git
                  ;; misc
-                 dmb-emacsclient
-                 dmb-web-reading
-                 dmb-markup
-                 dmb-audio
-                 ;;dmb-ublog
-                 dmb-irc
-                 dmb-shell
+                 bergey-emacsclient
+                 bergey-web-reading
+                 bergey-markup
+                 bergey-audio
+                 ;;bergey-ublog
+                 bergey-irc
+                 bergey-shell
                  epa-file
-                 dmb-ledger
-                 dmb-dired
-                 dmb-sql
-                 dmb-google
+                 bergey-ledger
+                 bergey-dired
+                 bergey-sql
+                 bergey-google
                  happy-mode
                  ))
 
 (if (eq system-type 'windows-nt)
-    (time-package 'dmb-windows))
+    (time-package 'bergey-windows))
 
 (measure-time "final stuff"
               (setq dired-guess-shell-alist-user '(("\\.pdf\\'" "zathura * &")
@@ -77,4 +77,4 @@
               (put 'downcase-region 'disabled nil))
 
 ;; kept seperate so the rest can be shared, succeed even if not present
-(with-library 'dmb-passwords)
+(with-library 'bergey-passwords)

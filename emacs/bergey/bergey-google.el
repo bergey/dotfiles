@@ -11,4 +11,4 @@
                                  ("-o" "StrictHostKeyChecking=no")))
     (tramp-default-port         22)))
 
-(provide 'dmb-google)
+(provide 'bergey-google)

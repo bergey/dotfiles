@@ -16,4 +16,4 @@
   :commands lsp-ivy-workspace-symbol
   )
 
-(provide 'dmb-language-server)
+(provide 'bergey-language-server)

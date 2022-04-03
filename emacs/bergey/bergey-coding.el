@@ -39,7 +39,7 @@
 (add-to-list 'auto-mode-alist '("\.vert" . c-mode)) ; OpengGL
 (add-to-list 'auto-mode-alist '("\.geom" . c-mode)) ; OpengGL
 
-(time-package 'dmb-smartparens)
+(time-package 'bergey-smartparens)
 
 (use-package rainbow-delimiters :ensure t
   :commands rainbow-delimiters-mode
@@ -168,4 +168,4 @@
 (use-package protobuf-mode :ensure t
   :mode "\\.proto\\'")
 
-(provide 'dmb-coding)
+(provide 'bergey-coding)

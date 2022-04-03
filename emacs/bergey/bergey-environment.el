@@ -11,4 +11,4 @@
  (when (memq window-system '(mac ns x))
    (exec-path-from-shell-initialize)))
 
-(provide 'dmb-environment)
+(provide 'bergey-environment)

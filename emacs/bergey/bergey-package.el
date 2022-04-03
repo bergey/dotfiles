@@ -42,4 +42,4 @@
          (error  "I guess we don't have %s available." ,symbol)))
 (put 'with-library 'lisp-indent-function 1)
 
-(provide 'dmb-package)
+(provide 'bergey-package)

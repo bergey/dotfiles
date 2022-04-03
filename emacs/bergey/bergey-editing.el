@@ -137,4 +137,4 @@
 (setq hi-lock-face-defaults
       '("hi-pink" "hi-green" "hi-blue" "hi-yellow" "hi-black-b" "hi-blue-b" "hi-red-b" "hi-green-b" "hi-black-hb"))
 
-(provide 'dmb-editing)
+(provide 'bergey-editing)

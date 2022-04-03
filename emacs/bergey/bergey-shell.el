@@ -168,4 +168,4 @@
   (setq eshell-buffer-name "*shell*")
   )
 
-(provide 'dmb-shell)
+(provide 'bergey-shell)

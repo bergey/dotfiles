@@ -28,4 +28,4 @@
                                (message "EMMS Paused")
                              (message "EMMS Resumed"))))))
 
-(provide 'dmb-audio)
+(provide 'bergey-audio)

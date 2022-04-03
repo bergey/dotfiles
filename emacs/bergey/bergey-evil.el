@@ -55,4 +55,4 @@
 
   )
 
-(provide 'dmb-evil)
+(provide 'bergey-evil)

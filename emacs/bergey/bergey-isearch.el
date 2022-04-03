@@ -13,4 +13,4 @@
     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
     (ad-activate 'isearch-search)))
 
-(provide 'dmb-isearch)
+(provide 'bergey-isearch)

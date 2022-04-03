@@ -92,4 +92,4 @@
   (define-key sql-interactive-mode-map (kbd "C-c C-w") nil)
   (define-key sql-interactive-mode-map (kbd "C-c C-x") nil) )
 
-(provide 'dmb-sql)
+(provide 'bergey-sql)

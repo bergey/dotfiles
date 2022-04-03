@@ -34,4 +34,4 @@
 (use-package git-link
   :ensure t)
 
-(provide 'dmb-git)
+(provide 'bergey-git)

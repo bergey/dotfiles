@@ -127,4 +127,4 @@ bind them to the specified keys."
    (t (call-interactively 'xref-find-definitions)))))
 (bind-key "M-." 'bergey/browse-url-or-xref)
 
-(provide 'dmb-global-bindings)
+(provide 'bergey-global-bindings)

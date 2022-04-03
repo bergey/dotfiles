@@ -15,4 +15,4 @@
   :config
   (add-to-list 'company-backends 'company-c-headers))
 
-(provide 'dmb-trial)
+(provide 'bergey-trial)

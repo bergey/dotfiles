@@ -14,4 +14,4 @@
 (define-key dired-mode-map "E" 'emms-add-directory-tree)
 (define-key dired-mode-map (kbd "C-c C-S-w") 'wdired-change-to-wdired-mode)
 
-(provide 'dmb-dired)
+(provide 'bergey-dired)
