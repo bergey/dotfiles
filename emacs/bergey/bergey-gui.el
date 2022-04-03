@@ -1,15 +1,13 @@
 ;; never split vertically (into 2 windows above eachother)
 (setq split-height-threshold nil)
 
-;; this is more annoying than convenient when Emacs starts on the wrong monitor
-;; (toggle-frame-fullscreen)
-
 ;; fonts
 (measure-time
  "gentium"
 
  (setq gentium (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
  (set-face-font 'default gentium)
+ )
 
 ;; https://github.com/purcell/default-text-scale
 (use-package default-text-scale
