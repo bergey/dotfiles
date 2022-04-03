@@ -35,7 +35,6 @@
                  bergey-org
                  ;; programming
                  bergey-language-server
-                 bergey-nix
                  bergey-coding
                  bergey-haskell
                  bergey-lisp

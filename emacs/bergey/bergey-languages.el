@@ -148,4 +148,6 @@
 
 (use-package just-mode :ensure t)
 
+(use-package nix-mode :ensure t)
+
 (provide 'bergey-languages)
