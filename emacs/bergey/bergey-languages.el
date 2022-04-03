@@ -97,7 +97,8 @@
         ;; helm-gtags-mode
         bergey/company-short-idle))
 
-(defun my-c-mode-insert-lcurly ()
+;; *** C
+(defun bergey/c-mode-insert-lcurly ()
   (interactive)
   (insert "{")
   (let ((pps (syntax-ppss)))
@@ -107,6 +108,19 @@
       (c-indent-line)
       (forward-line -1)
       (c-indent-line))))
+
+(add-hook 'c-initialization-hook
+          (lambda ()
+            (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
+            (define-key c-mode-base-map "{" 'bergey/c-mode-insert-lcurly)))
+
+(add-to-list 'auto-mode-alist '("\.pde" . c-mode)) ; arduino
+(add-to-list 'auto-mode-alist '("\.ino" . c-mode)) ; arduino
+(add-to-list 'auto-mode-alist '("\.glsl" . c-mode)) ; OpengGL
+(add-to-list 'auto-mode-alist '("\.frag" . c-mode)) ; OpengGL
+(add-to-list 'auto-mode-alist '("\.vert" . c-mode)) ; OpengGL
+(add-to-list 'auto-mode-alist '("\.geom" . c-mode)) ; OpengGL
+
 
 (use-package toml-mode :ensure t
   :mode "\\.toml\\|Cargo.lock" )

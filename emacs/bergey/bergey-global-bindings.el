@@ -93,6 +93,7 @@ bind them to the specified keys."
             ("C-S-u" . upcase-region)
             ("C-S-l" . downcase-region)
             ("C-S-c" . capitalize-region))
+(put 'upcase-region 'disabled nil)
 
 (defun bergey/browse-url-or-xref ()
   (interactive)

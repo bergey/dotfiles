@@ -6,15 +6,6 @@
 (setq-default indent-tabs-mode nil)
 (bind-key "C-c C-m" 'imenu)
 
-(use-package yasnippet :ensure t
-  :diminish yas-minor-mode
-  :config (progn
-            (yas-global-mode)
-            (bind-key "C-t" 'yas-expand yas-minor-mode-map)
-            (define-key yas-minor-mode-map (kbd "<tab>") nil)
-            (define-key yas-minor-mode-map (kbd "TAB") nil)
-            ))
-
 (setq tags-revert-without-query t)
 
 (defun create-tags (dir-name)
@@ -25,19 +16,6 @@
              "c:/ProgramData/chocolatey/bin/ctags"
            "ctags")))
     (shell-command (format "%s %s"  ctags (directory-file-name dir-name)))))
-
-;; *** C
-(add-hook 'c-initialization-hook
-          (lambda ()
-            (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-            (define-key c-mode-base-map "{" 'my-c-mode-insert-lcurly)))
-
-(add-to-list 'auto-mode-alist '("\.pde" . c-mode)) ; arduino
-(add-to-list 'auto-mode-alist '("\.ino" . c-mode)) ; arduino
-(add-to-list 'auto-mode-alist '("\.glsl" . c-mode)) ; OpengGL
-(add-to-list 'auto-mode-alist '("\.frag" . c-mode)) ; OpengGL
-(add-to-list 'auto-mode-alist '("\.vert" . c-mode)) ; OpengGL
-(add-to-list 'auto-mode-alist '("\.geom" . c-mode)) ; OpengGL
 
 (time-package 'bergey-smartparens)
 
@@ -63,7 +41,7 @@
   (font-lock-add-keywords nil '(("^[ -] *" . 'fixed-pitch))))
 (add-hook 'prog-mode-hook 'bergey/fixed-pitch-indent)
 
-(font-lock-add-keywords 'yaml-mode '(("^  *" . 'fixed-pitch)))
+(font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
 (use-package highlight-quoted :ensure t
   )
@@ -81,24 +59,6 @@
   (eldoc-add-command
    'paredit-backward-delete
    'paredit-close-round))
-
-;; *** misc ***
-
-(autoload 'tinyprocmail-mode "tinyprocmail" "" t)
-(autoload 'aput "assoc")
-
- ;; Treat ~/.procmailrc and all pm-*.rc files as Procmail files
- (aput 'auto-mode-alist
-      "\\.procmailrc\\|pm-.*\\.rc$"
-      'turn-on-tinyprocmail-mode)
-(put 'upcase-region 'disabled nil)
-
-;; Maxima
-(autoload 'maxima-mode "maxima" "Maxima mode" t)
-(autoload 'imaxima "imaxima" "Frontend for maxima with Image support" t)
-(autoload 'maxima "maxima" "Maxima interaction" t)
-(autoload 'imath-mode "imath" "Imath mode for math formula input" t)
-(setq imaxima-use-maxima-mode-flag t)
 
 ;; ediff customization
 (setq ediff-window-setup-function 'ediff-setup-windows-plain) ; don't spawn frame
@@ -161,6 +121,8 @@
   (while (or (= (char-after (point)) 32)
             (= (char-after (point)) 10))
     (evil-previous-line)))
+(bind-key "C-j" #'jump-down-to-non-whitespace-char-in-same-column)
+(bind-key "C-k" #'jump-up-to-non-whitespace-char-in-same-column)
 
 (use-package edit-indirect :ensure t
   )
