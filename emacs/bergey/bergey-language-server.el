@@ -1,7 +1,7 @@
 (use-package lsp-mode
   :commands lsp
   :init
-  (setq lsp-keymap-prefix "C-c t")
+  (setq lsp-keymap-prefix "M-l")
   )
 
 (use-package lsp-ui :ensure t
