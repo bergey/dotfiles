@@ -93,18 +93,6 @@
   :config
   ;; TODO show message in minibuffer, but truncate to fit
   (setq flycheck-display-errors-function nil)
-  ;; (setq flycheck-command-wrapper-function
-  ;;       (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command)))
-  ;; (setq flycheck-executable-find
-  ;;       (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
-
-  ;; documentation lookup
-  ;; (use-package helm-dash :ensure t
-  ;;   :config (progn
-  ;;             (setq helm-dash-common-docsets '("Haskell" "Bourbon" "HTML" "CSS"))
-  ;;             )
-  ;;   ;; also installed: arduino, bourbon, css, d3.js, haskell, html, javascript, jquery, lo-dash, opengl4, react.
-  ;;   )
 )
 
 ;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column

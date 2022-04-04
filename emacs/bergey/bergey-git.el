@@ -7,7 +7,6 @@
   :diminish auto-revert-mode
   :init (defvar magit-log-edit-confirm-cancellation nil)
   :config
-    (use-package orgit :ensure t)
     (setq magit-push-always-verify nil)
     (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
 
@@ -15,9 +14,12 @@
                ;; mostly because RET, the default binding, is used by haskell-indentation
                ("TAB" . magit-show-commit)))
 
-(defun search-forward-diff-lines ()
+(use-package orgit :ensure t)
+
+(defun bergey/search-forward-diff-lines ()
   (interactive)
   (re-search-forward "<<<<<<<\\|=======\\|>>>>>>>"))
+(bind-key "M-s d" #'bergey/search-forward-diff-lines)
 
 (defun bergey/magit-copy-current-branch ()
   "Show the current branch in the echo-area and add it to the `kill-ring'."
