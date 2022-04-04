@@ -48,7 +48,6 @@
                  bergey-git
                  ;; misc
                  bergey-emacsclient
-                 bergey-web-reading
                  bergey-markup
                  bergey-audio
                  ;;bergey-ublog
