@@ -9,9 +9,6 @@
 (add-hook 'dired-load-hook
           (function (lambda () (load "dired-x"))))
 
-(define-key dired-mode-map "a" 'emms-add-file)
-(define-key dired-mode-map "e" 'emms-add-directory)
-(define-key dired-mode-map "E" 'emms-add-directory-tree)
 (define-key dired-mode-map (kbd "C-c C-S-w") 'wdired-change-to-wdired-mode)
 
 (provide 'bergey-dired)

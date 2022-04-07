@@ -19,7 +19,6 @@
 (setq custom-file (concat dotfiles-dir "custom.el"))
 (load custom-file 'noerror)
 
-
 (time-packages '(
                  ;; load this stuff early, so I have it even when I
                  ;; introduce bugs in the later config
@@ -49,8 +48,6 @@
                  ;; misc
                  bergey-emacsclient
                  bergey-markup
-                 bergey-audio
-                 ;;bergey-ublog
                  bergey-irc
                  bergey-shell
                  epa-file
