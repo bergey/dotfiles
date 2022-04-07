@@ -10,10 +10,12 @@
 
 ; put pandoc-specific code here, rst, etc.
 (use-package pandoc-mode :ensure t
+  :commands (pandoc-mode)
   :config
   (add-hook 'markdown-mode-hook 'pandoc-mode))
 
 (use-package polymode :ensure t
+  :commands (define-polymode)
   :defer t)
 
 ;; TODO poly-markdown interferes with edit-indirect

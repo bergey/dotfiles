@@ -1,4 +1,5 @@
 (use-package password-store :ensure t
+  :commands (password-store--completing-read)
   :config
   ;; TODO put this patch somewhere
   (defun password-store--run-1 (callback &rest args)
