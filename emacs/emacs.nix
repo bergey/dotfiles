@@ -48,6 +48,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     flycheck-clojure
     flycheck-haskell
     flycheck-rust
+    fsharp-mode
     fstar-mode
     git-link
     google-this

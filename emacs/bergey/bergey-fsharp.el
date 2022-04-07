@@ -47,9 +47,9 @@ formatting convention."
     (insert "        }\n    }\n")
     ))
 
-(use-package paket-mode
-  :mode "paket."
-;;  https://github.com/mars888/paket-mode.git
-  )
+;;  https://github.com/mars888/paket-mode.git not on MELPA / nixpkgs
+;; (use-package paket-mode
+;;   :mode "paket."
+;;   )
 
 (provide 'bergey-fsharp)

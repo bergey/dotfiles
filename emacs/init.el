@@ -37,13 +37,13 @@
                  bergey-coding
                  bergey-language-server
                  bergey-c
+                 bergey-fsharp
                  bergey-haskell
                  bergey-lisp
                  bergey-python
                  bergey-rust
                  bergey-typescript
                  bergey-web
-                 ;; bergey-fsharp
                  bergey-languages
                  bergey-git
                  ;; misc
