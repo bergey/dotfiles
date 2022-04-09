@@ -2,28 +2,25 @@
 ;;(require 'org-install)
 (use-package org-clock
   :commands org-clock-in
-  :config (progn
-            (setq org-clock-idle-time 15)
-            ;; Change task state to WIP when clocking in
-            (setq org-clock-in-switch-to-state "WIP")
-            ;; Removes clocked tasks with 0:00 duration
-            (setq org-clock-out-remove-zero-time-clocks t)
-            ;; wrap clock entries in a drawer if they exceed this many
-            (setq org-clock-into-drawer 3)
-            (setq org-clock-clocked-in-display 'nil)
-            (setq org-log-into-drawer t)
-            (setq org-agenda-window-setup 'other-window)
-            (setq org-agenda-restore-windows-after-quit t)
+  :config
+  (setq org-clock-idle-time 15)
+  ;; Change task state to WIP when clocking in
+  (setq org-clock-in-switch-to-state "WIP")
+  ;; Removes clocked tasks with 0:00 duration
+  (setq org-clock-out-remove-zero-time-clocks t)
+  ;; wrap clock entries in a drawer if they exceed this many
+  (setq org-clock-into-drawer 3)
+  (setq org-clock-clocked-in-display 'nil)
+  (setq org-log-into-drawer t)
+  (setq org-agenda-window-setup 'other-window)
+  (setq org-agenda-restore-windows-after-quit t)
 
-            (defun bergey/org-clock-message-clock-string ()
-              (interactive)
-              (message (substring-no-properties (org-clock-get-clock-string)))
-              ;; The above works, but maybe I would like to format better
-              ;; (org-clock-get-clocked-time)
-              ;; (substring-no-properties org-clock-current-task)
-              )
-            (bind-key "C-. C-t" 'bergey/org-clock-message-clock-string)
-            ))
+  (defun bergey/org-clock-message-clock-string ()
+    (interactive)
+    (message (substring-no-properties (org-clock-get-clock-string)))
+    )
+  :bind ("C-. C-t" . 'bergey/org-clock-message-clock-string)
+  )
 
 (use-package org-archive
   :commands org-archive-subtree-default)
@@ -32,19 +29,12 @@
 (global-set-key "\C-cl" 'org-store-link)
 ;; set this without org-git-store-link, which is nifty but usually not what I want.
 (setq org-store-link-functions
-      (append
-       '(org-irc-store-link
+      '(org-irc-store-link
         org-info-store-link
-        org-gnus-store-link
         org-docview-store-link
         org-bibtex-store-link
-        org-bbdb-store-link)
-       (if (not (eq system-type 'windows-nt))
-           '(org-notmuch-search-store-link org-notmuch-store-link)
-         '())
-       ))
-
-(setq org-log-done nil)
+        )
+      )
 
 (defun bergey/org-end-of-subtree ()
   (interactive)
@@ -79,6 +69,7 @@
  org-enforce-todo-dependencies t
  org-agenda-dim-blocked-tasks t
  org-goto-interface 'outline-path-completion
+ org-log-done nil
  )
 
 ;; Set to the location of your Org files on your local system
@@ -89,13 +80,17 @@
        ('windows-nt (format  "c:/Users/%s/Dropbox/org-mode/" (user-login-name)))
        ('darwin "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org-mode/")))
 
-(defun in-org-directory (fn) (concat org-directory fn))
+(defun in-org-directory (fn)
+  (cond
+   ((stringp fn) (concat org-directory fn))
+   ((listp fn) (mapcar #'in-org-directory fn))))
 
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
-(setq bergey/work-agenda-files (mapcar #'in-org-directory '("simspace.org")))
-(setq bergey/home-agenda-files (mapcar #'in-org-directory '("house.org")))
-(setq bergey/teal-agenda-files (mapcar #'in-org-directory '("teal.org")))
+(setq
+ bergey/work-agenda-files '("simspace.org")
+ bergey/home-agenda-files '("house.org")
+ bergey/teal-agenda-files '("teal.org" "braze.org"))
 
 (setq org-agenda-custom-commands
       '(
@@ -121,14 +116,12 @@
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
         ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
-        ("n" tags "next+LEVEL=1")
-        ("s" tags "someday+LEVEL=1|TODO=\"WISH\"+LEVEL=1|next+LEVEL=1")
-        ("q" tags-todo "quick-someday")
         ("X" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
         ("$" tags "buy")
         ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")))
 
 (use-package org-cliplink
+  ;; create bookmarks from OS clipboard
   :ensure t
   :commands org-cliplink-capture)
 
@@ -156,18 +149,11 @@
         ;; ("L" "chrome selected content" entry (file+headline "read.org" "Chrome")
         ;;  "* %a\nEntered on %U\n \%i\n%?")
 
-(require 'org-protocol)
-
-(use-package org-notmuch
-  :commands org-notmuch-store-link
-  :commands org-notmuch-search-store-link)
-
-
 ;; TODO is the normal state for an actionable task
 ;; WIP and DONE are self-explanatory
 ;; BLOCKED - awaiting some other event, typically action by another person
 ;; DELAY - awaiting action by me, not currently actionable
-;; PR - like BLOCKED, but more specific
+;; QA - like BLOCKED, but more specific
 ;; CANCEL - won't do, but want to keep the record that I've decided not to
 ;; WISH - review these periodically, might go back on the TODO list
 (setq org-todo-keywords
@@ -187,8 +173,6 @@
 (add-to-list 'org-emphasis-alist
              '("*" (:foreground "red")
                ))
-;; (setq org-tags-exclude-from-inheritance '("project"))
-;; (setq org-tags-exclude-from-inheritance nil)
 
 (setq org-lowest-priority ?D)
 (setq org-default-priority ?C)
@@ -226,40 +210,18 @@
 )
 
 ;; collapse headers when entering new file
-(setq org-agenda-inhibit-startup nil)
-;; use default value of org-startup-folded
-
-;; run every time emacs has been idle for 15 minutes
-;;(run-with-idle-timer 900 t 'org-mobile-push)
+(setq
+ org-agenda-inhibit-startup nil
+ org-startup-folded 'overview)
 
 ;; for xmobar org-clock
 (defun strip-text-properties(txt)
   (set-text-properties 0 (length txt) nil txt) txt)
 
-(defun bergey/pick-n (n input)
-  "Pick n random elements from lst.  If there are not n items, return lst entire.  If the input list contains no duplicates, neither will the output."
-  (cl-labels
-      ((worker (n l acc lst)
-               (if (= 0 n) acc
-                 (let ((i (random l)))
-                   (worker (1- n) (1- l) (cons (nth i lst) acc) (-remove-at i lst))))))
-    (let ((l (length input)))
-      (if (>= n l) lst (worker n l '() input))
-      )))
-
-(defun bergey/pick-n-stable (n input)
-  "Like `bergey/pick-n', but the elements will appear in the output
-  in the same order as in the input"
-  (let ((range (-iterate '1+ 0 (length input))))
-    (-select-by-indices (sort (bergey/pick-n n range) '<) input)))
-
-  (defun bergey/schedule-n-tasks (n tag)
-    (interactive "nSchedule how many tasks? \nMPick tasks with tag: ")
-    (let (()))(org-map-entries (lambda () (cons (current-buffer) (point))) (format "+%s" tag) 'agenda)
-    )
-
+;; ox = org-export
 (use-package ox-jira :ensure t)
 
+;; github formatted markdown
 (use-package ox-gfm :ensure t)
 
 (provide 'bergey-org)
