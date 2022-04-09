@@ -65,6 +65,14 @@ in with pkgs; {
     ];
   };
 
+  clojure = mkBootstrap {
+    name = "clojure";
+    paths = [
+      clojure
+      leiningen
+    ];
+  };
+
   erlang = mkBootstrap {
     name = "erlang";
     paths = [
@@ -158,6 +166,14 @@ in with pkgs; {
     ];
   };
 
+  ruby = mkBootstrap {
+    name = "ruby";
+    paths = with rubyPackages; [
+      ruby
+      solargraph
+    ];
+  };
+  
   scala = mkBootstrap {
     name = "scala";
     paths = with pkgs; [
