@@ -102,7 +102,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     real-auto-save
     restclient
     rg
-    ruby-mode
     inf-ruby
     ruby-test-mode
     rust-mode
