@@ -28,27 +28,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.requestEncryptionCredentials = true;
-  services.zfs = {
-    autoScrub.enable = true;
-  };
-  services.znapzend = {
-    enable = true;
-    zetup = {
-      "zpool/crypt/home" = {
-        plan = "30d=>1d,1y=>1month";
-        timestampFormat = "%Y-%m-%d_%H:%M:%SZ";
-        recursive = true;
-        # destinations takes arbitrary names as attrs
-        destinations.external = {
-          dataset = "babel/prandtl/home";
-        };
-      };
-    };
-    pure = true;
-  };
-  networking.hostId = "a9d1a9c2"; # required for ZFS
 
   networking.hostName = "prandtl"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
