@@ -128,31 +128,16 @@ virtualisation.docker.enable = true;
     # Enable touchpad support.
     libinput.enable = true;
 
-    # windowManager.xmonad = {
-    #     enable = true;
-    #     enableContribAndExtras = true;
-    # };
-
-    desktopManager.xterm.enable = false;
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
-programs.sway = {
-  enable = true;
-  wrapperFeatures.gtk = true; # so that gtk works properly
-  extraPackages = with pkgs; [
-    swaylock
-    swayidle
-    wl-clipboard
-    mako # notification daemon
-    alacritty # Alacritty is the default terminal in the config
-    bemenu
-  ];
-};
 
   services.autorandr.enable = true;
 
- hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver beignet ];
+ # hardware.opengl.enable = true;
+ #  hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver beignet ];
 
   services.udev.extraHwdb = ''
         evdev:atkbd:dmi:*            # built-in keyboard: match all AT keyboards for now
