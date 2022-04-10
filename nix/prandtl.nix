@@ -164,24 +164,6 @@ virtualisation.docker.enable = true;
   services.keybase.enable = true;
   services.kbfs.enable = true;
 
-  # https://nixos.wiki/wiki/Dropbox
-  # https://discourse.nixos.org/t/using-dropbox-on-nixos/387/10
-  systemd.user.services.dropbox = {
-        enable = true;
-        description = "Dropbox";
-        serviceConfig = {
-            ExecStart = "${pkgs.dropbox-cli}/bin/dropbox start";
-            Type = "forking";
-            ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
-            KillMode = "control-group"; # upstream recommends process
-            Restart = "on-failure";
-            PrivateTmp = true;
-            ProtectSystem = "full";
-            Nice = 10;
-        };
-        wantedBy = [ "graphical-session.target" ];
-  };
-
   systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
 
   services.transmission.enable = true;
