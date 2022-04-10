@@ -187,7 +187,3 @@ fi
 if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
-
-export PATH="$PATH:/$HOME/code/simspace/s3k/bin"
-source "$HOME/code/simspace/s3k/completion/s3k-completion.bash"
-# complete -F __s3k_completion s3k
