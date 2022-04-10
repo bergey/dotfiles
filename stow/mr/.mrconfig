@@ -50,7 +50,7 @@ checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmw
 checkout = git clone 'git@github.com:bergey/anomura.git' 'anomura'
 
 [records/teallabs]
-checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'bergey.github.io'
+checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'teallabs'
 
 [code/active/simpledb]
 checkout = git clone 'git@github.com:shterrett/simpledb.git' 'simpledb'
