@@ -35,7 +35,7 @@ let
       args = [ "-c" "$coreutils/bin/mkdir $out; echo foo > $out/bootstrap-envs" ];
       system = builtins.currentSystem;
       inherit coreutils;
-      inherit (bootstrap) haskell javascript python;
+      inherit (bootstrap) ruby javascript;
     });
 
     bergey = {
