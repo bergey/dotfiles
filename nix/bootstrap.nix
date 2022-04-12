@@ -171,6 +171,7 @@ in with pkgs; {
     paths = with rubyPackages; [
       ruby
       solargraph
+      rubocop
     ];
   };
   

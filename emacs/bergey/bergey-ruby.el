@@ -5,6 +5,12 @@
          (ruby-mode . amk-lsp-format-on-save))
   :custom
   (ruby-insert-encoding-magic-comment nil "Not needed in Ruby 2")
+  :config
+  (setq ruby-mode-hook
+        '(
+          flycheck-mode
+          whitespace-mode
+          ))
   )
 
 (use-package inf-ruby)

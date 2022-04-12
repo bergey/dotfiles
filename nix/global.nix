@@ -39,7 +39,7 @@ let
     });
 
     bergey = {
-      global = with pkgs; [
+      global = (with pkgs; [
         age
         aspell
         aspellDicts.en
@@ -91,7 +91,12 @@ let
         xz
         yaml2json
         python3.pkgs.yamllint
-      ];
+      ])
+      ++ (with pkgs.rubyPackages; [ # ruby
+        pkgs.ruby
+        solargraph
+        rubocop
+      ]);
 
       linux = with pkgs; [
         # (agda.withPackages (a: [ a.standard-library ]))
