@@ -94,8 +94,17 @@ let
       ])
       ++ (with pkgs.rubyPackages; [ # ruby
         pkgs.ruby
-        solargraph
         rubocop
+      ]) ++ (with pkgs; [ # rust posix replacements / enhancements
+        amber
+        bat
+        choose
+        du-dust # https://github.com/bootandy/dust
+        fd
+        hyperfine
+        procs
+        sd
+        tokei
       ]);
 
       linux = with pkgs; [
