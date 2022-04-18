@@ -13,7 +13,11 @@
           ))
   )
 
-(use-package inf-ruby)
+(use-package inf-ruby
+  :bind
+  (:map inf-ruby-minor-mode-map
+
+        ("C-c C-s" . inf-ruby-console-auto)))
 
 (use-package ruby-test-mode
   :after ruby-mode
