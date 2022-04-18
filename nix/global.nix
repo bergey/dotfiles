@@ -122,6 +122,8 @@ let
         bashInteractive
         nix
       ];
+      # programs I install outside Nix:
+      # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz
 
       simspace = with work.pkgs; [
         minio
