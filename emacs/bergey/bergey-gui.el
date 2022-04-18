@@ -19,6 +19,10 @@
 
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
+(setq ansi-color-names-vector
+      '["black" "red3" "green3" "yellow3" "deep sky blue" "magenta3" "turquoise" "gray90"]
+)
+(setq ansi-color-map (ansi-color-make-color-map))
 
 (use-package rainbow-mode :ensure t
   )
