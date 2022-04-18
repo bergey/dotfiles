@@ -19,35 +19,14 @@ checkout = git clone 'ssh://git@github.com/bergey/utility.git' 'utility'
 [code/active/scratch]
 checkout = git clone 'ssh://git@github.com/bergey/scratch.git' 'scratch'
 
-[code/active/STL]
-checkout = git clone 'git@github.com:bergey/STL.git' 'STL'
-
-[code/active/haskell-OpenGL-examples]
-checkout = git clone 'https://github.com/bergey/haskell-OpenGL-examples' 'haskell-OpenGL-examples'
-
-[code/active/vcatt]
-checkout = git clone 'git@github.com:bergey/vcatt.git' 'vcatt'
-
-[code/active/haskell-sql]
-checkout = git clone 'git@github.com:bergey/haskell-sql.git' 'haskell-sql'
-
-[code/active/red-brass]
-checkout = git clone 'git@github.com:bergey/red-brass.git' 'red-brass'
-
 [code/active/preql]
 checkout = git clone 'git@github.com:bergey/preql.git' 'preql'
 
 [code/active/expert-robot]
 checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
 
-[code/active/studious-telegram]
-checkout = git clone 'git@github.com:bergey/studious-telegram' 'studious-telegram'
-
 [code/active/Model01-Firmware]
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
-
-[code/active/anomura]
-checkout = git clone 'git@github.com:bergey/anomura.git' 'anomura'
 
 [records/teallabs]
 checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'teallabs'
@@ -55,5 +34,5 @@ checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'teallabs'
 [code/active/simpledb]
 checkout = git clone 'git@github.com:shterrett/simpledb.git' 'simpledb'
 
-[code/active/red]
-checkout = git clone 'git@github.com:bergey/red.git' 'red'
+[code/active/books]
+checkout = git clone 'git@github.com:bergey/books.git' 'books'
