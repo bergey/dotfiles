@@ -184,6 +184,10 @@ if [ "$(uname)" = "Darwin" ]; then
     }
 fi
 
+function chooset { # fake choose taking a -t option to do this
+    choose $@ | column -t
+}
+
 if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
