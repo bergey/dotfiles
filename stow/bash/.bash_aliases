@@ -69,4 +69,7 @@ alias pg-scalability='ks port-forward svc/postgres 54323:5432'
 alias pg-qa='kq port-forward svc/postgres 54321:5432'
 alias pg-beta='kb port-forward svc/postgres 54320:5432'
 
+alias vm='gcloud compute instances'
+alias gssh='gcloud compute ssh --ssh-flag=-A'
+
 . ~/dotfiles/nix/bash_aliases
