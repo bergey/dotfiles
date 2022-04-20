@@ -127,11 +127,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-if [ -f "$HOME/code/simspace/ci/deploy/portal" ]; then
-    export PATH="$PATH:$HOME/code/simspace/ci/scripts:$HOME/code/simspace/ci/deploy"
-    export POOL_ALLOCATION=2965-2969,2700-2709
-fi
-
 # For Arduino & other Java GUIs
 # http://www.simonrichter.eu/blog/2016-11-01-arduino-tiling-window-manager.html
 export _JAVA_AWT_WM_NONREPARENTING=1

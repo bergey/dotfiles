@@ -1,6 +1,5 @@
 let
     pkgs = import ./nixpkgs.nix {};
-    work = (import ../../code/simspace/ps/dev {});
 
     sizes =
         ({ mkDerivation, base, bytestring, cmdargs, deepseq, dlist, lens
@@ -125,17 +124,6 @@ let
       # programs I install outside Nix:
       # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz
 
-      simspace = with work.pkgs; [
-        minio
-        nodejs
-        postgresqlWithPackages
-        rabbitmq-server
-        # work.project.hsPkgs.simformat.components.exes.simformat
-        stern
-        yarn
-        zstd
-      ];
-
       workstation = with pkgs; [
         bootstrap-prebuild
         google-cloud-sdk
@@ -180,7 +168,7 @@ in rec {
   darwin = pkgs.buildEnv {
     name = "bergey-darwin";
     # it happens that my Mac is for work & my Linux boxen aren't
-    paths = with bergey; global ++ bergey.darwin ++ workstation ++ simspace;
+    paths = with bergey; global ++ bergey.darwin ++ workstation;
   };
 
   default = if pkgs.stdenv.isDarwin then darwin else linux-workstation;
