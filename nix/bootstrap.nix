@@ -137,7 +137,7 @@ in with pkgs; {
       node2nix
       deno
       pkgs.python3.pkgs.jsmin
-      # yarn
+      yarn
     ];
   };
 

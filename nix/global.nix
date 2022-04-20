@@ -55,7 +55,7 @@ let
         gnumake
         gnupg
         graphviz
-        haskellPackages.hasktags
+        (haskell.lib.dontCheck haskellPackages.hasktags)
         haskellPackages.pandoc
         haskellPackages.hlint
         haskellPackages.graphmod
@@ -72,7 +72,7 @@ let
         mr
         nix-prefetch-git
         nmap
-        # nodePackages.jsonlint # broken 2022-04-19
+        nodePackages.jsonlint
         pass
         ripgrep
         rsync
@@ -132,6 +132,7 @@ let
         rabbitmq-server
         # work.project.hsPkgs.simformat.components.exes.simformat
         stern
+        yarn
         zstd
       ];
 
