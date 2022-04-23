@@ -128,6 +128,7 @@ let
         bootstrap-prebuild
         google-cloud-sdk
         inkscape
+        zotero
       ];
 
       linux-workstation = with pkgs; [
