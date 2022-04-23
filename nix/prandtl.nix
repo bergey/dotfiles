@@ -27,6 +27,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "apfs" "zfs" ];
+  networking.hostId = "a9d1a9c2"; # required for ZFS
 
   networking.hostName = "prandtl"; # Define your hostname.
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
