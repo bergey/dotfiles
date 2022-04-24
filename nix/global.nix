@@ -134,11 +134,12 @@ let
       linux-workstation = with pkgs; [
         alacritty
         arduino
-        # calibre # broken 2020-06-21
+        calibre # broken 2020-06-21
         crawl
         dmenu
         dropbox-cli
         feh
+        filelight
         gphoto2
         id3v2
         imagemagick

@@ -65,6 +65,7 @@ virtualisation.docker.enable = true;
      wget vim
      bash-completion
      # pavucontrol
+     xcape
    ];
 
    programs.firejail = {
