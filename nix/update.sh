@@ -1,3 +1,6 @@
+#! /usr/bin/env bash
+
+# alternate shebang to bootstrap if the system doesn't have these tools already
 #! /usr/bin/env nix-shell
 #! nix-shell -i bash
 #! nix-shell -p curl git jq nix
