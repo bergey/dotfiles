@@ -3,7 +3,8 @@
   :bind (:map rust-mode-map
               ("C-c C-," . rust-format-buffer))
   :config
-  (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t))))
+  (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t)))
+  (add-hook 'rust-mode-hook #'electric-pair-local-mode))
 
 (use-package flycheck-rust :ensure t
   :commands (flycheck-rust-setup)
