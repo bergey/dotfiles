@@ -8,8 +8,7 @@ let
             };
     pkgs = import nixpkgs { config = {}; };
 
-myEmacs = if pkgs.stdenv.isDarwin then pkgs.emacsMacport else pkgs.emacs;
-emacsWithPackages = (pkgs.emacsPackagesFor myEmacs).emacsWithPackages;
+emacsWithPackages = (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages;
 
 in emacsWithPackages (epkgs: (with epkgs; [
 
