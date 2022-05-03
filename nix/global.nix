@@ -48,6 +48,7 @@ let
         direnv
         dtach
         editorconfig-core-c
+        gh
         git
         git-lfs
         gitAndTools.hub
