@@ -84,7 +84,7 @@ let
         w3m
         watch
         wget
-        wireshark
+        # wireshark # broken M1 2022-05-03
         xlsfonts
         xsv
         xz
@@ -128,7 +128,7 @@ let
         bootstrap-prebuild
         google-cloud-sdk
         inkscape
-        zotero
+        # zotero # broken M1 2022-05-03
       ];
 
       linux-workstation = with pkgs; [
