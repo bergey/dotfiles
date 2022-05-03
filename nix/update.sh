@@ -12,6 +12,8 @@ set -euxo pipefail
 
 # git diff-index --quiet HEAD -- || (echo "commit or stash changes"; exit 64)
 REV=$(curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision)
+[ ! -d ~/code ] && mkdir ~/code
+[ ! -d ~/code/nixpkgs ] && git clone git@github.com:NixOS/nixpkgs.git
 cd ~/code/nixpkgs
 git fetch -a
 git checkout ${REV}
