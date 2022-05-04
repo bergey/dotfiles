@@ -88,9 +88,9 @@
 (setq org-agenda-files (in-org-directory "org-agenda-files"))
 
 (setq
- bergey/work-agenda-files '("simspace.org")
+ bergey/work-agenda-files '("braze.org")
  bergey/home-agenda-files '("house.org")
- bergey/teal-agenda-files '("teal.org" "braze.org"))
+ bergey/teal-agenda-files '("teal.org"))
 
 (setq org-agenda-custom-commands
       '(
