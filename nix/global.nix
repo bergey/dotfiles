@@ -155,6 +155,11 @@ let
       ];
 
       linux-server = [];
+
+      braze = with pkgs; [
+        awscli2
+        sops
+      ];
     };
 
 in rec {
@@ -171,7 +176,7 @@ in rec {
   darwin = pkgs.buildEnv {
     name = "bergey-darwin";
     # it happens that my Mac is for work & my Linux boxen aren't
-    paths = with bergey; global ++ bergey.darwin ++ workstation;
+    paths = with bergey; global ++ bergey.darwin ++ workstation ++ braze;
   };
 
   default = if pkgs.stdenv.isDarwin then darwin else linux-workstation;
