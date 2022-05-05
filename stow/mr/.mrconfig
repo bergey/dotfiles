@@ -36,3 +36,6 @@ checkout = git clone 'git@github.com:shterrett/simpledb.git' 'simpledb'
 
 [code/active/books]
 checkout = git clone 'git@github.com:bergey/books.git' 'books'
+
+[code/active/tealsed]
+checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
