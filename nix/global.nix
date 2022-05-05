@@ -158,7 +158,22 @@ let
 
       braze = with pkgs; [
         awscli2
+        postgresql_14
+        imagemagick
+        snappy
+        terraform
+        kops
+        # rbenv
+        # asdf-vm
+        # (python310.withPackages (pyp: with pyp; [
+        #   setuptools
+        #   pip
+        #   pep8
+        #   mccabe
+        #   virtualenv
+        # ]))
         sops
+        # nodejs-14_x
       ];
     };
 
