@@ -16,7 +16,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     # modelica-mode
     # powershell
     # tuareg
-    agda2-mode
+    # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
     auto-complete
     bbdb
@@ -38,7 +38,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     editorconfig
     emmet-mode
     emms
-    erlang # broken 2019-09-30
+    erlang
     evil
     exec-path-from-shell
     eyebrowse
