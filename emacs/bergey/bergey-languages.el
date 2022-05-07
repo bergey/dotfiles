@@ -92,4 +92,7 @@
   (bind-key "TAB" 'origami-recursively-toggle-node yaml-mode-map)
   )
 
+(use-package coffee-mode :ensure t
+  :mode "\\.js.coffee")
+
 (provide 'bergey-languages)
