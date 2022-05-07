@@ -47,9 +47,15 @@ function restore_prompt_after_nix_shell() {
     fi
 }
 
+case "$HOSTNAME" in
+    BZUSWVX02L7L7Q)
+        FRIENDLY_HOSTNAME='macbook';;
+    *)
+        FRIENDLY_HOSTNAME="$HOSTNAME";;
+esac
 PROMPT_COMMAND=restore_prompt_after_nix_shell
 # time, command number, hostname, return code, $ sign
-PROMPT='\[\e[36m\]\t \# \h $? \[\e[1;37m\]$ \[\e[m\]'
+PROMPT='\[\e[36m\]\t \# $FRIENDLY_HOSTNAME $? \[\e[1;37m\]$ \[\e[m\]'
 export PS1=$PROMPT
 
 # enable color support of ls and also add handy aliases
