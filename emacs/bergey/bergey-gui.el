@@ -66,6 +66,7 @@
   (use-package persp-projectile :ensure t)
   )
 (persp-mode)
+(persp-mode-set-prefix-key (kbd "C-x x"))
 
 (use-package projectile :ensure t
   :config
