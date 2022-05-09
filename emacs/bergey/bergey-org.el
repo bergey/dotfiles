@@ -132,15 +132,15 @@
          "* %<%Y-%m-%d> %?")
         ("b" "bookmark" entry (file+headline "bookmarks.org" "recent")
          "* %(org-cliplink-capture)\nEntered on %U\n%?")
+        ("d" "dinner" entry (file+headline "recipes.org" "2022")
+         ;; "* %(format-time-string \"%Y-%m-%d\")\n%?")
+         "* %<%Y-%m-%d>\n%?")
         ))
         ;; Unused, need to check if they work / are useful
         ;; ("e" "email needs reply" entry (file+headline "" "Email")
         ;;  "* TODO [#B] reply to %:from re %?\n%a")
         ;; ("r" "reading" entry (file+headline "read.org" "triage")
         ;;  "* %?")
-        ;; ("d" "dinner" entry (file+headline "recipes.org" "2017")
-        ;;  ;; "* %(format-time-string \"%Y-%m-%d\")\n%?")
-        ;;  "* %<%Y-%m-%d>\n%?")
         ;; ("f" "fitness log" entry (file+headline "misc.org" "2017")
         ;;  "* %<%Y-%m-%d>\n%?")
         ;; ;; templates used by the Chrome plugin to save current page / selection
