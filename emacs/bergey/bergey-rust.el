@@ -23,4 +23,14 @@
 (use-package toml-mode :ensure t
   :mode "\\.toml\\|Cargo.lock" )
 
+(defun bergey/rust-navigate-imports()
+  "move point to the beginning of the first import line"
+  (interactive)
+  (xref-push-marker-stack) ;; so we can return
+  (goto-char (point-min))
+  (re-search-forward "^use")
+  (goto-char (line-beginning-position))
+  )
+(bind-key "C-c i" #'bergey/rust-navigate-imports rust-mode-map)
+
 (provide 'bergey-rust)
