@@ -33,4 +33,18 @@
   )
 (bind-key "C-c i" #'bergey/rust-navigate-imports rust-mode-map)
 
+(defun bergey/rust-yank-module-name ()
+  "copy the module name to the kill ring"
+  (interactive)
+  (let* (
+         (package-root (file-name-directory (rust-buffer-project)))
+         (module-path-src (s-chop-prefix package-root (buffer-file-name)))
+         ;; TODO what about other top-level folders?
+         (module-path (s-chop-suffix ".rs" (s-chop-prefix "src/" module-path-src)))
+         (module-name (s-replace "/" "::" module-path))
+         )
+    (kill-new module-name))
+  )
+(bind-key "C-c m" #'bergey/rust-yank-module-name rust-mode-map)
+
 (provide 'bergey-rust)
