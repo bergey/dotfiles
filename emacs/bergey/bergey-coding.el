@@ -96,19 +96,26 @@
 )
 
 ;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column
+(defun jump-to-non-whitespace-char-in-same-column (up-or-down)
+  (let* ((col (current-column))
+         (go-up-or-down (lambda ()
+                          (funcall up-or-down)
+                          (evil-goto-column col))))
+    (funcall go-up-or-down)
+    (while (or (= (char-after (point)) 32)
+               (= (char-after (point)) 10)
+               (< (current-column) col))
+      ;; (message "%s %s" (line-number-at-pos) (current-column)) ;; debug
+      (funcall go-up-or-down))))
+
 (defun jump-down-to-non-whitespace-char-in-same-column ()
   (interactive)
-  (evil-next-line)
-  (while (or (= (char-after (point)) 32)
-            (= (char-after (point)) 10))
-    (evil-next-line)))
+  (jump-to-non-whitespace-char-in-same-column #'evil-next-line))
 
 (defun jump-up-to-non-whitespace-char-in-same-column ()
   (interactive)
-  (evil-previous-line)
-  (while (or (= (char-after (point)) 32)
-            (= (char-after (point)) 10))
-    (evil-previous-line)))
+  (jump-to-non-whitespace-char-in-same-column #'evil-previous-line))
+
 (bind-key "C-j" #'jump-down-to-non-whitespace-char-in-same-column)
 (bind-key "C-k" #'jump-up-to-non-whitespace-char-in-same-column)
 
