@@ -1,5 +1,5 @@
 [user]
-	email = bergey@simspace.com
+	email = daniel.bergey@braze.com
 	name = Daniel Bergey
 [color]
 	ui = true
@@ -38,3 +38,7 @@
 	defaultBranch = trunk
 [pull]
 	ff = only
+
+# per Braze golang docs
+[url "git@github.com:"]
+  insteadOf = https://github.com/
