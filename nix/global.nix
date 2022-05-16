@@ -62,7 +62,7 @@ let
         # haskellPackages.HaRe
         (haskellPackages.callPackage sizes {})
         htop
-        jq yq
+        jq # yq
         just
         keybase
         kubectl
