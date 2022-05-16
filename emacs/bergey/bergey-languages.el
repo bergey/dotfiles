@@ -95,4 +95,7 @@
 (use-package coffee-mode :ensure t
   :mode "\\.js.coffee")
 
+(use-package go-mode :ensure t
+  :mode "\\.go$")
+
 (provide 'bergey-languages)

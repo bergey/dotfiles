@@ -50,6 +50,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     fsharp-mode
     fstar-mode
     git-link
+    go-mode
     google-this
     groovy-mode
     haskell-mode
