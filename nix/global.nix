@@ -78,7 +78,6 @@ let
         rsync
         rustup
         shellcheck
-        stack
         stow
         textql
         tmux
