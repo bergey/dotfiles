@@ -60,13 +60,15 @@
   :commands windresize)
 
 (use-package perspective
-  :ensure t
+  :bind
+  ("C-x C-b" . persp-list-buffers)         ; or use a nicer switcher, see https://github.com/nex3/perspective-el#buffer-switchers
+  :custom
+  (persp-mode-prefix-key (kbd "C-x x"))
   :config
   (setq persp-show-modestring nil)
   (use-package persp-projectile :ensure t)
-  )
-(persp-mode)
-(persp-mode-set-prefix-key (kbd "C-x x"))
+  :init
+  (persp-mode))
 
 (use-package projectile :ensure t
   :config
