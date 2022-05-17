@@ -1,10 +1,14 @@
 (use-package rust-mode :ensure t
   :mode ("\\.rs\'" . rust-mode)
   :bind (:map rust-mode-map
-              ("C-c C-," . rust-format-buffer))
+              ("C-c C-," . rust-format-buffer)
+              ("C-c i" . bergey/rust-navigate-imports)
+              ("C-c m" . bergey/rust-yank-module-name)
+              )
   :config
   (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t)))
-  (add-hook 'rust-mode-hook #'electric-pair-local-mode))
+  (add-hook 'rust-mode-hook #'electric-pair-local-mode)
+  )
 
 (use-package flycheck-rust :ensure t
   :commands (flycheck-rust-setup)
@@ -31,7 +35,6 @@
   (re-search-forward "^use")
   (goto-char (line-beginning-position))
   )
-(bind-key "C-c i" #'bergey/rust-navigate-imports rust-mode-map)
 
 (defun bergey/rust-yank-module-name ()
   "copy the module name to the kill ring"
@@ -45,6 +48,5 @@
          )
     (kill-new module-name))
   )
-(bind-key "C-c m" #'bergey/rust-yank-module-name rust-mode-map)
 
 (provide 'bergey-rust)
