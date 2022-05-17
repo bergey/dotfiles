@@ -62,7 +62,7 @@
  org-blank-before-new-entry (quote ((heading) (plain-list-item)))
  org-columns-default-format "%45ITEM %TODO %3PRIORITY %5Effort{:} %CLOCKSUM"
  org-global-properties (quote (("Effort_ALL" . "0:05 0:15 0:30 1:00 2:00 3:00 5:00 8:00 13:00")))
- org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-w3m org-notmuch))
+ org-modules (quote (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-w3m))
  org-special-ctrl-a/e t
  org-startup-indented t
  org-agenda-span 'day
