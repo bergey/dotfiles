@@ -192,3 +192,8 @@ function chooset { # fake choose taking a -t option to do this
 if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
+
+. $HOME/.asdf/asdf.sh
+
+unset GOPATH
+export PATH=$PATH:/usr/local/go/bin
