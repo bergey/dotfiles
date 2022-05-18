@@ -175,6 +175,16 @@ in with pkgs; {
     ];
   };
   
+  rust = mkBootstrap { # rustup simpler
+    name = "rust";
+    paths = [
+      cargo
+      rustc
+      carnix
+      libiconv
+    ];
+  };
+
   scala = mkBootstrap {
     name = "scala";
     paths = with pkgs; [
@@ -220,16 +230,6 @@ in with pkgs; {
         #    coqPackages_8_6.coq-ext-lib
       ];
     };
-
-  rust = mkBootstrap { # rustup simpler
-    name = "rust";
-    paths = [
-      cargo
-      rustc
-      carnix
-      libiconv
-    ];
-  };
 
   souffle = mkBootstrap { # broken MacOS 2022-04-03
       name = "souffle";
