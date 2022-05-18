@@ -162,6 +162,7 @@ let
         snappy
         terraform
         kops
+        cmake
         # rbenv
         # asdf-vm
         # (python310.withPackages (pyp: with pyp; [
