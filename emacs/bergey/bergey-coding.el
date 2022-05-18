@@ -125,4 +125,8 @@
 (use-package protobuf-mode :ensure t
   :mode "\\.proto\\'")
 
+(use-package direnv
+  :config
+  (direnv-mode))
+
 (provide 'bergey-coding)
