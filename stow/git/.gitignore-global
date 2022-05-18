@@ -40,3 +40,9 @@ Thumbs.db
 ################
 *~
 \#*
+
+# per-project environments
+# in principle, some projects might want to commit these 🤷
+.dir-locals.el
+.envrc
+bin # sketchy
