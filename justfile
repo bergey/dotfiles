@@ -1,4 +1,6 @@
 stow:
+  mkdir ~/.local
+  mkdir ~/.config
 	for d in $(ls stow); do stow -t ~ -d stow $d; done
 	ln -s $(pwd)/emacs ~/.emacs.d
 
