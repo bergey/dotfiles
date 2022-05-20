@@ -15,7 +15,7 @@ REV=$(curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision)
 [ ! -d ~/code ] && mkdir ~/code
 [ ! -d ~/code/nixpkgs ] && git clone git@github.com:NixOS/nixpkgs.git
 cd ~/code/nixpkgs
-git fetch -a
+git fetch -a --quiet
 git checkout ${REV}
 SHA=$(nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/${REV}.tar.gz)
 cd -
