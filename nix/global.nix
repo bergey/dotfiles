@@ -39,7 +39,6 @@ let
 
     bergey = {
       global = (with pkgs; [
-        age
         aspell
         aspellDicts.en
         atool
@@ -125,6 +124,7 @@ let
       # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz
 
       workstation = with pkgs; [
+        alacritty
         bootstrap-prebuild
         google-cloud-sdk
         inkscape
@@ -132,7 +132,6 @@ let
       ];
 
       linux-workstation = with pkgs; [
-        alacritty
         arduino
         calibre # broken 2020-06-21
         crawl
