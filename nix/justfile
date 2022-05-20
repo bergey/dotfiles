@@ -2,7 +2,15 @@ default: update global
 all: global os bootstrap
 
 global:
+  #!/usr/bin/env bash
+  set -euxo pipefail
   nix-env --no-build-output -if global.nix -A default
+  # symlink MacOS Applications
+  for app in ~/.nix-profile/Applications/*; do
+    if [[ ! -e /Applications/$(basename "$app") ]]
+      then ln -s "$app" /Applications/$(basename "$app")
+    fi
+  done
 
 update:
   @./update.sh
