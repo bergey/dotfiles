@@ -88,6 +88,10 @@
   :commands rg
   :config
   (define-key rg-mode-map (kbd "M-o") 'compilation-display-error)
+  (setq
+   rg-custom-type-aliases '(("puppet" . "*.pp *.erb"))
+   rg-builtin-type-aliases (assoc-delete-all "puppet" (rg-list-builtin-type-aliases))
+   )
   )
 
 (use-package editorconfig :ensure t
