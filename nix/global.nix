@@ -100,7 +100,7 @@ let
         du-dust # https://github.com/bootandy/dust
         fd
         hyperfine
-        procs
+        # procs # broken M1 2022-05-31
         sd
         tokei
       ]);
@@ -155,7 +155,7 @@ let
       linux-server = [];
 
       braze = with pkgs; [
-        awscli2
+        # awscli2 # broken M1 2022-05-31
         postgresql_14
         imagemagick
         snappy
