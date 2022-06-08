@@ -38,6 +38,8 @@
   (advice-add #'ruby-test-run-command :around #'amk-ruby-test-pretty-error-diffs-setup)
   )
 
+(use-package rspec-mode)
+
 (defun bergey/ruby-navigate-imports ()
   "move point to the beginning of the first import line"
   (interactive)
