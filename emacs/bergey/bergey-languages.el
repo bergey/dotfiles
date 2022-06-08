@@ -1,6 +1,7 @@
 ;;; *** programming languages that I use occasionally
 
-(use-package agda2)
+;; TODO 2022-06-08 get working again?
+;; (use-package agda2)
 
 ;; Coq
 (use-package proof-site
@@ -68,7 +69,8 @@
     (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
     (add-hook 'scala-mode-hook 'whitespace-mode))
 
-(use-package soutei-mode)
+;; TODO 2022-06-08 remove? Only used at SimSpace
+;; (use-package soutei-mode)
 
 (use-package swift-mode :ensure t
   :mode "\\.swift"
