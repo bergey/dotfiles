@@ -158,7 +158,7 @@
 ;; WISH - review these periodically, might go back on the TODO list
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WIP(p)" "|" "DONE(d!)")
-        (type "DELAY(l)" "BLOCKED(b)" "QA(q)" "ASSIGNED(a)" "|"  "WISH(w)" "CANCEL(k!)")))
+        (type "DELAY(l)" "BLOCKED(b)" "REVIEW(q)" "ASSIGNED(a)" "|"  "WISH(w)" "CANCEL(k!)")))
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "light gray" :weight bold))
@@ -166,6 +166,7 @@
         ("DELAY" . (:foreground "chocolate" :weight bold))
         ("BLOCKED" . (:foreground "chocolate" :weight bold))
         ("QA" . (:foreground "chocolate" :weight bold))
+        ("REVIEW" . (:foreground "chocolate" :weight bold))
         ("WIP" . (:foreground "magenta" :weight bold))
         ("ASSIGNED" . (:foreground "chocolate" :weight bold))
         ))
