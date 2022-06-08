@@ -14,6 +14,7 @@ global:
 
 update:
   @./update.sh
+  # TODO only checkout newer commit of nixpkgs git repo & commit here if global rule built successfully
 
 bootstrap:
   nix-build bootstrap.nix
