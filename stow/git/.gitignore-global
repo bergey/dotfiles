@@ -45,4 +45,4 @@ Thumbs.db
 # in principle, some projects might want to commit these 🤷
 .dir-locals.el
 .envrc
-bin # sketchy
+.bin
