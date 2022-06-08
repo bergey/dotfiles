@@ -5,7 +5,7 @@
 	ui = true
 [core]
 	autocrlf = input
-	excludesfile = /home/bergey/.gitignore-global
+	excludesfile = /Users/bergey/.gitignore-global
 [github]
 	user = bergey
 [push]
