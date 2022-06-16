@@ -127,8 +127,6 @@ let
         alacritty
         bootstrap-prebuild
         google-cloud-sdk
-        inkscape
-        # zotero # broken M1 2022-05-03
       ];
 
       linux-workstation = with pkgs; [
@@ -149,6 +147,8 @@ let
         transmission
         xorg.xev
         zathura
+        inkscape # broken M1 2022-06-16
+        zotero # broken M1 2022-05-03
         # zoom-us
       ];
 

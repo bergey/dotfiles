@@ -12,6 +12,9 @@ global:
     fi
   done
 
+show-trace:
+  nix-env --no-build-output -if global.nix -A default --show-trace
+    
 update:
   @./update.sh
   # TODO only checkout newer commit of nixpkgs git repo & commit here if global rule built successfully
