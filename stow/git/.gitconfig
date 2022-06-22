@@ -9,7 +9,7 @@
 [github]
 	user = bergey
 [push]
-	default = simple
+	default = current
 [diff]
         tool = ediff
         guitool = ediff
