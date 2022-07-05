@@ -35,6 +35,7 @@ alias 'stack-build=stack build --test --no-run-tests'
 alias shortlog='git log --pretty=format:"%ai %s"'
 # report directories (and files, uselessly) in the current dir not registered with mr
 alias mrdiff='diff <(ls) <(sed -nE "s/\[(.*)\]/\1/p" .mrconfig | sort)'
+alias forcepush='git push --force-with-lease'
 
 # 'system' utils
 alias serve='python3 -m http.server'
