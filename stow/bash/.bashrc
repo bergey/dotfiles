@@ -123,6 +123,8 @@ function quiet {
     awk "{ print \$0 >> \"$1\"; dots+=1 }; dots < 80 { printf \".\" }; dots >= 80 { printf \".\n\"; dots=0 }"
 }
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/stow/google-cloud-sdk/path.bash.inc' ]; then source '/usr/local/stow/google-cloud-sdk/path.bash.inc'; fi
 
