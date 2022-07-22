@@ -50,7 +50,7 @@ let
         gh
         git
         git-lfs
-        gitAndTools.hub
+        # gitAndTools.hub # broken 2022-07-22
         gnumake
         gnupg
         graphviz
