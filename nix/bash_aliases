@@ -24,9 +24,15 @@ alias list-bootstraps="nix eval --raw '(builtins.concatStringsSep \"\n\" (builti
 alias nix-snapshot='cp ~/code/active/nix/nixpkgs-snapshot.json .'
 
 # install by local attribute
-function nia {
-    nix-env -iA nixos.pkgs.$1
-}
+if [ -d /etc/nixos ]; then
+    function nia {
+        nix-env -iA nixos.pkgs.$1
+    }
+else
+    function nia {
+        nix-env -iA nixpkgs.$1
+    }
+fi
 
 # shorter nix-shell commands
 alias nsh='nix-shell --pure'
