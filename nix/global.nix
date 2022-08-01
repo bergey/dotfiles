@@ -50,7 +50,7 @@ let
         gh
         git
         git-lfs
-        # gitAndTools.hub # broken 2022-07-22
+        gitAndTools.hub
         gnumake
         gnupg
         graphviz
@@ -100,7 +100,7 @@ let
         du-dust # https://github.com/bootandy/dust
         fd
         hyperfine
-        # procs # broken M1 2022-05-31
+        procs
         sd
         tokei
       ]);
@@ -155,14 +155,14 @@ let
       linux-server = [];
 
       braze = with pkgs; [
-        # awscli2 # broken M1 2022-05-31
+        awscli2
         postgresql_14
         imagemagick
         snappy
         terraform
         kops
         cmake
-        # rbenv
+        rbenv
         # asdf-vm
         # (python310.withPackages (pyp: with pyp; [
         #   setuptools
