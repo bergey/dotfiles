@@ -90,10 +90,7 @@ let
         yaml2json
         python3.pkgs.yamllint
       ])
-      ++ (with pkgs.rubyPackages; [ # ruby
-        pkgs.ruby
-        rubocop
-      ]) ++ (with pkgs; [ # rust posix replacements / enhancements
+      ++ (with pkgs; [ # rust posix replacements / enhancements
         amber
         bat
         choose
@@ -162,7 +159,6 @@ let
         terraform
         kops
         cmake
-        rbenv
         # asdf-vm
         # (python310.withPackages (pyp: with pyp; [
         #   setuptools
@@ -173,7 +169,11 @@ let
         # ]))
         sops
         # nodejs-14_x
-      ];
+        ruby_3_0
+      ]
+      ++ (with pkgs.rubyPackages_3_0; [
+        rubocop
+      ]);
     };
 
 in rec {
