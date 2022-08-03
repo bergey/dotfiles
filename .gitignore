@@ -57,3 +57,4 @@ snippets/*/.yas-compiled-snippets.el
 /emacs/projects
 /emacs/.cache/
 /emacs/projectile.cache
+.DS_Store
