@@ -195,11 +195,6 @@ if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
 
-# eval "$(rbenv init - bash)"
-export PATH="/Users/bergey/.rbenv/shims:${PATH}"
-export RBENV_SHELL=bash
-source '/opt/homebrew/Cellar/rbenv/1.2.0/libexec/../completions/rbenv.bash'
-command rbenv rehash 2>/dev/null
 . $HOME/.asdf/asdf.sh
 
 unset GOPATH
