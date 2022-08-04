@@ -168,14 +168,6 @@ Return the configuration."
 
   )
 
-(use-package lsp-haskell :ensure t
-  :after (lsp haskell-mode)
-  :commands (lsp-haskell--server-command)
-  :config
-  (setq lsp-haskell-server-path "haskell-language-server-wrapper")
-  (setq lsp-haskell-server-args ())
-  )
-
 (use-package haskell-interactive-mode
   :commands interactive-haskell-mode
   :diminish 'interactive-haskell-mode

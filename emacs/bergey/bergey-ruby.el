@@ -1,8 +1,6 @@
 ;; starting point from https://github.com/amake/.emacs.d/blob/master/init.el
 
 (use-package ruby-mode :ensure t
-  :hook ((ruby-mode . lsp-deferred)
-         (ruby-mode . amk-lsp-format-on-save))
   :custom
   (ruby-insert-encoding-magic-comment nil "Not needed in Ruby 2")
   :config

@@ -74,9 +74,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     just-mode
     kotlin-mode
     ledger-mode
-    lsp-haskell
-    lsp-mode
-    lsp-ui
     magit
     markdown-mode
     move-text

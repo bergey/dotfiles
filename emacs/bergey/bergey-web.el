@@ -10,7 +10,6 @@
                           bergey/company-short-idle
                           emmet-mode
                           flycheck-mode
-                          lsp-deferred
                           prettier-mode
                           whitespace-mode
                           ))
