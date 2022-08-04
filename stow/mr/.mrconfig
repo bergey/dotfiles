@@ -39,3 +39,6 @@ checkout = git clone 'git@github.com:bergey/books.git' 'books'
 
 [code/active/tealsed]
 checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
+
+[code/active/tack]
+checkout = git clone 'https://github.com/bergey/tack.git' 'tack'
