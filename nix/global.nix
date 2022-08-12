@@ -173,7 +173,6 @@ let
       ]
       ++ (with pkgs.rubyPackages_3_0; [
         rubocop
-        vite
       ]);
     };
 
