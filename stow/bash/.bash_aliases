@@ -52,6 +52,8 @@ alias pylab='ipython --pylab'
 alias snapshot='sudo zfs snapshot zpool/crypt/home@$(date -u +%FT%TZ)'
 alias backup='borg create /mnt/babel/$(hostname)::$(date +%F) ~ --exclude sh:**/.stack-work --exclude sh:**/.stack --one-file-system'
 
+alias listeners='lsof -i -P | headgrep LISTEN'
+
 # docker / kubernetes
 alias k=kubectl
 alias kl='kubectl --context=local'
