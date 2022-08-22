@@ -6,6 +6,7 @@
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
     (setq web-mode-hook '(
                           bergey/yas-by-file-extension
+                          bergey/auto-quote-by-file-extension
                           color-identifiers-mode
                           bergey/company-short-idle
                           emmet-mode
@@ -51,14 +52,22 @@
   :commands nodejs-repl
   )
 
+(defmacro string-case (actual &rest branches)
+  `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
+  )
+
 (defun bergey/yas-by-file-extension ()
-  (interactive)  ; for debugging
-;;  (let ((ext )))
-  (pcase (downcase (file-name-extension (buffer-file-name)))
-    ((pred (string-equal "js" )) (yas-activate-extra-mode 'js-mode))
-    ((pred (string-equal "html")) (yas-activate-extra-mode 'html-mode)))
-    ;; ((pred (string-equal "js" )) (message "js"))
-    ;; ((pred (string-equal "html")) (message "html")))
+  (string-case (downcase (file-name-extension (buffer-file-name)))
+    ("js"  (yas-activate-extra-mode 'js-mode))
+    ("html" (yas-activate-extra-mode 'html-mode))
+    ;; ("tsx" (message "tsx")) ;; for debugging
+    )
+  )
+
+(defun bergey/auto-quote-by-file-extension ()
+  (if (string-match "tsx\\|jsx" (downcase (file-name-extension (buffer-file-name))))
+      (setq web-mode-enable-auto-quoting nil)
+      )
   )
 
 ;; mocha runner code from https://gist.github.com/lazywithclass/1582626
