@@ -169,11 +169,7 @@ let
         # ]))
         sops
         # nodejs-14_x
-        ruby_3_0
-      ]
-      ++ (with pkgs.rubyPackages_3_0; [
-        rubocop
-      ]);
+      ];
     };
 
 in rec {
