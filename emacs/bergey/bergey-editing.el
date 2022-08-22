@@ -86,6 +86,11 @@
 
 (use-package rg :ensure t
   :commands rg
+  :bind ("M-g M-g" . rg-dwim)
+  :bind ("M-g t" . rg-project)
+  :bind ("M-g M-t" . rg-project)
+  :bind ("M-g r" . rg)
+  :bind ("M-g M-r" . rg)
   :config
   (define-key rg-mode-map (kbd "M-o") 'compilation-display-error)
   (setq
