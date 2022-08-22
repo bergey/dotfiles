@@ -4,6 +4,9 @@
    "Rℝ"
    "T§" "M—" "N–" "#♯"))
 
+(define-key 'iso-transl-ctl-x-8-map (kbd "<right>") "→")
+(define-key 'iso-transl-ctl-x-8-map (kbd "<left>") "←")
+
 ;; greek input (for math & science, not language)
 (require 'greek-unicode-insert)
 (define-key 'iso-transl-ctl-x-8-map "g" 'greek-unicode-insert-map)
