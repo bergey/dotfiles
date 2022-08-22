@@ -199,3 +199,6 @@ fi
 
 unset GOPATH
 export PATH=$PATH:/usr/local/go/bin
+export PATH=/opt/homebrew/bin:$PATH
+
+eval "$(rbenv init - bash)"
