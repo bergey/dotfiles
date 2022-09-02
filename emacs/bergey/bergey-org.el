@@ -25,8 +25,8 @@
 (use-package org-archive
   :commands org-archive-subtree-default)
 
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" #'org-agenda)
+(global-set-key "\C-cl" #'org-store-link)
 ;; set this without org-git-store-link, which is nifty but usually not what I want.
 (setq org-store-link-functions
       '(org-irc-store-link
@@ -41,7 +41,7 @@
   (org-end-of-subtree))
 
 (add-hook 'org-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (bind-keys :map org-mode-map
                          ;; ("C-c C-m" . helm-imenu)
                          ("C-c C-x C-i" . org-clock-in)
@@ -55,7 +55,7 @@
                          ("C-c C-x r" . org-refile)
                          )))
 
-(add-hook 'org-mode-hook '(lambda () (diminish 'org-indent-mode)))
+(add-hook 'org-mode-hook #'(lambda () (diminish 'org-indent-mode)))
 
 (setq
  org-agenda-start-on-weekday nil
@@ -183,7 +183,7 @@
 (setq org-imenu-depth 4)
 
 (setq org-default-notes-file (in-org-directory "capture.org"))
-(bind-key "C-. c" 'org-capture)
+(bind-key "C-. c" #'org-capture)
 
 ;; don't show scheduled items in the agenda list of all TODO items
 (setq org-agenda-todo-ignore-scheduled "all")

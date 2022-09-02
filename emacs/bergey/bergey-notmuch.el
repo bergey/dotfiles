@@ -298,7 +298,7 @@ from strings as used by bbdb-get-addresses")
             (bind-key "t" 'notmuch-show-add-tag notmuch-show-mode-map)
             (bind-key "t" 'notmuch-search-add-tag notmuch-search-mode-map)
             (bind-key "T" 'notmuch-search-filter-by-tag notmuch-search-mode-map)
-            (bind-key "$" '(lambda () (interactive (switch-to-buffer "*Notmuch errors*"))) notmuch-search-mode-map)
+            (bind-key "$" #'(lambda () (interactive (switch-to-buffer "*Notmuch errors*"))) notmuch-search-mode-map)
 
             (bind-key "g" 'notmuch-poll-and-refresh-this-buffer notmuch-search-mode-map)
             (bind-key "S" 'bergey-notmuch-search-save-search notmuch-search-mode-map)

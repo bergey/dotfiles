@@ -9,7 +9,7 @@
 ;; start server, so I can call emacsclient from bash
 (require 'server)
 (unless (server-running-p) (server-start))
-(add-hook 'mail-mode-hook '(lambda ()
+(add-hook 'mail-mode-hook #'(lambda ()
                              (auto-fill-mode 1)
                              (setq fill-column 72)))
 

@@ -8,7 +8,7 @@
 (defun datestamp (arg)
   (interactive "p")
   (insert (format-time-string
-           (case arg
+           (cl-case arg
              ('16 "%Y-%m-%dT%H:%M:%S")
              ('4 "%Y-%m-%d %H:%M:%S")
              (t "%Y-%m-%d")))))
@@ -64,7 +64,7 @@ bind them to the specified keys."
 
 (defun bergey/store-or-edit-password (arg)
   (interactive "p")
-  (case arg
+  (cl-case arg
     ('4 (call-interactively 'password-store-edit))
     (t (call-interactively 'bergey/password-store-copy)))
   )

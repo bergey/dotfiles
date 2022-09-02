@@ -51,7 +51,7 @@
   ;; commands (using vim in terminal in `screen').
   (evil-ex-define-cmd "q" 'kill-this-buffer)
 
-  (use-package org-evil :ensure t :ensure)
+  ;; (use-package org-evil :ensure t :ensure)
 
   (setq-default evil-shift-width 2)
   )

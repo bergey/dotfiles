@@ -6,7 +6,7 @@
               ("C-c m" . bergey/rust-yank-module-name)
               )
   :config
-  (add-hook 'rust-mode-hook '(lambda ()  (flycheck-mode t)))
+  (add-hook 'rust-mode-hook #'(lambda ()  (flycheck-mode t)))
   (add-hook 'rust-mode-hook #'electric-pair-local-mode)
   )
 

@@ -139,7 +139,7 @@
   (cl-case system-type
     ('windows-nt
      (setq eshell-mode-hook
-           '(lambda ()
+           #'(lambda ()
               (setq eshell-path-env
                     (concat
                      "C:\\Program Files\\Git\\mingw64\\bin;"

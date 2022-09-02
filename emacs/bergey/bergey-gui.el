@@ -153,7 +153,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 (defun bergey/buffer-file-name-as-kill (arg)
   (interactive "p")
   (kill-new
-   (case arg
+   (cl-case arg
      ('4 (file-name-nondirectory (buffer-file-name)))
      (t (buffer-file-name)))
    ))
