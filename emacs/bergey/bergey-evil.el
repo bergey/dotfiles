@@ -17,6 +17,7 @@
           '("C-a" "C-d" "C-e" "C-k" "C-o" "C-w" "C-y" "C-." "TAB"))
 
   (setcdr evil-insert-state-map nil)
+  (define-key evil-motion-state-map (kbd "RET") nil)
 
   ;; bindings that should only apply in certain evil states, not all
   (define-key evil-insert-state-map (kbd evil-toggle-key) 'evil-emacs-state)
@@ -36,6 +37,7 @@
   ;;; per-mode customization
   (add-hook 'org-capture-mode-hook 'evil-insert-state)
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
+  (evil-set-initial-state 'deadgrep-mode 'emacs)
 
   (setq evil-insert-state-cursor '(bar . 1))
   (setq evil-cross-lines t)
