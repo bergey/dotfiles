@@ -170,9 +170,10 @@
         ("ASSIGNED" . (:foreground "chocolate" :weight bold))
         ))
 
-(add-to-list 'org-emphasis-alist
-             '("*" (:foreground "red")
-               ))
+(eval-after-load 'org
+  '(add-to-list 'org-emphasis-alist
+               '("*" (:foreground "red")
+                 )))
 
 (setq org-lowest-priority ?D)
 (setq org-default-priority ?C)
