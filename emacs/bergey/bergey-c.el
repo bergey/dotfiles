@@ -16,7 +16,6 @@
       '(whitespace-mode
         smartparens-mode
         flycheck-mode
-        ;; helm-gtags-mode
         bergey/company-short-idle))
 
 ;; *** C

@@ -27,9 +27,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
     auto-complete
-    bbdb
     buffer-move
-    caps-lock
     clojure-mode
     coffee-mode
     color-identifiers-mode
@@ -50,7 +48,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     ess
     evil
     exec-path-from-shell
-    eyebrowse
     fic-mode
     flycheck
     flycheck-clojure
@@ -64,9 +61,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     groovy-mode
     haskell-mode
     haskell-snippets
-    helm
-    helm-dash
-    helm-gtags
     highlight-escape-sequences
     highlight-indent-guides
     highlight-quoted
@@ -82,7 +76,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     nix-mode
     nix-sandbox
     nodejs-repl
-    notmuch
     nov
     org-cliplink
     # org-plus-contrib
