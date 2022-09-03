@@ -5,16 +5,14 @@
 (use-package magit :ensure t
   :bind ("C-. g" . magit-status)
   :diminish auto-revert-mode
-  :init (defvar magit-log-edit-confirm-cancellation nil)
   :config
-    (setq magit-push-always-verify nil)
     (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
 
     (bind-keys :map magit-blame-mode-map
                ;; mostly because RET, the default binding, is used by haskell-indentation
                ("TAB" . magit-show-commit)))
 
-(use-package orgit :ensure t)
+(use-package orgit :ensure t :defer t)
 
 (defun bergey/search-forward-diff-lines ()
   (interactive)
