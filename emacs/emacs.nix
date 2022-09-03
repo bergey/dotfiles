@@ -36,6 +36,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     counsel
     csv-mode
     dash
+    deadgrep
     default-text-scale
     diminish
     direnv

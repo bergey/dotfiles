@@ -99,6 +99,10 @@
    )
   )
 
+(use-package deadgrep
+  :bind ("M-g d" . deadgrep)
+  )
+
 (use-package editorconfig :ensure t
   :ensure t
   :diminish editorconfig-mode
