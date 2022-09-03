@@ -48,6 +48,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     erlang
     ess
     evil
+    evil-collection
     exec-path-from-shell
     fic-mode
     flycheck

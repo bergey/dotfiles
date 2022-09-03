@@ -4,6 +4,7 @@
     :config
     (setq evil-undo-system 'undo-fu)
     )
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
 
@@ -55,5 +56,12 @@
 
   (setq-default evil-shift-width 2)
   )
+
+(use-package evil-collection
+  :after evil
+  :config
+  (setq bergey/evil-collection-original-mode-list evil-collection-mode-list)
+  (setq evil-collection-mode-list '(deadgrep))
+  (evil-collection-init))
 
 (provide 'bergey-evil)
