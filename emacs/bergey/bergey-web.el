@@ -31,7 +31,15 @@
             ad-do-it)
         ad-do-it))))
 
+(defmacro string-case (actual &rest branches)
+  `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
+  )
+
 (use-package prettier :ensure t
+  :config
+  ;; better would be to show in the usual buffer, but leave that buffer off-screen with display-buffer-alist
+  (defun prettier--show-error (string &rest objects)
+    (message "prettier: %s" (car (s-lines (apply #'format string objects)))))
   )
 
 (use-package emmet-mode :ensure t
@@ -51,10 +59,6 @@
 ;; https://github.com/emacsmirror/nodejs-mode
 (use-package nodejs-repl :ensure t
   :commands nodejs-repl
-  )
-
-(defmacro string-case (actual &rest branches)
-  `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
   )
 
 (defun bergey/yas-by-file-extension ()
