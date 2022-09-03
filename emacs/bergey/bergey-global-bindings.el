@@ -13,6 +13,8 @@
              ('4 "%Y-%m-%d %H:%M:%S")
              (t "%Y-%m-%d")))))
 
+(override-global-mode t)
+
 (bind-keys*
  ("C-x t" . revert-buffer)
  ("C-o" . other-window)
