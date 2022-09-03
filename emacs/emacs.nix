@@ -47,6 +47,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     emmet-mode
     emms
     erlang
+    ess
     evil
     exec-path-from-shell
     eyebrowse

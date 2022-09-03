@@ -56,6 +56,7 @@
                  bergey-wifi
                  bergey-google
                  happy-mode
+                 bergey-stats
                  ))
 
 (if (eq system-type 'windows-nt)
