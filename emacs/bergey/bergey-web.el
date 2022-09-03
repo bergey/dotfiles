@@ -7,6 +7,7 @@
     (setq web-mode-hook '(
                           bergey/yas-by-file-extension
                           bergey/auto-quote-by-file-extension
+                          bergey/prettier-parsers-by-file-extension
                           color-identifiers-mode
                           bergey/company-short-idle
                           emmet-mode
@@ -69,6 +70,10 @@
       (setq web-mode-enable-auto-quoting nil)
       )
   )
+
+(defun bergey/prettier-parsers-by-file-extension ()
+  (string-case (downcase (file-name-extension (buffer-file-name)))
+               ("tsx" (setq prettier-parsers '(typescript)))))
 
 ;; mocha runner code from https://gist.github.com/lazywithclass/1582626
 (defun run-mocha()
