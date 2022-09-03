@@ -74,7 +74,7 @@
 ;; Set to the location of your Org files on your local system
 
 (setq org-directory
-      (case system-type
+      (cl-case system-type
         ('gnu/linux "~/Dropbox/org-mode/")
        ('windows-nt (format  "c:/Users/%s/Dropbox/org-mode/" (user-login-name)))
        ('darwin "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org-mode/")))
