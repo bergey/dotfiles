@@ -1,3 +1,5 @@
+;; TODO only run any of this if I open a C file; like use-package :mode
+
 ;; C language
 ;; custom, based on k&r
 (c-add-style

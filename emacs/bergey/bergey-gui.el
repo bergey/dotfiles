@@ -56,24 +56,25 @@
   )
 (bind-key "C-x 0" #'bergey/delete-window-rebalance)
 
-(use-package windresize :ensure t
-  :commands windresize)
-
 (use-package perspective
-  :bind
-  ("C-x C-b" . persp-list-buffers)         ; or use a nicer switcher, see https://github.com/nex3/perspective-el#buffer-switchers
+  :commands (persp-switch persp-rename)
   :custom
   (persp-mode-prefix-key (kbd "C-x x"))
+  (persp-show-modestring nil)
   :config
-  (setq persp-show-modestring nil)
-  (use-package persp-projectile :ensure t)
   :init
   (persp-mode))
 
 (use-package projectile :ensure t
+  :commands (projectile-mode projectile-find-file)
   :config
   (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
-  (projectile-mode +1)
+  ;; (projectile-mode +1)
+  )
+
+(use-package persp-projectile :ensure t
+  :after (perspective projectile)
+  :defer 5
   )
 
 (use-package buffer-move :ensure t
@@ -138,6 +139,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 (use-package smart-mode-line
   :ensure t
+  :defer 2
   :config
   (setq sml/theme 'dark)
   (setq sml/shorten-directory t)

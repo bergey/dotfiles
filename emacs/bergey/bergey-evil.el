@@ -56,8 +56,7 @@
 
   ;; (use-package org-evil :ensure t :ensure)
 
-  (setq-default evil-shift-width 2)
-  )
+  (setq-default evil-shift-width 2))
 
 (use-package evil-collection
   :after evil

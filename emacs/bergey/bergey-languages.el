@@ -32,10 +32,11 @@
   :mode "\\.idr"
   )
 
-(use-package just-mode :ensure t)
+(use-package just-mode :ensure t
+  :mode "Justfile")
 
 (use-package kotlin-mode :ensure t
-  :ensure t)
+  :mode "\\.kt[sm]?")
 
 ;; ocaml
 (use-package merlin :ensure t
@@ -43,7 +44,8 @@
   :config
   (use-package tuareg :ensure t))
 
-(use-package nix-mode :ensure t)
+(use-package nix-mode :ensure t
+  :mode "\\.nix")
 
 ;; POVRay input files
 (use-package pov-mode :ensure t
@@ -76,7 +78,8 @@
   :mode "\\.swift"
   )
 
-(use-package systemd :ensure t)
+(use-package systemd :ensure t
+  :mode "\\.service\\|\\.unit")
 
 (use-package thrift :ensure t
   :mode ("\\.thrift\\'" . thrift-mode))

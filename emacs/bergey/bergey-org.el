@@ -220,9 +220,9 @@
   (set-text-properties 0 (length txt) nil txt) txt)
 
 ;; ox = org-export
-(use-package ox-jira :ensure t)
+(use-package ox-jira :ensure t :defer 5)
 
 ;; github formatted markdown
-(use-package ox-gfm :ensure t)
+(use-package ox-gfm :ensure t :defer 5)
 
 (provide 'bergey-org)

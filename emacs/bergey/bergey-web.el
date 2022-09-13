@@ -36,6 +36,7 @@
   )
 
 (use-package prettier :ensure t
+  :commands prettier-mode
   :config
   ;; better would be to show in the usual buffer, but leave that buffer off-screen with display-buffer-alist
   (defun prettier--show-error (string &rest objects)
@@ -43,6 +44,7 @@
   )
 
 (use-package emmet-mode :ensure t
+  :commands emmet-mode
   )
 
 (use-package color-identifiers-mode :ensure t
@@ -79,14 +81,12 @@
   (string-case (downcase (file-name-extension (buffer-file-name)))
                ("tsx" (setq prettier-parsers '(typescript)))))
 
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-
 ;; https://emacs.stackexchange.com/questions/32900/how-to-use-web-mode-engine-specific-checkers-in-flycheck
 (defun bergey/configure-web-mode-flycheck-checkers ()
   ;; in order to have flycheck enabled in web-mode, add an entry to this
   ;; cond that matches the web-mode engine/content-type/etc and returns the
   ;; appropriate checker.
-  (flet ((enable (checker)
+  (cl-flet ((enable (checker)
                   (flycheck-mode)
                   (flycheck-select-checker checker)))
     (string-case web-mode-content-type

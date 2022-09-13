@@ -44,6 +44,7 @@
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
 (use-package highlight-quoted :ensure t
+  :commands highlight-quoted-mode
   )
 
 (use-package highlight-escape-sequences :ensure t
@@ -93,6 +94,7 @@
   :config
   ;; TODO show message in minibuffer, but truncate to fit
   (setq flycheck-display-errors-function nil)
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
 )
 
 ;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column
@@ -120,6 +122,8 @@
 (bind-key "C-k" #'jump-up-to-non-whitespace-char-in-same-column)
 
 (use-package edit-indirect :ensure t
+  :commands edit-indirect-region
+  :defer 10
   )
 
 (use-package protobuf-mode :ensure t

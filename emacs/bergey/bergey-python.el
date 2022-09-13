@@ -1,4 +1,6 @@
 (use-package python :ensure t
+  :mode "\\.pyc?"
+  :commands run-python
   :config
   (setq python-shell-interpreter "ipython")
   (setq python-shell-interpreter-args "--simple-prompt -i")

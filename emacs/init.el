@@ -49,15 +49,23 @@
                  bergey-markup
                  bergey-irc
                  bergey-shell
-                 epa-file
                  bergey-ledger
                  bergey-dired
                  bergey-sql
                  bergey-wifi
                  bergey-google
-                 happy-mode
                  bergey-stats
                  ))
+
+(measure-time "epa-file"
+ (use-package epa-file
+   :mode "\\.gpg"
+   :commands (epa-file-enable epa-file-disable epa-file-select-keys)))
+
+(measure-time "happy-mode"
+ (use-package happy-mode
+   ;; TODO distinguish happy from all other yacc-like tools
+   :mode "\\.y"))
 
 (if (eq system-type 'windows-nt)
     (time-package 'bergey-windows))
