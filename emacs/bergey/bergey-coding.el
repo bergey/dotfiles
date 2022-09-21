@@ -35,6 +35,22 @@
   (setq highlight-indent-guides-method 'character)
   (setq highlight-indent-guides-character ?\┆)
   (setq highlight-indent-guides-auto-enabled nil)
+  ;; These colors are really too aggressive; I should make a darker
+  ;; set, or maybe even a spectrum that doesn't vary much in hue.
+  ;; This shows how to do it, though.
+  (defun bergey/highlight-indent (level responsive display)
+    (cl-case (+ 1 (mod level 9))
+      (1 'rainbow-delimiters-depth-1-face)
+      (2 'rainbow-delimiters-depth-2-face)
+      (3 'rainbow-delimiters-depth-3-face)
+      (4 'rainbow-delimiters-depth-4-face)
+      (5 'rainbow-delimiters-depth-5-face)
+      (6 'rainbow-delimiters-depth-6-face)
+      (7 'rainbow-delimiters-depth-7-face)
+      (8 'rainbow-delimiters-depth-8-face)
+      (9 'rainbow-delimiters-depth-9-face)
+      ))
+  (setq highlight-indent-guides-highlighter-function #'bergey/highlight-indent)
   )
 
 (defun bergey/fixed-pitch-indent ()
