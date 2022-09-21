@@ -77,6 +77,12 @@
  '(rainbow-delimiters-depth-8-face ((((class color) (background dark)) (:foreground "green"))))
  '(rainbow-delimiters-depth-9-face ((((class color) (background dark)) (:foreground "gray"))))
 
+ ;; highlight-indent-guides
+'(indent-guides-depth-1 ((t (:foreground "#8c0437" ))))
+'(indent-guides-depth-2 ((t (:foreground  "#8f4a31"))))
+'(indent-guides-depth-3 ((t (:foreground  "#246c01"))))
+'(indent-guides-depth-4 ((t (:foreground  "#086783"))))
+
  ;;; other, non-programming modes
  '(company-tooltip ((((class color) (background dark)) (:background "grey40" :foreground "white"))))
  '(company-tooltip-selection ((((class color) (background dark)) (:background "grey20" :foreground "white"))))
@@ -138,6 +144,31 @@
 ;; (set-face-background 'sml/pre-id-separator "#700")
 ;; (set-face-background 'powerline-active1 "#222")
 ;; (set-face-background 'powerline-active2 "#599")
+
+;; https://colorjs.io/apps/picker/
+;; (defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
+;; (format "%x" (* 2.55 100)) "fe" "ff"
+;; (rgb 100 50 0) "#fe7f00"
+;; (rgb 52.6 85.7 87.3) "#86dade" ;; lch 90 28 197
+;; (rgb 50.6 83.6 83.3) "#81d5d4" ;; lch 80 28 197
+;; (rgb 48.8 84.1 81.1) "#7cd6ce" ;; lch 80 30 190
+;; (rgb 47.8 83.8 86.6) "#79d5dc" ;; lch 80 30 205
+;; (rgb 38.3 3.28 14.7) "#610825" ;; lch 20 40 13
+;; (rgb 55.2 1.67 21.6) "#8c0437" ;; lch 30 54 13
+;; (rgb 69.5 12.3 29.8) "#b11f4b" ;; lch 40 60 13
+;; (rgb 45.4 19.7 10.9) "#73321b" ;; lch 30 40 45
+;; (rgb 56.2 29.1 19.4) "#8f4a31" ;; lch 40 40 45
+;; (rgb 14.1 31.5 6.37) "#235010" ;; lch 30 40 130
+;; (rgb 23.8 41.1 15.7) "#3c6828" ;; lch 40 40 130
+;; (rgb 14.3 42.5 0.57) "#246c01" ;; lch 40 57 130
+;; (rgb 5 42.4 28.5) "#0c6c48" ;; lch 40 36 160
+;; (rgb 4 41.6 41.1) "#0a6a68" ;; lch 40 27 195
+;; (rgb 3.5 40.5 51.6) "#086783" ;; lch 40 29 233
+
+;; (set-face-foreground 'indent-guides-depth-1 "#8c0437" )
+;; (set-face-foreground 'indent-guides-depth-2  "#8f4a31" )
+;; (set-face-foreground 'indent-guides-depth-3  "#246c01" )
+;; (set-face-foreground 'indent-guides-depth-4  "#086783" )
 
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
 ;; (set-face-attribute 'powerline-active1 nil :inherit nil)
