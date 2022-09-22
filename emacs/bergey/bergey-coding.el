@@ -21,7 +21,9 @@
 
 (use-package rainbow-delimiters :ensure t
   :commands rainbow-delimiters-mode
-  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :custom (rainbow-delimiters-max-face-count 6)
+  )
 
 (use-package highlight-indent-guides :ensure t
   :commands highlight-indent-guides-mode

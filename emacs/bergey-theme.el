@@ -67,15 +67,12 @@
  '(outline-6 ((t (:inherit font-lock-constant-face :foreground "burlywood"))))
 
  ;; nested parens
- '(rainbow-delimiters-depth-1-face ((((class color) (background dark)) (:foreground "red"))))
- '(rainbow-delimiters-depth-2-face ((((class color) (background dark)) (:foreground "deep sky blue"))))
- '(rainbow-delimiters-depth-3-face ((((class color) (background dark)) (:foreground "yellow"))))
- '(rainbow-delimiters-depth-4-face ((((class color) (background dark)) (:foreground "magenta"))))
- '(rainbow-delimiters-depth-5-face ((((class color) (background dark)) (:foreground "white"))))
- '(rainbow-delimiters-depth-6-face ((((class color) (background dark)) (:foreground "chocolate"))))
- '(rainbow-delimiters-depth-7-face ((((class color) (background dark)) (:foreground "medium purple"))))
- '(rainbow-delimiters-depth-8-face ((((class color) (background dark)) (:foreground "green"))))
- '(rainbow-delimiters-depth-9-face ((((class color) (background dark)) (:foreground "gray"))))
+'(rainbow-delimiters-depth-1-face ((t (:foreground "#fe0b54")))) ;; lch 55 87 21
+'(rainbow-delimiters-depth-2-face ((t (:foreground "#f6bb2b")))) ;; lch 80 75 80
+'(rainbow-delimiters-depth-3-face ((t (:foreground "#0be37a")))) ;; lch 80 75 150
+'(rainbow-delimiters-depth-4-face ((t (:foreground "#13f2f8")))) ;; lch 87 50 200
+'(rainbow-delimiters-depth-5-face ((t (:foreground "#5e84fe")))) ;; lch 57 64 282
+'(rainbow-delimiters-depth-6-face ((t (:foreground "#ea84fe")))) ;; lch 70 70 320
 
  ;; highlight-indent-guides
 '(indent-guides-depth-1 ((t (:foreground "#8c0437" ))))
@@ -146,6 +143,7 @@
 ;; (set-face-background 'powerline-active2 "#599")
 
 ;; https://colorjs.io/apps/picker/
+(defun hex (r g b) (format "#%02x%02x%02x" r g b))
 ;; (defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
 ;; (format "%x" (* 2.55 100)) "fe" "ff"
 ;; (rgb 100 50 0) "#fe7f00"
@@ -154,21 +152,40 @@
 ;; (rgb 48.8 84.1 81.1) "#7cd6ce" ;; lch 80 30 190
 ;; (rgb 47.8 83.8 86.6) "#79d5dc" ;; lch 80 30 205
 ;; (rgb 38.3 3.28 14.7) "#610825" ;; lch 20 40 13
-;; (rgb 55.2 1.67 21.6) "#8c0437" ;; lch 30 54 13
 ;; (rgb 69.5 12.3 29.8) "#b11f4b" ;; lch 40 60 13
 ;; (rgb 45.4 19.7 10.9) "#73321b" ;; lch 30 40 45
-;; (rgb 56.2 29.1 19.4) "#8f4a31" ;; lch 40 40 45
 ;; (rgb 14.1 31.5 6.37) "#235010" ;; lch 30 40 130
 ;; (rgb 23.8 41.1 15.7) "#3c6828" ;; lch 40 40 130
-;; (rgb 14.3 42.5 0.57) "#246c01" ;; lch 40 57 130
 ;; (rgb 5 42.4 28.5) "#0c6c48" ;; lch 40 36 160
 ;; (rgb 4 41.6 41.1) "#0a6a68" ;; lch 40 27 195
+
+;; (rgb 55.2 1.67 21.6) "#8c0437" ;; lch 30 54 13
+;; (rgb 56.2 29.1 19.4) "#8f4a31" ;; lch 40 40 45
+;; (rgb 14.3 42.5 0.57) "#246c01" ;; lch 40 57 130
 ;; (rgb 3.5 40.5 51.6) "#086783" ;; lch 40 29 233
+;; (rgb 28 35.3 67.6) "#475aac"
+;; (rgb 54.6 25.7 55.4) "#8b418d"
 
 ;; (set-face-foreground 'indent-guides-depth-1 "#8c0437" )
 ;; (set-face-foreground 'indent-guides-depth-2  "#8f4a31" )
 ;; (set-face-foreground 'indent-guides-depth-3  "#246c01" )
 ;; (set-face-foreground 'indent-guides-depth-4  "#086783" )
+
+;; (rgb 98.4 30.9 46) "#fa4e75" ;; lch 60 70 15
+;; (rgb 91.3 40.4 23.2) "#e8673b" ;; lch 60 70 45
+;; (rgb 28.8 64.2 13) "#49a321" ;; lch 60 70 130
+;; (rgb 2.67 62 78.5) "#069ec8" ;; lch 60 40 233
+;; (rgb 46.2 54.4 97.2) "#758af7" ;; lch 60 60 285
+;; (rgb 80.3 42.5 81) "#cc6cce" ;; lch 60 60 325
+;; (rgb 83.8 38.9 85.1) "#d563d9" ;; lch 60 70 325
+
+;; (((((((((((())))))))))))
+;; (set-face-foreground 'rainbow-delimiters-depth-1-face (rgb 99.8 4.49 33.1)) ;; lch 55 87 21
+;; (set-face-foreground 'rainbow-delimiters-depth-2-face (rgb 96.6 73.6 17.2)) ;; lch 80 75 80
+;; (set-face-foreground 'rainbow-delimiters-depth-3-face (rgb 4.4 89.3 48.2) ) ;; lch 80 75 150
+;; (set-face-foreground 'rainbow-delimiters-depth-4-face (rgb 7.8 95.2 97.5)) ;; lch 87 50 200
+;; (set-face-foreground 'rainbow-delimiters-depth-5-face (rgb 37 52 100)) ;; lch 57 64 282
+;; (set-face-foreground 'rainbow-delimiters-depth-6-face (rgb 92 52 100)) ;; lch 70 70 320
 
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
 ;; (set-face-attribute 'powerline-active1 nil :inherit nil)
