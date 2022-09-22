@@ -10,7 +10,7 @@
                           bergey/prettier-parsers-by-file-extension
                           color-identifiers-mode
                           bergey/company-short-idle
-                          emmet-mode
+                          ;; emmet-mode
                           bergey/configure-web-mode-flycheck-checkers
                           prettier-mode
                           whitespace-mode
@@ -18,7 +18,7 @@
 
     (bind-keys*
       :map web-mode-map
-      ("C-j" . newline)
+      ("C-j" . nil)
       ("RET" . newline-and-indent)
       ("C-c C-r" . run-mocha)
       ("C--" . web-mode-comment-or-uncomment)
