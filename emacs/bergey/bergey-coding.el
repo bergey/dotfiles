@@ -38,19 +38,23 @@
   (setq highlight-indent-guides-character ?\┆)
   (setq highlight-indent-guides-auto-enabled nil)
 
-  (defface indent-guides-depth-1 '((t nil)) "")
-  (defface indent-guides-depth-2 '((t nil)) "")
-  (defface indent-guides-depth-3 '((t nil)) "")
-  (defface indent-guides-depth-4 '((t nil)) "")
+  (defface indent-guides-depth-1 '((t (:foreground "#8c0437" ))) "lch 30 54 13")
+  (defface indent-guides-depth-2 '((t (:foreground  "#8f4a31"))) "lch 40 40 45")
+  (defface indent-guides-depth-3 '((t (:foreground  "#246c01"))) "lch 40 57 130")
+  (defface indent-guides-depth-4 '((t (:foreground  "#086783"))) "lch 40 29 233")
+  (defface indent-guides-depth-5 '((t (:foreground  "#475aac"))) "lch 40 49 285")
+  (defface indent-guides-depth-6 '((t (:foreground  "##8b418d"))) "lch 40 49 325")
   ;; These colors are really too aggressive; I should make a darker
   ;; set, or maybe even a spectrum that doesn't vary much in hue.
   ;; This shows how to do it, though.
   (defun bergey/highlight-indent (level responsive display)
-    (cl-case (+ 1 (mod level 4))
+    (cl-case (+ 1 (mod level 6))
       (1 'indent-guides-depth-1)
       (2 'indent-guides-depth-2)
       (3 'indent-guides-depth-3)
       (4 'indent-guides-depth-4)
+      (5 'indent-guides-depth-5)
+      (6 'indent-guides-depth-6)
       ))
   (setq highlight-indent-guides-highlighter-function #'bergey/highlight-indent)
   )
@@ -152,3 +156,7 @@
   (direnv-mode))
 
 (provide 'bergey-coding)
+
+;; Local Variables:
+;; eval: (rainbow-mode)
+;; End:
