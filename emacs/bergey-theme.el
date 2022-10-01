@@ -24,6 +24,8 @@
  '(diff-removed ((t (:inherit diff-changed :foreground "red"))))
  '(ediff-current-diff-A ((t (:foreground"light gray" :background "#553333"))))
  '(ediff-current-diff-B ((t (:foreground"light gray" :background "#335533"))))
+ '(smerge-refined-added ((t (:foreground"#005000"))))
+
  '(fic-face ((t (:background "chocolate1" :foreground "black"))))
  '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground "LightSteelBlue"))))
  '(font-lock-builtin-face ((t (:foreground "gold"))))
@@ -138,7 +140,7 @@
 
 ;; https://colorjs.io/apps/picker/
 (defun hex (r g b) (format "#%02x%02x%02x" r g b))
-;; (defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
+(defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
 ;; (format "%x" (* 2.55 100)) "fe" "ff"
 ;; (rgb 100 50 0) "#fe7f00"
 ;; (rgb 52.6 85.7 87.3) "#86dade" ;; lch 90 28 197
