@@ -43,7 +43,7 @@
   (defface indent-guides-depth-3 '((t (:foreground  "#246c01"))) "lch 40 57 130")
   (defface indent-guides-depth-4 '((t (:foreground  "#086783"))) "lch 40 29 233")
   (defface indent-guides-depth-5 '((t (:foreground  "#475aac"))) "lch 40 49 285")
-  (defface indent-guides-depth-6 '((t (:foreground  "##8b418d"))) "lch 40 49 325")
+  (defface indent-guides-depth-6 '((t (:foreground  "#8b418d"))) "lch 40 49 325")
   ;; These colors are really too aggressive; I should make a darker
   ;; set, or maybe even a spectrum that doesn't vary much in hue.
   ;; This shows how to do it, though.

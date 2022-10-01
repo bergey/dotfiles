@@ -74,12 +74,6 @@
 '(rainbow-delimiters-depth-5-face ((t (:foreground "#5e84fe")))) ;; lch 57 64 282
 '(rainbow-delimiters-depth-6-face ((t (:foreground "#ea84fe")))) ;; lch 70 70 320
 
- ;; highlight-indent-guides
-'(indent-guides-depth-1 ((t (:foreground "#8c0437" ))))
-'(indent-guides-depth-2 ((t (:foreground  "#8f4a31"))))
-'(indent-guides-depth-3 ((t (:foreground  "#246c01"))))
-'(indent-guides-depth-4 ((t (:foreground  "#086783"))))
-
  ;;; other, non-programming modes
  '(company-tooltip ((((class color) (background dark)) (:background "grey40" :foreground "white"))))
  '(company-tooltip-selection ((((class color) (background dark)) (:background "grey20" :foreground "white"))))
