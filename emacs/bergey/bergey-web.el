@@ -133,4 +133,10 @@ by using nxml's indentation rules."
       (indent-region begin end))
     (message "Ah, much better!"))
 
+(defun jq-line ()
+  "format the current line with jq"
+  (interactive)
+  (shell-command-on-region (line-beginning-position) (line-end-position) "jq ." t t)
+  )
+
 (provide 'bergey-web)
