@@ -76,6 +76,7 @@ let
         ripgrep
         rsync
         rustup
+        rust-analyzer
         shellcheck
         stow
         textql
