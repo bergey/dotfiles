@@ -225,4 +225,9 @@
 ;; github formatted markdown
 (use-package ox-gfm :ensure t :defer 5)
 
+(use-package ox-reveal :ensure t
+  :custom
+  (org-reveal-root "/Users/bergey/records/teallabs/slides/js/reveal.js")
+  )
+
 (provide 'bergey-org)
