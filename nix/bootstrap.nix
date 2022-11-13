@@ -220,6 +220,13 @@ in with pkgs; {
     ];
   };
 
+  wasm = mkBootstrap {
+    name = "wasm";
+    paths = [
+      wabt
+    ];
+  };
+
 } // (if stdenv.isDarwin then {} else {
 
     coq = mkBootstrap {
@@ -237,4 +244,5 @@ in with pkgs; {
       souffle
       ];
   };
+
 })
