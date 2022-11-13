@@ -63,10 +63,12 @@
  '(web-mode-html-tag-face ((((class color) (background dark)) (:foreground "red"))))
 
  ;; outlines / headings
- '(org-level-2 ((((class color) (min-colors 89)) (:foreground "white"))))
- '(outline-3 ((t (:inherit font-lock-keyword-face :foreground "deep sky blue"))))
- '(org-level-5 ((t (:inherit outline-5))))
- '(outline-6 ((t (:inherit font-lock-constant-face :foreground "burlywood"))))
+ '(outline-1 ((t (:foreground "#fe0b54")))) ;; lch 55 87 21
+ '(outline-2 ((t (:foreground "#f6bb2b")))) ;; lch 80 75 80
+ '(outline-3 ((t (:foreground "#0be37a")))) ;; lch 80 75 150
+ '(outline-4 ((t (:foreground "#13f2f8")))) ;; lch 87 50 200
+ '(outline-5 ((t (:foreground "#5e84fe")))) ;; lch 57 64 282
+ '(outline-6 ((t (:foreground "#ea84fe")))) ;; lch 70 70 320
 
  ;; nested parens
 '(rainbow-delimiters-depth-1-face ((t (:foreground "#fe0b54")))) ;; lch 55 87 21
@@ -182,6 +184,8 @@
 ;; (set-face-foreground 'rainbow-delimiters-depth-4-face (rgb 7.8 95.2 97.5)) ;; lch 87 50 200
 ;; (set-face-foreground 'rainbow-delimiters-depth-5-face (rgb 37 52 100)) ;; lch 57 64 282
 ;; (set-face-foreground 'rainbow-delimiters-depth-6-face (rgb 92 52 100)) ;; lch 70 70 320
+ (set-face-foreground 'org-headline-done nil) ;; lch 70 70 320
+
 
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
 ;; (set-face-attribute 'powerline-active1 nil :inherit nil)
