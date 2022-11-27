@@ -135,7 +135,7 @@ in with pkgs; {
     paths = with nodePackages; [
       pkgs.nodejs
       node2nix
-      # deno # broken M1 2022-07-05
+      deno
       pkgs.python3.pkgs.jsmin
       yarn
     ];
