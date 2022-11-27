@@ -2,7 +2,9 @@
  (lambda (s) (define-key 'iso-transl-ctl-x-8-map (string (elt s 0)) (vector(elt s 1))))
  '("dδ" "DΔ" "GΓ" "hφ" "pπ" "rρ" "sσ" "SΣ" "tθ"
    "Rℝ"
-   "T§" "M—" "N–" "#♯"))
+   "T§" "M—" "N–" "#♯"
+   "|‖"
+   ))
 
 (define-key 'iso-transl-ctl-x-8-map (kbd "<right>") "→")
 (define-key 'iso-transl-ctl-x-8-map (kbd "<left>") "←")
