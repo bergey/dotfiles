@@ -26,7 +26,7 @@ in with pkgs; {
   alloy = mkBootstrap {
     name = "alloy";
     paths = [
-      alloy
+      alloy6
       minisat
       cryptominisat
     ];
