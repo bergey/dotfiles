@@ -103,4 +103,6 @@
 (use-package go-mode :ensure t
   :mode "\\.go$")
 
+(require 'alloy-mode)
+
 (provide 'bergey-languages)
