@@ -25,6 +25,10 @@
 ;;; Keywords: alloy modeling
 ;;; Description: This is an emacs major mode for Alloy 3
 
+;; TODO highlight operators
+;; TODO why does this mode not work with rainbow-delimiters or highlight-indent-guides-mode?
+;; TODO invoke Alloy as compiler (can look as VSCode mode for example)
+
 (defvar alloy-font-lock-keywords
   ;; keywords
   `(,(rx symbol-start
@@ -36,6 +40,7 @@
              "with" "sum" "if" "then" "else"
              "pred" "iff" "implies"
              "and" "or" ;; "=>" "=" "+" "-"
+             "enum" "var"
              )
          symbol-end)
     ;; block introducing keywords with immediately following colons.
