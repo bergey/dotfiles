@@ -152,6 +152,10 @@ let
 
       linux-server = [];
 
+      austenite = with pkgs; [
+        transmission
+      ];
+
       braze = with pkgs; [
         awscli2
         postgresql_14
@@ -182,6 +186,11 @@ in rec {
   linux-server = pkgs.buildEnv {
     name = "bergey-linux-server";
     paths = with bergey; global ++ linux ++ linux-server;
+  };
+
+  austenite = pkgs.buildEnv {
+    name = "bergey-austenite";
+    paths = with bergey; global ++ linux ++ austenite;
   };
 
   darwin = pkgs.buildEnv {
