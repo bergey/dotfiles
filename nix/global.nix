@@ -185,12 +185,12 @@ in rec {
 
   linux-server = pkgs.buildEnv {
     name = "bergey-linux-server";
-    paths = with bergey; global ++ linux ++ linux-server;
+    paths = with bergey; global ++ linux ++ bergey.linux-server;
   };
 
   austenite = pkgs.buildEnv {
     name = "bergey-austenite";
-    paths = with bergey; global ++ linux ++ austenite;
+    paths = (with bergey; global ++ linux ++ bergey.austenite);
   };
 
   darwin = pkgs.buildEnv {
