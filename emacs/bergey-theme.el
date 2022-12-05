@@ -184,7 +184,7 @@
 ;; (set-face-foreground 'rainbow-delimiters-depth-4-face (rgb 7.8 95.2 97.5)) ;; lch 87 50 200
 ;; (set-face-foreground 'rainbow-delimiters-depth-5-face (rgb 37 52 100)) ;; lch 57 64 282
 ;; (set-face-foreground 'rainbow-delimiters-depth-6-face (rgb 92 52 100)) ;; lch 70 70 320
- (set-face-foreground 'org-headline-done nil) ;; lch 70 70 320
+;; (set-face-foreground 'org-headline-done nil) ;; lch 70 70 320
 
 
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
