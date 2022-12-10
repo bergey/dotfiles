@@ -216,6 +216,7 @@ in with pkgs; {
     paths = [
       cvs
       mercurial
+      sapling
       subversion
     ];
   };
