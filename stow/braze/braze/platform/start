@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# https://cr.yp.to/daemontools/multilog.html
+# 10 files each 1MB
+LOG='multilog s1000000 n10'
+
+# https://stackoverflow.com/questions/3004811/how-do-you-run-multiple-programs-in-parallel-from-a-bash-script
+(trap 'kill 0' SIGINT;
+ api/bin/rails server 2>&1 | $LOG ./api/log &
+ dashboard/bin/rails server 2>&1 | $LOG ./dashboard/log-server &
+ yarn --cwd dashboard start 2>&1 | $LOG ./dashboard/log-client &
+ tools/whats_app/tracer.rb -p 8989 2>&1 | $LOG tools/whats_app/log &
+ wait)
