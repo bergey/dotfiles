@@ -108,22 +108,6 @@
  '(sml/global ((t (:background "#005"))))
  '(mode-line ((t ("#005"))))
 
- ;; email messages (2019-06-18 not currently using)
- '(message-cited-text ((((class color) (min-colors 89)) (:foreground "SpringGreen3"))))
- '(message-header-cc ((((class color) (min-colors 89)) (:foreground "yellow green"))))
- '(message-header-name ((((class color) (min-colors 89)) (:foreground "dark turquoise"))))
- '(message-header-other ((t (:foreground "pale turquoise"))))
- '(message-header-subject ((((class color) (min-colors 89)) (:foreground "pale turquoise"))))
- '(message-header-to ((((class color) (min-colors 89)) (:foreground "pale green"))))
- '(message-separator ((((class color) (min-colors 89)) (:foreground "deep sky blue"))))
-
- ;; do I even use these?
- '(gnus-header-content ((((class color) (min-colors 89)) (:weight normal :foreground "yellow green"))))
- '(gnus-header-from ((((class color) (min-colors 89)) (:foreground "pale green"))))
- '(gnus-header-name ((((class color) (min-colors 89)) (:foreground "dark sea green"))))
- '(gnus-header-newsgroups ((((class color) (min-colors 89)) (:foreground "dark khaki"))))
- '(gnus-header-subject ((((class color) (min-colors 89)) (:foreground "pale turquoise"))))
-
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
 
  '(default
