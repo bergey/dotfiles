@@ -1,6 +1,15 @@
 (deftheme bergey
   "Created 2013-01-18.")
 
+(setq
+ b-red "#fe0b54" ;; lch 55 87 21
+ b-orange "#f6bb2b" ;; lch 80 75 80
+ b-green "#0be37a" ;; lch 80 75 150
+ b-cyan "#13f2f8" ;; lch 87 50 200
+ b-indigo "#5e84fe" ;; lch 57 64 282
+ b-violet "#ea84fe" ;; lch 70 70 320
+ )
+
 (custom-theme-set-faces 'bergey
  '(fixed-pitch ((t (:family "Inconsolata"))))
  '(italic ((t (:underline nil :slant italic))))
@@ -27,28 +36,28 @@
  '(smerge-refined-added ((t (:foreground"#005000"))))
 
  '(fic-face ((t (:background "chocolate1" :foreground "black"))))
- '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground "LightSteelBlue"))))
+ '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground b-indigo))))
  '(font-lock-builtin-face ((t (:foreground "gold"))))
  '(font-lock-comment-face ((t (:foreground "chocolate1"))))
  '(font-lock-doc-face ((t (:foreground "#afa"))))
- '(font-lock-constant-face ((((class color) (min-colors 89)) (:foreground "turquoise"))))
- '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "red"))))
- '(font-lock-keyword-face ((t (:foreground "deep sky blue"))))
- '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground "cyan"))))
+ '(font-lock-constant-face ((t (:foreground b-cyan))))
+ '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
+ '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
+ '(font-lock-keyword-face ((t (:foreground b-indigo))))
+ '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground b-cyan))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
- '(font-lock-string-face ((t (:foreground "#bea"))))
- '(font-lock-type-face ((t (:foreground "#d4e"))))
- '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
+ '(font-lock-string-face ((t (:foreground b-orange))))
+ '(font-lock-type-face ((t (:foreground b-violet))))
  '(mmm-default-submode-face ((t (:background "gray1"))))
  '(show-paren-match ((((class color) (background dark)) (:background "steelblue3" :foreground "black"))))
  '(show-paren-mismatch ((((class color)) (:background "purple" :foreground "black"))))
  '(whitespace-line ((((class color) (background dark)) (:underline "DeepSkyBlue" :foreground nil :background nil))))
  '(highlight-indent-guides-even-face ((t (:family "Inconsolata" :background "#103"))))
  '(highlight-indent-guides-odd-face ((t (:family "Inconsolata" :background "gray10"))))
- '(highlight-indent-guides-character-face ((t (:foreground "#d70"))))
 
  ;; syntax for particular languages
+ '(web-mode-function-call-face ((t (:foreground b-green))))
  '(font-mediawiki-sedate-face ((t (:foreground "gold"))) t)
  '(highlight-quoted-quote ((((class color) (min-colors 89)) (:foreground "white"))))
  '(highlight-quoted-symbol ((t (:foreground "#95f"))))
