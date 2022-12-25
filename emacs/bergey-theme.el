@@ -8,6 +8,9 @@
  b-cyan "#13f2f8" ;; lch 87 50 200
  b-indigo "#5e84fe" ;; lch 57 64 282
  b-violet "#ea84fe" ;; lch 70 70 320
+ dark-red "#8c0437"  ;; lch 30 54 13
+ dark-orange "#8f4a31" ;; lch 40 40 45
+ dark-blue "#086783" ;; lch 40 29 233
  )
 
 (custom-theme-set-faces 'bergey
@@ -35,20 +38,20 @@
  '(ediff-current-diff-B ((t (:foreground"light gray" :background "#335533"))))
  '(smerge-refined-added ((t (:foreground"#005000"))))
 
- '(fic-face ((t (:background "chocolate1" :foreground "black"))))
  '(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground b-indigo))))
- '(font-lock-builtin-face ((t (:foreground "gold"))))
- '(font-lock-comment-face ((t (:foreground "chocolate1"))))
- '(font-lock-doc-face ((t (:foreground "#afa"))))
+ '(font-lock-comment-face ((t (:foreground dark-red))))
  '(font-lock-constant-face ((t (:foreground b-cyan))))
+ '(font-lock-keyword-face ((t (:foreground b-orange))))
+ '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground b-cyan))))
+ '(font-lock-string-face ((t (:foreground b-orange))))
+ '(font-lock-type-face ((t (:foreground b-indigo))))
  '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
- '(font-lock-keyword-face ((t (:foreground b-indigo))))
- '(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground b-cyan))))
+ '(font-lock-doc-face ((t (:foreground b-green))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
- '(font-lock-string-face ((t (:foreground b-orange))))
- '(font-lock-type-face ((t (:foreground b-violet))))
+
+ '(fic-face ((t (:background "chocolate1" :foreground "black"))))
  '(mmm-default-submode-face ((t (:background "gray1"))))
  '(show-paren-match ((((class color) (background dark)) (:background "steelblue3" :foreground "black"))))
  '(show-paren-mismatch ((((class color)) (:background "purple" :foreground "black"))))
