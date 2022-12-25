@@ -57,8 +57,6 @@ let
         (haskell.lib.dontCheck haskellPackages.hasktags)
         haskellPackages.pandoc
         haskellPackages.hlint
-        haskellPackages.graphmod
-        # haskellPackages.HaRe
         (haskellPackages.callPackage sizes {})
         htop
         jq # yq
