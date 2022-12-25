@@ -77,9 +77,9 @@
               ;; allow some functions that emacs considers confusing to users
               (put 'dired-find-alternate-file 'disabled nil)
               (put 'narrow-to-region 'disabled nil)
-              (put 'set-goal-column 'disabled nil)
               (put 'scroll-left 'disabled nil)
               (put 'downcase-region 'disabled nil))
 
 ;; kept seperate so the rest can be shared, succeed even if not present
 (with-library 'bergey-passwords)
+(put 'set-goal-column 'disabled nil)
