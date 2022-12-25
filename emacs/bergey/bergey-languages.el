@@ -105,4 +105,6 @@
 
 (require 'alloy-mode)
 
+(use-package sed-mode :ensure t)
+
 (provide 'bergey-languages)

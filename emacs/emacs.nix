@@ -108,6 +108,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     ruby-test-mode
     rust-mode
     s
+    sed-mode
     sbt-mode
     scala-mode
     smartparens
