@@ -29,7 +29,7 @@ checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
 
 [records/teallabs/trunk]
-checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'teallabs'
+checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'trunk'
 
 [code/active/simpledb]
 checkout = git clone 'git@github.com:shterrett/simpledb.git' 'simpledb'
