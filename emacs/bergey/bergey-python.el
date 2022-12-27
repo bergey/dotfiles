@@ -12,6 +12,7 @@
   )
 
 (use-package py-isort :ensure t
+  :after python
   :config
   (bind-key "C-c C-," 'py-isort-buffer python-mode-map))
 
