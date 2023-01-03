@@ -99,19 +99,11 @@
  '(magit-item-highlight ((t (:background "#101010" :foreground "cyan"))))
 
  ;; org-mode
- '(org-code
-   ((((class color grayscale) (min-colors 88) (background light))
-     (:foreground "grey50"))
-    (((class color grayscale) (min-colors 88) (background dark))
-     (:foreground "grey70"))
-    (((class color) (min-colors 8) (background light))
-     (:foreground "green"))
-    (((class color) (min-colors 8) (background dark))
-     (:foreground "yellow"))))
+ '(org-verbatim ((t (:foreground "white"))))
+ `(org-code ((t (:foreground ,dark-orange))))
  '(org-column ((t (:family "Inconsolata" :height 90))))
  '(org-habit-alert-face ((((class color) (background dark)) (:foreground "black" :background "darkgoldenrod"))))
  '(org-tag ((((class color) (background dark)) (:background "#1f004d"))))
- '(org-verbatim ((t (:foreground "gold"))))
  '(org-table ((t (:foreground "gray70" :inherit fixed-pitch))))
 
 
