@@ -47,7 +47,7 @@
  `(font-lock-type-face ((t (:foreground ,b-indigo))))
  '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
- '(font-lock-doc-face ((t (:foreground b-green))))
+ `(font-lock-doc-face ((t (:foreground ,b-green))))
  '(font-lock-regexp-grouping-backslash ((((class color) (min-colors 89)) (:foreground "turquoise"))))
  '(font-lock-regexp-grouping-construct ((((class color) (min-colors 89)) (:foreground "turquoise"))))
 
