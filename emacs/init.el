@@ -39,6 +39,7 @@
                  bergey-haskell
                  bergey-lisp
                  bergey-python
+                 bergey-ruby
                  bergey-rust
                  bergey-typescript
                  bergey-web
