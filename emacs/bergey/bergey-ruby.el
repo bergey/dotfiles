@@ -17,7 +17,7 @@
 
         ("C-c C-s" . inf-ruby-console-auto)))
 
-(use-package ruby-test-mode
+(use-package ruby-test-mode :ensure t
   :after ruby-mode
   :diminish ruby-test-mode
   :config
@@ -36,7 +36,13 @@
   (advice-add #'ruby-test-run-command :around #'amk-ruby-test-pretty-error-diffs-setup)
   )
 
-(use-package rspec-mode)
+(use-package rspec-mode :ensure t
+  :init
+  (defun bergey/try-ruby-mode ()
+    (if (s-ends-with? "spec.rb" (buffer-file-name))
+        (rspec-mode)))
+  (add-to-list 'ruby-mode-hook #'bergey/try-ruby-mode)
+  )
 
 (defun bergey/ruby-navigate-imports ()
   "move point to the beginning of the first import line"
