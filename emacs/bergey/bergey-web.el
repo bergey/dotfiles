@@ -12,6 +12,7 @@
                           bergey/company-short-idle
                           ;; emmet-mode
                           bergey/configure-web-mode-flycheck-checkers
+                          bergey/lsp-for-typescript
                           prettier-mode
                           whitespace-mode
                           ))
@@ -93,6 +94,12 @@
                  ("jsx" (enable 'javascript-eslint))
                  ("typescript" (enable 'javascript-eslint))))
   )
+
+(defun bergey/lsp-for-typescript ()
+  (string-case web-mode-content-type
+               ("typescript" (lsp))
+               ("jsx" (lsp)) ;; .tsx files look this way
+               ))
 
 ;; mocha runner code from https://gist.github.com/lazywithclass/1582626
 (defun run-mocha()
