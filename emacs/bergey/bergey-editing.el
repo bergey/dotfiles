@@ -69,6 +69,7 @@
   :init (defun bergey/company-short-idle () (setq company-idle-delay 0.1))
   :config
     (setq company-show-numbers t)
+    (setq company-quick-access-keys '("m" "w" "v" "h" "t" "n" "g" "c" "r")) ;; cf keypad
     (global-company-mode)
     (setq company-idle-delay 2) ; set shorter in select modes
     (make-variable-buffer-local 'company-idle-delay)
