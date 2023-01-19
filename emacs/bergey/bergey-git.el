@@ -10,7 +10,15 @@
 
     (bind-keys :map magit-blame-mode-map
                ;; mostly because RET, the default binding, is used by haskell-indentation
-               ("TAB" . magit-show-commit)))
+               ("TAB" . magit-show-commit))
+    (bind-keys :map magit-mode-map
+               ("M-w" . nil))
+    (bind-keys :map magit-status-mode-map
+               ("'" . magit-section-show-level-1)
+               ("," . magit-section-show-level-2)
+               ("." . magit-section-show-level-4)
+               )
+    )
 
 (use-package orgit :ensure t :defer t)
 

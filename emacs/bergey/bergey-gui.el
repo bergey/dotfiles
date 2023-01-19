@@ -44,7 +44,15 @@
 (use-package window-number :ensure t
   ;; :commands window-number-meta-mode
   ;; :defer 3
-  :config (window-number-meta-mode 1)) ; meta-# shortcuts
+  :config
+  ;; These are the dvorak letters on the same keys as 1-6 on my numeric keypad layer
+  (bind-key "M-m" (lambda () (interactive) (window-number-select 1)))
+  (bind-key "M-w" (lambda () (interactive) (window-number-select 2)))
+  (bind-key "M-v" (lambda () (interactive) (window-number-select 3)))
+  (bind-key "M-h" (lambda () (interactive) (window-number-select 4)))
+  (bind-key "M-t" (lambda () (interactive) (window-number-select 5)))
+  (bind-key "M-n" (lambda () (interactive) (window-number-select 6)))
+  )
 
 (advice-add 'split-window-right :after #'balance-windows)
 (advice-add 'split-window-below :after #'balance-windows)
@@ -55,6 +63,13 @@
   (balance-windows)
   )
 (bind-key "C-x 0" #'bergey/delete-window-rebalance)
+(bind-keys :prefix-map bergey/window-management
+           :prefix "M-r"
+           ("v" . split-window-right)
+           ("w" . split-window-below)
+           ("m" . delete-other-windows)
+           ("r" . bergey/delete-window-rebalance)
+           )
 
 (use-package perspective
   :commands (persp-switch persp-rename)
@@ -69,7 +84,7 @@
   :commands (projectile-mode projectile-find-file)
   :config
   (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
-  ;; (projectile-mode +1)
+  (projectile-mode +1)
   )
 
 (use-package persp-projectile :ensure t
