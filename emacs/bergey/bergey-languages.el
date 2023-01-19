@@ -107,4 +107,6 @@
 
 (use-package sed-mode :ensure t)
 
+(use-package terraform-mode :ensure t)
+
 (provide 'bergey-languages)
