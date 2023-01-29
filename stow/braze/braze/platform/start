@@ -9,5 +9,5 @@ LOG='multilog s1000000 n10'
  api/bin/rails server 2>&1 | $LOG ./api/log &
  dashboard/bin/rails server 2>&1 | $LOG ./dashboard/log-server &
  yarn --cwd dashboard start 2>&1 | $LOG ./dashboard/log-client &
- tools/whats_app/tracer.rb -p 8989 2>&1 | $LOG tools/whats_app/log &
+ tools/whats_app/tracer.rb -p 8989 2>&1 | $LOG ./tools/whats_app/log &
  wait)
