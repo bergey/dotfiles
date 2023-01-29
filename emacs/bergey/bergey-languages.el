@@ -109,4 +109,6 @@
 
 (use-package terraform-mode :ensure t)
 
+(use-package nginx-mode)
+
 (provide 'bergey-languages)

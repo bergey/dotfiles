@@ -75,6 +75,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     markdown-mode
     move-text
     native-complete
+    nginx-mode
     nix-mode
     nix-sandbox
     nodejs-repl
