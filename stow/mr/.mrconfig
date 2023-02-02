@@ -42,3 +42,78 @@ checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
 
 [code/active/tack]
 checkout = git clone 'https://github.com/bergey/tack.git' 'tack'
+
+[braze/platform]
+checkout = git clone 'git@github.com:Appboy/platform.git' 'platform'
+
+[braze/aws-cli-mfa]
+checkout = git clone 'https://github.com/rogusdev/aws-cli-mfa.git' 'aws-cli-mfa'
+
+[braze/beacon]
+checkout = git clone 'https://github.com/braze-inc/beacon.git' 'beacon'
+
+[braze/beacon-labs]
+checkout = git clone 'https://github.com/braze-inc/beacon-labs.git' 'beacon-labs'
+
+[braze/braze-data-pipeline-config]
+checkout = git clone 'https://github.com/braze-inc/braze-data-pipeline-config.git' 'braze-data-pipeline-config'
+
+[braze/braze-data-pipeline-manager]
+checkout = git clone 'https://github.com/braze-inc/braze-data-pipeline-manager.git' 'braze-data-pipeline-manager'
+
+[braze/braze-deployments]
+checkout = git clone 'https://github.com/Appboy/braze-deployments.git' 'braze-deployments'
+
+[braze/currents-users-events]
+checkout = git clone 'git@github.com:Appboy/currents-users-events.git' 'currents-users-events'
+
+[braze/integration-test-suite]
+checkout = git clone 'git@github.com:Appboy/integration-test-suite.git' 'integration-test-suite'
+
+[braze/internal-tools]
+checkout = git clone 'https://github.com/braze-inc/internal-tools.git' 'internal-tools'
+
+[braze/pce]
+checkout = git clone 'git@github.com:Appboy/pce.git' 'pce'
+
+[braze/platform-deployment-service]
+checkout = git clone 'https://github.com/Appboy/platform-deployment-service.git' 'platform-deployment-service'
+
+[braze/platform-image-base]
+checkout = git clone 'https://github.com/Appboy/platform-image-base.git' 'platform-image-base'
+
+[braze/psql-schemas]
+checkout = git clone 'git@github.com:Appboy/psql-schemas.git' 'psql-schemas'
+
+[braze/sidekiq-status-dashboard]
+checkout = git clone 'https://github.com/Appboy/sidekiq-status-dashboard.git' 'sidekiq-status-dashboard'
+
+[braze/sms-team-data-lake-query-service]
+checkout = git clone 'https://github.com/braze-inc/sms-team-data-lake-query-service.git' 'sms-team-data-lake-query-service'
+
+[braze/storybook]
+checkout = git clone 'https://github.com/storybookjs/storybook.git' 'storybook'
+
+[braze/terraform]
+checkout = git clone 'https://github.com/Appboy/terraform.git' 'terraform'
+
+[braze/url-shortener]
+checkout = git clone 'git@github.com:braze-inc/url-shortener.git' 'url-shortener'
+
+[braze/webhook-service]
+checkout = git clone 'git@github.com:Appboy/webhook-service.git' 'webhook-service'
+
+[braze/upstream/hiredis-rb]
+checkout = git clone 'https://github.com/redis/hiredis-rb.git' 'hiredis-rb'
+
+[braze/upstream/redis-client]
+checkout = git clone 'https://github.com/redis-rb/redis-client.git' 'redis-client'
+
+[braze/upstream/redis-namespace]
+checkout = git clone 'https://github.com/resque/redis-namespace.git' 'redis-namespace'
+
+[braze/upstream/redis-rb]
+checkout = git clone 'https://github.com/redis/redis-rb.git' 'redis-rb'
+
+[braze/upstream/sidekiq]
+checkout = git clone 'https://github.com/mperham/sidekiq.git' 'sidekiq'
