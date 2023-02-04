@@ -110,6 +110,9 @@ let
         file
         inotifyTools
         psmisc # pstree &c
+        bpftrace
+        sysstat
+        perf-tools
       ];
 
       darwin = with pkgs; [
