@@ -22,7 +22,10 @@
       ./hardware-configuration.nix
     ];
 
-  nix.trustedUsers = [ "bergey" ];
+  nix.settings = {
+    trusted-users = [ "bergey" ];
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -195,7 +198,7 @@ virtualisation.docker.enable = true;
 
       services.postgresql = {
         enable = true;
-        package = pkgs.postgresql_10;
+        package = pkgs.postgresql_14;
         authentication = pkgs.lib.mkOverride 10 ''
             local all all trust
             host all all ::1/128 trust
