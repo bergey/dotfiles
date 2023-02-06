@@ -1,3 +1,6 @@
+(bind-key "C-*" iso-transl-ctl-x-8-map)
+(bind-key "C-* RET" 'insert-char)
+
 (mapcar
  (lambda (s) (define-key 'iso-transl-ctl-x-8-map (string (elt s 0)) (vector(elt s 1))))
  '("dδ" "DΔ" "GΓ" "hφ" "pπ" "rρ" "sσ" "SΣ" "tθ"
