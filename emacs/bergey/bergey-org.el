@@ -31,6 +31,8 @@
 
 (global-set-key "\C-ca" #'org-agenda)
 (global-set-key "\C-cl" #'org-store-link)
+(bind-key "C-. c" #'org-capture)
+
 ;; set this without org-git-store-link, which is nifty but usually not what I want.
 (setq org-store-link-functions
       '(org-irc-store-link
@@ -189,7 +191,6 @@
 (setq org-imenu-depth 4)
 
 (setq org-default-notes-file (in-org-directory "capture.org"))
-(bind-key "C-. c" #'org-capture)
 
 ;; don't show scheduled items in the agenda list of all TODO items
 (setq org-agenda-todo-ignore-scheduled "all")
