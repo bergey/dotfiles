@@ -12,7 +12,8 @@ set -euxo pipefail
 
 # git diff-index --quiet HEAD -- || (echo "commit or stash changes"; exit 64)
 REV=$(curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision)
-if [ $(jq -r .rev nixpkgs-snapshot.json) = "$REV" ]
+# TODO path relative to where this script resides
+if [ $(jq -r .rev nix/nixpkgs-snapshot.json) = "$REV" ]
   then echo 'already on latest revision'
   else 
     [ ! -d ~/code ] && mkdir ~/code
