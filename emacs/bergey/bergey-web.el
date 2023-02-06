@@ -18,12 +18,13 @@
                           ))
 
     (bind-keys*
-      :map web-mode-map
-      ("C-j" . nil)
-      ("RET" . newline-and-indent)
-      ("C-c C-r" . run-mocha)
-      ("C--" . web-mode-comment-or-uncomment)
-      ("C-c C-m" . nil)) ;; masks imenu
+     :map web-mode-map
+     ("C-j" . nil)
+     ("RET" . newline-and-indent)
+     ("C-c C-r" . run-mocha)
+     ("C--" . web-mode-comment-or-uncomment)
+     ("C-c C-m" . nil) ;; masks imenu
+     ("C-c C-," . prettier-prettify))
     (setq web-mode-code-indent-offset 2)
 
     (defadvice web-mode-highlight-part (around tweak-jsx activate)
