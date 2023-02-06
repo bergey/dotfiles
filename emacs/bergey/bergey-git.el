@@ -17,6 +17,7 @@
                ("'" . magit-section-show-level-1)
                ("," . magit-section-show-level-2)
                ("." . magit-section-show-level-4)
+               ("M-n" . nil) ;; conflicts with window switching; was magit-section-forward-sibling
                )
     )
 

@@ -19,6 +19,10 @@
     (interactive)
     (message (substring-no-properties (org-clock-get-clock-string)))
     )
+
+  (bind-keys :map org-agenda-mode-map
+             ("M-m" . nil) ;; conflicts with window switching; was org-agenda-bulk-toggle
+             )
   :bind ("C-. C-t" . 'bergey/org-clock-message-clock-string)
   )
 
@@ -40,6 +44,7 @@
   (interactive)
   (org-end-of-subtree))
 
+;; TODO move this to :config does not need to run in hook
 (add-hook 'org-mode-hook
           #'(lambda ()
              (bind-keys :map org-mode-map
@@ -52,6 +57,7 @@
                          ("C-S-n" . org-move-item-down)
                          ("C-S-p" . org-move-item-up)
                          ("C-c C-x r" . org-refile)
+                         ("M-h" . nil) ;; conflicts with window switching; was org-mark-element
                          )))
 
 (add-hook 'org-mode-hook #'(lambda () (diminish 'org-indent-mode)))

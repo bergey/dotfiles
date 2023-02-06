@@ -102,6 +102,11 @@
   (bind-key "h" 'ivy-shell-buffer bergey/jump-keymap)
   (define-key shell-mode-map (kbd "C-c C-w") nil)
   (define-key shell-mode-map (kbd "C-c C-x") nil) ;; was comint-get-next-from-history which sounds useful
+  ;; TODO merge above into bind-keys
+  (bind-keys :map shell-mode-map
+             ("M-r" . nil) ;; conflicts with window switching; was comint-history-isearch-backward-regexp
+             ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?
+             )
 
   (defun rename-shell-buffer (new-name)
     "rename the current buffer with the form shell<foo>"
