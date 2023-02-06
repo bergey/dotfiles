@@ -9,8 +9,11 @@
    "|‖"
    ))
 
+;; TODO bind-key
 (define-key 'iso-transl-ctl-x-8-map (kbd "<right>") "→")
 (define-key 'iso-transl-ctl-x-8-map (kbd "<left>") "←")
+(define-key 'iso-transl-ctl-x-8-map (kbd "<up>") "↑")
+(define-key 'iso-transl-ctl-x-8-map (kbd "<down>") "↓")
 
 ;; greek input (for math & science, not language)
 (require 'greek-unicode-insert)
