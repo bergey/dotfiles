@@ -65,6 +65,17 @@
 
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
+(use-package lsp
+  :commands lsp
+  :custom
+  (lsp-enable-symbol-highlighting nil)
+  )
+
+(use-package yasnippet
+  :init (yas-global-mode 1)
+  :bind ("M-y" . yas-expand)
+  )
+
 (use-package highlight-quoted :ensure t
   :commands highlight-quoted-mode
   )

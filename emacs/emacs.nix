@@ -71,6 +71,9 @@ in emacsWithPackages (epkgs: (with epkgs; [
     just-mode
     kotlin-mode
     ledger-mode
+    lsp-haskell
+    lsp-ivy
+    lsp-mode
     magit
     markdown-mode
     move-text
@@ -127,6 +130,5 @@ in emacsWithPackages (epkgs: (with epkgs; [
     windresize
     yaml-mode
     yasnippet
-    
   ]
   ))

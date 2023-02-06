@@ -9,7 +9,6 @@
   (add-hook 'rust-mode-hook #'(lambda ()  (flycheck-mode t)))
   (add-hook 'rust-mode-hook #'electric-pair-local-mode)
   (add-hook 'rust-mode-hook #'lsp)
-  (add-hook 'rust-mode-hook #'lsp-ui-sideline-mode) ;; disable
   )
 
 (use-package flycheck-rust :ensure t
