@@ -83,9 +83,10 @@
 
 (setq org-directory
       (cl-case system-type
-        ('gnu/linux "~/Dropbox/org-mode/")
-       ('windows-nt (format  "c:/Users/%s/Dropbox/org-mode/" (user-login-name)))
-       ('darwin "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org-mode/")))
+        ('gnu/linux "~/records/org")
+        ('darwin "~/records/org")
+        ('windows-nt (format  "c:/Users/%s/Dropbox/org-mode/" (user-login-name)))
+        ))
 
 (defun in-org-directory (fn)
   (cond
