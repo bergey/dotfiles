@@ -99,7 +99,8 @@ export XDG_DATA_DIRS="$HOME/.nix-profile/share/:$XDG_DATA_DIRS"
 GPG_TTY=$(tty)
 export GPG_TTY
 
-. ~/.bash_passwords
+[ -f ~/.bash_passwords ] && . ~/.bash_passwords
+
 
 # for pass password manager; otherwise it calls xclip with the Clipboard
 export PASSWORD_STORE_X_SELECTION=clipboard
@@ -195,10 +196,10 @@ if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
 
-. $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 
 unset GOPATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=/opt/homebrew/bin:$PATH
 
-eval "$(rbenv init - bash)"
+command -v rbenv > /dev/null && eval "$(rbenv init - bash)"
