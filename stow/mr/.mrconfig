@@ -10,7 +10,7 @@ update = git pull --rebase; git push
 checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
 
 [records/org]
-checkout = git clone 'ssh://git@github.com/bergey/org-mode.git' 'org-mode'
+checkout = git clone 'ssh://git@github.com/bergey/org-mode.git' 'org'
 update = emacsclient -e '(save-some-buffers t)'; git diff-index --quiet HEAD || git commit -am "automatic commit on $(hostname) $(date '+%Y-%m-%d %R')"; git pull --rebase; git push
 
 [code/utility]
