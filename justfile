@@ -3,7 +3,7 @@ default: update global update-emacs emacs
 global:
   #!/usr/bin/env bash
   set -euxo pipefail
-  nix-env --no-build-output -if nix/global.nix -A default
+  nix-env --no-build-output -if nix/global.nix -A $(hostname)
   # symlink MacOS Applications
   if [[ -d ~/.nix-profile/Applications/* ]]; then
     for app in ~/.nix-profile/Applications/*; do

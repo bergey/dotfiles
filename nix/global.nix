@@ -88,8 +88,8 @@ let
         xz
         yaml2json
         python3.pkgs.yamllint
-      ])
-      ++ (with pkgs; [ # rust posix replacements / enhancements
+
+        # rust posix replacements / enhancements
         amber
         bat
         choose
@@ -120,17 +120,17 @@ let
         nix
       ];
       # programs I install outside Nix:
-      # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz
+      # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz zotero
 
       workstation = with pkgs; [
-        alacritty
         bootstrap-prebuild
         google-cloud-sdk
       ];
 
       linux-workstation = with pkgs; [
+        alacritty
         arduino
-        calibre # broken 2020-06-21
+        calibre
         crawl
         dmenu
         dropbox-cli
@@ -148,7 +148,6 @@ let
         zathura
         inkscape # broken M1 2022-06-16
         zotero # broken M1 2022-05-03
-        # zoom-us
       ];
 
       linux-server = [];
@@ -194,11 +193,10 @@ in rec {
     paths = (with bergey; global ++ linux ++ bergey.austenite);
   };
 
-  darwin = pkgs.buildEnv {
-    name = "bergey-darwin";
-    # it happens that my Mac is for work & my Linux boxen aren't
+  braze = pkgs.buildEnv {
+    name = "bergey-braze";
     paths = with bergey; global ++ bergey.darwin ++ workstation ++ braze;
   };
 
-  default = if pkgs.stdenv.isDarwin then darwin else linux-workstation;
+  prandtl = linux-workstation;
 }
