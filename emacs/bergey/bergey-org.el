@@ -83,9 +83,9 @@
 
 (setq org-directory
       (cl-case system-type
-        ('gnu/linux "~/records/org")
-        ('darwin "~/records/org")
-        ('windows-nt (format  "c:/Users/%s/records/org" (user-login-name)))
+        ('gnu/linux "~/records/org/")
+        ('darwin "~/records/org/")
+        ('windows-nt (format  "c:/Users/%s/records/org/" (user-login-name)))
         ))
 
 (defun in-org-directory (fn)
@@ -98,7 +98,9 @@
 (setq
  bergey/work-agenda-files '("braze.org")
  bergey/home-agenda-files '("house.org")
- bergey/teal-agenda-files '("teal.org"))
+ bergey/teal-agenda-files '("teal.org")
+ bergey/not-work-agenda-files '("house.org" "teal.org" "capture.org")
+ )
 
 (setq org-agenda-custom-commands
       '(
@@ -120,10 +122,11 @@
 
         ("p" tags "project+LEVEL=1|contract+LEVEL=1")
         ("P" tags-todo "project")
-        ("D" tags-todo "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
+        ("D" "this month" tags-todo "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
-        ("d" tags-todo  "-someday-next-TODO=\"DELAY\"-CATEGORY=\"cb\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))))
+        ("d" "this month, not work" tags-todo  "-someday-next+PRIORITY<\"C\"-PRIORITY=\"\""
+         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-files bergey/not-work-agenda-files)))
         ("X" tags "TODO=\"BLOCKED\"|TODO=\"PR\"")
         ("$" tags "buy")
         ("o" tags "TODO=\"DONE\"|TODO=\"CANCEL\"")))
