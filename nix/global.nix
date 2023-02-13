@@ -44,6 +44,7 @@ let
         atool
         bash-completion
         bench
+        brotli
         direnv
         dtach
         editorconfig-core-c
@@ -188,7 +189,7 @@ in rec {
     paths = with bergey; global ++ linux ++ bergey.linux-server;
   };
 
-  austenite = pkgs.buildEnv {
+  Austenite = pkgs.buildEnv {
     name = "bergey-austenite";
     paths = (with bergey; global ++ linux ++ bergey.austenite);
   };
