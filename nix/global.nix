@@ -194,7 +194,7 @@ in rec {
     paths = (with bergey; global ++ linux ++ bergey.austenite);
   };
 
-  braze = pkgs.buildEnv {
+  BZUSWVX02L7L7Q = pkgs.buildEnv { # Braze Macbook
     name = "bergey-braze";
     paths = with bergey; global ++ bergey.darwin ++ workstation ++ braze;
   };
