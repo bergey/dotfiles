@@ -68,6 +68,7 @@
   :commands lsp
   :custom
   (lsp-enable-symbol-highlighting nil)
+  (setq lsp-headerline-breadcrumb-enable nil)
   )
 
 (use-package yasnippet
