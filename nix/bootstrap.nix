@@ -224,6 +224,7 @@ in with pkgs; {
   wasm = mkBootstrap {
     name = "wasm";
     paths = [
+      binaryen
       wabt
     ];
   };
