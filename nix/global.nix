@@ -37,7 +37,7 @@ let
       inherit (bootstrap) ruby javascript;
     });
 
-    bergey = {
+    kits = {
       global = (with pkgs; [
         aspell
         aspellDicts.en
@@ -60,7 +60,7 @@ let
         haskellPackages.hlint
         (haskellPackages.callPackage sizes {})
         htop
-        jq # yq
+        jq yq
         just
         keybase
         kubectl
@@ -71,7 +71,6 @@ let
         nix-prefetch-git
         nmap
         nodePackages.jsonlint
-        pass
         ripgrep
         rsync
         rustup
@@ -151,7 +150,7 @@ let
         zotero # broken M1 2022-05-03
       ];
 
-      linux-server = [];
+      server = [];
 
       austenite = with pkgs; [
         transmission
@@ -165,39 +164,28 @@ let
         terraform
         kops
         cmake
-        # asdf-vm
-        # (python310.withPackages (pyp: with pyp; [
-        #   setuptools
-        #   pip
-        #   pep8
-        #   mccabe
-        #   virtualenv
-        # ]))
         sops
-        # nodejs-14_x
       ];
     };
 
 in rec {
-  linux-workstation = pkgs.buildEnv {
-    name = "bergey-linux-workstation";
-    paths = with bergey; global ++ linux ++ workstation ++ bergey.linux-workstation;
-  };
-
   linux-server = pkgs.buildEnv {
     name = "bergey-linux-server";
-    paths = with bergey; global ++ linux ++ bergey.linux-server;
+    paths = with kits; global ++ linux ++ server;
   };
 
   Austenite = pkgs.buildEnv {
     name = "bergey-austenite";
-    paths = (with bergey; global ++ linux ++ bergey.austenite);
+    paths = (with kits; global ++ linux ++ server == austenite);
   };
 
   BZUSWVX02L7L7Q = pkgs.buildEnv { # Braze Macbook
     name = "bergey-braze";
-    paths = with bergey; global ++ bergey.darwin ++ workstation ++ braze;
+    paths = with kits; global ++ darwin ++ workstation ++ braze;
   };
 
-  prandtl = linux-workstation;
+  prandtl = pkgs.buildEnv {
+    name = "bergey-linux-workstation";
+    paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
+  };
 }
