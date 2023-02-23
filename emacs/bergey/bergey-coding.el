@@ -68,7 +68,11 @@
   :commands lsp
   :custom
   (lsp-enable-symbol-highlighting nil)
-  (setq lsp-headerline-breadcrumb-enable nil)
+  (read-process-output-max (* 1024 1024)) ;; 1 MB in bytes
+  (gc-cons-threshold (* 100 1024 1024)) ;; 100 MB in bytes
+  (lsp-idle-delay 1) ;; in seconds
+  :config
+  (add-hook 'lsp-mode-hook #'lsp-headerline-breadcrumb-mode)
   )
 
 (use-package yasnippet
