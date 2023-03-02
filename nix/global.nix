@@ -109,6 +109,7 @@ let
         docker
         file
         inotifyTools
+        lsof
         psmisc # pstree &c
         bpftrace
         sysstat
