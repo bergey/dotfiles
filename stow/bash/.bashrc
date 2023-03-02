@@ -40,7 +40,9 @@ function restore_prompt_after_nix_shell() {
         nix_env=$(echo $out | sed -E 's,/nix/store/[^-]*-(bootstrap-)?,,')
         if echo $out | grep -q bootstrap- ;
         then nix_env="\[\e[35m\][$(echo $nix_env | sed 's,bootstrap-,,')]"
-        else nix_env="\[\e[34m\][$nix_env]"
+        else
+            nix_env=$(echo $nix_env | sed -e 's,/home/bergey/,,' -e 's,/outputs/out,,')
+            nix_env="\[\e[34m\][$nix_env]"
         fi
         PS1="${nix_env} $PROMPT"
         PROMPT_COMMAND=""
