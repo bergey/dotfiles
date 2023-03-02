@@ -224,4 +224,48 @@ virtualisation.docker.enable = true;
   # should.
   system.stateVersion = "21.11"; # Did you read the comment?
 
+  # getting some home practice with these before trying to run in the DC
+
+  services.grafana = {
+    enable = true;
+    settings.server = {
+      domain = "spaceways.home";
+      # root_url = "http://prandtl.spaceways.home/grafana/";
+      http_port = 3000;
+      addr = "127.0.0.1";
+    };
+  };
+
+  # not working
+  # services.nginx = {
+  #   enable = true;
+  #   virtualHosts."prandtl.spaceways.home" = {
+  #     serverAliases = [ "localhost" ];
+  #     locations."/grafana" = {
+  #       proxyPass = "http://127.0.0.1:3000";
+  #       proxyWebsockets = true;
+  #     };
+  #   };
+  # };
+
+  services.prometheus = {
+    enable = true;
+    port = 9001;
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+        port = 9002;
+      };
+    };
+    scrapeConfigs = [
+      {
+        job_name = "prandtl";
+        static_configs = [{
+          targets = [ "127.0.0.1:9002" ];
+        }];
+      }
+    ];
+  };
+
 }
