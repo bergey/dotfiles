@@ -166,9 +166,6 @@ virtualisation.docker.enable = true;
         after = [ "graphical-session-pre.target" ];
   };
 
-  services.keybase.enable = true;
-  services.kbfs.enable = true;
-
   systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
 
   services.transmission.enable = true;
