@@ -91,7 +91,7 @@ checkout = git clone 'https://github.com/Appboy/sidekiq-status-dashboard.git' 's
 [braze/sms-team-data-lake-query-service]
 checkout = git clone 'https://github.com/braze-inc/sms-team-data-lake-query-service.git' 'sms-team-data-lake-query-service'
 
-[braze/storybook]
+[braze/upstream/storybook]
 checkout = git clone 'https://github.com/storybookjs/storybook.git' 'storybook'
 
 [braze/terraform]
