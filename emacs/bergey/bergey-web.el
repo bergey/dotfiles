@@ -12,7 +12,7 @@
                           bergey/company-short-idle
                           ;; emmet-mode
                           bergey/configure-web-mode-flycheck-checkers
-                          bergey/lsp-for-typescript
+                          ;; bergey/lsp-for-typescript
                           prettier-mode
                           whitespace-mode
                           ))
