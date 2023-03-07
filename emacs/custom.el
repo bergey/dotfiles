@@ -69,7 +69,8 @@
      (haskell-process-use-ghci . t)
      (hamlet/basic-offset . 4)
      (python-indent . 8)))
- '(scroll-bar-mode nil))
+ '(scroll-bar-mode nil)
+ '(warning-suppress-types '((comp) (undo discard-info))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
