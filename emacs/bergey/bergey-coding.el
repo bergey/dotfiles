@@ -72,7 +72,7 @@
   (gc-cons-threshold (* 100 1024 1024)) ;; 100 MB in bytes
   (lsp-idle-delay 1) ;; in seconds
   :config
-  (add-hook 'lsp-mode-hook #'lsp-headerline-breadcrumb-mode)
+  (add-hook 'lsp-mode-hook (lambda () (lsp-headerline-breadcrumb-mode -1)))
   )
 
 (use-package yasnippet
