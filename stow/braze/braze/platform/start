@@ -4,19 +4,17 @@
 # 10 files each 1MB
 LOG='multilog s1000000 n10'
 
-if ! docker system info; then
-    echo 'please start docker'
-    exit 1
-    # TODO test below
-    # open -a docker
-    # while ! docker system info; do
-    # sleep 1
-    # done
-else
-    docker-compose up -d
+if ! docker system info &> /dev/null; then
+    open -a docker
+     echo 'starting docker'
+    while ! docker system info &> /dev/null; do
+        sleep 1
+    done
 fi
+docker-compose up -d
 
 # https://stackoverflow.com/questions/3004811/how-do-you-run-multiple-programs-in-parallel-from-a-bash-script
+echo 'launching Braze servers'
 (trap 'kill 0' SIGINT;
  api/bin/rails server 2>&1 | $LOG ./api/log &
  dashboard/bin/rails server 2>&1 | $LOG ./dashboard/log-server &
