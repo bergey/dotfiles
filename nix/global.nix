@@ -71,6 +71,7 @@ let
         nix-prefetch-git
         nmap
         nodePackages.jsonlint
+        nodePackages.degit
         ripgrep
         rsync
         rustup
