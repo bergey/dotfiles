@@ -167,6 +167,7 @@ let
         kops
         cmake
         sops
+        vscode
       ];
     };
 
