@@ -62,7 +62,6 @@ let
         htop
         jq yq
         just
-        keybase
         kubectl
         lftp
         loc
@@ -72,6 +71,7 @@ let
         nmap
         nodePackages.jsonlint
         nodePackages.degit
+        nodePackages.eslint
         ripgrep
         rsync
         rustup
@@ -89,6 +89,7 @@ let
         xz
         yaml2json
         python3.pkgs.yamllint
+        zstd
 
         # rust posix replacements / enhancements
         amber
