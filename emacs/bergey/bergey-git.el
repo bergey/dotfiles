@@ -39,4 +39,9 @@
 
 (use-package git-link :ensure t)
 
+(defun bergey/git-link-develop ()
+  (interactive)
+  (let ((git-link-default-branch "develop"))
+    (call-interactively #'git-link)))
+
 (provide 'bergey-git)
