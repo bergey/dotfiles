@@ -82,8 +82,12 @@
 
 (use-package projectile :ensure t
   :commands (projectile-mode projectile-find-file)
+  :bind (:map projectile-mode-map
+              ("C-c p" . projectile-command-map)
+              :map projectile-command-map
+              ("$ b" . projectile-switch-to-buffer-other-window)
+              ("$ f" . projectile-find-file-other-window))
   :config
-  (bind-key "C-c p" 'projectile-command-map projectile-mode-map)
   (projectile-mode +1)
   )
 
