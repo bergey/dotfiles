@@ -43,8 +43,8 @@ checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
 [code/active/tack]
 checkout = git clone 'https://github.com/bergey/tack.git' 'tack'
 
-[braze/platform]
-checkout = git clone 'git@github.com:Appboy/platform.git' 'platform'
+[braze/platform/develop]
+checkout = git clone 'git@github.com:Appboy/platform.git' 'develop'
 
 [braze/aws-cli-mfa]
 checkout = git clone 'https://github.com/rogusdev/aws-cli-mfa.git' 'aws-cli-mfa'
