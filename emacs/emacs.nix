@@ -20,13 +20,8 @@ let
 
 in emacsWithPackages (epkgs: (with epkgs; [
 
-    # merlin
-    # modelica-mode
-    # powershell
-    # tuareg
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
-    auto-complete
     buffer-move
     clojure-mode
     coffee-mode
@@ -35,7 +30,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     counsel
     csv-mode
-    dash
     deadgrep
     default-text-scale
     diminish
@@ -44,7 +38,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     edit-indirect
     editorconfig
     emmet-mode
-    emms
     erlang
     ess
     evil
@@ -84,8 +77,6 @@ in emacsWithPackages (epkgs: (with epkgs; [
     nodejs-repl
     nov
     org-cliplink
-    # org-plus-contrib
-    org-trello
     orgit
     origami
     ox-jira
