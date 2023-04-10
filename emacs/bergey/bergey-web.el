@@ -147,4 +147,7 @@ by using nxml's indentation rules."
   (shell-command-on-region (line-beginning-position) (line-end-position) "jq ." t t)
   )
 
+(use-package json-mode :ensure t
+  :mode "\\.avsc")
+
 (provide 'bergey-web)
