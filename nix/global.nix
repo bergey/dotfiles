@@ -127,6 +127,7 @@ let
 
       workstation = with pkgs; [
         bootstrap-prebuild
+        ledger
         google-cloud-sdk
       ];
 

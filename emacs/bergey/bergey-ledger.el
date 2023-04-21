@@ -3,17 +3,18 @@
   :config
   (bind-key "M-m" 'ledger-set-month ledger-mode-map)
   (setq ledger-reports
-        '(("bal" "ledger -f %(ledger-file) bal")
+        '(("bal" "ledger --strict -f %(ledger-file) bal")
           ("reg" "ledger -f %(ledger-file) reg")
-          ("payee" "ledger -f %(ledger-file) reg -- %(payee)")
+          ;; ("payee" "ledger -f %(ledger-file) reg -- %(payee)")
           ("account" "ledger -f %(ledger-file) reg %(account)")
-          ("assets" "ledger -f %(ledger-file) --price-db prices.db -s bal assets liabilities -V")
+          ("assets" "ledger -f %(ledger-file) -s bal assets liabilities -V")
           ("expenses" "ledger -f %(ledger-file) -s bal expenses --begin 2015")
-          ("cleared" "ledger -f %(ledger-file) -s bal -C assets liabilities")
+          ;; ("cleared" "ledger -f %(ledger-file) -s bal -C assets liabilities")
           ("brokerage" "ledger -f %(ledger-file) bal fidelity")
           ("monthly" "ledger -f %(ledger-file) reg expenses -M --period-sort \"(-amount)\"")
-          ("income" "ledger -f bergey.ledger -Y  register '^Income:[^S]' --begin=$(date +%Y)-01-01")
+          ("income" "ledger -f %(ledger-file) -Y  register '^Income:[^S]' --begin=$(date +%Y)-01-01")
           ("tikun" "ledger -f %(ledger-file) reg expenses:tikun --begin=$(date +%Y)-01-01")
+          ("budget" "ledger -f %(ledger-file) --budget --monthly register ^expenses")
           ))
   (add-to-list 'ledger-mode-hook
                (lambda () (setq-local tab-always-indent 'complete)))
