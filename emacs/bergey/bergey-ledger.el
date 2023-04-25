@@ -13,7 +13,7 @@
           ("brokerage" "ledger -f %(ledger-file) bal fidelity")
           ("monthly" "ledger -f %(ledger-file) reg expenses -M --period-sort \"(-amount)\"")
           ("income" "ledger -f %(ledger-file) -Y  register '^Income:[^S]' --begin=$(date +%Y)-01-01")
-          ("tikun" "ledger -f %(ledger-file) reg expenses:tikun --begin=$(date +%Y)-01-01")
+          ("tikun" "ledger -f %(ledger-file) reg liabilities:tikun --begin=$(date +%Y)-01-01 --real")
           ("budget" "ledger -f %(ledger-file) --budget --monthly register ^expenses")
           ))
   (add-to-list 'ledger-mode-hook
