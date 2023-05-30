@@ -97,6 +97,7 @@ let
         choose
         du-dust # https://github.com/bootandy/dust
         fd
+        hexyl
         hyperfine
         procs
         sd
