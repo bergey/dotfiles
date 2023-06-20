@@ -144,4 +144,8 @@
   (interactive "*P\nr")
   (sort-regexp-fields reverse "\\w+" "\\&" beg end))
 
+(defun bergey/scroll-align-left ()
+  (interactive)
+  (scroll-left (- (current-column) 1) t))
+
 (provide 'bergey-editing)
