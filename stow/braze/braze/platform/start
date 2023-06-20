@@ -13,11 +13,16 @@ if ! docker system info &> /dev/null; then
 fi
 docker-compose up -d
 
+export SIDEKIQ_LOCALLY=true
+
 # https://stackoverflow.com/questions/3004811/how-do-you-run-multiple-programs-in-parallel-from-a-bash-script
 echo 'launching Braze servers'
 (trap 'kill 0' SIGINT;
  api/bin/rails server 2>&1 | $LOG ./api/log &
  dashboard/bin/rails server 2>&1 | $LOG ./dashboard/log-server &
+ pushd dashboard
+ bundle exec sidekiq -q messaging -q data_export -q maintenance -q data_process -q default -q dashboard -q persistent -q data_process_rest | $LOG ./log-sidekiq &
+ popd
  yarn --cwd dashboard start 2>&1 | $LOG ./dashboard/log-client &
  tools/whats_app/tracer.rb -p 8989 2>&1 | $LOG ./tools/whats_app/log &
  wait)
