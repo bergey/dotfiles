@@ -65,14 +65,27 @@
     ))
 (bind-key "C-c m" #'bergey/ruby-yank-module-name ruby-mode-map)
 
-(defun bergey/ruby-yank-class-name  ()
-  "copy the class enclosing point to the kill ring"
-  (interactive)
-  (save-excursion
-    (re-search-backward "^ *class \\([a-zA-Z]+\\)")
-    (kill-new (match-string 1))
-    (message (match-string 1))
-    ) )
+(defun bergey/ruby-yank-class-name (arg)
+  "Find all occurrences of the regex `module [a-z]` before the first occurrence of the regex `^ *class` and concatenate the matches."
+  (interactive "P")
+  (let ((buf (current-buffer))
+        (case-fold-search nil)
+        (module-regexp "^ *module +\\([a-zA-Z0-9.]+\\)")
+        (class-regexp "^ *class \\([a-zA-Z]+\\)")
+        )
+    (save-excursion
+      (goto-char (point-min))
+      (re-search-forward "^ *class \\([a-zA-Z]+\\)")
+      (let ((class (match-string-no-properties 1))
+            (search-end (point))
+            (matches nil))
+        (goto-char (point-min))
+        (if arg
+            (while (re-search-forward module-regexp search-end t)
+              (setq matches (cons (match-string-no-properties 1) matches))))
+        (let ((class (s-join "::"(reverse (cons class matches)))))
+          (kill-new class)
+          (message "%s" class ))))))
 (bind-key "C-c c" #'bergey/ruby-yank-class-name ruby-mode-map)
 
 (provide 'bergey-ruby)
