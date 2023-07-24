@@ -77,6 +77,7 @@
  org-agenda-dim-blocked-tasks t
  org-goto-interface 'outline-path-completion
  org-log-done nil
+ org-n-level-faces 6
  )
 
 ;; Set to the location of your Org files on your local system
