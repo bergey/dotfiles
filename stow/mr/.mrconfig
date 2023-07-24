@@ -117,3 +117,6 @@ checkout = git clone 'https://github.com/redis/redis-rb.git' 'redis-rb'
 
 [braze/upstream/sidekiq]
 checkout = git clone 'https://github.com/mperham/sidekiq.git' 'sidekiq'
+
+[braze/sidekiq]
+checkout = git clone 'https://github.com/Appboy/sidekiq.git' 'sidekiq'
