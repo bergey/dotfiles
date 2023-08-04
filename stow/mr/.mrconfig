@@ -120,3 +120,6 @@ checkout = git clone 'https://github.com/mperham/sidekiq.git' 'sidekiq'
 
 [braze/sidekiq]
 checkout = git clone 'https://github.com/Appboy/sidekiq.git' 'sidekiq'
+
+[braze/upstream/sorbet]
+checkout = git clone 'https://github.com/sorbet/sorbet.git' 'sorbet'
