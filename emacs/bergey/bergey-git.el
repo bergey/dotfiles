@@ -40,11 +40,14 @@
                (message "%s" branch))
       (user-error "There is not current branch"))))
 
-(use-package git-link :ensure t)
+(use-package git-link :ensure t
+  :bind ("M-g M-l" . git-link))
 
 (defun bergey/git-link-develop ()
   (interactive)
   (let ((git-link-default-branch "develop"))
     (call-interactively #'git-link)))
+
+(bind-key "M-g M-d" #'bergey/git-link-develop)
 
 (provide 'bergey-git)
