@@ -87,4 +87,10 @@
   (bergey/ruby-yank-class-or-module-name arg t))
 (bind-key "C-c c" #'bergey/ruby-yank-class-name ruby-mode-map)
 
+(defun bergey/ruby-yank-rspec-command ()
+  "copy an rspec command which can be run in the shell to run the tests in the current file"
+  (interactive)
+  (kill-new (s-replace-regexp "^.*spec/" "bundle exec rspec spec/" (buffer-file-name)))
+  )
+
 (provide 'bergey-ruby)
