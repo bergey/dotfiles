@@ -44,6 +44,10 @@
   (add-to-list 'ruby-mode-hook #'bergey/try-ruby-mode)
   )
 
+(use-package feature-mode :ensure t
+  :mode "\\.feature"
+  )
+
 (defun bergey/ruby-navigate-imports ()
   "move point to the beginning of the first import line"
   (interactive)
