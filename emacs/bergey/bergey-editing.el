@@ -36,7 +36,7 @@
   :config (progn
             (setq whitespace-style '(face tabs trailing empty tab-mark lines-tail))
             (setq whitespace-action '(auto-cleanup))
-            (setq whitespace-line-column 100)
+            (setq whitespace-line-column 120)
             ))
 
 (use-package origami :ensure t
