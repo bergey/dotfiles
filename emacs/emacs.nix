@@ -22,6 +22,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
 
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
+    add-node-modules-path
     buffer-move
     clojure-mode
     coffee-mode
@@ -43,6 +44,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     evil
     evil-collection
     exec-path-from-shell
+    feature-mode
     fic-mode
     flycheck
     flycheck-clojure
@@ -60,6 +62,7 @@ in emacsWithPackages (epkgs: (with epkgs; [
     highlight-indent-guides
     highlight-quoted
     idris-mode
+    inf-ruby
     ivy
     just-mode
     kotlin-mode
@@ -82,7 +85,9 @@ in emacsWithPackages (epkgs: (with epkgs; [
     ox-jira
     pandoc-mode
     password-store
+    persp-projectile
     perspective
+    poly-markdown
     polymode
     pov-mode
     powerline
@@ -99,16 +104,16 @@ in emacsWithPackages (epkgs: (with epkgs; [
     restclient
     rg
     rspec-mode
-    inf-ruby
     ruby-test-mode
     rust-mode
     s
-    sed-mode
     sbt-mode
     scala-mode
+    sed-mode
     smartparens
     swift-mode
     systemd
+    terraform-mode
     thrift
     tide
     toml-mode
