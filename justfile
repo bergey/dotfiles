@@ -14,7 +14,7 @@ global:
   fi
 
 show-trace:
-  nix-env --no-build-output -if nix/global.nix -A default --show-trace
+  nix-env --no-build-output -if nix/global.nix -A $(hostname) --show-trace
 
 update:
   @nix/update.sh
@@ -24,7 +24,7 @@ bootstrap:
   nix-build nix/bootstrap.nix
   rm result*
 
-prandtl: global emacs os-update
+prandtl: update global update-emacs emacs os-update
 
 os:
   sudo nixos-rebuild switch
