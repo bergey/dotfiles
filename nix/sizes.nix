@@ -1,3 +1,5 @@
+{ pkgs}:
+
 # unreleased version actually works
 { mkDerivation, base, bytestring, cmdargs, deepseq, dlist, lens
 , parallel-io, regex-posix, system-fileio, system-filepath, text
