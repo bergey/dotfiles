@@ -1,4 +1,4 @@
-default: update global update-emacs emacs
+default: mr update global update-emacs emacs
 
 global:
   #!/usr/bin/env bash
@@ -74,6 +74,9 @@ update-emacs:
 		then git commit -m "$(basename $(pwd)): update nixpkgs snapshot"; \
 		else echo "nothing to commit"; \
 		fi
+
+mr:
+    mr -d {{home}} update
 
 home := env_var('HOME')
 escaped_home := replace(home, '/', '\/')
