@@ -2,10 +2,6 @@
 [dotfiles]
 checkout = git clone 'git@github.com:bergey/dotfiles.git' 'dotfiles'
 
-[.password-store]
-checkout = git clone 'git@github.com:bergey/passwords.git' '.password-store'
-update = git pull --rebase; git push
-
 [records/resume]
 checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
 
@@ -22,26 +18,14 @@ checkout = git clone 'ssh://git@github.com/bergey/scratch.git' 'scratch'
 [code/active/preql]
 checkout = git clone 'git@github.com:bergey/preql.git' 'preql'
 
-[code/active/expert-robot]
-checkout = git clone 'git@github.com:bergey/expert-robot.git' 'expert-robot'
-
 [code/active/Model01-Firmware]
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
 
 [records/teallabs/trunk]
 checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'trunk'
 
-[code/active/simpledb]
-checkout = git clone 'git@github.com:shterrett/simpledb.git' 'simpledb'
-
-[code/active/books]
-checkout = git clone 'git@github.com:bergey/books.git' 'books'
-
 [code/active/tealsed]
 checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
-
-[code/active/tack]
-checkout = git clone 'https://github.com/bergey/tack.git' 'tack'
 
 [braze/platform/develop]
 checkout = git clone 'git@github.com:Appboy/platform.git' 'develop'
