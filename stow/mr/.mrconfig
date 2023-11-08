@@ -2,30 +2,30 @@
 [dotfiles]
 checkout = git clone 'git@github.com:bergey/dotfiles.git' 'dotfiles'
 
-[records/resume]
-checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
-
 [records/org]
 checkout = git clone 'ssh://git@github.com/bergey/org-mode.git' 'org'
 update = emacsclient -e '(save-some-buffers t)'; git diff-index --quiet HEAD || git commit -am "automatic commit on $(hostname) $(date '+%Y-%m-%d %R')"; git pull --rebase; git push
 
-[code/utility]
-checkout = git clone 'ssh://git@github.com/bergey/utility.git' 'utility'
+[records/teallabs/trunk]
+checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'trunk'
+
+[records/resume]
+checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
+
+[code/active/draft]
+checkout = git clone 'ssh://git@github.com:bergey/draft.git' 'draft'
 
 [code/active/scratch]
 checkout = git clone 'ssh://git@github.com/bergey/scratch.git' 'scratch'
 
-[code/active/preql]
-checkout = git clone 'git@github.com:bergey/preql.git' 'preql'
+[code/active/tealsed]
+checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
 
 [code/active/Model01-Firmware]
 checkout = git clone 'git@github.com:bergey/Model01-Firmware.git' 'Model01-Firmware'
 
-[records/teallabs/trunk]
-checkout = git clone 'git@github.com:bergey/bergey.github.io.git' 'trunk'
-
-[code/active/tealsed]
-checkout = git clone 'git@github.com:bergey/tealsed.git' 'tealsed'
+[code/utility]
+checkout = git clone 'ssh://git@github.com/bergey/utility.git' 'utility'
 
 [braze/platform/develop]
 checkout = git clone 'git@github.com:Appboy/platform.git' 'develop'
