@@ -5,10 +5,11 @@ global:
   set -euxo pipefail
   nix-env --no-build-output -if nix/global.nix -A $(hostname)
   # symlink MacOS Applications
-  if [[ -d ~/.nix-profile/Applications/* ]]; then
-    for app in ~/.nix-profile/Applications/*; do
-      if [[ ! -e /Applications/$(basename "$app") ]]
-        then ln -s "$app" /Applications/$(basename "$app")
+  if [[ -d ~/.nix-profile/Applications ]]; then
+    for path in ~/.nix-profile/Applications/*; do
+    app=$(basename "$path")
+      if [[ ! -e /Applications/"$app" ]]
+        then ln -s "$path" /Applications/"$app"
       fi
     done
   fi
