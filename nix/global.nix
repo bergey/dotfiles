@@ -61,6 +61,7 @@ let
         watch
         wget
         # wireshark # broken M1 2022-05-03
+        wrk
         xlsfonts
         xsv
         xz
@@ -107,6 +108,7 @@ let
         bootstrap-prebuild
         ledger
         google-cloud-sdk
+        vscode
       ];
 
       linux-workstation = with pkgs; [
