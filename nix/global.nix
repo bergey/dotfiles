@@ -25,6 +25,7 @@ let
         direnv
         dtach
         editorconfig-core-c
+        fastmod
         gh
         git
         git-lfs
@@ -161,7 +162,7 @@ in rec {
 
   Austenite = pkgs.buildEnv {
     name = "bergey-austenite";
-    paths = with kits; global ++ linux ++ server == austenite;
+    paths = with kits; global ++ linux ++ server ++ austenite;
   };
 
   BZUSWVX02L7L7Q = pkgs.buildEnv { # Braze Macbook
