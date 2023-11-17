@@ -59,6 +59,19 @@ alias k=kubectl
 alias kl='kubectl --context=local'
 alias d=docker
 
+# Braze environments
+alias olaf='kubectl --context=k8s.cluster-001.d-use-1.braze.com-opsadmin'
+alias sweeney='kubectl --context=k8s.cluster-001.s-use-1.braze.com-opsengineer'
+alias us1='kubectl --context=k8s.cluster-001.p-use-1.braze.com-opsengineer'
+alias us2='kubectl --context=k8s.cluster-002.p-use-1.braze.com-opsengineer'
+alias us3='kubectl --context=k8s.cluster-003.p-use-1.braze.com-opsengineer'
+alias us4='kubectl --context=k8s.cluster-004.p-use-1.braze.com-opsengineer'
+alias us5='kubectl --context=k8s.cluster-005.p-use-1.braze.com-opsengineer'
+alias us6='kubectl --context=k8s.cluster-006.p-use-1.braze.com-opsengineer'
+alias us7='kubectl --context=k8s.cluster-007.p-use-1.braze.com-opsengineer'
+alias eu1='kubectl --context=k8s.cluster-001.p-euc-1.braze.eu-opsengineer'
+alias eu2='kubectl --context=k8s.cluster-002.p-euc-1.braze.eu-opsengineer'
+
 alias vm='gcloud compute instances'
 alias gssh='gcloud compute ssh --ssh-flag=-A'
 
