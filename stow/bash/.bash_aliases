@@ -60,7 +60,7 @@ alias kl='kubectl --context=local'
 alias d=docker
 
 # Braze environments
-alias olaf='kubectl --context=k8s.cluster-001.d-use-1.braze.com-opsadmin'
+alias olaf='kubectl --context=k8s.cluster-001.d-use-1.braze.com-opsengineer'
 alias sweeney='kubectl --context=k8s.cluster-001.s-use-1.braze.com-opsengineer'
 alias us1='kubectl --context=k8s.cluster-001.p-use-1.braze.com-opsengineer'
 alias us2='kubectl --context=k8s.cluster-002.p-use-1.braze.com-opsengineer'
