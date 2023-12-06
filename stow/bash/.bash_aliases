@@ -75,4 +75,6 @@ alias eu2='kubectl --context=k8s.cluster-002.p-euc-1.braze.eu-opsengineer'
 alias vm='gcloud compute instances'
 alias gssh='gcloud compute ssh --ssh-flag=-A'
 
+alias json_lines='jq -r ".[]"'
+
 . ~/dotfiles/nix/bash_aliases
