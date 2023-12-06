@@ -85,7 +85,7 @@
   :mode ("\\.thrift\\'" . thrift-mode))
 
 (use-package yaml-mode :ensure t
-  :mode "\\.yaml$"
+  :mode "\\.yaml$\\|\\.yml$"
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
   (add-hook 'yaml-mode-hook 'outline-minor-mode)
