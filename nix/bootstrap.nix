@@ -180,7 +180,6 @@ in with pkgs; {
     paths = [
       cargo
       rustc
-      carnix
       libiconv
     ];
   };
