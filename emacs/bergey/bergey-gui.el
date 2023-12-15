@@ -38,7 +38,9 @@
               (blink-cursor-mode 0)
               (setq visible-bell 1) ; silence audio bell
               (setq use-dialog-box nil)
-              (setq initial-scratch-message nil))
+              (setq initial-scratch-message nil)
+              (setq scroll-conservatively 100)
+              )
 
 ;; windows
 (use-package window-number :ensure t
