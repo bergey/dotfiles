@@ -1,6 +1,6 @@
 let
     nixpkgs =
-        let snapshot = builtins.fromJSON (builtins.readFile ./nixpkgs-snapshot.json);
+        let snapshot = builtins.fromJSON (builtins.readFile ../nixpkgs-snapshot.json);
         inherit (snapshot) owner repo rev;
         in builtins.fetchTarball {
             inherit (snapshot) sha256;
@@ -13,12 +13,7 @@ let
       })];
     };
 
-    gccEmacs = pkgs.emacs.override {
-      nativeComp = true;
-    };
-    emacsWithPackages = (pkgs.emacsPackagesFor gccEmacs).emacsWithPackages;
-
-in emacsWithPackages (epkgs: (with epkgs; [
+in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
 
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
