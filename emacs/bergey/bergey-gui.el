@@ -39,7 +39,7 @@
               (setq visible-bell 1) ; silence audio bell
               (setq use-dialog-box nil)
               (setq initial-scratch-message nil)
-              (setq scroll-conservatively 100)
+              (setq scroll-conservatively 101)
               )
 
 ;; windows
