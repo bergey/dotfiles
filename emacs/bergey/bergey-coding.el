@@ -5,6 +5,7 @@
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (bind-key "C-c C-m" 'imenu)
+(setq imenu-max-item-length nil)
 
 (setq tags-revert-without-query t)
 
