@@ -47,3 +47,14 @@ Thumbs.db
 .envrc
 .bin
 TAGS
+
+# Braze stuff
+log-client
+log-server
+log-sidekiq
+.betterer
+.irb_history
+.irbrc
+.yarnrc
+start
+log
