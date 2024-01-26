@@ -186,4 +186,22 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
      (t (buffer-file-name)))
    ))
 
+(define-fringe-bitmap 'small-right-arrow
+  [#x00 #x00 #x00 #x00
+        #b00001000
+        #b00111100
+        #b00001000
+        #x00
+        ]
+  )
+(define-fringe-bitmap 'small-left-arrow
+  [#x00 #x00 #x00 #x00
+        #b00010000
+        #b00111100
+        #b00010000
+        #x00
+        ]
+  )
+(setcdr (assoc 'continuation fringe-indicator-alist) '(small-left-arrow small-right-arrow))
+(setcdr (assoc 'truncation fringe-indicator-alist) '(small-left-arrow small-right-arrow))
 (provide 'bergey-gui)
