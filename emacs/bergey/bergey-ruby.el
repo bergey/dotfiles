@@ -96,6 +96,7 @@
   (interactive)
   (kill-new (s-replace-regexp "^.*spec/" "bundle exec rspec spec/" (buffer-file-name)))
   )
+(bind-key "C-c r" #'bergey/ruby-yank-rspec-command rspec-mode-map)
 
 (use-package rubocop :ensure t
   :config
