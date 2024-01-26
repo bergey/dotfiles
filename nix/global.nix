@@ -40,6 +40,7 @@ let
         htop
         jq yq
         just
+        kondo
         kubectl
         lftp
         loc
@@ -53,11 +54,12 @@ let
         ripgrep
         rsync
         rustup
-        rust-analyzer-unwrapped
+        # rust-analyzer-unwrapped
         shellcheck
         stow
         textql
         tmux
+        typos
         w3m
         watch
         wget
