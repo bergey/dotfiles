@@ -70,7 +70,10 @@
            ("v" . split-window-right)
            ("w" . split-window-below)
            ("m" . delete-other-windows)
-           ("r" . bergey/delete-window-rebalance)
+           ("h" . bergey/delete-window-rebalance)
+           ("g" . (lambda () (interactive) (window-number-select 7)))
+           ("c" . (lambda () (interactive) (window-number-select 8)))
+           ("r" . (lambda () (interactive) (window-number-select 9)))
            )
 
 (use-package perspective
