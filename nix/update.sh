@@ -12,7 +12,7 @@ set -euxo pipefail
 
 REV=$(curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision)
 # TODO path relative to where this script resides
-if [ $(jq -r .rev nix/nixpkgs-snapshot.json) = "$REV" ]
+if [ $(jq -r .rev nixpkgs-snapshot.json) = "$REV" ]
   then echo 'already on latest revision'
   else 
     [ ! -d ~/code ] && mkdir ~/code
