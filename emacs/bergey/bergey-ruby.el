@@ -105,4 +105,11 @@
   :bind (:map ruby-mode-map ("C-c C-," . rubocop-autocorrect-current-file))
   )
 
+(defun bergey/ruby-rspec-outline ()
+    "occur buffer with the main headings of an rspec file"
+    (interactive)
+    (occur "^ *\\(context\\|\\(RSpec\\.\\)?describe\\|shared_examples\\|it_behaves_like\\)\\>")
+    )
+(bind-key "C-c C-o" #'bergey/ruby-rspec-outline rspec-mode-map)
+
 (provide 'bergey-ruby)
