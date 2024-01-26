@@ -41,10 +41,10 @@
  `(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground ,b-indigo))))
  `(font-lock-comment-face ((t (:foreground ,dark-red))))
  `(font-lock-constant-face ((t (:foreground ,b-cyan))))
- `(font-lock-keyword-face ((t (:foreground ,b-orange))))
+ `(font-lock-keyword-face ((t (:foreground ,b-indigo))))
  `(font-lock-preprocessor-face ((t (:inherit font-lock-builtin-face :foreground ,b-cyan))))
  `(font-lock-string-face ((t (:foreground ,b-orange))))
- `(font-lock-type-face ((t (:foreground ,b-indigo))))
+ `(font-lock-type-face ((t (:foreground ,b-violet))))
  '(font-lock-function-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 89)) (:foreground "white"))))
  `(font-lock-doc-face ((t (:foreground ,b-green))))
@@ -64,7 +64,7 @@
  '(font-mediawiki-sedate-face ((t (:foreground "gold"))) t)
  '(highlight-quoted-quote ((((class color) (min-colors 89)) (:foreground "white"))))
  '(highlight-quoted-symbol ((t (:foreground "#95f"))))
- '(haskell-constructor-face ((t (:foreground "#95f"))))
+;; `(haskell-constructor-face ((t (:foreground ,b-red))))
  '(ledger-font-xact-highlight-face ((((class color) (background dark)) (:background "black"))))
  '(markdown-bold-face ((((class color) (background dark)) (:foreground "red" :inherit bold))))
  '(markdown-code-face ((t (:inherit org-verbatim))))
@@ -175,6 +175,9 @@
 ;; (set-face-foreground 'org-headline-done nil) ;; lch 70 70 320
 
 
+(set-face-foreground 'font-lock-keyword-face b-indigo)
+(set-face-foreground 'font-lock-type-face b-violet)
+;; (set-face-foreground 'haskell-constructor-face b-red)
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
 ;; (set-face-attribute 'powerline-active1 nil :inherit nil)
 ;; (set-face-foreground 'highlight-indent-guides-character-face "#d70")
