@@ -1,4 +1,4 @@
-default: mr update global update-emacs emacs
+default: update global emacs
 
 global:
   #!/usr/bin/env bash
@@ -25,7 +25,7 @@ bootstrap:
   nix-build nix/bootstrap.nix
   rm result*
 
-prandtl: update global update-emacs emacs os-update
+prandtl: update global emacs os-update
 
 os:
   sudo nixos-rebuild switch
@@ -66,15 +66,6 @@ unstow:
 
 emacs:
 	nix-env -if emacs/emacs.nix
-
-update-emacs:
-	cp nix/nixpkgs-snapshot.json emacs
-	git reset # make sure we aren't commiting anything else
-	git add emacs/nixpkgs-snapshot.json
-	if ! git diff --cached --exit-code  --quiet; \
-		then git commit -m "$(basename $(pwd)): update nixpkgs snapshot"; \
-		else echo "nothing to commit"; \
-		fi
 
 mr:
     mr -d {{home}} update
