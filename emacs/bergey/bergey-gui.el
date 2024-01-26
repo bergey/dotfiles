@@ -204,4 +204,6 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   )
 (setcdr (assoc 'continuation fringe-indicator-alist) '(small-left-arrow small-right-arrow))
 (setcdr (assoc 'truncation fringe-indicator-alist) '(small-left-arrow small-right-arrow))
+(bind-key "C-x x f" #'follow-mode)
+
 (provide 'bergey-gui)
