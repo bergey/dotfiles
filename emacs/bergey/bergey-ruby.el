@@ -97,4 +97,12 @@
   (kill-new (s-replace-regexp "^.*spec/" "bundle exec rspec spec/" (buffer-file-name)))
   )
 
+(use-package rubocop :ensure t
+  :config
+    (add-hook 'ruby-mode-hook #'rubocop-mode)
+    (setq rubocop-prefer-system-executable t)
+  ;; maybe also rubocop-format-current-file ?
+  :bind (:map ruby-mode-map ("C-c C-," . rubocop-autocorrect-current-file))
+  )
+
 (provide 'bergey-ruby)
