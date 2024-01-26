@@ -61,7 +61,6 @@
   :hostmode 'poly-happy-hostmode
   :innermodes '(poly-happy-haskell-innermode))
 
-(add-to-list 'auto-mode-alist '("\\.y\\'" . poly-happy-mode))
-
+(add-to-list 'auto-mode-alist '("\\.y$\\'" . poly-happy-mode))
 
 (provide 'happy-mode)
