@@ -208,20 +208,6 @@
 (setq org-refile-targets '((org-agenda-files :maxlevel . 2)))
 (setq org-refile-use-outline-path t)
 
-(use-package org-trello :ensure t
-  :commands org-trello org-trello-mode
-  :config
-  ;; (setq org-trello-files '("~/records/org-mode/cb.org"))
-  (add-to-list 'auto-mode-alist '("\\.trello$" . org-mode))
-
-;; add a hook function to check if this is trello file, then activate the org-trello minor mode.
-(add-hook 'org-mode-hook
-          (lambda ()
-            (let ((filename (buffer-file-name (current-buffer))))
-              (when (and filename (string= "trello" (file-name-extension filename)))
-              (org-trello-mode)))))
-)
-
 ;; collapse headers when entering new file
 (setq
  org-agenda-inhibit-startup nil

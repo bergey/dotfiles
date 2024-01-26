@@ -50,7 +50,7 @@
    '(notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags))
  '(org-export-backends '(ascii html icalendar latex md odt confluence))
  '(package-selected-packages
-   '(rubocop feature-mode ox-reveal terraform-mode robe ruby-test-mode rspec-mode add-node-modules-path counsel ledger-mode w3m default-text-scale smart-mode-line-powerline-theme smart-mode-line org-trello org-evil org-cliplink nov notmuch nix-mode move-text merlin kotlin-mode ivy idris-mode highlight-quoted highlight-indent-guides highlight-escape-sequences haskell-snippets haskell-mode groovy-mode google-this git-link git-annex fstar-mode fsharp-mode font-lock-studio fic-mode eyebrowse exec-path-from-shell ensime emms emmet-mode editorconfig edit-indirect dockerfile-mode diminish csv-mode color-identifiers-mode coffee-mode clojure-mode caps-lock buffer-move bison-mode bbdb auto-complete auto-compile))
+   '(rubocop feature-mode ox-reveal ruby-test-mode rspec-mode add-node-modules-path counsel w3m default-text-scale smart-mode-line-powerline-theme smart-mode-line org-evil org-cliplink nov move-text merlin kotlin-mode ivy idris-mode highlight-quoted highlight-indent-guides highlight-escape-sequences haskell-snippets haskell-mode groovy-mode google-this git-link git-annex fstar-mode fsharp-mode font-lock-studio fic-mode eyebrowse exec-path-from-shell ensime emms emmet-mode editorconfig edit-indirect dockerfile-mode diminish csv-mode color-identifiers-mode coffee-mode clojure-mode caps-lock buffer-move bison-mode bbdb auto-complete auto-compile))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    '((lexical-binding . true)

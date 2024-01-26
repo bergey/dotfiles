@@ -99,6 +99,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     restclient
     rg
     rspec-mode
+    rubocop
     ruby-test-mode
     rust-mode
     s
