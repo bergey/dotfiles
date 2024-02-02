@@ -126,8 +126,6 @@ function quiet {
     awk "{ print \$0 >> \"$1\"; dots+=1 }; dots < 80 { printf \".\" }; dots >= 80 { printf \".\n\"; dots=0 }"
 }
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/stow/google-cloud-sdk/path.bash.inc' ]; then source '/usr/local/stow/google-cloud-sdk/path.bash.inc'; fi
 
@@ -201,7 +199,5 @@ fi
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 
 unset GOPATH
-export PATH=$PATH:/usr/local/go/bin
-export PATH=/opt/homebrew/bin:$PATH
 
 command -v rbenv > /dev/null && eval "$(rbenv init - bash)"

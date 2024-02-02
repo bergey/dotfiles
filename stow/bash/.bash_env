@@ -12,15 +12,18 @@ export GOPATH=/home/$USER/.local/gocode
 
 NEW_PATH=`paste -d ':' -s - << EOF 
 $HOME/.local/bin
+$HOME/.cargo/bin
 $HOME/.nix-profile/bin
 $HOME/.nix-profile/sbin
 EOF`
 
-if [ $(uname -s) == MacOS ]; then
+if [ $(uname -s) == Darwin ]; then
    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
+/usr/local/go/bin
 /opt/local/bin
 /opt/local/sbin
-/Applications/git-annex.app/Contents/MacOS
+/opt/homebrew/bin
+$HOME/.docker/bin
 EOF`
 fi
 
@@ -41,7 +44,6 @@ else # Not NixOS, can be Linux or MacOS
 EOF`
 fi
 
-echo $NEW_PATH
 export PATH=$NEW_PATH
 unset NEW_PATH
 
