@@ -113,4 +113,10 @@
     )
 (bind-key "C-c C-o" #'bergey/ruby-rspec-outline rspec-mode-map)
 
+(defun bergey/ruby-do-outline ()
+  "occur buffer with all do block headings"
+  (interactive)
+  (occur "do$"))
+(bind-key "C-c C-d" #'bergey/ruby-do-outline)
+
 (provide 'bergey-ruby)
