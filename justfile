@@ -65,7 +65,7 @@ unstow:
   rm ~/.emacs.d
 
 emacs:
-	nix-env -if emacs/emacs.nix
+	nix-env -if emacs/emacs.nix --no-build-output
 
 mr:
     mr -d {{home}} update
