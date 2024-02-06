@@ -20,7 +20,6 @@ let
         aspellDicts.en
         atool
         bash-completion
-        bench
         brotli
         direnv
         dtach
@@ -29,13 +28,9 @@ let
         gh
         git
         git-lfs
-        gitAndTools.hub
         gnumake
         gnupg
         graphviz
-        (haskell.lib.dontCheck haskellPackages.hasktags)
-        haskellPackages.pandoc
-        haskellPackages.hlint
         (haskellPackages.callPackage sizes {})
         htop
         jq yq
@@ -47,6 +42,7 @@ let
         lrzip
         mr
         nix-prefetch-git
+        nix-tree
         nmap
         nodePackages.jsonlint
         nodePackages.degit
@@ -60,11 +56,9 @@ let
         textql
         tmux
         typos
-        w3m
         watch
         wget
         # wireshark # broken M1 2022-05-03
-        wrk
         xlsfonts
         xsv
         xz
@@ -73,7 +67,6 @@ let
         zstd
 
         # rust posix replacements / enhancements
-        amber
         bat
         choose
         du-dust # https://github.com/bootandy/dust

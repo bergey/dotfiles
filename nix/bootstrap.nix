@@ -14,8 +14,10 @@ let
     [
       cabal-install
       haskellPackages.alex
-      haskellPackages.hpack
       haskellPackages.happy
+      (haskell.lib.dontCheck haskellPackages.hasktags)
+      haskellPackages.hlint
+      haskellPackages.hpack
       stack
       zlib
       ghc
@@ -138,6 +140,13 @@ in with pkgs; {
       deno
       pkgs.python3.pkgs.jsmin
       yarn
+    ];
+  };
+
+  pandoc = mkBootstrap {
+    name = "pandoc";
+    paths = [
+      haskellPackages.pandoc
     ];
   };
 
