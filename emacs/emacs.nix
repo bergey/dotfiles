@@ -6,12 +6,7 @@ let
             inherit (snapshot) sha256;
             url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
             };
-    pkgs = import ../../code/nixpkgs {
-      config = {};
-      overlays = [ (self: super: {
-        ctags = self.universal-ctags;
-      })];
-    };
+    pkgs = import ../nix/nixpkgs.nix {};
 
 in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
 
