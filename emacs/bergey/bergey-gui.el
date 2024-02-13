@@ -173,6 +173,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (setq sml/mode-width 0)
   (sml/setup)
   (setq rm-blacklist "ElDoc\\|counsel\\|Projectile.*")
+  (setq mode-line-format (--remove (equal it '(vc-mode vc-mode)) mode-line-format))
 
   (use-package smart-mode-line-powerline-theme
     :ensure t)

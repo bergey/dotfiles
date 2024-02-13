@@ -1,4 +1,5 @@
 (use-package evil :ensure t
+  :diminish evil-collection-unimpaired-mode
   :init
   (use-package undo-fu :ensure t
     :config
