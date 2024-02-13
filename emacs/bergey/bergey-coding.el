@@ -98,7 +98,9 @@
   :config
   (eldoc-add-command
    'paredit-backward-delete
-   'paredit-close-round))
+   'paredit-close-round)
+  (setq eldoc-echo-area-display-truncation-message nil)
+  )
 
 ;; ediff customization
 (setq ediff-window-setup-function 'ediff-setup-windows-plain) ; don't spawn frame
