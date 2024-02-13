@@ -47,6 +47,7 @@ let
         nodePackages.jsonlint
         nodePackages.degit
         nodePackages.eslint
+        nodePackages.typescript-language-server
         ripgrep
         rsync
         rustup

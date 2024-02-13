@@ -53,7 +53,9 @@
    '(rubocop feature-mode ox-reveal ruby-test-mode rspec-mode add-node-modules-path counsel w3m default-text-scale smart-mode-line-powerline-theme smart-mode-line org-evil org-cliplink nov move-text merlin kotlin-mode ivy idris-mode highlight-quoted highlight-indent-guides highlight-escape-sequences haskell-snippets haskell-mode groovy-mode google-this git-link git-annex fstar-mode fsharp-mode font-lock-studio fic-mode eyebrowse exec-path-from-shell ensime emms emmet-mode editorconfig edit-indirect dockerfile-mode diminish csv-mode color-identifiers-mode coffee-mode clojure-mode caps-lock buffer-move bison-mode bbdb auto-complete auto-compile))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
-   '((lexical-binding . true)
+   '((eglot-server-programs
+      (ruby-base-mode "bundle" "exec" "solargraph" "stdio"))
+     (lexical-binding . true)
      (haskell-process-type . cabal-new-repl)
      (haskell-process-type . ghci)
      (py-shell-local-path . "./virtualenv/bin/ipython")
