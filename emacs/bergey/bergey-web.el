@@ -1,6 +1,6 @@
 ;; everything web: HTML,javascript, css
 (use-package web-mode :ensure t
-  :mode "\\.\\(p?html\\|tsx?\\|tpl\\|php\\|erb\\|mustach\\|e?jsx?\\|json\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\|tmpl\\)\\'"
+  :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\|tmpl\\)\\'"
   :config
   (progn
     (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
@@ -83,6 +83,7 @@
   (string-case (downcase (file-name-extension (buffer-file-name)))
                ("tsx" (setq prettier-parsers '(typescript)))))
 
+;; TODO delete if no longer using flycheck / web-mode
 ;; https://emacs.stackexchange.com/questions/32900/how-to-use-web-mode-engine-specific-checkers-in-flycheck
 (defun bergey/configure-web-mode-flycheck-checkers ()
   ;; in order to have flycheck enabled in web-mode, add an entry to this

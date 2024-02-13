@@ -65,15 +65,13 @@
 
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
-(use-package lsp
-  :commands lsp
-  :custom
-  (lsp-enable-symbol-highlighting nil)
-  (read-process-output-max (* 1024 1024)) ;; 1 MB in bytes
-  (gc-cons-threshold (* 100 1024 1024)) ;; 100 MB in bytes
-  (lsp-idle-delay 1) ;; in seconds
-  :config
-  (add-hook 'lsp-mode-hook (lambda () (lsp-headerline-breadcrumb-mode -1)))
+(use-package eglot
+  :ensure t
+  :defer 3
+  :hook
+  ((js-mode
+    typescript-mode
+    ) . eglot-ensure)
   )
 
 (use-package yasnippet
