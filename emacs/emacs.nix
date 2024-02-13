@@ -9,7 +9,6 @@ let
     pkgs = import ../nix/nixpkgs.nix {};
 
 in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
-
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
     add-node-modules-path
@@ -108,6 +107,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     thrift
     tide
     toml-mode
+    treesit-grammars.with-all-grammars
     typescript-mode
     unfill
     use-package
