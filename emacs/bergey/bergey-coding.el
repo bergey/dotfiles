@@ -127,6 +127,22 @@
   (f-ediff-org-showhide ediff-buffer-C 'hide-sublevels 1))
 ;; end for org-mode
 
+(use-package flymake
+  :diminish flymake-mode
+  :bind (:map flymake-mode-map
+              ;; I use M-n for window switching, so can't bind M-n / M-p
+              ("C-c ! n" . flymake-goto-next-error) ;; flycheck
+              ("C-! n" . flymake-goto-next-error) ;; shorter
+              ("C-! j" . flymake-goto-next-error) ;; shorter
+              ("C-c ! p" . flymake-goto-prev-error)
+              ("C-! p" . flymake-goto-prev-error)
+              ("C-! k" . flymake-goto-prev-error)
+              ("C-! l" . flymake-show-buffer-diagnostics)
+              ("C-! L" . flymake-show-project-diagnostics)
+              )
+  )
+
+;; TODO remove this everywhere, if flymake works well enough
 (use-package flycheck :ensure t
   :commands flycheck-mode
   :diminish flycheck-mode
