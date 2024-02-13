@@ -30,6 +30,7 @@ let
         git-lfs
         gnumake
         gnupg
+        gopls
         graphviz
         (haskellPackages.callPackage sizes {})
         htop

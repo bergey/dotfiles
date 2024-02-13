@@ -111,6 +111,7 @@
  '(mode-line-inactive ((t (:background "#222"))))
  '(sml/global ((t (:background "#005"))))
  '(mode-line ((t ("#005"))))
+ `(eglot-mode-line ((t (:foreground ,b-indigo))))
 
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
 
