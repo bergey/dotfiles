@@ -75,6 +75,14 @@ in with pkgs; {
     ];
   };
 
+  draft = mkBootstrap {
+    name = "draft";
+    paths = [
+      wasm-pack
+      yarn
+    ];
+  };
+
   erlang = mkBootstrap {
     name = "erlang";
     paths = [
