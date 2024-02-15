@@ -80,7 +80,9 @@ in with pkgs; {
     paths = [
       wasm-pack
       yarn
+      clang
     ];
+    LIBCLANG_PATH = "${pkgs.llvmPackages.libclang.lib}/lib";
   };
 
   erlang = mkBootstrap {
