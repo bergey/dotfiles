@@ -25,7 +25,7 @@ bootstrap:
   nix-build nix/bootstrap.nix
   rm result*
 
-prandtl: update global emacs os-update
+prandtl: global emacs os-update
 
 os:
   sudo nixos-rebuild switch
