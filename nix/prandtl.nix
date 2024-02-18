@@ -127,7 +127,8 @@ virtualisation.docker.enable = true;
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    layout = "dvorak";
+    layout = "us";
+    xkbVariant = "dvorak";
     exportConfiguration = true;
 
     # Enable touchpad support.
@@ -183,7 +184,7 @@ virtualisation.docker.enable = true;
      extraGroups = [ "audio" "wheel" "networkmanager" "docker" "dialout" ];
    };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     gentium
     inconsolata
     noto-fonts
