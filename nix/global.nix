@@ -35,6 +35,7 @@ let
         (haskellPackages.callPackage sizes {})
         htop
         jq yq
+        jujutsu
         just
         kondo
         kubectl
