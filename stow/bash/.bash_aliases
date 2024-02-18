@@ -79,6 +79,8 @@ alias olaf_register='kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin
 alias olaf_redirect='kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-redirect-service'
 alias sweeney_register='kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-registration-service'
 alias sweeney_redirect='kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-redirect-service'
+alias usw_register='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-registration-service'
+alias usw_redirect='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-redirect-service'
 
 alias vm='gcloud compute instances'
 alias gssh='gcloud compute ssh --ssh-flag=-A'
