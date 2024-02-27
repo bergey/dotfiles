@@ -37,6 +37,7 @@
  '(ediff-current-diff-A ((t (:foreground"light gray" :background "#553333"))))
  '(ediff-current-diff-B ((t (:foreground"light gray" :background "#335533"))))
  '(smerge-refined-added ((t (:foreground"#005000"))))
+ '(eglot-highlight-symbol-face ((t (:inherit nil) (:underline t))))
 
  `(font-lock-builtin-face ((((class color) (min-colors 89)) (:foreground ,b-indigo))))
  `(font-lock-comment-face ((t (:foreground ,dark-red))))
