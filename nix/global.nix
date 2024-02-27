@@ -61,7 +61,7 @@ let
         typos
         watch
         wget
-        # wireshark # broken M1 2022-05-03
+        wireshark
         xlsfonts
         xsv
         xz
