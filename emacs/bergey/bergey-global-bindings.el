@@ -27,11 +27,21 @@
  ("C-. C-f" . find-file-at-point)
  )
 
+(defun bergey/ivy-switch-buffer-regex (regex)
+  (ivy-read "switch to buffer: " #'internal-complete-buffer :action #'ivy--switch-buffer-action
+            :predicate (lambda (s) (s-matches? regex (car s)))))
+
+(defun bergey/switch-buffer-magit ()
+  (interactive)
+  (bergey/ivy-switch-buffer-regex "^magit:"))
+
 ;; Jump to various buffers
 (bind-keys* :prefix-map bergey/jump-keymap
             :prefix "C-. b"
             ("u" . erc-iswitchb)
-            ("o" . org-switchb))
+            ("o" . org-switchb)
+            ("g" . bergey/switch-buffer-magit)
+            )
 
 (defmacro bind-keys-switch-buffer (bindings &optional prefix-map)
   "Define named functions to switch to the given buffers, and
