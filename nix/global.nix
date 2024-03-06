@@ -14,6 +14,20 @@ let
       inherit (bootstrap) ruby javascript;
     });
 
+    pinned_wireshark = let
+      # 2024-03-06 avoid error:
+      # cycle detected in build of '/nix/store/xxqxfjrskz4zqlngql8hf8ffldga6mbs-jasper-4.2.1.drv' in the references of output 'lib' from output 'out'
+      nixpkgs = let
+            owner = "NixOS";
+            repo = "nixpkgs";
+            rev = "244ee5631a7a39b0c6bd989cdf9a1326cd3c5819";
+        in builtins.fetchTarball {
+          sha256 = "15bwld8xg790zsf1h6v8vp87rkizzr6myqv0451r75rgpvc2h2qn";
+          url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
+        };
+      pkgs = import nixpkgs {};
+    in pkgs.wireshark;
+
     kits = {
       global = (with pkgs; [
         aspell
@@ -61,7 +75,7 @@ let
         typos
         watch
         wget
-        wireshark
+        pinned_wireshark
         xlsfonts
         xsv
         xz
