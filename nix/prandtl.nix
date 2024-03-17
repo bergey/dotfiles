@@ -270,4 +270,6 @@ virtualisation.docker.enable = true;
     ];
   };
 
+  services.clickhouse.enable = true;
+
 }
