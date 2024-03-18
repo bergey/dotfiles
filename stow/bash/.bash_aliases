@@ -82,7 +82,7 @@ alias sweeney_redirect='kubectl --context k8s.region-001.s-use-1.braze.com-opsen
 alias usw_register='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-registration-service'
 alias usw_redirect='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-redirect-service'
 
-alias first_pod="awk 'NR > 1 && !/nginx/ { print \$1; }'"
+alias first_pod="awk 'NR > 1 && !/nginx/ { print \$1; exit 0;}'"
 alias deploy_image='jq -r .spec.template.spec.containers[0].image'
 alias pod_image='jq -r .spec.containers[0].image'
 alias deploy_container='jq .spec.template.spec.containers[0]'
