@@ -1,8 +1,6 @@
 let
     pkgs = import ./nixpkgs.nix {};
 
-    sizes = import ./sizes.nix {inherit pkgs;};
-
     bootstrap = import ./bootstrap.nix {inherit pkgs;};
     # minimal derivation, ensures that we depend on specific bootstrap envs
     bootstrap-prebuild = with pkgs; (derivation {
@@ -46,7 +44,6 @@ let
         gnupg
         gopls
         graphviz
-        (haskellPackages.callPackage sizes {})
         htop
         jq yq
         jujutsu
