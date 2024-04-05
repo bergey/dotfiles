@@ -64,7 +64,7 @@
 (measure-time "happy-mode"
  (use-package happy-mode
    ;; TODO distinguish happy from all other yacc-like tools
-   :mode "\\.y"))
+   :mode "\\.y\\'"))
 
 (if (eq system-type 'windows-nt)
     (time-package 'bergey-windows))
