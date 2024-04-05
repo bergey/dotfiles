@@ -53,6 +53,7 @@
 ;; in lisp modes.
 ;; ----------------------------------------------------------------------------
 (use-package move-text :ensure t
+  ;; TODO evil bindings?
   :bind ("M-S-<up>" . move-text-up)
   :bind ("M-S-<down>" . move-text-down))
 
@@ -105,10 +106,6 @@
     :files "ruby"
     :flags ("-g" "'!*_spec.rb'")
     )
-  )
-
-(use-package deadgrep
-  :bind ("M-g d" . deadgrep)
   )
 
 (use-package editorconfig :ensure t

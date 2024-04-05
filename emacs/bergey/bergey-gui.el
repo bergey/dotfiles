@@ -153,12 +153,6 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (ido-everywhere -1) ;; disable
   )
 
-;; (use-package counsel :ensure t
-;;   :config
-;;   (counsel-mode)
-;;   (ivy-configure 'counsel-M-x :initial-input "test")
-;;   )
-
 (use-package diminish :ensure t
   :commands diminish
   )

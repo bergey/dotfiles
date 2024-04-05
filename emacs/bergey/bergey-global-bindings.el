@@ -38,7 +38,6 @@
 ;; Jump to various buffers
 (bind-keys* :prefix-map bergey/jump-keymap
             :prefix "C-. b"
-            ("u" . erc-iswitchb)
             ("o" . org-switchb)
             ("g" . bergey/switch-buffer-magit)
             )
@@ -67,19 +66,6 @@ bind them to the specified keys."
  (("y" . "*Ipython*")
   ("S" . "*scratch*"))
  bergey/jump-keymap)
-
-;; 2021-06-03 upstream password-store-copy is broken
-(defun bergey/password-store-copy (entry)
-  (interactive (list (password-store--completing-read t)))
-  (kill-new (auth-source-pass-get 'secret entry))
-  )
-
-(defun bergey/store-or-edit-password (arg)
-  (interactive "p")
-  (cl-case arg
-    ('4 (call-interactively 'password-store-edit))
-    (t (call-interactively 'bergey/password-store-copy)))
-  )
 
 (bind-keys*
   ("C-c C-x C-j" . org-clock-goto)
