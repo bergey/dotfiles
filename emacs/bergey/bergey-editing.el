@@ -151,7 +151,7 @@
   (interactive)
   (scroll-left (- (current-column) 1) t))
 
-(defun snake-case-region ()
+(defun snake-case ()
   (interactive)
   "convert words in region to snake_case"
   (if (use-region-p)
@@ -159,7 +159,14 @@
         (goto-char (region-beginning))
         (while (re-search-forward "[A-Z]" end)
                (replace-match (format "_%s" (downcase (match-string 0))) t))
-  ;; TODO if no region, around point (current-word) gets the text but not the bounds
-        )))
+        )
+    (save-excursion
+      (forward-word-strictly)
+      (let ((end (point)) (case-fold-search nil))
+        (backward-word-strictly)
+        (while (re-search-forward "[A-Z]" end)
+          (replace-match (format "_%s" (downcase (match-string 0))) t)))
+     )
+    ))
 
 (provide 'bergey-editing)
