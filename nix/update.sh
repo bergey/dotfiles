@@ -28,7 +28,7 @@ if [ $(jq -r .rev nixpkgs-snapshot.json) = "$REV" ]
     git reset # make sure we aren't commiting anything else
     git add nixpkgs-snapshot.json
     if ! git diff --cached --exit-code  --quiet; \
-        then git commit -m "$(basename $(pwd)): update nixpkgs snapshot"; \
+        then git commit -m "update nixpkgs snapshot"; \
         else echo "nothing to commit"; \
         fi
 fi
