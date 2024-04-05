@@ -86,15 +86,12 @@
   (persp-mode))
 
 (use-package projectile :ensure t
-  :commands (projectile-mode projectile-find-file)
   :bind (:map projectile-mode-map
               ("C-c p" . projectile-command-map)
               ("M-o" . projectile-command-map)
               :map projectile-command-map
               ("$ b" . projectile-switch-to-buffer-other-window)
               ("$ f" . projectile-find-file-other-window))
-  :config
-  (projectile-mode +1)
   )
 
 (use-package persp-projectile :ensure t
