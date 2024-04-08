@@ -23,6 +23,8 @@
                  bergey-environment
                  bergey-keyboard
                  bergey-gui
+                 bergey-windows
+                 bergey-mode-line
                  bergey-global-bindings
                  bergey-isearch
                  bergey-editing
@@ -53,6 +55,7 @@
                  bergey-sql
                  bergey-wifi
                  bergey-google
+                 bergey-os
                  bergey-stats
                  ))
 
@@ -67,7 +70,7 @@
    :mode "\\.y\\'"))
 
 (if (eq system-type 'windows-nt)
-    (time-package 'bergey-windows))
+    (time-package 'bergey-windows-os))
 
 (measure-time "final stuff"
               (setq dired-guess-shell-alist-user '(("\\.pdf\\'" "zathura * &")
