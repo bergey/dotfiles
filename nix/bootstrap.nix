@@ -64,6 +64,7 @@ in with pkgs; {
     name = "c";
     paths = [
       gcc
+      libtirpc
     ];
   };
 
