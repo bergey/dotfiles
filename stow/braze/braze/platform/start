@@ -11,7 +11,7 @@ if ! docker system info &> /dev/null; then
         sleep 1
     done
 fi
-docker-compose up -d || exit 1
+docker-compose up -d --force-recreate || exit 1
 
 if [[ "$1" == "docker" ]]; then
     echo "skipping Braze servers"
