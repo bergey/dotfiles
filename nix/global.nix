@@ -33,6 +33,7 @@ let
         atool
         bash-completion
         brotli
+        clickhouse
         direnv
         dtach
         editorconfig-core-c
