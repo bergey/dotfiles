@@ -61,6 +61,7 @@
               :map projectile-command-map
               ("$ b" . projectile-switch-to-buffer-other-window)
               ("$ f" . projectile-find-file-other-window))
+  :init (projectile-mode)
   )
 
 (use-package persp-projectile :ensure t
