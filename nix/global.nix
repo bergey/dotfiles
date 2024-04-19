@@ -74,6 +74,7 @@ let
         watch
         wget
         pinned_wireshark
+        wrk
         xlsfonts
         xsv
         xz
