@@ -20,7 +20,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     counsel
     csv-mode
-    deadgrep
     default-text-scale
     diminish
     direnv
@@ -36,17 +35,12 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     feature-mode
     fic-mode
     flycheck
-    flycheck-clojure
     flycheck-haskell
-    flycheck-rust
-    fsharp-mode
     fstar-mode
     git-link
     go-mode
-    google-this
     groovy-mode
     haskell-mode
-    haskell-snippets
     highlight-escape-sequences
     highlight-indent-guides
     highlight-quoted
@@ -61,24 +55,20 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     lsp-mode
     magit
     markdown-mode
-    move-text
     native-complete
     nginx-mode
     nix-mode
     nix-sandbox
     nodejs-repl
-    nov
     org-cliplink
     orgit
     origami
     ox-jira
     pandoc-mode
-    password-store
     persp-projectile
     perspective
     poly-markdown
     polymode
-    pov-mode
     powerline
     prettier
     projectile

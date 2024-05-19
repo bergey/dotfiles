@@ -1,28 +1,3 @@
-(use-package password-store :ensure t
-  :commands (password-store--completing-read)
-  :config
-  ;; TODO put this patch somewhere
-  (defun password-store--run-1 (callback &rest args)
-  "Run pass with ARGS.
-
-Nil arguments are ignored.  Calls CALLBACK with the output on success,
-or outputs error message on failure."
-  (let ((output ""))
-    (make-process
-     :name "password-store-gpg"
-     :command (cons password-store-executable (delq nil args))
-     :connection-type 'pipe
-     :stderr nil
-     :noquery t
-     :filter (lambda (process text)
-               (setq output (concat output text)))
-     :sentinel (lambda (process state)
-                 (cond
-                  ((string= state "finished\n")
-                   (funcall callback output))
-                  ((string= state "open\n") (accept-process-output process))
-                  (t (error (concat "password-store: " state)))))))))
-
 (use-package erc :ensure t
   :commands erc
   :init

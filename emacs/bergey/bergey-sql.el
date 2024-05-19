@@ -5,56 +5,13 @@
 
   (setq sql-connection-alist
         '(
-          (local-portal
-           (sql-product 'postgres)
-           (sql-user "range-data-server")
-           (sql-database "range-data-server")
-           (sql-server "localhost")
-           (sql-port 5432))
-          (kubes-beta
-           (sql-product 'postgres)
-           (sql-user "range-data-server")
-           (sql-database "range-data-server")
-           (sql-server "localhost")
-           (sql-port 54320))
-          (qa-portal
-           (sql-product 'postgres)
-           (sql-user "range-data-server")
-           (sql-database "range-data-server")
-           (sql-server "localhost")
-           (sql-port 54321))
           (docker-localhost
            (sql-product 'postgres)
            (sql-user "postgres")
            (sql-database "postgres")
            (sql-server "localhost")
            (sql-port 5432))
-          (load-test
-           (sql-product 'postgres)
-           (sql-user "range-data-server")
-           (sql-database "range-data-server")
-           (sql-server "localhost")
-           (sql-port 54323))
           ))
-
-  (defun sql-kubes-beta ()
-    (interactive)
-    (bergey/password-store-copy "simspace/kubes-beta-postgres")
-    (sql-connect 'kubes-beta))
-
-  (defun sql-scalability ()
-    (interactive)
-    ;; (bergey/password-store-copy "simspace/scalability-postgres")
-    (let*
-        ( (pw (shell-command-to-string "kubectl --context=scalability get secret  haskell-env -o yaml | yq .data.POSTGRES_RANGEDATA_PASSWORD -r | base64 -d") )
-          ;; (sql-connection-alist (--map (-snoc it `(sql-password ,pw)) (--filter (eq (car it) 'load-test) sql-connection-alist))) )
-      (kill-new pw) ;; not sure why setting sql-password is not working
-      (sql-connect 'load-test))))
-
-  (defun sql-qa ()
-    (interactive)
-    (bergey/password-store-copy "simspace/qa-postgres")
-    (sql-connect 'qa-portal))
 
   (defvar my-sql-replacements nil)
   (make-variable-buffer-local 'my-sql-replacements)
