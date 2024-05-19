@@ -14,6 +14,7 @@ checkout = git clone 'ssh://git@github.com/bergey/resume.git' 'resume'
 
 [code/active/draft]
 checkout = git clone 'ssh://git@github.com:bergey/draft.git' 'draft'
+update = jj git push && jj git fetch
 
 [code/active/scratch]
 checkout = git clone 'ssh://git@github.com/bergey/scratch.git' 'scratch'
