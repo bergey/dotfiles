@@ -84,9 +84,9 @@
 
 (setq org-directory
       (cl-case system-type
-        ('gnu/linux "~/records/org/")
-        ('darwin "~/records/org/")
-        ('windows-nt (format  "c:/Users/%s/records/org/" (user-login-name)))
+        (gnu/linux "~/records/org/")
+        (darwin "~/records/org/")
+        (windows-nt (format  "c:/Users/%s/records/org/" (user-login-name)))
         ))
 
 (defun in-org-directory (fn)

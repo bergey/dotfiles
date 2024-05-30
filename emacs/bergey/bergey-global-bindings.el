@@ -9,8 +9,8 @@
   (interactive "p")
   (insert (format-time-string
            (cl-case arg
-             ('16 "%Y-%m-%dT%H:%M:%S")
-             ('4 "%Y-%m-%d %H:%M:%S")
+             (16 "%Y-%m-%dT%H:%M:%S")
+             (4 "%Y-%m-%d %H:%M:%S")
              (t "%Y-%m-%d")))))
 
 (override-global-mode t)
