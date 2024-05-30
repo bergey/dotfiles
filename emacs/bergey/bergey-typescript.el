@@ -26,7 +26,7 @@
           '(whitespace-mode
             smartparens-strict-mode
             bergey/company-short-idle
-            setup-tide-mode
+            ;; setup-tide-mode
             ))
     )
   )
