@@ -117,7 +117,7 @@
   (bind-key "C-M-n" 'rename-shell-buffer comint-mode-map)
 
   (pcase system-type
-    (windows-nt
+    ('windows-nt
      (progn (setq explicit-shell-file-name
                   "C:/Program Files/Git/bin/bash.exe")
             (setq shell-file-name explicit-shell-file-name)
@@ -125,7 +125,7 @@
             (setenv "SHELL" shell-file-name)
             (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
             )) ;; 'windows-nt
-    (darwin
+    ('darwin
      (setq explicit-shell-file-name "~/.nix-profile/bin/bash")
      ))
 
