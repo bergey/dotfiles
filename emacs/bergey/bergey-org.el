@@ -1,5 +1,16 @@
 ; *** org mode ***
 ;;(require 'org-install)
+
+(bind-keys
+   :map org-agenda-mode-map
+   ("M-m" . nil) ;; conflicts with window switching; was org-agenda-bulk-toggle
+   :map outline-minor-mode-map
+   ("M-h" . nil) ;; was outline-promote
+   :map org-mode-map
+   ("M-n" . nil) ;; was org-move-subtree-down
+   )
+(evil-define-key 'normal org-mode-map (kbd "M-h") nil)
+
 (use-package org-clock
   :commands org-clock-in
   :config
@@ -19,10 +30,6 @@
     (interactive)
     (message (substring-no-properties (org-clock-get-clock-string)))
     )
-
-  (bind-keys :map org-agenda-mode-map
-             ("M-m" . nil) ;; conflicts with window switching; was org-agenda-bulk-toggle
-             )
   :bind ("C-. C-t" . 'bergey/org-clock-message-clock-string)
   )
 

@@ -26,6 +26,8 @@
  ("C-. d" . datestamp)
  ("C-. C-f" . find-file-at-point)
  )
+;; avoid conflict with bindings above
+(evil-define-key 'normal help-mode-map (kbd "C-o") nil)
 
 (defun bergey/ivy-switch-buffer-regex (regex)
   (ivy-read "switch to buffer: " #'internal-complete-buffer :action #'ivy--switch-buffer-action
