@@ -111,4 +111,6 @@
 
 (use-package nginx-mode)
 
+(use-package capnp-mode :ensure t)
+
 (provide 'bergey-languages)

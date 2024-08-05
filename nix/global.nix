@@ -118,6 +118,8 @@ let
 
       workstation = with pkgs; [
         bootstrap-prebuild
+        capnproto 
+        capnproto-rust
         ledger
         google-cloud-sdk
         vscode

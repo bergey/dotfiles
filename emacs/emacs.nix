@@ -13,6 +13,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     # pkgs.emacsPackages.proofgeneral_HEAD
     add-node-modules-path
     buffer-move
+    capnp-mode
     clojure-mode
     coffee-mode
     color-identifiers-mode
