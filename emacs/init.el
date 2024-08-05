@@ -24,12 +24,12 @@
                  bergey-keyboard
                  bergey-gui
                  bergey-windows
-                 bergey-mode-line
+                 bergey-evil
                  bergey-global-bindings
+                 bergey-mode-line
                  bergey-isearch
                  bergey-editing
                  bergey-unicode
-                 bergey-evil
                  ;; org mode
                  bergey-org
                  ;; programming
