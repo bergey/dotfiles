@@ -1,5 +1,6 @@
 ; *** org mode ***
-;;(require 'org-install)
+
+(require 'org-agenda)
 
 (bind-keys
    :map org-agenda-mode-map
