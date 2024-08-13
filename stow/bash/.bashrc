@@ -222,6 +222,11 @@ function url_prod {
     kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-registration-service $@
 }
 
+function docker_prune {
+    docker ps -a | awk 'NR > 1 { print $1; }' | xargs docker stop
+    docker ps -a | awk 'NR > 1 { print $1; }' | xargs docker rm
+}
+
 if type kustomize 2> /dev/null
 then source <(kustomize completion bash)
 fi
