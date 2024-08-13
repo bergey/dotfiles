@@ -111,3 +111,6 @@ checkout = git clone 'https://github.com/sorbet/sorbet.git' 'sorbet'
 
 [braze/braze-injection]
 checkout = git clone 'https://github.com/braze-inc/braze-injection.git' 'braze-injection'
+
+[braze/braze_sentry]
+checkout = git clone 'https://github.com/braze-inc/braze_sentry.git' 'braze_sentry'
