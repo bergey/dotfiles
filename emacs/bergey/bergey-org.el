@@ -115,12 +115,15 @@
       '(
         ("w" "TODO at work" tags-todo "-someday-next-administrata-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-sorting-strategy '(priority-down))
           (org-agenda-files bergey/work-agenda-files)))
         ("h" "TODO at home" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-sorting-strategy '(priority-down))
           (org-agenda-files bergey/home-agenda-files)))
         ("b" "TODO for teallabs" tags-todo "-someday-next-TODO=\"DELAY\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled))
+          (org-agenda-sorting-strategy '(priority-down))
           (org-agenda-files bergey/teal-agenda-files)))
         ("W" "agenda at work" agenda ""
          ((org-agenda-files bergey/work-agenda-files)))
