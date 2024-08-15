@@ -4,6 +4,9 @@
               ("C-c C-," . rust-format-buffer)
               ("C-c i" . bergey/rust-navigate-imports)
               ("C-c m" . bergey/rust-yank-module-name)
+              ;; flycheck-mode-map is all under C-! so can't put these there
+              ("M-j" . #'flycheck-next-error)
+              ("M-k" . #'flycheck-previous-error)
               )
   :config
   (add-hook 'rust-mode-hook #'electric-pair-local-mode)

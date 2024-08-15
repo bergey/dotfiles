@@ -149,15 +149,18 @@
               ("C-c ! n" . flymake-goto-next-error) ;; flycheck
               ("C-! n" . flymake-goto-next-error) ;; shorter
               ("C-! j" . flymake-goto-next-error) ;; shorter
+              ("M-j" . flymake-goto-next-error) ;; shorter
               ("C-c ! p" . flymake-goto-prev-error)
               ("C-! p" . flymake-goto-prev-error)
               ("C-! k" . flymake-goto-prev-error)
+              ("M-k" . flymake-goto-prev-error)
               ("C-! l" . flymake-show-buffer-diagnostics)
               ("C-! L" . flymake-show-project-diagnostics)
               )
   )
 
 ;; TODO remove this everywhere, if flymake works well enough
+;; 2024-08-15 flycheck works in Rust, I haven't gotten flymake / eglot set up yet
 (use-package flycheck :ensure t
   :commands flycheck-mode
   :diminish flycheck-mode
@@ -165,6 +168,11 @@
   ;; TODO show message in minibuffer, but truncate to fit
   (setq flycheck-display-errors-function nil)
   (flycheck-add-mode 'javascript-eslint 'web-mode)
+  ;; unset before rebinding, from docs for flycheck-keymap-prefix
+  (define-key flycheck-mode-map flycheck-keymap-prefix nil)
+  (setq flycheck-keymap-prefix (kbd "C-!"))
+  (define-key flycheck-mode-map flycheck-keymap-prefix
+              flycheck-command-map)
 )
 
 ;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column
