@@ -15,16 +15,25 @@ let
     pinned_wireshark = let
       # 2024-03-06 avoid error:
       # cycle detected in build of '/nix/store/xxqxfjrskz4zqlngql8hf8ffldga6mbs-jasper-4.2.1.drv' in the references of output 'lib' from output 'out'
-      nixpkgs = let
-            owner = "NixOS";
-            repo = "nixpkgs";
-            rev = "244ee5631a7a39b0c6bd989cdf9a1326cd3c5819";
-        in builtins.fetchTarball {
+      pkgs = import ./nixpkgs.nix {
+        snapshot = {
+          rev = "244ee5631a7a39b0c6bd989cdf9a1326cd3c5819";
           sha256 = "15bwld8xg790zsf1h6v8vp87rkizzr6myqv0451r75rgpvc2h2qn";
-          url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
         };
-      pkgs = import nixpkgs {};
+      };
     in pkgs.wireshark;
+
+    # error: builder for '/nix/store/a36sqbcyv57lgkv6kw1494n8zm95x1i0-awscli2-2.17.18.drv' failed with exit code 1;
+    # > tests/unit/customizations/logs/test_startlivetail.py::LiveTailKeyBindingsTest::test_t_key_binding
+    # >   /nix/store/kcm5282kss1mnil624lccr7y8wqg75vk-python3-3.11.9/lib/python3.11/enum.py:714: RuntimeWarning: coroutine 'AsyncMockMixin._execute_mock_call' was never awaited
+    pinned_awscli2 = let
+      pkgs = import ./nixpkgs.nix {
+        snapshot = { # 2024-08-10
+          rev = "154bcb95ad51bc257c2ce4043a725de6ca700ef6";
+          sha256 = "0gv8wgjqldh9nr3lvpjas7sk0ffyahmvfrz5g4wd8l2r15wyk67f";
+        };
+      };
+    in pkgs.awscli2;
 
     kits = {
       global = (with pkgs; [
@@ -156,7 +165,7 @@ let
       ];
 
       braze = with pkgs; [
-        awscli2
+        pinned_awscli2
         postgresql_14
         imagemagick
         snappy

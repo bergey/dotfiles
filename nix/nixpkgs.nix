@@ -1,12 +1,14 @@
-{ overlays ? [] }:
+# overlays: same as when importing nixpkgs
+# snapshot: rev & sha256 like ../nixpkgs-snapshot.json, no need to repeat repo
+{ overlays ? [], snapshot ? {} }:
 let
   # after https://vaibhavsagar.com/blog/2018/05/27/quick-easy-nixpkgs-pinning/
   # and https://github.com/obsidiansystems/obelisk/blob/91483bab786b41eb451e7443f38341124e61244a/dep/reflex-platform/default.nix
     nixpkgs =
-        let snapshot = builtins.fromJSON (builtins.readFile ../nixpkgs-snapshot.json);
-        inherit (snapshot) owner repo rev;
+        let ss = builtins.fromJSON (builtins.readFile ../nixpkgs-snapshot.json) // snapshot;
+        inherit (ss) owner repo rev;
         in builtins.fetchTarball {
-            inherit (snapshot) sha256;
+            inherit (ss) sha256;
             url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
             };
     pkgs = import nixpkgs {};   # bootstrap for config below
@@ -25,7 +27,7 @@ let
             };
             nano = super.nano.overrideAttrs (oldAttrs: {
               patches = [
-                (pkgs.fetchurl {
+                (builtins.fetchurl {
                     # fix compilation on macOS, where 'st_mtim' is unknown
                     # upstream patch not in 4.6
                     url = "https://git.savannah.gnu.org/cgit/nano.git/patch/?id=f516cddce749c3bf938271ef3182b9169ac8cbcc";
