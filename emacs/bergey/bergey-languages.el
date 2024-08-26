@@ -113,4 +113,6 @@
 
 (use-package capnp-mode :ensure t)
 
+(use-package pest-mode :ensure t)
+
 (provide 'bergey-languages)
