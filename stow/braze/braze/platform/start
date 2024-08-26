@@ -11,7 +11,9 @@ if ! docker system info &> /dev/null; then
         sleep 1
     done
 fi
-docker-compose up -d --force-recreate || exit 1
+docker ps -a | awk 'NR > 1 { print $1; }' | xargs docker stop;
+docker ps -a | awk 'NR > 1 { print $1; }' | xargs docker rm
+docker-compose up -d || exit 1
 
 if [[ "$1" == "docker" ]]; then
     echo "skipping Braze servers"
@@ -29,5 +31,4 @@ echo 'launching Braze servers'
  bundle exec sidekiq -q messaging -q data_export -q maintenance -q data_process -q default -q dashboard -q persistent -q data_process_rest | $LOG ./log-sidekiq &
  popd
  yarn --cwd dashboard start 2>&1 | $LOG ./dashboard/log-client &
- tools/whats_app/tracer.rb -p 8989 2>&1 | $LOG ./tools/whats_app/log &
  wait)
