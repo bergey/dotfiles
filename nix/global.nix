@@ -132,7 +132,7 @@ let
         ledger
         google-cloud-sdk
         vscode
-        (rWrapper.override{ packages = with rPackages; [ tidyverse ]; })
+        (rWrapper.override{ packages = with rPackages; [ tidyverse promr ]; })
       ];
 
       linux-workstation = with pkgs; [
