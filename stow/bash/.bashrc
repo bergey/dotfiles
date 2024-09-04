@@ -77,12 +77,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-if [ -d ~/.nix-profile/etc/bash_completion.d ]; then
-   for f in ~/.nix-profile/etc/bash_completion.d/*; do
-       . $f
-   done
-fi
-
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
