@@ -169,7 +169,6 @@ let
         postgresql_14
         imagemagick
         snappy
-        terraform
         kops
         cmake
         sops
