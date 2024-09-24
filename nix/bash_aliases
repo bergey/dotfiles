@@ -7,7 +7,7 @@ export NIX_PATH="nixos=${HOME}/code/nixpkgs:nixpkgs=${HOME}/code/nixpkgs"
 alias n='nix-env'
 alias nix-version='nix-instantiate --eval -E "(import <nixpkgs> {}).lib.version"'
 
-function ngc {
+function nix-gc {
     sudo nix-collect-garbage --delete-older-than $1
 }
 

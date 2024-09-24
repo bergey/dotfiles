@@ -47,8 +47,6 @@ fi
 export PATH=$NEW_PATH
 unset NEW_PATH
 
-export NIX_PATH=$HOME/.nix-defexpr/channels
-
 EDITOR='emacsclient'; export EDITOR
 # export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 # export JENAROOT=/usr/local/stow/apache-jena-2.11.

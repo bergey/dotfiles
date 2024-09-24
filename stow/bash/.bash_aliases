@@ -32,10 +32,11 @@ alias 'stack-all-dependencies'="stack ls dependencies | sed 's/ /-/' | grep  \"$
 alias 'stack-build=stack build --test --no-run-tests'
 
 # git
+alias forcepush='git push --force-with-lease'
 alias shortlog='git log --pretty=format:"%ai %s"'
 # report directories (and files, uselessly) in the current dir not registered with mr
+# only works if .mrconfig is in this dir, not a parent directory
 alias mrdiff='diff <(ls) <(sed -nE "s/\[(.*)\]/\1/p" .mrconfig | sort)'
-alias forcepush='git push --force-with-lease'
 
 # 'system' utils
 alias serve='python3 -m http.server'
@@ -44,11 +45,11 @@ alias screenshot='import -window root $(date +%F)-screenshot.jpg'
 alias lock='xscreensaver-command --lock'
 alias trr=transmission-remote
 
+# python
 alias 'make-virtualenv'='virtualenv virtualenv --prompt "($(basename $(pwd))) "'
-
-# file / application shortcuts
 alias pylab='ipython --pylab'
 
+# backups
 alias snapshot='sudo zfs snapshot zpool/crypt/home@$(date -u +%FT%TZ)'
 alias backup='borg create /mnt/babel/$(hostname)::$(date +%F) ~ --exclude sh:**/.stack-work --exclude sh:**/.stack --one-file-system'
 
@@ -58,6 +59,16 @@ alias listeners='lsof -i -P | headgrep LISTEN'
 alias k=kubectl
 alias kl='kubectl --context=local'
 alias d=docker
+
+alias first_pod="awk 'NR > 1 && !/nginx/ { print \$1; exit 0;}'"
+alias deploy_image='jq -r .spec.template.spec.containers[0].image'
+alias pod_image='jq -r .spec.containers[0].image'
+alias deploy_container='jq .spec.template.spec.containers[0]'
+
+alias vm='gcloud compute instances'
+alias gssh='gcloud compute ssh --ssh-flag=-A'
+
+alias json_lines='jq -r ".[]"'
 
 # Braze environments
 alias olaf='kubectl --context=k8s.cluster-001.d-use-1.braze.com-opsengineer'
@@ -84,15 +95,5 @@ alias usw_register='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer
 alias usw_redirect='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-redirect-service'
 alias eu_webhook='kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n backup-webhook'
 alias us_webhook='kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n backup-webhook'
-
-alias first_pod="awk 'NR > 1 && !/nginx/ { print \$1; exit 0;}'"
-alias deploy_image='jq -r .spec.template.spec.containers[0].image'
-alias pod_image='jq -r .spec.containers[0].image'
-alias deploy_container='jq .spec.template.spec.containers[0]'
-
-alias vm='gcloud compute instances'
-alias gssh='gcloud compute ssh --ssh-flag=-A'
-
-alias json_lines='jq -r ".[]"'
 
 . ~/dotfiles/nix/bash_aliases
