@@ -51,7 +51,7 @@ x = 0
 y = 0
 
 [font.normal]
-family = "Iosevka Term"
+family = "Inconsolata"
 style = "Extralight"
 
 [font.offset]
