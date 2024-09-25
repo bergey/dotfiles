@@ -54,12 +54,7 @@
   # Set your time zone.
   time.timeZone = "UTC";
 
-#  virtualisation.xen = {
-#    enable = true;
-#    domain0MemorySize = 8192;
-#  };
 virtualisation.docker.enable = true;
-
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
