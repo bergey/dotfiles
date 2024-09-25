@@ -58,3 +58,4 @@ snippets/*/.yas-compiled-snippets.el
 /emacs/.cache/
 /emacs/projectile.cache
 .DS_Store
+/nix/wireless-networks.nix

@@ -31,15 +31,30 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "apfs" "zfs" ];
-  networking.hostId = "a9d1a9c2"; # required for ZFS
 
-  networking.hostName = "prandtl"; # Define your hostname.
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s25.useDHCP = true;
-  networking.interfaces.wlp3s0.useDHCP = true;
+  networking = {
+    hostName = "prandtl"; # Define your hostname.
+    hostId = "a9d1a9c2"; # required for ZFS
+    interfaces = {
+      # Per-interface useDHCP will be mandatory in the future, so this generated config
+      # replicates the default behaviour.
+      enp0s25.useDHCP = true;
+      wlp3s0.useDHCP = true;
+    };
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    useDHCP = false;
+    wireless = {
+      enable = true;
+      userControlled.enable = true;
+      # contains passwords, not part of public git repo
+      networks = import ./wireless-networks.nix;
+    };
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
+  };
 
     # Select internationalisation properties.
     i18n = {
@@ -110,11 +125,6 @@ virtualisation.docker.enable = true;
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -128,10 +138,10 @@ virtualisation.docker.enable = true;
 
     # Enable touchpad support.
     libinput.enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+  };
+  programs.sway = {
+    enable = true;
+    extraPackages = (with pkgs; [ swaylock swayidle bemenu networkmanager]);
   };
 
 
