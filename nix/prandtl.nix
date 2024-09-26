@@ -49,11 +49,12 @@
       # contains passwords, not part of public git repo
       networks = import ./wireless-networks.nix;
     };
+    hosts = {
+        "127.0.0.1" = [ "grafana" "prometheus" ];
+    };
     # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
+    firewall.allowedTCPPorts = [ 80 ];
+    # firewall.allowedUDPPorts = [ ... ];
   };
 
     # Select internationalisation properties.
@@ -233,23 +234,28 @@ virtualisation.docker.enable = true;
     enable = true;
     settings.server = {
       domain = "spaceways.home";
-      # root_url = "http://prandtl.spaceways.home/grafana/";
       http_port = 3000;
       addr = "127.0.0.1";
     };
   };
 
   # not working
-  # services.nginx = {
-  #   enable = true;
-  #   virtualHosts."prandtl.spaceways.home" = {
-  #     serverAliases = [ "localhost" ];
-  #     locations."/grafana" = {
-  #       proxyPass = "http://127.0.0.1:3000";
-  #       proxyWebsockets = true;
-  #     };
-  #   };
-  # };
+  services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "prometheus" = {
+        serverAliases = [ "localhost" ];
+        locations."/" = {
+            proxyPass = "http://localhost:9001";
+          };
+      };
+      "grafana" = {
+        locations."/" = {
+          proxyPass = "http://localhost:3000/";
+        };
+      };
+    };
+  };
 
   services.prometheus = {
     enable = true;
