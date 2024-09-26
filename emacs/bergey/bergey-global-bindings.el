@@ -5,13 +5,21 @@
   (interactive)
   (shell-command "date"))
 
+(defun iso-time-formats (arg)
+  (cl-case arg
+    (16 "%Y-%m-%dT%H:%M:%S")
+    (4 "%Y-%m-%d %H:%M:%S")
+    (t "%Y-%m-%d")))
+
 (defun datestamp (arg)
   (interactive "p")
   (insert (format-time-string
-           (cl-case arg
-             (16 "%Y-%m-%dT%H:%M:%S")
-             (4 "%Y-%m-%d %H:%M:%S")
-             (t "%Y-%m-%d")))))
+           (iso-time-formats arg))))
+
+(defun iso-time-at-point (arg)
+  (interactive "p")
+  (message (format-time-string (iso-time-formats arg) (thing-at-point 'number 'no-attributes)))
+  )
 
 (override-global-mode t)
 
