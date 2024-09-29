@@ -162,17 +162,6 @@ virtualisation.docker.enable = true;
             KEYBOARD_KEY_9d=esc    # right control to escape
         '';
 
-  systemd.user.services.xcape = {
-        enable = true;
-        description = "xcape";
-        serviceConfig = {
-            PartOf = [ "graphical-session.target" ];
-            ExecStart = "${pkgs.xcape}/bin/xcape -e 'Alt_L=Escape;Alt_R=Escape'";
-        };
-        wantedBy = [ "graphical-session.target" ];
-        after = [ "graphical-session-pre.target" ];
-  };
-
   systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
 
   services.transmission.enable = true;
