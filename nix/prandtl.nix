@@ -229,17 +229,6 @@ virtualisation.docker.enable = true;
   system.stateVersion = "21.11"; # Did you read the comment?
 
   # getting some home practice with these before trying to run in the DC
-
-  services.grafana = {
-    enable = true;
-    settings.server = {
-      domain = "spaceways.home";
-      http_port = 3000;
-      addr = "127.0.0.1";
-    };
-  };
-
-  # not working
   services.nginx = {
     enable = true;
     virtualHosts = {
@@ -254,6 +243,15 @@ virtualisation.docker.enable = true;
           proxyPass = "http://localhost:3000/";
         };
       };
+    };
+  };
+
+  services.grafana = {
+    enable = true;
+    settings.server = {
+      domain = "spaceways.home";
+      http_port = 3000;
+      addr = "127.0.0.1";
     };
   };
 
