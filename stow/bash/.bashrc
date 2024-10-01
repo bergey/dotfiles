@@ -199,6 +199,7 @@ fi
 unset GOPATH
 
 command -v rbenv > /dev/null && eval "$(rbenv init - bash)"
+command -v aws > /dev/null && eval "$(aws configure export-credentials --format env)"
 
 function url_olaf {
     kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-registration-service $@
