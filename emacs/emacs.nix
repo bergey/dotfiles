@@ -80,6 +80,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     racket-mode
     rainbow-delimiters
     rainbow-mode
+    rbs-mode
     real-auto-save
     restclient
     rg

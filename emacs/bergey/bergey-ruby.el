@@ -138,4 +138,6 @@
   (occur "do$"))
 (bind-key "C-c C-d" #'bergey/ruby-do-outline)
 
+(use-package rbs-mode)
+
 (provide 'bergey-ruby)
