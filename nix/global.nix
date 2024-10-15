@@ -131,7 +131,6 @@ let
         capnproto-rust
         ledger
         google-cloud-sdk
-        vscode
         (rWrapper.override{ packages = with rPackages; [ tidyverse promr ]; })
       ];
 
@@ -172,7 +171,6 @@ let
         kops
         cmake
         sops
-        vscode
       ];
     };
 
