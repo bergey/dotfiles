@@ -10,6 +10,7 @@
           flycheck-mode
           whitespace-mode
           ))
+  :bind (:map ruby-mode-map ("M-." . bergey/ruby-rg-definition))
   )
 
 (use-package inf-ruby
@@ -98,6 +99,23 @@
   (kill-new (s-replace-regexp "^.*spec/" "bundle exec rspec spec/" (buffer-file-name)))
   )
 (bind-key "C-c r" #'bergey/ruby-yank-rspec-command rspec-mode-map)
+
+(defun bergey/ruby-rg-definition ()
+  (interactive)
+  (let ((case-fold-search nil )
+        (table (copy-syntax-table (syntax-table))))
+    (modify-syntax-entry ?_ "w" table)
+    (with-syntax-table table
+      (let* ((name (thing-at-point 'word 'no-attributes))
+             (is-const (s-matches? "^[A-Z_]+$" name))
+             (is-class (s-matches? "^[A-Z]" name))
+             (query (cond
+                     (is-const (format "%s *=" name))
+                     (is-class (format "(class|module) %s" name))
+                     (t (format "def (self.)?%s" name)))))
+        (message "%s" query)
+        (rg-run query "ruby" (rg-project-root buffer-file-name) )
+        ))))
 
 (use-package rubocop :ensure t
   :config
