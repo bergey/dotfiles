@@ -40,6 +40,5 @@
 [pull]
 	ff = only
 
-# per Braze golang docs
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+[url "ssh://git@github.com/Appboy/*,github.com/braze-inc/*"]
+	insteadOf = https://github.com/Appboy/*,github.com/braze-inc/*
