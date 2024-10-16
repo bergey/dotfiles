@@ -211,6 +211,17 @@
   :config
   (direnv-mode))
 
+(use-package dumb-jump :ensure t
+  :commands dumb-jump-xref-activate
+  :init
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  :config
+  (setq dumb-jump-force-searcher 'rg) ;; avoid git-grep
+  ;; (setq dumb-jump-debug t)
+  ;; (setq evil-goto-definition-functions '(evil-goto-definition-xref))
+  )
+(setq xref-show-definitions-function #'xref-show-definitions-completing-read)
+
 (provide 'bergey-coding)
 
 ;; Local Variables:

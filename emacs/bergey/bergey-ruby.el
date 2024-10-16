@@ -10,7 +10,7 @@
           flycheck-mode
           whitespace-mode
           ))
-  :bind (:map ruby-mode-map ("M-." . bergey/ruby-rg-definition))
+  ;; :bind (:map ruby-mode-map ("M-." . bergey/ruby-rg-definition))
   )
 
 (use-package inf-ruby
