@@ -40,5 +40,8 @@
 [pull]
 	ff = only
 
-[url "ssh://git@github.com/Appboy/*,github.com/braze-inc/*"]
-	insteadOf = https://github.com/Appboy/*,github.com/braze-inc/*
+[url "git@github.com:Appboy/"]
+	insteadOf = https://github.com/Appboy/
+
+[url "git@github.com:braze-inc/"]
+	insteadOf = https://github.com/braze-inc/
