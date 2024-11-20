@@ -35,6 +35,15 @@ let
       };
     in pkgs.awscli2;
 
+    pinned_r = let
+      pkgs = import ./nixpkgs.nix {
+        snapshot = { # 2024-11-20
+          rev = "85f7e662eda4fa3a995556527c87b2524b691933";
+          sha256 = "1p8qam6pixcin63wai3y55bcyfi1i8525s1hh17177cqchh1j117";
+        };
+      };
+    in pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ tidyverse promr ]; };
+
     kits = {
       global = (with pkgs; [
         aspell
@@ -131,7 +140,7 @@ let
         capnproto-rust
         ledger
         google-cloud-sdk
-        (rWrapper.override{ packages = with rPackages; [ tidyverse promr ]; })
+        pinned_r
       ];
 
       linux-workstation = with pkgs; [
