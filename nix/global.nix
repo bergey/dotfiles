@@ -21,6 +21,15 @@ let
       };
     in pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ tidyverse promr ]; };
 
+    pinned_wireshark = let
+      pkgs = import ./nixpkgs.nix {
+        snapshot = { # 2024-11-20
+          rev = "8edf06bea5bcbee082df1b7369ff973b91618b8d";
+          sha256 = "0zwkwkiifcbzsmfn932nkgvhaj91n3hqg05fqss8s79bdwk6w35i";
+        };
+      };
+    in pkgs.wireshark;
+
     kits = {
       global = (with pkgs; [
         aspell
@@ -68,7 +77,7 @@ let
         typos
         watch
         wget
-        wireshark
+        pinned_wireshark
         wrk
         xlsfonts
         xsv
