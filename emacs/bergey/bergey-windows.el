@@ -52,7 +52,10 @@
   (persp-show-modestring nil)
   :config
   :init
-  (persp-mode))
+  (persp-mode)
+  ;; this takes ~10s, which is excessive, especially for temp buffers in other commands
+  (setq kill-buffer-query-functions (remove #'persp-maybe-kill-buffer kill-buffer-query-functions))
+  )
 
 (use-package projectile :ensure t
   :bind (:map projectile-mode-map
