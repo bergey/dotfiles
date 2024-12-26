@@ -12,14 +12,12 @@ let
       inherit (bootstrap) ruby javascript;
     });
 
-    pinned_r = let
+    # function to help hold back a single package from system upgrades
+    pinned = args: let
       pkgs = import ./nixpkgs.nix {
-        snapshot = { # 2024-11-20
-          rev = "85f7e662eda4fa3a995556527c87b2524b691933";
-          sha256 = "1p8qam6pixcin63wai3y55bcyfi1i8525s1hh17177cqchh1j117";
-        };
+        snapshot = {inherit (args) rev sha256;};
       };
-    in pkgs.rWrapper.override{ packages = with pkgs.rPackages; [ tidyverse promr ]; };
+    in args.package pkgs;
 
     kits = {
       global = (with pkgs; [
@@ -117,7 +115,11 @@ let
         capnproto-rust
         ledger
         google-cloud-sdk
-        pinned_r
+        (pinned {
+          package = pp: pp.rWrapper.override{ packages = with pp.rPackages; [ tidyverse promr ]; };
+          rev = "85f7e662eda4fa3a995556527c87b2524b691933";
+          sha256 = "1p8qam6pixcin63wai3y55bcyfi1i8525s1hh17177cqchh1j117";
+        })
       ];
 
       linux-workstation = with pkgs; [
