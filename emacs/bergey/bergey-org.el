@@ -224,6 +224,14 @@
  org-agenda-inhibit-startup nil
  org-startup-folded 'overview)
 
+;; parameterize in case I find other links to handle with xdg-open
+(defun org-link-set-xdg-open (scheme)
+  (org-link-set-parameters
+   scheme
+   :follow `(lambda (path) (browse-url-xdg-open (format "%s:%s" ,scheme path)))))
+;; zotero links to open an item in the app
+(org-link-set-xdg-open "zotero")
+
 ;; for xmobar org-clock
 (defun strip-text-properties(txt)
   (set-text-properties 0 (length txt) nil txt) txt)
