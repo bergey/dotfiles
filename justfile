@@ -21,11 +21,21 @@ update:
   @nix/update.sh
   # TODO only checkout newer commit of nixpkgs git repo & commit here if global rule built successfully
 
+nixpkgs-git:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    REV=$(jq -r .rev < nixpkgs-snapshot.json)
+    [ ! -d ~/code ] && mkdir ~/code
+    [ ! -d ~/code/nixpkgs ] && git clone git@github.com:NixOS/nixpkgs.git
+    cd ~/code/nixpkgs
+    git fetch -a --quiet
+    git checkout $REV
+
 bootstrap:
   nix-build nix/bootstrap.nix
   rm result*
 
-prandtl: global emacs os-update
+prandtl: global emacs nixpkgs-git os-update
 
 os:
   sudo nixos-rebuild switch

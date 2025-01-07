@@ -15,16 +15,13 @@ REV=$(curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision)
 if [ $(jq -r .rev nixpkgs-snapshot.json) = "$REV" ]
   then echo 'already on latest revision'
   else 
-    [ ! -d ~/code ] && mkdir ~/code
-    [ ! -d ~/code/nixpkgs ] && git clone git@github.com:NixOS/nixpkgs.git
-    cd ~/code/nixpkgs
-    git fetch -a --quiet
-    git checkout ${REV}
+    just git $REV
     SHA=$(nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/${REV}.tar.gz)
     cd -
     jq '{owner: "NixOS", repo: "nixpkgs", rev: $rev, sha256: $sha}' <<< '{}' \
       --arg rev $REV --arg sha $SHA \
         > nixpkgs-snapshot.json
+    just nixpkgs-git # keep local nixpkgs checkout in sync
     git reset # make sure we aren't commiting anything else
     git add nixpkgs-snapshot.json
     if ! git diff --cached --exit-code  --quiet; \
