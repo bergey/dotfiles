@@ -15,9 +15,7 @@ REV=$(curl -L https://nixos.org/channels/nixpkgs-unstable/git-revision)
 if [ $(jq -r .rev nixpkgs-snapshot.json) = "$REV" ]
   then echo 'already on latest revision'
   else 
-    just git $REV
     SHA=$(nix-prefetch-url --unpack https://github.com/NixOS/nixpkgs/archive/${REV}.tar.gz)
-    cd -
     jq '{owner: "NixOS", repo: "nixpkgs", rev: $rev, sha256: $sha}' <<< '{}' \
       --arg rev $REV --arg sha $SHA \
         > nixpkgs-snapshot.json
