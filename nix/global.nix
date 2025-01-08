@@ -138,7 +138,7 @@ let
         pavucontrol
         perlPackages.ImageExifTool
         slack
-        transmission
+        transmission_4
         xorg.xev
         zathura
         inkscape # broken M1 2022-06-16
@@ -148,7 +148,7 @@ let
       server = [];
 
       austenite = with pkgs; [
-        transmission
+        transmission_4
       ];
 
       braze = with pkgs; [
