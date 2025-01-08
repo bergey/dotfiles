@@ -231,6 +231,7 @@
    :follow `(lambda (path) (browse-url-xdg-open (format "%s:%s" ,scheme path)))))
 ;; zotero links to open an item in the app
 (org-link-set-xdg-open "zotero")
+(org-link-set-xdg-open "calibre")
 
 ;; for xmobar org-clock
 (defun strip-text-properties(txt)
