@@ -185,13 +185,13 @@
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "light gray" :weight bold))
-        ("WISH" . (:foreground "deep sky blue" :weight bold))
-        ("DELAY" . (:foreground "chocolate" :weight bold))
-        ("BLOCKED" . (:foreground "chocolate" :weight bold))
-        ("QA" . (:foreground "chocolate" :weight bold))
-        ("REVIEW" . (:foreground "chocolate" :weight bold))
-        ("WIP" . (:foreground "magenta" :weight bold))
-        ("ASSIGNED" . (:foreground "chocolate" :weight bold))
+        ("WIP" . (:foreground "#ea84fe" :weight bold))
+        ("WISH" . (:foreground "#5e84fe" :weight bold))
+        ("DELAY" . (:foreground "#8f4a31" :weight bold))
+        ("BLOCKED" . (:foreground "#8f4a31" :weight bold))
+        ("QA" . (:foreground "#8f4a31" :weight bold))
+        ("REVIEW" . (:foreground "#8f4a31" :weight bold))
+        ("ASSIGNED" . (:foreground "#8f4a31" :weight bold))
         ))
 
 (eval-after-load 'org
