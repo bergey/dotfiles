@@ -151,4 +151,26 @@ by using nxml's indentation rules."
 (use-package json-mode :ensure t
   :mode "\\.avsc")
 
+;; cucumber
+(defun picklebush (text)
+  (interactive "Mtext to match:")
+  (let ((buf (generate-new-buffer "picklebush" t)))
+    (call-process "picklebush" nil buf nil
+                  "--dir" "/Users/bergey/braze/platform/develop/dashboard/e2e/" text)
+    (xref-push-marker-stack)
+    (with-current-buffer buf
+      ;; (message "%s" (buffer-string))
+      (goto-char (point-min))
+      (search-forward "::")
+      (let ((filename (buffer-substring (point-min) (match-beginning 0)))
+            (line-number (buffer-substring (point) (point-max))))
+        (find-file-other-window filename)
+        (goto-char (point-min))
+        (beginning-of-line (string-to-number line-number))
+        ;; (message "%s ::: %s" filename line-number))
+        )
+      )
+    (kill-buffer buf)
+    ))
+
 (provide 'bergey-web)
