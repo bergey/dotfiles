@@ -3,13 +3,21 @@
 (require 'org-agenda)
 
 (bind-keys
-   :map org-agenda-mode-map
-   ("M-m" . nil) ;; conflicts with window switching; was org-agenda-bulk-toggle
-   :map outline-minor-mode-map
-   ("M-h" . nil) ;; was outline-promote
-   :map org-mode-map
-   ("M-n" . nil) ;; was org-move-subtree-down
-   )
+ :map org-agenda-mode-map
+ ("M-m" . nil) ;; conflicts with window switching; was org-agenda-bulk-toggle
+ :map outline-minor-mode-map
+ ("M-h" . nil) ;; was outline-promote
+ :map org-mode-map
+ ("M-h" . nil) ;; conflicts with window switching; was org-mark-element
+ ("M-n" . nil) ;; was org-move-subtree-down
+ ("C-c C-x C-i" . org-clock-in)
+ ("C-c C-x m" . org-mark-ring-goto)
+ ("C-M-n" . bergey/org-end-of-subtree)
+ ("M-S-a" . org-forward-sentence)
+ ("C-S-n" . org-move-item-down)
+ ("C-S-p" . org-move-item-up)
+ ("C-c C-x r" . org-refile)
+ )
 (evil-define-key 'normal org-mode-map (kbd "M-h") nil)
 
 (use-package org-clock
@@ -53,22 +61,6 @@
 (defun bergey/org-end-of-subtree ()
   (interactive)
   (org-end-of-subtree))
-
-;; TODO move this to :config does not need to run in hook
-(add-hook 'org-mode-hook
-          #'(lambda ()
-             (bind-keys :map org-mode-map
-                         ("C-c C-x C-i" . org-clock-in)
-                         ("C-c C-x m" . org-mark-ring-goto)
-                         ("C-M-n" . bergey/org-end-of-subtree)
-                         ("M-S-a" . org-forward-sentence)
-                         ("M-n" . org-move-subtree-down)
-                         ("M-p" . org-move-subtree-up)
-                         ("C-S-n" . org-move-item-down)
-                         ("C-S-p" . org-move-item-up)
-                         ("C-c C-x r" . org-refile)
-                         ("M-h" . nil) ;; conflicts with window switching; was org-mark-element
-                         )))
 
 (add-hook 'org-mode-hook #'(lambda () (diminish 'org-indent-mode)))
 
