@@ -113,6 +113,8 @@ let
         bootstrap-prebuild
         capnproto 
         capnproto-rust
+        cargo-dist
+        oranda
         ledger
         google-cloud-sdk
         (pinned {
