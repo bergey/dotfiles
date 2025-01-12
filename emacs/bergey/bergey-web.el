@@ -151,12 +151,13 @@ by using nxml's indentation rules."
 (use-package json-mode :ensure t
   :mode "\\.avsc")
 
-;; cucumber
-(defun picklebush (text)
+;; http://teallabs.org/picklebush/
+(defun picklebush (text &optional dir)
   (interactive "Mtext to match:")
-  (let ((buf (generate-new-buffer "picklebush" t)))
+  (let ((buf (generate-new-buffer "picklebush" t))
+        (directory (or dir (projectile-project-root))))
     (call-process "picklebush" nil buf nil
-                  "--dir" "/Users/bergey/braze/platform/develop/dashboard/e2e/" text)
+                  "--dir" directory text)
     (xref-push-marker-stack)
     (with-current-buffer buf
       ;; (message "%s" (buffer-string))
@@ -172,5 +173,13 @@ by using nxml's indentation rules."
       )
     (kill-buffer buf)
     ))
+
+(defun picklebush-line ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-at-bol))
+    (search-forward-regexp "Given \\|And \\|Then ")
+    (picklebush (buffer-substring (point) (point-at-eol)))))
+(bind-key "M-." #'picklebush-line feature-mode-map)
 
 (provide 'bergey-web)
