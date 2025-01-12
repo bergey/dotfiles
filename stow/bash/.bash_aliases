@@ -38,6 +38,9 @@ alias shortlog='git log --pretty=format:"%ai %s"'
 # only works if .mrconfig is in this dir, not a parent directory
 alias mrdiff='diff <(ls) <(sed -nE "s/\[(.*)\]/\1/p" .mrconfig | sort)'
 
+# jj https://github.com/jj-vcs/jj
+alias jj_push_trunk='jj bookmark move trunk --to @- && jj git push'
+
 # 'system' utils
 alias serve='python3 -m http.server'
 
