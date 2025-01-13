@@ -1,11 +1,4 @@
 let
-    nixpkgs =
-        let snapshot = builtins.fromJSON (builtins.readFile ../nixpkgs-snapshot.json);
-        inherit (snapshot) owner repo rev;
-        in builtins.fetchTarball {
-            inherit (snapshot) sha256;
-            url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
-            };
     pkgs = import ../nix/nixpkgs.nix {};
 
 in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
@@ -29,7 +22,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     edit-indirect
     editorconfig
     emmet-mode
-    erlang
     ess
     evil
     evil-collection
@@ -38,7 +30,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     fic-mode
     flycheck
     flycheck-haskell
-    fstar-mode
     git-link
     go-mode
     groovy-mode
@@ -52,15 +43,11 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     just-mode
     kotlin-mode
     ledger-mode
-    lsp-haskell
-    lsp-ivy
-    lsp-mode
     magit
     markdown-mode
     native-complete
     nginx-mode
     nix-mode
-    nix-sandbox
     nodejs-repl
     org-cliplink
     orgit
@@ -90,14 +77,11 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     ruby-test-mode
     rust-mode
     s
-    sbt-mode
-    scala-mode
     sed-mode
     smartparens
     swift-mode
     systemd
     terraform-mode
-    thrift
     tide
     toml-mode
     treesit-grammars.with-all-grammars
@@ -107,7 +91,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     w3m
     web-mode
     window-number
-    windresize
     yaml-mode
     yasnippet
   ]

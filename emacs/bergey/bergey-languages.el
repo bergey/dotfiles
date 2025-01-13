@@ -17,14 +17,6 @@
 (use-package dockerfile-mode :ensure t
   :mode "Dockerfile")
 
-;; broken 2019-09-30
-;; (use-package erlang :ensure t
-;;   :mode "\\.erl"
-;;   )
-
-(use-package fstar-mode :ensure t
-  :mode "\\.fst")
-
 (use-package groovy-mode :ensure t
   :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
 
@@ -60,29 +52,12 @@
     (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
     )
 
-;; scala
-(use-package scala-mode :ensure t
-  ;; :ensure sbt-mode
-  ;; :ensure ensime
-  :mode ("\\.scala\'" . scala-mode)
-  :config
-    (use-package sbt-mode :ensure t)
-    (use-package ensime :ensure t) ;; 2014-07-30 upstream broken
-    (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-    (add-hook 'scala-mode-hook 'whitespace-mode))
-
-;; TODO 2022-06-08 remove? Only used at SimSpace
-;; (use-package soutei-mode)
-
 (use-package swift-mode :ensure t
   :mode "\\.swift"
   )
 
 (use-package systemd :ensure t
   :mode "\\.service\\|\\.unit")
-
-(use-package thrift :ensure t
-  :mode ("\\.thrift\\'" . thrift-mode))
 
 (use-package yaml-mode :ensure t
   :mode "\\.yaml$\\|\\.yml$"
