@@ -145,34 +145,47 @@ by using nxml's indentation rules."
   :mode "\\.avsc")
 
 ;; http://teallabs.org/picklebush/
+(defvar picklebush-processes '()
+  "an assoc list whose keys are directory names and values are emacs process objects")
+
+(defun picklebush-find-or-start-process (dir)
+  (or (cdr (assoc directory picklebush-processes))
+      (let* ((name (format "picklebush %s" dir))
+             (buf  (get-buffer-create name))
+             (process (make-process
+                       :name name
+                       :command `("picklebush" "--dir" ,dir)
+                       :buffer buf)))
+        (push (cons dir process) picklebush-processes)
+        process)))
+
 (defun picklebush (text &optional dir)
   (interactive "Mtext to match:")
-  (let ((buf (generate-new-buffer "picklebush" t))
-        (directory (or dir (projectile-project-root))))
-    (call-process "picklebush" nil buf nil
-                  "--dir" directory text)
+  (let* ((directory (or dir (projectile-project-root) (file-name-directory (buffer-file-name))))
+         (pickle-process (picklebush-find-or-start-process directory)))
+    ;; set up the callback before we send our query
+    (set-process-filter pickle-process
+                        (lambda (p response)
+                          (let* ((file-line (s-split "::" response))
+                                 (file (car file-line))
+                                 (line (string-to-number (cadr file-line))))
+                            (find-file-other-window file)
+                            (goto-char (point-min))
+                            (beginning-of-line line))))
     (xref-push-marker-stack)
-    (with-current-buffer buf
-      ;; (message "%s" (buffer-string))
-      (goto-char (point-min))
-      (search-forward "::")
-      (let ((filename (buffer-substring (point-min) (match-beginning 0)))
-            (line-number (buffer-substring (point) (point-max))))
-        (find-file-other-window filename)
-        (goto-char (point-min))
-        (beginning-of-line (string-to-number line-number))
-        ;; (message "%s ::: %s" filename line-number))
-        )
-      )
-    (kill-buffer buf)
-    ))
+    ;; now send the query
+    (cond
+     ((listp text)
+      (process-send-region pickle-process (car text) (cdr text)))
+     ((stringp text) (process-send-string pickle-process text))
+     (t (message "bad arg %s" text)))))
 
 (defun picklebush-line ()
   (interactive)
   (save-excursion
-    (goto-char (point-at-bol))
+    (goto-char (pos-bol))
     (search-forward-regexp "Given \\|And \\|Then ")
-    (picklebush (buffer-substring (point) (point-at-eol)))))
+    (picklebush (cons (point) (pos-bol 2)))))
 (bind-key "M-." #'picklebush-line feature-mode-map)
 
 (provide 'bergey-web)
