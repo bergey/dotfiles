@@ -33,4 +33,9 @@
 
 (define-key emacs-lisp-mode-map (kbd "RET") 'newline-and-indent)
 
+(defun bergey/indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+(bind-key "C-c C-," #'bergey/indent-buffer emacs-lisp-mode-map)
+
 (provide 'bergey-lisp)
