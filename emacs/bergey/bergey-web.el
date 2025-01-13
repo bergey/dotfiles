@@ -66,16 +66,16 @@
 
 (defun bergey/yas-by-file-extension ()
   (string-case (downcase (file-name-extension (buffer-file-name)))
-    ("js"  (yas-activate-extra-mode 'js-mode))
-    ("html" (yas-activate-extra-mode 'html-mode))
-    ;; ("tsx" (message "tsx")) ;; for debugging
-    )
+               ("js"  (yas-activate-extra-mode 'js-mode))
+               ("html" (yas-activate-extra-mode 'html-mode))
+               ;; ("tsx" (message "tsx")) ;; for debugging
+               )
   )
 
 (defun bergey/auto-quote-by-file-extension ()
   (if (string-match "tsx\\|jsx" (downcase (file-name-extension (buffer-file-name))))
       (setq web-mode-enable-auto-quoting nil)
-      )
+    )
   )
 
 (defun bergey/prettier-parsers-by-file-extension ()
@@ -89,8 +89,8 @@
   ;; cond that matches the web-mode engine/content-type/etc and returns the
   ;; appropriate checker.
   (cl-flet ((enable (checker)
-                  (flycheck-mode)
-                  (flycheck-select-checker checker)))
+              (flycheck-mode)
+              (flycheck-select-checker checker)))
     (string-case web-mode-content-type
                  ("jsx" (enable 'javascript-eslint))
                  ("typescript" (enable 'javascript-eslint))))
@@ -109,9 +109,9 @@
   "Colors the modeline, green success red failure"
   (interactive)
   (let ((test-result-color
-          (if (= exit-value 0)
-              "Green"
-            "Red")))
+         (if (= exit-value 0)
+             "Green"
+           "Red")))
     (set-face-background 'mode-line test-result-color)
     (run-at-time "1 sec" nil 'no-color-modeline)))
 
@@ -129,11 +129,11 @@ by using nxml's indentation rules."
   (interactive "r")
   (save-excursion
     (nxml-mode)
-      (goto-char begin)
-      (while (search-forward-regexp "\>[ \\t]*\<" nil t)
-        (backward-char) (insert "\n"))
-      (indent-region begin end))
-    (message "Ah, much better!"))
+    (goto-char begin)
+    (while (search-forward-regexp "\>[ \\t]*\<" nil t)
+      (backward-char) (insert "\n"))
+    (indent-region begin end))
+  (message "Ah, much better!"))
 
 (defun jq-line ()
   "format the current line with jq"
