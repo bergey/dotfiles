@@ -19,6 +19,7 @@
  ("C-c C-x r" . org-refile)
  )
 (evil-define-key 'normal org-mode-map (kbd "M-h") nil)
+(evil-define-key 'normal outline-mode-map (kbd "M-h") nil)
 
 (use-package org-clock
   :commands org-clock-in
