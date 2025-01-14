@@ -25,6 +25,9 @@
   (define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "Q") 'call-last-kbd-macro)
   (define-key evil-visual-state-map (kbd "Q") 'call-last-kbd-macro)
+  (bind-keys
+   :map evil-normal-state-map
+   ("s" . evil-forward-char))
 
   ;; replaces 'evil-repeat-pop-next'; I haven't decided where to rebind that
   (define-key evil-normal-state-map (kbd "M-.") nil)
