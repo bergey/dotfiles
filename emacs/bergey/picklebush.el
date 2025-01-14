@@ -1,4 +1,5 @@
 ;; http://teallabs.org/picklebush/
+;; TODO better xref integration
 (defvar picklebush-processes '()
   "an assoc list whose keys are directory names and values are emacs process objects")
 
