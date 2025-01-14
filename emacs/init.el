@@ -45,6 +45,7 @@
                  bergey-web
                  bergey-languages
                  bergey-git
+                 picklebush
                  ;; misc
                  bergey-emacsclient
                  bergey-markup
