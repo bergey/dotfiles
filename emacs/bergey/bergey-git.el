@@ -6,23 +6,21 @@
   :bind ("C-. g" . magit-status)
   :diminish auto-revert-mode
   :config
-    (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
+  (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
 
-    (bind-keys
-     ("M-g b" . magit-blame-addition)
-     ("M-g l" . magit-log-buffer-file)
-     :map magit-blame-mode-map
-     ;; mostly because RET, the default binding, is used by haskell-indentation
-     ("TAB" . magit-show-commit))
-    (bind-keys :map magit-mode-map
-               ("M-w" . nil))
-    (bind-keys :map magit-status-mode-map
-               ("'" . magit-section-show-level-1)
-               ("," . magit-section-show-level-2)
-               ("." . magit-section-show-level-4)
-               ("M-n" . nil) ;; conflicts with window switching; was magit-section-forward-sibling
-               )
-    )
+  :bind
+  ("M-g b" . magit-blame-addition)
+  ("M-g l" . magit-log-buffer-file)
+  :map magit-blame-mode-map
+  ;; mostly because RET, the default binding, is used by haskell-indentation
+  ("TAB" . magit-show-commit)
+  :map magit-mode-map
+  ("M-w" . nil)
+  :map magit-status-mode-map
+  ("," . magit-section-show-level-2)
+  ("." . magit-section-show-level-4)
+  ("M-n" . nil) ;; conflicts with window switching; was magit-section-forward-sibling
+  )
 
 (use-package orgit :ensure t :defer t)
 
