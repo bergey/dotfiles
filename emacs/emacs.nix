@@ -51,7 +51,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     nodejs-repl
     org-cliplink
     orgit
-    origami
+    outline-indent
     ox-jira
     pandoc-mode
     persp-projectile

@@ -63,14 +63,9 @@
   :mode "\\.yaml$\\|\\.yml$"
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
-  (add-hook 'yaml-mode-hook 'outline-minor-mode)
-  (add-hook 'yaml-mode-hook
-            (lambda ()
-              ;; length of regexp match sets section depth
-              (set (make-local-variable 'outline-regexp) " *\\(- \\)?")
-              ))
-  (bind-key "TAB" 'origami-recursively-toggle-node yaml-mode-map)
-  )
+  (use-package outline-indent)
+  (add-hook 'yaml-mode-hook #'outline-indent-minor-mode)
+)
 
 (use-package coffee-mode :ensure t
   :mode "\\.js.coffee")
