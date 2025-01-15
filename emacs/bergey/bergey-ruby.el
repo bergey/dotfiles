@@ -138,6 +138,16 @@
   (occur "do$"))
 (bind-key "C-c C-d" #'bergey/ruby-do-outline)
 
+(defun bergey/ruby-align-left-class ()
+  "align the first class keyword to the leftmost column of window"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (search-forward-regexp " *\\(class\\)")
+    (goto-char (match-beginning 1))
+    (bergey/scroll-align-left))
+  )
+
 (use-package rbs-mode)
 
 (provide 'bergey-ruby)
