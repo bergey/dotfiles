@@ -5,7 +5,17 @@
     :config
     (setq evil-undo-system 'undo-fu)
     )
-  (setq evil-want-keybinding nil)
+  ;; (setq evil-want-keybinding nil)
+  :custom
+  (evil-insert-state-cursor '(bar . 1))
+  (evil-cross-lines t)
+
+  ;; This makes the cursor position more like emacs position.  It also
+  ;; makes `sp-forward-sexp' work, for some reason.  I only care about
+  ;; the latter.  In practice, with `evil-move-cursor-back' nil,
+  ;; prefer `i' to `a', so that `i<esc>' brings you back where you
+  ;; started.
+  (evil-move-cursor-back nil)
   :config
   (evil-mode 1)
 
@@ -15,7 +25,7 @@
             (define-key evil-insert-state-map (kbd key-string) nil)
             (define-key evil-visual-state-map (kbd key-string) nil)
             )
-          '("C-a" "C-d" "C-e" "C-k" "C-o" "C-w" "C-y" "C-." "TAB"))
+          '("C-o" "C-." "TAB"))
 
   (setcdr evil-insert-state-map nil)
   (define-key evil-motion-state-map (kbd "RET") nil)
@@ -42,22 +52,10 @@
   (add-hook 'org-capture-mode-hook 'evil-insert-state)
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
 
-  (setq evil-insert-state-cursor '(bar . 1))
-  (setq evil-cross-lines t)
-
-  ;; This makes the cursor position more like emacs position.  It also
-  ;; makes `sp-forward-sexp' work, for some reason.  I only care about
-  ;; the latter.  In practice, with `evil-move-cursor-back' nil,
-  ;; prefer `i' to `a', so that `i<esc>' brings you back where you
-  ;; started.
-  (setq evil-move-cursor-back nil)
-
   ;; My habit is to type `:q' when I'm done with a file, so rebind
   ;; `:q' to make that work.  I never learned vim window split
   ;; commands (using vim in terminal in `screen').
   (evil-ex-define-cmd "q" 'kill-this-buffer)
-
-  ;; (use-package org-evil :ensure t :ensure)
 
   (setq-default evil-shift-width 2))
 
