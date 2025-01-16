@@ -1,10 +1,8 @@
 ;; fonts
-(measure-time
- "gentium"
-
- (setq gentium (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
- (set-face-font 'default gentium)
- )
+(measure-time "gentium"
+              (setq gentium (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
+              (set-face-font 'default gentium)
+              )
 
 (defun monospace-mode (&optional arg)
   "Fixed-pitch default-face mode.
@@ -14,13 +12,11 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   (buffer-face-mode-invoke 'fixed-pitch arg
                            (called-interactively-p 'interactive)))
 
-(add-hook 'calendar-mode-hook 'monospace-mode)
+(add-hook 'calendar-mode-hook #'monospace-mode)
 
 ;; https://github.com/purcell/default-text-scale
-(use-package default-text-scale
-  ;; binds C-M-= and C-M--
-  :ensure t
-  )
+;; binds C-M-= and C-M--
+(use-package default-text-scale :ensure t)
 (default-text-scale-mode)
 
 ;; colors
@@ -29,12 +25,11 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;; set this before ansi-color is loaded, and it gets picked up automaticaly
 (setq ansi-color-names-vector
       '["black" "red3" "green3" "yellow3" "deep sky blue" "magenta3" "turquoise" "gray90"]
-)
+      )
 ;; C-x C-e next line when testing changes to above
 ;; (setq ansi-color-map (ansi-color-make-color-map))
 
-(use-package rainbow-mode :ensure t
-  )
+(use-package rainbow-mode :ensure t)
 
 ;; clean up interface
 (measure-time "interface"
@@ -48,12 +43,10 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
               (setq scroll-conservatively 101)
               )
 
-(setq column-number-mode t)
-
 (setq mouse-yank-at-point t) ; middle mouse button inserts at point, not at mouse pointer
 
-; better buffer names when >=2 open files (or dirs?) have same name
-; http://www.emacswiki.org/emacs/uniquify
+                                        ; better buffer names when >=2 open files (or dirs?) have same name
+                                        ; http://www.emacswiki.org/emacs/uniquify
 (require 'uniquify)
 
 ;; Tramp needs to call `ls` and `id` but it will not find them on a

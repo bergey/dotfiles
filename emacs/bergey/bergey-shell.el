@@ -116,6 +116,7 @@
   ;; TODO make this right for non-shell comint buffers
   (bind-key "C-M-n" 'rename-shell-buffer comint-mode-map)
 
+  ;; whatever lint says, the ' before windows-nt is necessary'
   (pcase system-type
     ('windows-nt
      (progn (setq explicit-shell-file-name

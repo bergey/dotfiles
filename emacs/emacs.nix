@@ -4,6 +4,9 @@ let
 in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
+  dash
+  f
+  s
     add-node-modules-path
     buffer-move
     capnp-mode

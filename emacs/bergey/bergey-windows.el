@@ -6,14 +6,14 @@
 (use-package window-number :ensure t
   ;; :commands window-number-meta-mode
   ;; :defer 3
-  :config
+  :bind
   ;; These are the dvorak letters on the same keys as 1-6 on my numeric keypad layer
-  (bind-key "M-m" (lambda () (interactive) (window-number-select 1)))
-  (bind-key "M-w" (lambda () (interactive) (window-number-select 2)))
-  (bind-key "M-v" (lambda () (interactive) (window-number-select 3)))
-  (bind-key "M-h" (lambda () (interactive) (window-number-select 4)))
-  (bind-key "M-t" (lambda () (interactive) (window-number-select 5)))
-  (bind-key "M-n" (lambda () (interactive) (window-number-select 6)))
+  ("M-m" . (lambda () (interactive) (window-number-select 1)))
+  ("M-w" . (lambda () (interactive) (window-number-select 2)))
+  ("M-v" . (lambda () (interactive) (window-number-select 3)))
+  ("M-h" . (lambda () (interactive) (window-number-select 4)))
+  ("M-t" . (lambda () (interactive) (window-number-select 5)))
+  ("M-n" . (lambda () (interactive) (window-number-select 6)))
   )
 
 (advice-add 'split-window-right :after #'balance-windows)
