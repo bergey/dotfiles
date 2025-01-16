@@ -94,6 +94,7 @@ let
         curl
         docker
         file
+        gcc
         inotifyTools
         lsof
         psmisc # pstree &c
