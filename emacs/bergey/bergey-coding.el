@@ -160,7 +160,7 @@
   )
 
 ;; TODO remove this everywhere, if flymake works well enough
-;; 2024-08-15 flycheck works in Rust, I haven't gotten flymake / eglot set up yet
+;; 2025-01-16 flycheck in Ruby, TS, as well as several languages I use rarely
 (use-package flycheck :ensure t
   :commands flycheck-mode
   :diminish flycheck-mode

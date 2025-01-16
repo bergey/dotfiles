@@ -4,27 +4,10 @@
               ("C-c C-," . rust-format-buffer)
               ("C-c i" . bergey/rust-navigate-imports)
               ("C-c m" . bergey/rust-yank-module-name)
-              ;; flycheck-mode-map is all under C-! so can't put these there
-              ("M-j" . #'flycheck-next-error)
-              ("M-k" . #'flycheck-previous-error)
               )
   :config
   (add-hook 'rust-mode-hook #'electric-pair-local-mode)
   (add-hook 'rust-mode-hook #'(lambda () (setq-local evil-shift-width 4)))
-  )
-
-(use-package flycheck-rust :ensure t
-  :commands (flycheck-rust-setup)
-  :after (rust-mode)
-  :init (add-hook 'rust-mode-hook #'flycheck-rust-setup)
-  :config
-  ;; upstream doesn't cope when there's more on the line than the subcommand
-  (defun flycheck-rust-cargo-has-command-p (command)
-    (let ((cargo (funcall flycheck-executable-find "cargo")))
-      (member command
-              (mapcar
-               (lambda (s) (car (s-split-words s)))
-               (ignore-errors (process-lines cargo "--list"))))))
   )
 
 (use-package toml-mode :ensure t
