@@ -43,6 +43,5 @@
     (goto-char (pos-bol))
     (search-forward-regexp "Given \\|And \\|Then ")
     (picklebush (cons (point) (pos-bol 2)))))
-(bind-key "M-." #'picklebush-line feature-mode-map)
 
 (provide 'picklebush)

@@ -48,6 +48,8 @@
 
 (use-package feature-mode :ensure t
   :mode "\\.feature"
+  :config
+  (bind-key "M-." #'picklebush-line feature-mode-map)
   )
 
 (defun bergey/ruby-navigate-imports ()

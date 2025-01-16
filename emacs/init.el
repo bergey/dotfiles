@@ -33,6 +33,7 @@
                  ;; org mode
                  bergey-org
                  ;; programming
+                 picklebush
                  bergey-coding
                  bergey-c
                  bergey-fsharp
@@ -45,7 +46,6 @@
                  bergey-web
                  bergey-languages
                  bergey-git
-                 picklebush
                  ;; misc
                  bergey-emacsclient
                  bergey-markup
