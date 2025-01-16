@@ -165,4 +165,13 @@
   (setq eshell-buffer-name "*shell*")
   )
 
+(use-package eat
+  :config
+  (setq eat-semi-char-non-bound-keys
+        (append
+         '([?\e?m] [?\e?w] [?\e?v] [?\e?h] [?\e?t] [?\e?n] [?\e?r])
+         eat-semi-char-non-bound-keys))
+  (eat-update-semi-char-mode-map)
+  )
+
 (provide 'bergey-shell)

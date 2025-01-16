@@ -19,6 +19,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     direnv
     dockerfile-mode
     dumb-jump
+    eat
     edit-indirect
     editorconfig
     emmet-mode
