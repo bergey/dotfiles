@@ -115,12 +115,10 @@ virtualisation.docker.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs.bash.enableCompletion = true;
   # programs.mtr.enable = true;
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   programs.ssh.startAgent = false;
 
-  hardware.pulseaudio.enable = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -133,13 +131,14 @@ virtualisation.docker.enable = true;
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "dvorak";
+    xkb = {
+      layout = "us";
+      variant = "dvorak";
+    };
     exportConfiguration = true;
-
-    # Enable touchpad support.
-    libinput.enable = true;
   };
+  # Enable touchpad support.
+  services.libinput.enable = true;
   programs.sway = {
     enable = true;
     extraPackages = (with pkgs; [ swaylock swayidle bemenu networkmanager]);
@@ -183,7 +182,7 @@ virtualisation.docker.enable = true;
     gentium
     inconsolata
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     # noto-fonts-extra # more weights?
     # tex-gyre
