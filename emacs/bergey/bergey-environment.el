@@ -8,6 +8,8 @@
 (use-package exec-path-from-shell :ensure t
   :config
   (setq exec-path-from-shell-shell-name "bash")
+  ;; PATH is set for non-interactive shell, in .bash_env
+  (setq exec-path-from-shell-arguments nil)
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 

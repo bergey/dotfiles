@@ -77,6 +77,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# ensure PATH is set for non-interactive shells, including emacs
+export BASH_ENV="$HOME/.bash_env"
+
 # does not work with spaces in filenames
 include_if_present="
 /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
