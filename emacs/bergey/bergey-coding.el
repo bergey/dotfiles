@@ -222,6 +222,11 @@
   )
 (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
 
+(use-package dash-at-point
+  :init (evil-define-key 'normal 'global "D" #'dash-at-point)
+  :bind ("M-d" . dash-at-point)
+  )
+
 (provide 'bergey-coding)
 
 ;; Local Variables:

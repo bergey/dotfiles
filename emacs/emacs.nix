@@ -17,6 +17,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     counsel
     csv-mode
+    dash-at-point
     default-text-scale
     diminish
     direnv
