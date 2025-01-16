@@ -162,4 +162,9 @@
      )
     ))
 
+(defun bergey/line-length ()
+  (interactive)
+  (message "%s" (- (pos-eol) (pos-bol))))
+(bind-key "C-. $" #'bergey/line-length)
+
 (provide 'bergey-editing)
