@@ -38,6 +38,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     go-mode
     groovy-mode
     haskell-mode
+    helpful
     highlight-escape-sequences
     highlight-indent-guides
     highlight-quoted
