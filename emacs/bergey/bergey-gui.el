@@ -35,6 +35,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 (measure-time "interface"
               (menu-bar-mode -1) ; hide menu bar
               (tool-bar-mode -1) ; hide toolbar (buttons)
+              (set-scroll-bar-mode nil)
               (fset 'yes-or-no-p 'y-or-n-p) ; reply to all prompts with one letter
               (blink-cursor-mode 0)
               (setq visible-bell 1) ; silence audio bell

@@ -5,7 +5,7 @@
     :config
     (setq evil-undo-system 'undo-fu)
     )
-  ;; (setq evil-want-keybinding nil)
+  (setq evil-want-keybinding nil)
   :custom
   (evil-insert-state-cursor '(bar . 1))
   (evil-cross-lines t)
