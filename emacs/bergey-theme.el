@@ -107,13 +107,6 @@
  '(org-tag ((((class color) (background dark)) (:background "#1f004d"))))
  '(org-table ((t (:foreground "gray70" :inherit fixed-pitch))))
 
-
- ;; (smart-)mode-line
- '(mode-line-inactive ((t (:background "#222"))))
- '(sml/global ((t (:background "#005"))))
- '(mode-line ((t ("#005"))))
- `(eglot-mode-line ((t (:foreground ,b-indigo))))
-
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
 
  '(default
@@ -177,8 +170,6 @@
 ;; (set-face-foreground 'org-headline-done nil) ;; lch 70 70 320
 
 
-(set-face-foreground 'font-lock-keyword-face b-indigo)
-(set-face-foreground 'font-lock-type-face b-violet)
 ;; (set-face-foreground 'haskell-constructor-face b-red)
 ;; (set-face-foreground 'font-lock-doc-face "#afa")
 ;; (set-face-attribute 'powerline-active1 nil :inherit nil)

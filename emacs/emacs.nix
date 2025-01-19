@@ -63,7 +63,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     perspective
     poly-markdown
     polymode
-    powerline
     prettier
     projectile
     protobuf-mode
@@ -86,6 +85,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     smartparens
     swift-mode
     systemd
+    telephone-line
     terraform-mode
     tide
     toml-mode

@@ -6,19 +6,21 @@
   (setq mode-line-format (--remove (equal it '(vc-mode vc-mode)) mode-line-format))
   )
 
-(use-package smart-mode-line
-  :ensure t
-  :defer 2
-  :config
-  (setq sml/theme 'dark)
-  (setq sml/shorten-directory t)
-  (setq sml/shorten-modes t)
-  (setq sml/mode-width 0)
-  (sml/setup)
-  (setq rm-blacklist "ElDoc\\|counsel\\|Projectile.*")
-
-  (use-package smart-mode-line-powerline-theme
-    :ensure t)
-  )
+(use-package telephone-line
+  :custom
+  (telephone-line-evil-use-short-tag t)
+  (telephone-line-lhs
+   '((nil telephone-line-evil-tag-segment)
+     (accent telephone-line-vc-segment telephone-line-erc-modified-channels-segment telephone-line-process-segment)
+     (nil telephone-line-projectile-buffer-segment)))
+  (telephone-line-rhs
+   '((nil telephone-line-flycheck-segment telephone-line-misc-info-segment)
+     (accent telephone-line-major-mode-segment)
+     (nil telephone-line-airline-position-segment)))
+  :custom-face
+  (mode-line ((t (:foreground "#ea84fe" :background "gray10"))))
+  (mode-line-inactive ((t (:background "gray20"))))
+  (telephone-line-projectile ((t (:foreground ,b-indigo))))
+  :config (telephone-line-mode t))
 
 (provide 'bergey-mode-line)
