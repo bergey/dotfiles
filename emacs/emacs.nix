@@ -4,9 +4,6 @@ let
 in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
-  dash
-  f
-  s
     add-node-modules-path
     buffer-move
     capnp-mode
@@ -17,6 +14,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     counsel
     csv-mode
+    dash
     dash-at-point
     default-text-scale
     diminish
@@ -31,6 +29,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     evil
     evil-collection
     exec-path-from-shell
+    f
     feature-mode
     fic-mode
     flycheck
@@ -54,10 +53,13 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     nginx-mode
     nix-mode
     nodejs-repl
+    org
     org-cliplink
     orgit
     outline-indent
+    ox-gfm
     ox-jira
+    ox-reveal
     pandoc-mode
     persp-projectile
     perspective
