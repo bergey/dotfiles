@@ -24,6 +24,8 @@ if [ $(uname -s) == Darwin ]; then
 /opt/local/sbin
 /opt/homebrew/bin
 $HOME/.docker/bin
+$HOME/.rbenv/shims
+$HOME/.asdf/shims
 EOF`
 fi
 

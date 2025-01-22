@@ -80,6 +80,7 @@ fi
 # ensure PATH is set for non-interactive shells, including emacs
 export BASH_ENV="$HOME/.bash_env"
 
+export ASDF_DIR=$(brew --prefix asdf)/libexec
 # does not work with spaces in filenames
 include_if_present="
 /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
@@ -93,7 +94,7 @@ $HOME/.bash_env
 /usr/local/stow/google-cloud-sdk/completion.bash.inc
 /usr/local/opt/nvm/nvm.sh
 /usr/local/opt/nvm/etc/bash_completion.d/nvm
-$HOME/.asdf/asdf.sh
+/opt/homebrew/opt/asdf/libexec/asdf.sh
 "
 for file in $include_if_present; do
     if [ -f "$file" ]; then
@@ -201,7 +202,7 @@ fi
 
 unset GOPATH
 
-command -v rbenv > /dev/null && eval "$(rbenv init - bash)"
+command -v rbenv > /dev/null && eval "$(rbenv init - --no-rehash bash)"
 command -v aws > /dev/null && eval "$(aws configure export-credentials --format env)"
 
 function url_olaf {
