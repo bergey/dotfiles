@@ -191,6 +191,8 @@ virtualisation.docker.enable = true;
       services.postgresql = {
         enable = true;
         package = pkgs.postgresql_16;
+        extensions = with pkgs.postgresql_16.pkgs; [ pgvector ];
+
         authentication = pkgs.lib.mkOverride 10 ''
             local all all trust
             host all all ::1/128 trust
