@@ -1,6 +1,7 @@
 (use-package tramp
+  :custom
+  (password-cache-expiry 3600)
   :config
-
   ;; https://gist.github.com/scjody/287f8ca88d0055b7da9969357b762e7f
   (add-to-list 'tramp-methods
                '("gcloud"
