@@ -80,7 +80,6 @@ fi
 # ensure PATH is set for non-interactive shells, including emacs
 export BASH_ENV="$HOME/.bash_env"
 
-export ASDF_DIR=$(brew --prefix asdf)/libexec
 # does not work with spaces in filenames
 include_if_present="
 /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh

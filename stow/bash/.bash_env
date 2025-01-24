@@ -22,10 +22,14 @@ if [ $(uname -s) == Darwin ]; then
 /usr/local/go/bin
 /opt/local/bin
 /opt/local/sbin
-/opt/homebrew/bin
-$HOME/.docker/bin
 $HOME/.rbenv/shims
 $HOME/.asdf/shims
+/opt/homebrew/bin
+/opt/homebrew/sbin
+/opt/homebrew/opt/asdf/libexec/bin
+/opt/homebrew/Cellar/rbenv/1.3.2/libexec/
+/opt/homebrew/opt/libpq/bin
+$HOME/.docker/bin
 EOF`
 fi
 

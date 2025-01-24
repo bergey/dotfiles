@@ -156,7 +156,6 @@ let
 
       braze = with pkgs; [
         awscli2
-        postgresql_14
         imagemagick
         snappy
         kops
