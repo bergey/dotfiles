@@ -45,7 +45,6 @@ let
         kondo
         kubectl
         lftp
-        loc
         lrzip
         mr
         nix-prefetch-git

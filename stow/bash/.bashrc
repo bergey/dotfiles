@@ -129,14 +129,15 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 eval "$(direnv hook bash)"
 
+alias loc=tokei # every few years there's a new "best" tool
 function loc-lang {
     # report lines of code in each sub-directory, in a particular language
     lang="$1"
     {     echo "LOC Directory"
           for d in $(find . -type d -maxdepth 1); do
               echo -n '*' >&2
-          count=$(loc $d | grep -i "$lang")
-          if [ $? == 0 ]; then echo "$d $count" | awk '{print $7, $1;}'; fi
+          count=$(tokei -t "$lang" "$d" | grep -i "$lang")
+          if [ $? == 0 ]; then echo "$d $count" | awk '{print $5, $1;}'; fi
           done
           echo '' >&2
     } | sort -h | column -t
