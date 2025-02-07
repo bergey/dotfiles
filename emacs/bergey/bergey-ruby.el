@@ -98,7 +98,8 @@
 (defun bergey/ruby-yank-rspec-command ()
   "copy an rspec command which can be run in the shell to run the tests in the current file"
   (interactive)
-  (kill-new (s-replace-regexp "^.*spec/" "bundle exec rspec spec/" (buffer-file-name)))
+  (let ((prefix (if (s-match "/domains/" (buffer-file-name)) "^\\(.*\\)domains/" "^\\(.*\\)spec/")))
+    (kill-new (s-replace-regexp prefix "bundle exec rspec " (buffer-file-name) nil nil 1)))
   )
 (bind-key "C-c r" #'bergey/ruby-yank-rspec-command rspec-mode-map)
 
