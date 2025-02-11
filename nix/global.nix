@@ -68,7 +68,6 @@ let
         wireshark
         wrk
         xlsfonts
-        xsv
         xz
         yaml2json
         python3.pkgs.yamllint
