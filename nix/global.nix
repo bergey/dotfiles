@@ -51,8 +51,6 @@ let
         nix-tree
         nmap
         nodePackages.jsonlint
-        nodePackages.degit
-        nodePackages.eslint
         nodePackages.typescript-language-server
         ripgrep
         rsync
