@@ -64,6 +64,9 @@
               :map projectile-command-map
               ("$ b" . projectile-switch-to-buffer-other-window)
               ("$ f" . projectile-find-file-other-window))
+  :custom
+  ;; buggy nix on macos, and the error window is annoying
+  (projectile-git-submodule-command nil)
   :init (projectile-mode)
   )
 
