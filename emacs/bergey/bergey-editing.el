@@ -167,4 +167,9 @@
   (message "%s" (- (pos-eol) (pos-bol))))
 (bind-key "C-. $" #'bergey/line-length)
 
+(defun bergey/delete-current-file ()
+  (interactive)
+  (delete-file (buffer-file-name))
+  (kill-buffer))
+
 (provide 'bergey-editing)
