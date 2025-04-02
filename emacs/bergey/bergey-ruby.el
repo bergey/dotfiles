@@ -151,6 +151,14 @@
     (bergey/scroll-align-left))
   )
 
+(define-skeleton braze-ff-company ""
+  "Feature Flipper: "
+ "FeatureFlipperStore.get(company_id).feature_on?(:" str _ ")"
+  )
+
+(define-skeleton braze-ff-global "" nil
+  "FeatureFlipperStore.global.feature_on?(:" _  ")")
+
 (use-package rbs-mode)
 
 (provide 'bergey-ruby)
