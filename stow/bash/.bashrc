@@ -215,11 +215,6 @@ function url_sweeney {
     kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-redirect-service $@
 }
 
-function  url_usw {
-    kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-registration-service $@
-    kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-redirect-service $@
-}
-
 function url_prod {
     echo US
     kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-redirect-service $@

@@ -94,8 +94,6 @@ alias olaf_register='kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin
 alias olaf_redirect='kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-redirect-service'
 alias sweeney_register='kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-registration-service'
 alias sweeney_redirect='kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-redirect-service'
-alias usw_register='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-registration-service'
-alias usw_redirect='kubectl --context k8s.test-001.d-usw-2.braze.com-opsengineer -n url-shortener-redirect-service'
 alias eu_webhook='kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n backup-webhook'
 alias us_webhook='kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n backup-webhook'
 
