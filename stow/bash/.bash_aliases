@@ -33,6 +33,7 @@ alias 'stack-build=stack build --test --no-run-tests'
 
 # git
 alias forcepush='git push --force-with-lease'
+alias git_fast='git commit -a --amend --no-edit'
 alias shortlog='git log --pretty=format:"%ai %s"'
 # report directories (and files, uselessly) in the current dir not registered with mr
 # only works if .mrconfig is in this dir, not a parent directory
