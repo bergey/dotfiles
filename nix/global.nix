@@ -63,7 +63,11 @@ let
         typos
         watch
         wget
-        wireshark
+        (pinned {
+          package = (pkgs: pkgs.wireshark);
+          rev = "18dd725c29603f582cf1900e0d25f9f1063dbf11";
+          sha256 = "0zrp7w41vqln7mmhvpb8ww6g6807bhic5c72mkqf9qh5336vc13b";
+        })
         wrk
         xlsfonts
         xz
