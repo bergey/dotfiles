@@ -77,12 +77,20 @@
 
 (use-package sed-mode :ensure t)
 
-(use-package terraform-mode :ensure t)
+(use-package terraform-mode :ensure t
+  :mode "\\.tf$"
+  )
 
-(use-package nginx-mode)
+(use-package nginx-mode
+  :mode "^nginx\\.conf$"
+  )
 
-(use-package capnp-mode :ensure t)
+(use-package capnp-mode :ensure t
+  :mode "\\.capnp$"
+  )
 
-(use-package pest-mode :ensure t)
+(use-package pest-mode :ensure t
+  :mode "\\.pest$"
+  )
 
 (provide 'bergey-languages)
