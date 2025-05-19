@@ -39,17 +39,6 @@
             (setq whitespace-line-column 120)
             ))
 
-;;----------------------------------------------------------------------------
-;; By default, shift lines up and down with M-up and M-down. When
-;; paredit is enabled, it will use those keybindings. For this reason,
-;; you might prefer to use M-S-up and M-S-down, which will work even
-;; in lisp modes.
-;; ----------------------------------------------------------------------------
-(use-package move-text :ensure t
-  ;; TODO evil bindings?
-  :bind ("M-S-<up>" . move-text-up)
-  :bind ("M-S-<down>" . move-text-down))
-
 ;; view mode bindings
 (add-hook 'view-mode-hook
           (lambda ()
@@ -101,13 +90,7 @@
     )
   )
 
-(use-package editorconfig :ensure t
-  :ensure t
-  :diminish editorconfig-mode
-  :config
-  (editorconfig-mode 1))
-
-(global-unset-key (kbd "C-t"))
+;; (global-unset-key (kbd "C-t"))
 
 ;; from https://www.reddit.com/r/emacs/comments/3vo62x/scroll_so_that_whole_paragraphs_stay_visible/
 (defun scroll-up-paragraph ()
