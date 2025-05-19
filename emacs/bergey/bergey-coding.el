@@ -76,7 +76,6 @@
   ((
     go-mode
     js-mode
-    ruby-mode
     rust-mode
     typescript-mode
     ) . eglot-ensure)
