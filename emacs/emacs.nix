@@ -22,8 +22,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     dockerfile-mode
     dumb-jump
     eat
-    edit-indirect
-    editorconfig
     emmet-mode
     ess
     evil
@@ -100,6 +98,5 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     web-mode
     window-number
     yaml-mode
-    yasnippet
   ]
   ))

@@ -89,12 +89,6 @@
   (setq eglot-menu-string "")
   )
 
-(use-package yasnippet
-  :diminish yas-minor-mode
-  :init (yas-global-mode 1)
-  :bind ("M-y" . yas-expand)
-  )
-
 (use-package highlight-quoted :ensure t
   :commands highlight-quoted-mode
   )
@@ -198,11 +192,6 @@
 
 (bind-key "C-j" #'jump-down-to-non-whitespace-char-in-same-column)
 (bind-key "C-k" #'jump-up-to-non-whitespace-char-in-same-column)
-
-(use-package edit-indirect :ensure t
-  :commands edit-indirect-region
-  :defer 10
-  )
 
 (use-package protobuf-mode :ensure t
   :mode "\\.proto\\'")
