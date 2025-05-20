@@ -51,7 +51,6 @@
                  bergey-markup
                  bergey-irc
                  bergey-shell
-                 bergey-ledger
                  bergey-dired
                  bergey-sql
                  bergey-wifi
