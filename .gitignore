@@ -61,3 +61,9 @@ snippets/*/.yas-compiled-snippets.el
 /nix/wireless-networks.nix
 /emacs/eln-cache/
 /patchdir/
+/stow/stack/.stack/pantry/
+/stow/stack/.stack/programs/
+/stow/stack/.stack/setup-exe-src/
+/stow/stack/.stack/snapshots/
+/stow/stack/.stack/stack.sqlite3
+/stow/stack/.stack/stack.sqlite3.pantry-write-lock
