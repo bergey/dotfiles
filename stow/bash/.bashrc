@@ -160,6 +160,17 @@ function stack-datelog {
     stack exec $1 2>&1 > $(datelog $1)
 }
 
+# https://stackoverflow.com/questions/547719/is-there-a-way-to-make-mv-create-the-directory-to-be-moved-to-if-it-doesnt-exis
+function mvp ()
+{
+    dir="$2" # Include a / at the end to indicate directory (not filename)
+    tmp="$2"; tmp="${tmp: -1}"
+    [ "$tmp" != "/" ] && dir="$(dirname "$2")"
+    [ -a "$dir" ] ||
+    mkdir -p "$dir" &&
+    mv "$@"
+}
+
 # commit of currently-running pod for a given deployment name
 function pod-commit (
     set -e
