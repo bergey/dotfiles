@@ -148,7 +148,6 @@ in with pkgs; {
     paths = with nodePackages; [
       pkgs.nodejs
       node2nix
-      deno
       pkgs.python3.pkgs.jsmin
       yarn
     ];
