@@ -44,3 +44,5 @@
                ((rx (group ":")) (1 "_"))
                ))
   )
+
+(provide 'prism-mode)

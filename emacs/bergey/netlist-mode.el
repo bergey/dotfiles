@@ -30,3 +30,5 @@
                ((rx (group "\n")) (1 ">"))
                ))
   )
+
+(provide 'netlist-mode)

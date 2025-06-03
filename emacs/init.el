@@ -46,6 +46,8 @@
                  bergey-web
                  bergey-languages
                  bergey-git
+                 prism-mode
+                 netlist-mode
                  ;; misc
                  bergey-emacsclient
                  bergey-markup
