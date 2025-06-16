@@ -59,4 +59,11 @@
 
   (setq-default evil-shift-width 2))
 
+(use-package evil-collection
+  ;; magit, rg, maybe dired benefit from this
+  :after evil
+  :config
+  (setq bergey/evil-collection-original-mode-list evil-collection-mode-list)
+  (evil-collection-init))
+
 (provide 'bergey-evil)
