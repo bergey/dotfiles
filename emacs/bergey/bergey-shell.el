@@ -65,26 +65,6 @@
     (setq completion-at-point-functions '(native-complete-at-point t)))
   (add-hook 'shell-mode-hook 'bergey/set-bash-completion)
 
-  ;; commenting out in favor of ivy, belowe
-  ;; leaving inline in case I want to write ivy-for-mode helper
-  ;; shortcut to select shells
-  ;; (defun ido-for-mode(prompt the-mode)
-  ;;   (switch-to-buffer
-  ;;    (ido-completing-read prompt
-  ;;                         (save-excursion
-  ;;                           (delq
-  ;;                            nil
-  ;;                            (mapcar (lambda (buf)
-  ;;                                      (when (buffer-live-p buf)
-  ;;                                        (with-current-buffer buf
-  ;;                                          (and (eq major-mode the-mode)
-  ;;                                               (buffer-name buf)))))
-  ;;                                    (buffer-list)))))))
-
-  ;; (defun ido-shell-buffer()
-  ;;   (interactive)
-  ;;   (ido-for-mode "Shell:" 'shell-mode))
-
   (defun ivy-shell-buffer ()
     (interactive)
     (let ((this-command 'ivy-shell-buffer))
