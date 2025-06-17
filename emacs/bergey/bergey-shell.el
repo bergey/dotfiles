@@ -8,9 +8,9 @@
   :bind (
          ("C-. h" . #'named-shell)
          :map shell-mode-map
-         ("C-M-n" # #'rename-shell-buffer)
+         ("C-M-n" . #'rename-shell-buffer)
          ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?
-         ("C-s" # #'comint-history-isearch-backward-regexp) ;; works in nav mode
+         ("C-s" . #'comint-history-isearch-backward-regexp) ;; works in nav mode
          ("C -c C-w" . nil)
          ("C-c C-x" . nil) ;; was comint-get-next-from-history which sounds useful
          ("M-r" . nil) ;; conflicts with window switching; was comint-history-isearch-backward-regexp
@@ -22,7 +22,6 @@
   :config
   (use-package native-complete :ensure t)
   (native-complete-setup-bash)
-
 
   (setq
    tramp-default-method "ssh"          ; uses ControlMaster
