@@ -4,14 +4,25 @@
   (defun named-shell (new-name)
     (interactive "M*shell*<_>:")
     (shell (get-buffer-create (concat "*shell*<" new-name ">"))))
-  (bind-key "C-. h" 'named-shell)
+
+  :bind (
+         ("C-. h" . #'named-shell)
+         :map shell-mode-map
+         ("C-M-n" # #'rename-shell-buffer)
+         ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?
+         ("C-s" # #'comint-history-isearch-backward-regexp) ;; works in nav mode
+         ("C -c C-w" . nil)
+         ("C-c C-x" . nil) ;; was comint-get-next-from-history which sounds useful
+         ("M-r" . nil) ;; conflicts with window switching; was comint-history-isearch-backward-regexp
+         :map comint-mode-map
+         ("<up>" . #'comint-previous-input)
+         ("<down>" . #'comint-next-input)
+         )
 
   :config
   (use-package native-complete :ensure t)
   (native-complete-setup-bash)
 
-  (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
-  (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
 
   (setq
    tramp-default-method "ssh"          ; uses ControlMaster
@@ -78,23 +89,12 @@
                 :action #'ivy--switch-buffer-action
                 :keymap ivy-switch-buffer-map
                 :caller 'ivy-switch-buffer)))
-
   (bind-key "h" 'ivy-shell-buffer bergey/jump-keymap)
-  (define-key shell-mode-map (kbd "C-c C-w") nil)
-  (define-key shell-mode-map (kbd "C-c C-x") nil) ;; was comint-get-next-from-history which sounds useful
-  ;; TODO merge above into bind-keys
-  (bind-keys :map shell-mode-map
-             ("M-r" . nil) ;; conflicts with window switching; was comint-history-isearch-backward-regexp
-             ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?
-             )
 
   (defun rename-shell-buffer (new-name)
     "rename the current buffer with the form shell<foo>"
     (interactive "M*shell*<_>:")
     (rename-buffer (concat "*shell*<" new-name ">") t))
-
-  ;; TODO make this right for non-shell comint buffers
-  (bind-key "C-M-n" 'rename-shell-buffer comint-mode-map)
 
   ;; whatever lint says, the ' before windows-nt is necessary'
   (pcase system-type
