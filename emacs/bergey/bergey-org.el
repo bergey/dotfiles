@@ -14,9 +14,11 @@
  ("C-c C-x m" . org-mark-ring-goto)
  ("C-M-n" . bergey/org-end-of-subtree)
  ("M-S-a" . org-forward-sentence)
- ("C-S-n" . org-move-item-down)
+ ("C-S-n" . org-move-item-down) ;; only working on - not * trees?
  ("C-S-p" . org-move-item-up)
  ("C-c C-x r" . org-refile)
+ ("C-S-k" . org-move-subtree-up)
+ ("C-S-j" . org-move-subtree-down)
  )
 (evil-define-key 'normal org-mode-map (kbd "M-h") nil)
 (evil-define-key 'normal outline-mode-map (kbd "M-h") nil)
