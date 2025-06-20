@@ -7,6 +7,7 @@
   :diminish auto-revert-mode
   :config
   (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))
+  (add-to-list 'magit-main-branch-names "develop")
 
   :bind
   (
@@ -40,13 +41,15 @@
       (user-error "There is not current branch"))))
 
 (use-package git-link :ensure t
-  :bind ("M-g M-l" . git-link))
+  :bind ("M-g M-l" . git-link)
+  )
 
-(defun bergey/git-link-develop ()
+;; TODO move these in to use-package above, exec on load
+(defun bergey/git-link-main ()
   (interactive)
-  (let ((git-link-default-branch "develop"))
+  (let ((git-link-default-branch (magit-main-branch)))
     (call-interactively #'git-link)))
 
-(bind-key "M-g M-d" #'bergey/git-link-develop)
+(bind-key "M-g M-d" #'bergey/git-link-main)
 
 (provide 'bergey-git)
