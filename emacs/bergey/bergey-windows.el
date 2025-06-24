@@ -45,6 +45,42 @@
     ;; ("C-. <down>" . buf-move-down)
     )
 
+;; (customize-set-variable 'display-buffer-base-action
+;;                         '((display-buffer-reuse-window display-buffer-use-same-window)
+;;                           (reusable-frames . t)))
+
+(defun bergey/display-buffer-in-direction (buffer alist)
+  "If there are fewer than N splits, split another.
+If there are already N or more windows across this frame (horizontally) use the right / left most one.
+Similar to display-buffer-in-direction but adds a window to an existing row, rather than adding an internal window"
+  (let* ((direction (or (alist-get 'direction alist) 'left))
+         (max-splits (or (alist-get 'max-splits alist) 6))
+         (root-window-or-box (car (window-tree)))
+         (target-window
+          (if (one-window-p)
+              (split-window root-window-or-box nil direction)
+            (let (
+                  (existing (cddr root-window-or-box))
+                  (window-at-side ;; actually first / last visible window of first flex-box
+                   (pcase direction
+                     ('left (nth 2 (car (window-tree))))
+                     ('right (car (last (car (window-tree))))))))
+              ;; check that root box is for horizontal splits?
+              (if (< (length existing) max-splits)
+                  (split-window  window-at-side nil direction)
+                window-at-side)))))
+    (window--display-buffer buffer target-window 'window))
+  (balance-windows-area))
+
+(setq display-buffer-alist
+      '(((derived-mode magit-status-mode)
+         (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
+         (direction . left))
+        ((derived-mode flymake-diagnostics-buffer-mode)
+         (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
+         (direction . right)))
+      )
+
 (use-package perspective
   :commands (persp-switch persp-rename)
   :custom
