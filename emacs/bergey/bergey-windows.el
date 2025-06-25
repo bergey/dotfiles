@@ -72,14 +72,20 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
     (window--display-buffer buffer target-window 'window))
   (balance-windows-area))
 
+(defun bergey/mode-in-direction (mode direction)
+  `((derived-mode ,mode)
+    (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
+    (direction . ,direction)))
+
 (setq display-buffer-alist
-      '(((derived-mode magit-status-mode)
+      `(((derived-mode magit-status-mode)
          (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
          (direction . left))
         ((derived-mode flymake-diagnostics-buffer-mode)
          (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
-         (direction . right)))
-      )
+         (direction . right))
+        ,(bergey/mode-in-direction 'org-agenda-mode 'right)
+        ))
 
 (use-package perspective
   :commands (persp-switch persp-rename)
