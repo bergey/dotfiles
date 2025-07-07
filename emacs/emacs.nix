@@ -32,6 +32,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     fic-mode
     flycheck
     flycheck-haskell
+    fsharp-mode
     git-link
     go-mode
     groovy-mode

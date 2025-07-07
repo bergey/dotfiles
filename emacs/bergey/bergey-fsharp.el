@@ -1,4 +1,4 @@
-(use-package fsharp-mode :ensure t
+(use-package fsharp-mode
   :mode "\\.fsx?"
   :config
   (add-hook 'fsharp-mode-hook 'whitespace-mode))
