@@ -35,7 +35,7 @@
 [receive]
         fsckObjects = true
 [init]
-	templateDir = /home/bergey/.git_template
+	templateDir = /Users/Daniel.Bergey/.git_template
 	defaultBranch = trunk
 [pull]
 	ff = only
