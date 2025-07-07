@@ -56,16 +56,16 @@
  '(package-selected-packages
    '(add-node-modules-path auto-compile auto-complete bbdb bison-mode
                            buffer-move capnp-mode caps-lock
-                           clojure-mode coffee-mode
+                           clojure-mode code-review coffee-mode
                            color-identifiers-mode counsel csv-mode
                            default-text-scale diminish dockerfile-mode
                            edit-indirect editorconfig
                            emacs-dir-treeview emmet-mode emms ensime
                            exec-path-from-shell eyebrowse feature-mode
                            fic-mode font-lock-studio fsharp-mode
-                           fstar-mode git-annex git-link google-this
-                           groovy-mode haskell-mode haskell-snippets
-                           highlight-escape-sequences
+                           fstar-mode git-annex git-link git-review
+                           google-this groovy-mode haskell-mode
+                           haskell-snippets highlight-escape-sequences
                            highlight-indent-guides highlight-quoted
                            idris-mode ivy kotlin-mode merlin move-text
                            nov org-cliplink org-evil ox-reveal
