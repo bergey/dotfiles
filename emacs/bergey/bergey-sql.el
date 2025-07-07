@@ -11,6 +11,13 @@
            (sql-database "postgres")
            (sql-server "localhost")
            (sql-port 5432))
+          (delivery
+           (sql-product 'postgres)
+           (sql-user "bergey")
+           (sql-database "delivery")
+           (sql-server "localhost")
+           (sql-port 15432)
+           (sql-password "password"))
           ))
 
   (defvar my-sql-replacements nil)
