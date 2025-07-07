@@ -34,7 +34,6 @@ dmb-passwords.el
 /TAGS
 /games/tetris-scores
 *.elc
-bookmarks
 emacs.bmk
 /.trello/
 /ido.last

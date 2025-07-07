@@ -1,0 +1,80 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("bergey-mode-line.el"
+ (filename . "~/dotfiles/emacs/bergey/bergey-mode-line.el")
+ (front-context-string . "  \"Optional args")
+ (rear-context-string . "e Top / All bit\n")
+ (position . 355)
+ (last-modified 26709 36963 567565 0))
+("suggested_reply_click.rb"
+ (filename . "~/braze/platform/develop/shared_code/domains/channel_sms/public/braze/channels/rcs/events/suggested_reply_click.rb")
+ (front-context-string . "# frozen_string_")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26709 32036 600644 0))
+("ledger"
+ (filename . "~/records/finances/2023-bergey.ledger")
+ (front-context-string . "\n# TODO copy tik")
+ (rear-context-string . "es:Tikun)  0.17\n")
+ (position . 975))
+("org-capture-last-stored-marker"
+ (filename . "~/records/org/braze.org")
+ (front-context-string . "** TODO read Ale")
+ (rear-context-string . "=h.hrelyjdtj0yx\n")
+ (position . 605782)
+ (last-modified 26399 44853 771690 0))
+("draft client main"
+ (filename . "~/code/active/draft/client/src/lib.rs")
+ (front-context-string . "mod client;\nmod ")
+ (rear-context-string)
+ (position . 1))
+("draft server main"
+ (filename . "~/code/active/draft/server/src/main.rs")
+ (front-context-string . "use automerge::{")
+ (rear-context-string)
+ (position . 1))
+(".bash_aliases"
+ (filename . "~/dotfiles/stow/bash/.bash_aliases")
+ (front-context-string . "# -*- mode: sh; ")
+ (rear-context-string)
+ (position . 1))
+("em"
+ (filename . "~/dotfiles/emacs/init.el")
+ (front-context-string . ";; from https://")
+ (rear-context-string)
+ (position . 1))
+("init.el"
+ (filename . "~/dotfiles/emacs/init.el")
+ (front-context-string . ";; from https://")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored"
+ (filename . "~/records/org/capture.org")
+ (front-context-string . "* TODO sponsor m")
+ (rear-context-string . "11:21] =>  0:04\n")
+ (position . 14096)
+ (last-modified 26713 39986 33278 0))
+("org-refile-last-stored"
+ (filename . "~/records/org/braze.org")
+ (front-context-string . "** TODO try agai")
+ (rear-context-string . "esting at Braze\n")
+ (position . 94387)
+ (last-modified 26713 26056 294688 0))
+("global.nix"
+ (filename . "~/dotfiles/nix/global.nix")
+ (front-context-string . "let\n    pkgs = i")
+ (rear-context-string)
+ (position . 1))
+(".bashrc"
+ (filename . "~/dotfiles/stow/bash/.bashrc")
+ (front-context-string . "# -*- mode: sh; ")
+ (rear-context-string)
+ (position . 1))
+("all-packages.nix"
+ (filename . "~/code/nixpkgs/pkgs/top-level/all-packages.nix")
+ (front-context-string . "/* The top-level")
+ (rear-context-string)
+ (position . 1))
+)
