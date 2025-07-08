@@ -1,3 +1,6 @@
+(use-package coterm
+  :init (coterm-mode))
+
 (use-package shell :ensure t
   :commands shell
   :init
