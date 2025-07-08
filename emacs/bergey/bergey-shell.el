@@ -23,8 +23,11 @@
          )
 
   :config
-  (use-package native-complete :ensure t)
-  (native-complete-setup-bash)
+  (use-package native-complete :ensure t
+    :init
+    (native-complete-setup-bash)
+    (add-to-list 'company-backends 'company-native-complete)
+    )
 
   (setq
    tramp-default-method "ssh"          ; uses ControlMaster
@@ -110,6 +113,7 @@
             )) ;; 'windows-nt
     ('darwin
      (setq explicit-shell-file-name "~/.nix-profile/bin/bash")
+     (setq shell-file-name explicit-shell-file-name)
      ))
 
   (if (boundp 'warning-suppress-types)
