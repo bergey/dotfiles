@@ -25,18 +25,21 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($._paragraph),
     _paragraph: $ => $.sig, // or fact, pred, run, check
-    sig: $ => seq( // TODO in / extends
+    sig: $ => seq(
       optional("var"), // make this show up in the syntax tree?
       optional("abstract"),
       field("mult", optional($.mult)),
       "sig",
       field("name", comma_separated($.identifier)),
-      // TODO extends / in 
+      optional($.sig_extends),
       "{",
       optional(field("field", comma_separated($.field))),
-      // optional(field("field", $.field)),
       "}",
       // optional block
+    ),
+    sig_extends: $ => choice(
+      seq("extends", $.identifier),
+      seq("in", $.identifier) // multiple allowed here?
     ),
     field: $ => seq(
       // optional("var"),

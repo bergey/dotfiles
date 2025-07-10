@@ -14,8 +14,8 @@ sig MenuItem {
 }
 
 sig User {}
-// sig Deliverista in User {} // can pick up from any restaurant
-// sig Cook in User { restaurant : some Restaurant } // works at at least one restaurant
+sig Deliverista in User {} // can pick up from any restaurant
+sig Cook in User { restaurant : some Restaurant } // works at at least one restaurant
 
 sig Order {
   customer : one User,
@@ -23,6 +23,6 @@ sig Order {
   // status : OrderStatus // TODO: user, time
 }
 
-// abstract sig OrderStatus {}
-// one sig Open, Ready, Delivered extends OrderStatus {}
-// var sig placed, ready, delivered in Order {}
+abstract sig OrderStatus {}
+one sig Open, Ready, Delivered extends OrderStatus {}
+var sig placed, ready, delivered in Order {}
