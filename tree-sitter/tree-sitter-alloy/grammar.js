@@ -11,7 +11,15 @@ module.exports = grammar({
   name: "alloy",
 
   rules: {
-    // TODO: add the actual grammar rules
-    source_file: $ => "hello"
+    source_file: $ => $.declaration,
+    declaration: $ => $.sig, // or fact, pred, run, check
+    sig: $ => seq( // TODO in / extends
+      "sig",
+      field("name", $.identifier),
+      "{",
+      // TODO fields
+      "}",
+    ),
+    identifier: _ => /[A-Za-z_]+/,
   }
 });
