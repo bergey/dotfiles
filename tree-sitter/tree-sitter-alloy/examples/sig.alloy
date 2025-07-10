@@ -1,1 +1,28 @@
 sig Table {}
+
+var sig A {}
+
+abstract sig B {}
+
+one /* comment */ sig C {}
+
+one sig X, Y, Z {}
+
+sig MenuItem {
+  restaurant : one Restaurant
+  // name, description, image
+}
+
+sig User {}
+// sig Deliverista in User {} // can pick up from any restaurant
+// sig Cook in User { restaurant : some Restaurant } // works at at least one restaurant
+
+sig Order {
+  customer : one User,
+  items : some MenuItem, // should allow more than one
+  // status : OrderStatus // TODO: user, time
+}
+
+// abstract sig OrderStatus {}
+// one sig Open, Ready, Delivered extends OrderStatus {}
+// var sig placed, ready, delivered in Order {}
