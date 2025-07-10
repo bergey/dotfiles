@@ -14,10 +14,11 @@ module.exports = grammar({
     /\s/,
     $.comment,
   ],
+  word: $ => $.identifier,
 
   rules: {
-    source_file: $ => $.declaration,
-    declaration: $ => $.sig, // or fact, pred, run, check
+    source_file: $ => repeat($._declaration),
+    _declaration: $ => $.sig, // or fact, pred, run, check
     sig: $ => seq( // TODO in / extends
       "sig",
       field("name", $.identifier),
@@ -28,7 +29,13 @@ module.exports = grammar({
     identifier: _ => /[A-Za-z_]+/, // TODO full character class
     comment: _ => choice(
       seq(token.immediate("//"), /.*/), // line comment
-      seq("/*", /* TODO */ "*/"), /* block comment */
+      // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+      // this is used in the C & Java tree-sitter grammars
+      token(seq(
+        '/*',
+        /[^*]*\*+([^/*][^*]*\*+)*/,
+        '/',
+      )),
     ),
   }
 });

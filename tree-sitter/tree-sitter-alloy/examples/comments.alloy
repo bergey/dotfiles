@@ -1,3 +1,14 @@
 // line comment
 
 sig A {}
+
+/* block comment */
+
+sig B {}
+
+/*
+multiline
+block comment
+*/
+
+sig C {}
