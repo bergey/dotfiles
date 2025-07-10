@@ -10,6 +10,11 @@
 module.exports = grammar({
   name: "alloy",
 
+  extras: $ => [
+    /\s/,
+    $.comment,
+  ],
+
   rules: {
     source_file: $ => $.declaration,
     declaration: $ => $.sig, // or fact, pred, run, check
@@ -20,6 +25,10 @@ module.exports = grammar({
       // TODO fields
       "}",
     ),
-    identifier: _ => /[A-Za-z_]+/,
+    identifier: _ => /[A-Za-z_]+/, // TODO full character class
+    comment: _ => choice(
+      seq(token.immediate("//"), /.*/), // line comment
+      seq("/*", /* TODO */ "*/"), /* block comment */
+    ),
   }
 });
