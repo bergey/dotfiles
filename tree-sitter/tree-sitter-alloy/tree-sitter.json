@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "alloy",
+      "camelcase": "Alloy",
+      "title": "Alloy",
+      "scope": "source.alloy",
+      "file-types": [
+        "alloy"
+      ],
+      "injection-regex": "^alloy$",
+      "class-name": "TreeSitterAlloy"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Alloy Verifier - alloytools.org",
+    "authors": [
+      {
+        "name": "Daniel Bergey",
+        "email": "dmbergey@gmail.com",
+        "url": "https://teallabs.org/"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/bergey/dotfiles"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
