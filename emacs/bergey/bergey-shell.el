@@ -14,7 +14,7 @@
          ("C-M-n" . #'rename-shell-buffer)
          ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?
          ("C-s" . #'comint-history-isearch-backward-regexp) ;; works in nav mode
-         ("C -c C-w" . nil)
+         ("C-c C-w" . nil)
          ("C-c C-x" . nil) ;; was comint-get-next-from-history which sounds useful
          ("M-r" . nil) ;; conflicts with window switching; was comint-history-isearch-backward-regexp
          :map comint-mode-map
