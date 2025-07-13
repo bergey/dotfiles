@@ -144,7 +144,7 @@
   "Regexp describing start of an alloy block comment.")
 
 (defconst alloy-end-block-comment
-  (rx "/*")
+  (rx "*/")
   "Regexp describing end of an alloy block comment.")
 
 (defun start-of-line ()
