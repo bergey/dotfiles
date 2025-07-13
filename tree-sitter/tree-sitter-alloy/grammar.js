@@ -19,8 +19,8 @@ module.exports = grammar({
     /\s/,
     $.comment,
   ],
-  word: $ => $.identifier,
-  conflicts: $ => [[$.impliesElse]],
+  word: $ => $._identifier,
+  conflicts: $ => [[$.implies_else]],
 
   // see https://alloytools.org/spec.html
   rules: {
@@ -64,39 +64,47 @@ module.exports = grammar({
       "}"
     ),
 
+    // TODO make the syntax tree nicer – what nodes should be named?
     expr: $ => choice(
       $.const, $.qualName, "this", // @name ?
-      // prec(13, seq(/~|^|\*/, $.expr)), // Grammar error: Unexpected rule ExpandRegex(Assertion)
-      prec(12, seq($.expr, token.immediate("'"))),
-      prec.left(11, seq($.expr, ".", $.expr)),
-      prec(10, seq($.expr, "[", comma_separated($.expr), "]")), // is expr[] allowed?
-      prec.left(9, seq($.expr, /<:|:>/, $.expr)),
-      prec.left(8, seq($.expr, optional(choice($.mult, "set")), "->", $.expr)),
-      prec.left(7, seq($.expr, "&", $.expr)),
-      prec.left(6, seq($.expr, "++", $.expr)),
-      prec(5, seq("#", $.expr)),
-      prec.left(4, seq($.expr, choice("+", "-"), $.expr)),
-      prec(3, seq($.mult, $.expr)),
-      prec(3, seq(choice("no", "set"), $.expr)),
-      prec(2, seq(choice("!", "not"), $.expr)),
-      prec.left(1, seq($.expr, token(seq(
+      // prec(21, seq(/~|^|\*/, $.expr)), // Grammar error: Unexpected rule ExpandRegex(Assertion)
+      prec(20, seq($.expr, token.immediate("'"))),
+      prec.left(19, seq($.expr, ".", $.expr)),
+      prec(18, seq($.expr, "[", comma_separated($.expr), "]")), // is expr[] allowed?
+      prec.left(17, seq($.expr, /<:|:>/, $.expr)),
+      prec.left(16, seq($.expr, optional(choice($.mult, "set")), "->", $.expr)),
+      prec.left(15, seq($.expr, "&", $.expr)),
+      prec.left(14, seq($.expr, "++", $.expr)),
+      prec(13, seq("#", $.expr)),
+      prec.left(12, seq($.expr, choice("+", "-"), $.expr)),
+      prec(11, seq($.mult, $.expr)),
+      prec(11, seq(choice("no", "set"), $.expr)),
+      prec(10, seq(choice("!", "not"), $.expr)),
+      prec.left(9, seq($.expr, token(seq(
         optional(choice("!", "not")),
         choice("in", "=", "<", ">", "=<", ">="))),
         $.expr),
       ),
-      $.impliesElse,
       // TODO let, quant, {}
-      // TODO logical operators
+      // TODO more logical operators
+      prec.left(6, seq($.expr, choice("&&", "and"), $.expr)),
+      $.implies_else,
+      prec.left(4, seq($.expr, choice("<=>", "iff"), $.expr)),
+      prec.left(3, seq($.expr, choice("||", "or"), $.expr)),
+      // TODO let quant, ;
+
       seq("(", $.expr, ")"),
       $.block
     ),
-    impliesElse: $ => seq($.expr, choice("=>", "implies"), $.expr, "else", $.expr),
+    implies_else: $ => seq($.expr, choice("=>", "implies"), $.expr, "else", $.expr),
 
 
     const: _ => choice(/-?[0-9]+/, "none", "univ", "iden"),
 
-    identifier: _ => /[A-Za-z_]+/, // TODO full character class
-    qualName: $ => seq(optional("this/"), repeat(seq($.identifier, token.immediate("/"))), $.identifier),
+    _identifier: _ => /[A-Za-z_]+/, // TODO full character class
+    identifier: $ => $._identifier,
+    // Maybe it's better to have named identifier nodes when there are several?
+    qualName: $ => seq(optional("this/"), repeat(seq($._identifier, token.immediate("/"))), $._identifier),
     mult: _ => choice("lone", "some", "one"),
     comment: _ => token(choice(
       seq("//", /[^\\\n]*/), // line comment
