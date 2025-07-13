@@ -42,9 +42,9 @@ module.exports = grammar({
       seq("in", $.identifier) // multiple allowed here?
     ),
     field: $ => seq(
-      // optional("var"),
+      optional("var"),
       // TODO split out decl
-      field("name", $.identifier),  // multiple
+      field("name", $.identifier),  // TODO multiple
       ":",
       optional($.mult),
       $.identifier
