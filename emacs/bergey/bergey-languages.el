@@ -60,7 +60,7 @@
   :mode "\\.service\\|\\.unit")
 
 (use-package yaml-mode :ensure t
-  :mode "\\.yaml$\\|\\.yml$"
+  :mode (rx (or ".yaml" ".yml") string-end)
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
   (use-package outline-indent)
@@ -74,6 +74,7 @@
   :mode "\\.go$")
 
 (require 'alloy-mode)
+(add-to-list 'auto-mode-alist '("\\.alloy\\'" . alloy-mode)) ; mode only has .als
 
 (use-package sed-mode :ensure t)
 
