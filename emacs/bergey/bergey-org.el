@@ -19,6 +19,8 @@
  ("C-c C-x r" . org-refile)
  ("C-S-k" . org-move-subtree-up)
  ("C-S-j" . org-move-subtree-down)
+ (-S-RET" . bergey/org-insert-todo-heading)
+ ("M-RET" . bergey/org-insert-todo-heading)
  )
 (evil-define-key 'normal org-mode-map (kbd "M-h") nil)
 (evil-define-key 'normal outline-mode-map (kbd "M-h") nil)
@@ -64,6 +66,13 @@
 (defun bergey/org-end-of-subtree ()
   (interactive)
   (org-end-of-subtree))
+
+(defun bergey/org-insert-todo-heading ()
+    "always insert TODO, not the state of current heading"
+    (interactive)
+    (let ((org-insert-heading-respect-content t))
+      (org-insert-todo-heading '(4)))
+    )
 
 (add-hook 'org-mode-hook #'(lambda () (diminish 'org-indent-mode)))
 
