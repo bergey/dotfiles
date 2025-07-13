@@ -20,6 +20,7 @@ module.exports = grammar({
     $.comment,
   ],
   word: $ => $.identifier,
+  conflicts: $ => [[$.impliesElse]],
 
   // see https://alloytools.org/spec.html
   rules: {
@@ -63,11 +64,36 @@ module.exports = grammar({
       "}"
     ),
 
-    expr: $ => $.const, // TODO FIXME
+    expr: $ => choice(
+      $.const, $.qualName, "this", // @name ?
+      // prec(13, seq(/~|^|\*/, $.expr)), // Grammar error: Unexpected rule ExpandRegex(Assertion)
+      prec(12, seq($.expr, token.immediate("'"))),
+      prec.left(11, seq($.expr, ".", $.expr)),
+      prec(10, seq($.expr, "[", comma_separated($.expr), "]")), // is expr[] allowed?
+      prec.left(9, seq($.expr, /<:|:>/, $.expr)),
+      prec.left(8, seq($.expr, optional(choice($.mult, "set")), "->", $.expr)),
+      prec.left(7, seq($.expr, "&", $.expr)),
+      prec.left(6, seq($.expr, "++", $.expr)),
+      prec(5, seq("#", $.expr)),
+      prec.left(4, seq($.expr, choice("+", "-"), $.expr)),
+      prec(3, seq($.mult, $.expr)),
+      prec(3, seq(choice("no", "set"), $.expr)),
+      prec(2, seq(choice("!", "not"), $.expr)),
+      prec.left(1, seq($.expr, token(seq(
+        optional(choice("!", "not")),
+        choice("in", "=", "<", ">", "=<", ">="))),
+        $.expr),
+      ),
+      $.impliesElse,
+      // TODO let, quant, {}
+      // TODO logical operators
+      seq("(", $.expr, ")"),
+      $.block
+    ),
+    impliesElse: $ => seq($.expr, choice("=>", "implies"), $.expr, "else", $.expr),
+
 
     const: _ => choice(/-?[0-9]+/, "none", "univ", "iden"),
-    arrowOp: $ => seq(optional(choice($.mult, "set")), "->", optional(choice($.mult, "set"))),
-    // _negate: _ => choice("!", "not"),
 
     identifier: _ => /[A-Za-z_]+/, // TODO full character class
     qualName: $ => seq(optional("this/"), repeat(seq($.identifier, token.immediate("/"))), $.identifier),
