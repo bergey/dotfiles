@@ -24,7 +24,8 @@ module.exports = grammar({
   // see https://alloytools.org/spec.html
   rules: {
     source_file: $ => repeat($._paragraph),
-    _paragraph: $ => $.sig, // or fact, pred, run, check
+    _paragraph: $ => choice($.sig, $.fact), // or fact, pred, run, check
+
     sig: $ => seq(
       optional("var"), // make this show up in the syntax tree?
       optional("abstract"),
@@ -49,7 +50,27 @@ module.exports = grammar({
       optional($.mult),
       $.identifier
     ),
+
+    fact: $ => seq(
+      "fact",
+      field("name", optional($.identifier)),
+      $.block
+    ),
+
+    block: $ => seq(
+      "{",
+      repeat($.expr),
+      "}"
+    ),
+
+    expr: $ => $.const, // TODO FIXME
+
+    const: _ => choice(/-?[0-9]+/, "none", "univ", "iden"),
+    arrowOp: $ => seq(optional(choice($.mult, "set")), "->", optional(choice($.mult, "set"))),
+    // _negate: _ => choice("!", "not"),
+
     identifier: _ => /[A-Za-z_]+/, // TODO full character class
+    qualName: $ => seq(optional("this/"), repeat(seq($.identifier, token.immediate("/"))), $.identifier),
     mult: _ => choice("lone", "some", "one"),
     comment: _ => token(choice(
       seq("//", /[^\\\n]*/), // line comment
