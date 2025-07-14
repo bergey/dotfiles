@@ -1,0 +1,20 @@
+fact test {
+  none and some_id
+  this
+}
+
+fact { some Ident }
+
+fact init {
+  // (all o : Order | one o.items.restaurant)
+  order_status_unique
+  and no delivered // still figuring out how to phrase this  move to example?
+  some Order
+}
+
+fact progress {
+  always (
+    (some o : Order | place_order[o] or cook_order[o] or deliver_order[o])
+    or do_nothing
+  )
+}
