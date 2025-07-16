@@ -6,11 +6,13 @@ fact test {
 fact { some Ident }
 
 fact init {
-  // (all o : Order | one o.items.restaurant)
+  (all o : Order | one o.items.restaurant)
   order_status_unique
   and no delivered // still figuring out how to phrase this  move to example?
   some Order
 }
+
+fact baz { some b : B | ident }
 
 fact progress {
   always (
