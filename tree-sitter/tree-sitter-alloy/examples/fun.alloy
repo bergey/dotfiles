@@ -1,0 +1,6 @@
+fun foo : A -> A { iden }
+fun foo.bar : B -> B { iden }
+fun bar/bar.baz : Z -> Z { iden }
+
+fun f [a : A] : A -> B -> B { iden }
+fun g (a:A, b:B) : A -> B -> X -> X { iden }

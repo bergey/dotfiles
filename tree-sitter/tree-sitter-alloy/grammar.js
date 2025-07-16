@@ -28,7 +28,7 @@ module.exports = grammar({
   // see https://alloytools.org/spec.html
   rules: {
     source_file: $ => repeat($._paragraph),
-    _paragraph: $ => choice($.sig, $.fact, $.pred), // or run, check
+    _paragraph: $ => choice($.sig, $.fact, $.pred, $.fun), // or run, check
 
     sig: $ => seq(
       optional("var"), // make this show up in the syntax tree?
@@ -67,6 +67,15 @@ module.exports = grammar({
       field("name", $.name),
       optional($.parameters),
       $.block
+    ),
+
+    fun: $ => seq(
+      "fun",
+      field("namespace", optional(seq($.qual_name, "."))),
+      field("name", $.name),
+      optional($.parameters),
+      ":", field("type", $.expr),
+      "{", field("definition", $.expr), "}"
     ),
 
     block: $ => seq(
