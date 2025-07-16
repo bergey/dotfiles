@@ -20,15 +20,15 @@ module.exports = grammar({
     $.comment,
   ],
   word: $ => $._name,
-    conflicts: $ => [
-        [$.implies_else],
-        [$.name, $.qual_name] // TODO resolve this better
-    ],
+  conflicts: $ => [
+    [$.implies_else],
+    [$.name, $.qual_name] // TODO resolve this better
+  ],
 
   // see https://alloytools.org/spec.html
   rules: {
     source_file: $ => repeat($._paragraph),
-    _paragraph: $ => choice($.sig, $.fact), // or fact, pred, run, check
+    _paragraph: $ => choice($.sig, $.fact, $.pred), // or run, check
 
     sig: $ => seq(
       optional("var"), // make this show up in the syntax tree?
@@ -61,12 +61,24 @@ module.exports = grammar({
       $.block
     ),
 
+    pred: $ => seq(
+      "pred",
+      field("namespace", optional(seq($.qual_name, "."))),
+      field("name", $.name),
+      optional($.parameters),
+      $.block
+    ),
+
     block: $ => seq(
       "{",
       repeat($.expr),
       "}"
     ),
     _block_or_bar: $ => prec.right(choice($.block, seq("|", $.expr))),
+    parameters: $ => choice(
+      seq("(", comma_separated($.decl), ")"),
+      seq("[", comma_separated($.decl), "]"),
+    ),
 
     // TODO make the syntax tree nicer – what nodes should be named?
     expr: $ => choice(

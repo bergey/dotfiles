@@ -1,0 +1,21 @@
+pred bar { iden }
+
+pred order_status_unique {
+  no (placed & ready) and no (placed & delivered) and no (ready & delivered)
+}
+
+pred place_order [o : Order] {
+  one o.items.restaurant and not (o in (placed + ready + delivered))
+  // o.status = Open
+  placed' = placed + o
+  ready' = ready
+  delivered' = delivered
+}
+
+pred foo [a : A, b, bb : B] {
+	bar[a]
+	baz[a, bb]
+}
+
+pred foo.bar { iden }
+pred foo/bar.baz { iden }
