@@ -133,7 +133,7 @@ let
         dmenu
         dropbox-cli
         feh
-        filelight
+        kdePackages.filelight
         gphoto2
         id3v2
         imagemagick
