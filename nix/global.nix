@@ -156,10 +156,11 @@ let
 
       braze = with pkgs; [
         awscli2
-        imagemagick
-        snappy
-        kops
         cmake
+        imagemagick
+        kops
+        postman
+        snappy
         sops
       ];
     };
