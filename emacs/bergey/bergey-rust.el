@@ -10,6 +10,9 @@
   (add-hook 'rust-mode-hook #'(lambda () (setq-local evil-shift-width 4)))
   )
 
+(use-package flymake-clippy
+  :hook (rust-mode . flymake-clippy-setup-backend))
+
 (use-package toml-mode :ensure t
   :mode "\\.toml\\|Cargo.lock" )
 
