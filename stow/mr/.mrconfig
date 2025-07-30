@@ -135,3 +135,6 @@ checkout = git clone 'git@github.com:bergey/delivery.git' 'delivery'
 
 [braze/braze-docs]
 checkout = git clone 'git@github.com:braze-inc/braze-docs.git' 'braze-docs'
+
+[code/active/databoose]
+checkout = git clone 'git@github.com:bergey/databoose.git' 'databoose'
