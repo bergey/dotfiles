@@ -138,8 +138,8 @@ function loc-lang {
     {     echo "LOC Directory"
           for d in $(find . -type d -maxdepth 1); do
               echo -n '*' >&2
-          count=$(tokei -t "$lang" "$d" | grep -i "$lang")
-          if [ $? == 0 ]; then echo "$d $count" | awk '{print $5, $1;}'; fi
+          count=$(tokei -t "$lang" "$d")
+          if [ $? == 0 ]; then echo "$count" | awk -v d="$d" -v lang="^$lang$" '$1 ~ lang {print $4, d;}'; fi
           done
           echo '' >&2
     } | sort -h | column -t
