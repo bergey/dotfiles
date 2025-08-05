@@ -150,6 +150,10 @@
               ("C-! l" . flymake-show-buffer-diagnostics)
               ("C-! L" . flymake-show-project-diagnostics)
               )
+  :custom
+  (flymake-no-changes-timeout 3)
+  :config
+  (add-hook 'flymake-mode-hook #'visual-line-mode)
   )
 
 ;; TODO remove this everywhere, if flymake works well enough
