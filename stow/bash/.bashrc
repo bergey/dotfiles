@@ -173,6 +173,13 @@ function mvp ()
     mv "$@"
 }
 
+# mv $1 to $2, replace with a symlink pointing to $2
+# mostly for use with stow / dotfiles
+function mv-link {
+    mv "$1" "$2"
+    ln -s "$2" "$1"
+}
+
 # commit of currently-running pod for a given deployment name
 function pod-commit (
     set -e

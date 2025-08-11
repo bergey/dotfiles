@@ -65,7 +65,7 @@ iso:
   nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
 
 stow:
-  mkdir -p ~/.local ~/.config ~/.stack
+  mkdir -p ~/.local ~/.config ~/.stack ~/code/active
   for d in $(ls stow); do stow -t ~ -d stow $d; done
   ln -s $(pwd)/emacs ~/.emacs.d
 
