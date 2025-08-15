@@ -106,3 +106,6 @@ checkout = git clone 'git@github.com:bergey/delivery.git' 'delivery'
 
 [braze-docs]
 checkout = git clone 'git@github.com:braze-inc/braze-docs.git' 'braze-docs'
+
+[braze-kafka-config]
+checkout = git clone 'git@github.com:braze-inc/braze-kafka-config.git' 'braze-kafka-config'
