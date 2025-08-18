@@ -20,7 +20,8 @@
  ("C-S-k" . org-move-subtree-up)
  ("C-S-j" . org-move-subtree-down)
  ("C-S-RET" . bergey/org-insert-todo-heading)
- ("M-RET" . bergey/org-insert-todo-heading)
+ ;; [[*figure out org-insert behavior around bullet lists][figure out org-insert behavior around bullet lists]]
+ ;; ("M-RET" . bergey/org-insert-todo-heading)
  )
 (evil-define-key 'normal org-mode-map (kbd "M-h") nil)
 (evil-define-key 'normal outline-mode-map (kbd "M-h") nil)
