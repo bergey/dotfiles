@@ -166,6 +166,7 @@ Return the configuration."
       (apply #'async-start-process (car command) (car command) continue-or-print-err (cdr command))
       '()))
 
+  (advice-add #'haskell-navigate-imports :before #'xref-push-marker-stack)
   )
 
 (use-package haskell-interactive-mode
