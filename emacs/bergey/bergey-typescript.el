@@ -10,6 +10,7 @@
   (eglot-autoshutdown t)
   (eglot-send-changes-idle-time 3)
   (eglot-ignored-server-capabilities '(:documentHighlightProvider))
+  (typescript-indent-level 2)
 
   (defun bergey/typescript-navigate-imports ()
     "move point to the beginning of the first import line"
