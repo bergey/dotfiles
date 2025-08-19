@@ -20,8 +20,7 @@
  ("C-S-k" . org-move-subtree-up)
  ("C-S-j" . org-move-subtree-down)
  ("C-S-RET" . bergey/org-insert-todo-heading)
- ;; [[*figure out org-insert behavior around bullet lists][figure out org-insert behavior around bullet lists]]
- ;; ("M-RET" . bergey/org-insert-todo-heading)
+ ("M-RET" . bergey/org-meta-return)
  )
 (evil-define-key 'normal org-mode-map (kbd "M-h") nil)
 (evil-define-key 'normal outline-mode-map (kbd "M-h") nil)
@@ -74,6 +73,15 @@
     (let ((org-insert-heading-respect-content t))
       (org-insert-todo-heading '(4)))
     )
+
+(defun bergey/org-meta-return (&optional arg)
+  "like org-meta-return, but call bergey/org-insert-todo-heading rather than org-insert-heading"
+  (interactive)
+  (or (run-hook-with-args-until-success 'org-metareturn-hook)
+      (call-interactively (cond (arg #'bergey/org-insert-todo-heading)
+                                ((org-at-table-p) #'org-table-wrap-region)
+                                ((org-in-item-p) #'org-insert-item)
+                                (t #'bergey/org-insert-todo-heading)))))
 
 (add-hook 'org-mode-hook #'(lambda () (diminish 'org-indent-mode)))
 
