@@ -11,6 +11,8 @@
 
 (use-package racket-mode :ensure t
   :mode "\\.rkt'"
+  :bind (:map racket-mode-map
+              ("C-c C-," . bergey/indent-buffer))
   :config
   (add-hook 'racket-mode-hook 'bergey/lisp-hook))
 
