@@ -50,6 +50,7 @@ let
         kubectl
         lftp
         lrzip
+        mise
         mr
         nix-prefetch-git
         nix-tree
