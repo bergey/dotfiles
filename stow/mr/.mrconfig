@@ -30,3 +30,12 @@ checkout = git clone 'ssh://git@github.com/bergey/utility.git' 'utility'
 
 [code/active/databoose]
 checkout = git clone 'git@github.com:bergey/databoose.git' 'databoose'
+
+[code/active/memex]
+checkout = git clone 'git@github.com:bergey/memex.git' 'memex'
+
+[code/active/picklebush]
+checkout = git clone 'git@github.com:bergey/picklebush.git' 'picklebush'
+
+[code/active/delivery]
+checkout = git clone 'git@github.com:bergey/delivery.git' 'delivery'

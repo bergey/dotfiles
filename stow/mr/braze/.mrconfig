@@ -92,17 +92,8 @@ checkout = git clone 'https://github.com/Appboy/pullboy.git' 'pullboy'
 [sms-team-scripts]
 checkout = git clone 'https://github.com/braze-inc/sms-team-scripts.git' 'sms-team-scripts'
 
-[code/active/memex]
-checkout = git clone 'git@github.com:bergey/memex.git' 'memex'
-
-[code/active/picklebush]
-checkout = git clone 'git@github.com:bergey/picklebush.git' 'picklebush'
-
 [terraform-product-monitoring]
 checkout = git clone 'git@github.com:braze-inc/terraform-product-monitoring.git' 'terraform-product-monitoring'
-
-[code/active/delivery]
-checkout = git clone 'git@github.com:bergey/delivery.git' 'delivery'
 
 [braze-docs]
 checkout = git clone 'git@github.com:braze-inc/braze-docs.git' 'braze-docs'
