@@ -60,7 +60,7 @@ module.exports = grammar({
       "pred",
       field("namespace", optional(seq($.qual_name, "."))),
       field("name", $.name),
-      optional($.parameters),
+      field("parameters", optional($.parameters)),
       $.block
     ),
 
@@ -68,7 +68,7 @@ module.exports = grammar({
       "fun",
       field("namespace", optional(seq($.qual_name, "."))),
       field("name", $.name),
-      optional($.parameters),
+      field("parameters", optional($.parameters)),
       ":", field("type", $.expr),
       "{", field("definition", $.expr), "}"
     ),
