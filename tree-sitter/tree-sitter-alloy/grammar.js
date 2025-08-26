@@ -45,8 +45,8 @@ module.exports = grammar({
       // TODO optional block
     ),
     sig_extends: $ => choice(
-      seq("extends", $.name), // TODO qualname
-      seq("in", $.name) // multiple allowed here?
+      seq("extends", $.qual_name),
+      seq("in", $.qual_name, repeat(seq("+", $.qual_name)))
     ),
     field: $ => seq(optional("var"), $.decl),
 
