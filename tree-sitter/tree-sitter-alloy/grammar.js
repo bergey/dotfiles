@@ -29,8 +29,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => repeat($._paragraph),
     // TODO import, module_decl
-    _paragraph: $ => choice($.sig, $.fact, $.pred, $.fun), // or run, check
-    // TODO assert, cmd
+    _paragraph: $ => choice($.sig, $.fact, $.pred, $.fun, $.assert, $.command),
 
     sig: $ => seq(
       optional("var"), // make this show up in the syntax tree?
@@ -42,7 +41,7 @@ module.exports = grammar({
       "{",
       optional(field("field", comma_separated($.field))),
       "}",
-      // TODO optional block
+      optional($.block),
     ),
     sig_extends: $ => choice(
       seq("extends", $.qual_name),
@@ -84,6 +83,32 @@ module.exports = grammar({
       seq("[", comma_separated($.decl), "]"),
     ),
 
+    assert: $ => seq(
+      "assert",
+      optional($.name),
+      $.block,
+    ),
+
+    command: $ => seq(
+      field("name", optional(seq($.name, ":"))),
+      choice("run", "check"),
+      optional(choice($.qual_name, $.block)),
+      // field("scope", optional($.scope)),
+    ),
+    scope: $ => seq(
+      "for",
+      choice(
+        seq(
+          $.number, // TODO
+          optional(seq("but", comma_separated($.typescope)))
+        ),
+        seq(comma_separated($.typescope)))),
+    typescope: $ => seq(
+      optional("exactly"),
+      $.number,
+      $.qual_name,
+    ),
+
     // TODO make the syntax tree nicer – what nodes should be named?
     expr: $ => choice(
       $.const, $.qual_name, "this", // @name ?
@@ -121,7 +146,8 @@ module.exports = grammar({
     ),
     implies_else: $ => seq($.expr, choice("=>", "implies"), $.expr, "else", $.expr),
 
-    const: _ => choice(/-?[0-9]+/, "none", "univ", "iden"),
+    const: $ => choice($.number, "none", "univ", "iden"),
+    number: $ => /-?[0-9]+/,
 
     _name: _ => /[A-Za-z_]+/, // TODO full character class
     name: $ => $._name,
