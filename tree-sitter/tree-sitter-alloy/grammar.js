@@ -22,7 +22,8 @@ module.exports = grammar({
   word: $ => $._name,
   conflicts: $ => [
     [$.implies_else],
-    [$.name, $.qual_name] // TODO resolve this better
+    [$.name, $.qual_name], // TODO resolve this better
+    [$.scope, $.typescope], // TODO reserved keywords are not valid names
   ],
 
   // see https://alloytools.org/spec.html
@@ -89,17 +90,17 @@ module.exports = grammar({
       $.block,
     ),
 
-    command: $ => seq(
+    command: $ => prec.left(seq(
       field("name", optional(seq($.name, ":"))),
       choice("run", "check"),
       optional(choice($.qual_name, $.block)),
-      // field("scope", optional($.scope)),
-    ),
+      field("scope", optional($.scope)),
+    )),
     scope: $ => seq(
       "for",
       choice(
         seq(
-          $.number, // TODO
+          $.number,
           optional(seq("but", comma_separated($.typescope)))
         ),
         seq(comma_separated($.typescope)))),
@@ -168,5 +169,5 @@ module.exports = grammar({
         '/',
       ),
     )),
-  }
+  },
 });
