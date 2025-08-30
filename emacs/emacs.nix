@@ -93,6 +93,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     toml-mode
     treesit-grammars.with-all-grammars
     typescript-mode
+    undo-fu
     unfill
     use-package
     w3m

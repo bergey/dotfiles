@@ -1,11 +1,11 @@
 (use-package evil :ensure t
-  :diminish evil-collection-unimpaired-mode
   :init
   (use-package undo-fu :ensure t
     :config
     (setq evil-undo-system 'undo-fu)
     )
   (setq evil-want-keybinding nil)
+
   :custom
   (evil-insert-state-cursor '(bar . 1))
   (evil-cross-lines t)
@@ -62,6 +62,7 @@
 (use-package evil-collection
   ;; magit, rg, maybe dired benefit from this
   :after evil
+  :diminish evil-collection-unimpaired-mode
   :config
   (setq bergey/evil-collection-original-mode-list evil-collection-mode-list)
   (evil-collection-init))

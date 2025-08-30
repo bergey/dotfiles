@@ -45,10 +45,6 @@
     ;; ("C-. <down>" . buf-move-down)
     )
 
-;; (customize-set-variable 'display-buffer-base-action
-;;                         '((display-buffer-reuse-window display-buffer-use-same-window)
-;;                           (reusable-frames . t)))
-
 (defun bergey/display-buffer-in-direction (buffer alist)
   "If there are fewer than N splits, split another.
 If there are already N or more windows across this frame (horizontally) use the right / left most one.
@@ -78,12 +74,9 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
     (direction . ,direction)))
 
 (setq display-buffer-alist
-      `(((derived-mode magit-status-mode)
-         (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
-         (direction . left))
-        ((derived-mode flymake-diagnostics-buffer-mode)
-         (display-buffer-reuse-mode-window bergey/display-buffer-in-direction)
-         (direction . right))
+      `(
+        ,(bergey/mode-in-direction 'magit-status-mode 'left)
+        ,(bergey/mode-in-direction 'flymake-diagnostics-buffer-mode 'right)
         ,(bergey/mode-in-direction 'org-agenda-mode 'right)
         ))
 
