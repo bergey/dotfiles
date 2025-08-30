@@ -89,18 +89,17 @@ bind them to the specified keys."
   ;; interferes with org-time-stamp
   ("C-. C-." . kmacro-call-macro)
   ("M-l" . company-show-location)
-  ("C-. C-p" . bergey/store-or-edit-password)
   )
 
 ;; move case-change commands under a prefix
 (bind-keys* :prefix-map bergey/case-keymap
-            :prefix "C-S-c"
+            :prefix "C-. c"
             ("u" . upcase-word)
             ("l" . downcase-word)
             ("c" . capitalize-word)
-            ("C-S-u" . upcase-region)
-            ("C-S-l" . downcase-region)
-            ("C-S-c" . capitalize-region))
+            ("C-u" . upcase-region)
+            ("C-l" . downcase-region)
+            ("C-c" . capitalize-region))
 (put 'upcase-region 'disabled nil)
 
 (defun bergey/browse-url-or-xref ()

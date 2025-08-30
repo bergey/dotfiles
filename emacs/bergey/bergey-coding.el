@@ -138,16 +138,12 @@
 (use-package flymake
   :diminish flymake-mode
   :bind (:map flymake-mode-map
-              ;; I use M-n for window switching, so can't bind M-n / M-p
-              ("C-c ! n" . flymake-goto-next-error) ;; flycheck
-              ("C-! n" . flymake-goto-next-error) ;; shorter
-              ("C-! j" . flymake-goto-next-error) ;; shorter
-              ("M-j" . flymake-goto-next-error) ;; shorter
-              ("C-c ! p" . flymake-goto-prev-error)
-              ("C-! p" . flymake-goto-prev-error)
+              ("C-! j" . flymake-goto-next-error)
+              ("M-j" . flymake-goto-next-error)
               ("C-! k" . flymake-goto-prev-error)
               ("M-k" . flymake-goto-prev-error)
               ("C-! l" . flymake-show-buffer-diagnostics)
+              ("C-! C-l" . flymake-show-project-diagnostics)
               ("C-! L" . flymake-show-project-diagnostics)
               )
   :custom
