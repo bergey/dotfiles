@@ -17,7 +17,6 @@
 (setq c-mode-hook
       '(whitespace-mode
         smartparens-mode
-        flycheck-mode
         bergey/company-short-idle))
 
 ;; *** C

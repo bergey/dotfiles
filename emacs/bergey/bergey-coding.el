@@ -156,22 +156,6 @@
   (add-hook 'flymake-mode-hook #'visual-line-mode)
   )
 
-;; TODO remove this everywhere, if flymake works well enough
-;; 2025-01-16 flycheck in Ruby, TS, as well as several languages I use rarely
-(use-package flycheck :ensure t
-  :commands flycheck-mode
-  :diminish flycheck-mode
-  :config
-  ;; TODO show message in minibuffer, but truncate to fit
-  (setq flycheck-display-errors-function nil)
-  (flycheck-add-mode 'javascript-eslint 'web-mode)
-  ;; unset before rebinding, from docs for flycheck-keymap-prefix
-  (define-key flycheck-mode-map flycheck-keymap-prefix nil)
-  (setq flycheck-keymap-prefix (kbd "C-!"))
-  (define-key flycheck-mode-map flycheck-keymap-prefix
-              flycheck-command-map)
-)
-
 ;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column
 (defun jump-to-non-whitespace-char-in-same-column (up-or-down)
   (let* ((col (current-column))

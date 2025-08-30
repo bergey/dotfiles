@@ -21,11 +21,7 @@
   :mode "\\.clj\\'"
   :config (progn
             (add-hook 'clojure-mode-hook 'bergey/lisp-hook)
-            (add-hook 'clojure-mode-hook 'flycheck-mode)
             (define-key clojure-mode-map (kbd "RET") 'newline-and-indent))
-
-  (use-package flycheck-clojure :ensure t)
-
   )
 
 (add-hook 'emacs-lisp-mode-hook 'bergey/lisp-hook)

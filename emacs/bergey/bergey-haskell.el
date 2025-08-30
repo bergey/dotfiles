@@ -10,10 +10,8 @@
 
   (setq haskell-mode-hook '(
                             whitespace-mode
-                            flycheck-mode
                             bergey/company-short-idle
                             haskell-auto-insert-module-template
-                            flycheck-haskell-setup
                             ))
 
   (setq
@@ -22,9 +20,7 @@
    haskell-indentation-left-offset 2
    )
 
-  (setq flycheck-ghc-language-extensions '( "DataKinds" "DeriveDataTypeable" "DeriveFunctor" "DeriveGeneric" "DuplicateRecordFields" "ExtendedDefaultRules" "FlexibleContexts" "FlexibleInstances" "FunctionalDependencies" "GeneralizedNewtypeDeriving" "MultiParamTypeClasses" "OverloadedStrings" "ScopedTypeVariables" "StandaloneDeriving" "TemplateHaskell" "TypeApplications" "TypeFamilies" "TypeOperators" "CPP" ))
   ;; TODO make default args different per-project
-  (setq flycheck-ghc-args '("-fno-warn-type-defaults"))
   (setq haskell-font-lock-quasi-quote-modes
         (append
          '(("validSql" . sql-mode)
@@ -114,59 +110,6 @@
   (advice-add 'haskell-cabal--find-tags-dir :override
               'projectile-project-root)
 
-  )
-
-(use-package flycheck-haskell :ensure t
-  ;; better flycheck with info from cabal / hpack files
-  :commands (flycheck-haskell-setup)
-  :config
-  ;; async get-cabal-configuration
-  (defun flycheck-haskell-read-and-cache-configuration (config-file)
-    "Read and cache configuration from CABAL-FILE.
-
-Return the configuration."
-    ;; (message "in flycheck-haskell-read-and-cache-configuration")
-    (let* ((modtime (nth 5 (file-attributes config-file)))
-           (continue (lambda (config)
-                       (message "in continue: %s" config)
-                       (puthash config-file (cons modtime config) flycheck-haskell-config-cache)
-                       (flycheck-haskell-configure) ;; this time with cached value
-                       )))
-      (if (equal "yaml" (file-name-extension config-file))
-          (bergey/flycheck-haskell-read-hpack-configuration config-file continue)
-        (funcall continue (flycheck-haskell-read-cabal-configuration config-file)))
-      ))
-
-  ;; (advice-add #'flycheck-haskell-read-and-cache-configuration
-  ;;             :override #'bergey/flycheck-haskell-read-and-cache-configuration)
-
-  (defun bergey/flycheck-haskell-read-hpack-configuration (hpack-file c2)
-    "Read the hpack configuration from HPACK-FILE."
-    (cl-assert flycheck-haskell-hpack-executable)
-    (let ((args (list flycheck-haskell-helper
-                      "--hpack-exe" flycheck-haskell-hpack-executable
-                      "--hpack-file" (expand-file-name hpack-file))))
-      (bergey/flycheck-haskell--read-configuration-with-helper
-       (flycheck-haskell-runghc-command args) c2)))
-
-  (defun bergey/flycheck-haskell--read-configuration-with-helper (command c3)
-    (let ((continue-or-print-err
-           (lambda (proc)
-             (message "in continue-or-print-err")
-             (pcase (process-exit-status proc)
-               (0
-                (goto-char (point-min))
-                (funcall c3 (read (process-buffer proc))))
-               (retcode
-                (message "Reading Haskell configuration failed with exit code %s and output:\n%s"
-                         retcode (with-current-buffer (process-buffer proc) (buffer-string)))
-                nil) ))
-           ))
-      ;; (message "command=%s" command)
-      (apply #'async-start-process (car command) (car command) continue-or-print-err (cdr command))
-      '()))
-
-  (advice-add #'haskell-navigate-imports :before #'xref-push-marker-stack)
   )
 
 (use-package haskell-interactive-mode

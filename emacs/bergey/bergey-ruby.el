@@ -7,7 +7,6 @@
   (setq ruby-mode-hook
         '(
           (lambda () (setq-local flymake-diagnostic-functions '(ruby-flymake-auto eglot-flymake-backend)))
-          ;; flycheck-mode
           whitespace-mode
           ))
   ;; :bind (:map ruby-mode-map ("M-." . bergey/ruby-rg-definition))

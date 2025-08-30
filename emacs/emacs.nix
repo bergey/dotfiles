@@ -31,8 +31,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     f
     feature-mode
     fic-mode
-    flycheck
-    flycheck-haskell
     flymake-clippy
     fsharp-mode
     git-link

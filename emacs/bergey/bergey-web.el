@@ -11,7 +11,6 @@
                           color-identifiers-mode
                           bergey/company-short-idle
                           ;; emmet-mode
-                          bergey/configure-web-mode-flycheck-checkers
                           prettier-mode
                           whitespace-mode
                           ))
@@ -81,20 +80,6 @@
 (defun bergey/prettier-parsers-by-file-extension ()
   (string-case (downcase (file-name-extension (buffer-file-name)))
                ("tsx" (setq prettier-parsers '(typescript)))))
-
-;; TODO delete if no longer using flycheck / web-mode
-;; https://emacs.stackexchange.com/questions/32900/how-to-use-web-mode-engine-specific-checkers-in-flycheck
-(defun bergey/configure-web-mode-flycheck-checkers ()
-  ;; in order to have flycheck enabled in web-mode, add an entry to this
-  ;; cond that matches the web-mode engine/content-type/etc and returns the
-  ;; appropriate checker.
-  (cl-flet ((enable (checker)
-              (flycheck-mode)
-              (flycheck-select-checker checker)))
-    (string-case web-mode-content-type
-                 ("jsx" (enable 'javascript-eslint))
-                 ("typescript" (enable 'javascript-eslint))))
-  )
 
 ;; mocha runner code from https://gist.github.com/lazywithclass/1582626
 (defun run-mocha()

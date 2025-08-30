@@ -22,7 +22,7 @@
      (accent bergey/telephone-line-position-segment)
      (nil telephone-line-projectile-buffer-segment)))
   (telephone-line-rhs
-   '((nil telephone-line-flycheck-segment telephone-line-misc-info-segment)
+   '((nil telephone-line-flymake-segment telephone-line-misc-info-segment)
      (accent telephone-line-vc-segment telephone-line-erc-modified-channels-segment telephone-line-process-segment)
      (nil telephone-line-major-mode-segment)
      ))
