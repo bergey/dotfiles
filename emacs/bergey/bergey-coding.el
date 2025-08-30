@@ -140,7 +140,7 @@
   :custom
   (flymake-no-changes-timeout 3)
   :config
-  (add-hook 'flymake-mode-hook #'visual-line-mode)
+  (add-hook 'flymake-diagnostics-buffer-mode-hook #'visual-line-mode)
   )
 
 ;; https://emacs.stackexchange.com/questions/22091/how-to-jump-up-or-down-to-first-non-whitespace-character-in-same-column
