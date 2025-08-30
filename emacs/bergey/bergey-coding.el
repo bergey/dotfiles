@@ -65,26 +65,17 @@
 
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
-(defun bergey/configure-eglot-flymake ()
-  (cl-case major-mode
-    (ruby-mode (setq-local flymake-diagnostic-functions '(ruby-flymake-auto eglot-flymake-backend)))))
-
 (use-package eglot
   :ensure t
   :defer 3
   :hook
   ((
     go-mode
-    js-mode
     rust-mode
-    typescript-mode
     ) . eglot-ensure)
   :bind (:map eglot-mode-map (("C-c C-," . eglot-format-buffer)))
   :config
-  (setq eglot-managed-mode-hook
-        '(bergey/configure-eglot-flymake
-          bergey/diminish-vc-mode
-          ))
+  (setq eglot-managed-mode-hook '(bergey/diminish-vc-mode))
   (setq eglot-menu-string "")
   )
 
