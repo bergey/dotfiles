@@ -26,11 +26,6 @@ let
         atool
         bash-completion
         brotli
-        (pinned {
-          package = pkgs: pkgs.clickhouse;
-          rev = "d74de548348c46cf25cb1fcc4b74f38103a4590d";
-          sha256 =  "1kjmryqfv7bq7wvv5xgwbs58mlpxc1j3gwqjm3dhkrgnb95zcj2p";
-        })
         direnv
         dtach
         editorconfig-core-c
@@ -96,6 +91,7 @@ let
         # (agda.withPackages (a: [ a.standard-library ]))
         acpi
         borgbackup
+        clickhouse
         curl
         docker
         file
