@@ -103,3 +103,6 @@ checkout = git clone 'git@github.com:braze-inc/braze-kafka-config.git' 'braze-ka
 
 [helm-charts]
 checkout = git clone 'git@github.com:Appboy/helm-charts.git' 'helm-charts'
+
+[go-braze-platform]
+checkout = git clone 'git@github.com:braze-inc/go-braze-platform.git' 'go-braze-platform'
