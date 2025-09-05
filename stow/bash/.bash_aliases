@@ -74,6 +74,9 @@ alias gssh='gcloud compute ssh --ssh-flag=-A'
 
 alias json_lines='jq -r ".[]"'
 
+# https://stackoverflow.com/questions/78514306/how-do-i-tell-cargo-to-update-dependencies-beyond-the-current-versions-of-my-pro
+alias cargo-upgrade='cargo +nightly update --breaking -Z unstable-options'
+
 # Braze environments
 alias olaf='kubectl --context=k8s.cluster-001.d-use-1.braze.com-opsengineer'
 alias sweeney='kubectl --context=k8s.cluster-001.s-use-1.braze.com-opsengineer'
