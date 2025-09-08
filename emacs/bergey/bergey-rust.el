@@ -38,4 +38,11 @@
     (kill-new module-name))
   )
 
+(define-skeleton rust-insert-test ""
+  "name: "
+  > "#[test]\n"
+  > "fn " str "() {\n"
+  > _ "\n"
+  > "}")
+
 (provide 'bergey-rust)
