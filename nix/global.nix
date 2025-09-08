@@ -182,6 +182,7 @@ in rec {
     paths = with kits; global ++ darwin ++ workstation ++ braze;
   };
   BZUSCDXGX362CR = BZUSWVX02L7L7Q;
+  BZCDXGX362CR = BZUSWVX02L7L7Q ;
 
   prandtl = pkgs.buildEnv {
     name = "bergey-linux-workstation";
