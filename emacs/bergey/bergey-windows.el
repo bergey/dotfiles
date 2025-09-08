@@ -78,6 +78,8 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
         ,(bergey/mode-in-direction 'magit-status-mode 'left)
         ,(bergey/mode-in-direction 'flymake-diagnostics-buffer-mode 'right)
         ,(bergey/mode-in-direction 'org-agenda-mode 'right)
+        ,(bergey/mode-in-direction 'compilation-mode 'right)
+        ,(bergey/mode-in-direction 'help-mode 'left)
         ))
 
 (use-package perspective
