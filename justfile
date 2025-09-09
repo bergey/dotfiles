@@ -77,7 +77,8 @@ emacs:
 	nix-env -if emacs/emacs.nix --no-build-output
 
 mr:
-    mr -d {{home}} update
+    - mr -d {{home}} update
+    - cd {{home}}/braze && mr update
 
 home := env_var('HOME')
 escaped_home := replace(home, '/', '\/')
