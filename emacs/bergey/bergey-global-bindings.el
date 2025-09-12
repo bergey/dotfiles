@@ -92,14 +92,15 @@ bind them to the specified keys."
   )
 
 ;; move case-change commands under a prefix
-(bind-keys* :prefix-map bergey/case-keymap
-            :prefix "C-. c"
-            ("u" . upcase-word)
-            ("l" . downcase-word)
-            ("c" . capitalize-word)
-            ("C-u" . upcase-region)
-            ("C-l" . downcase-region)
-            ("C-c" . capitalize-region))
+;; TODO find a prefix that does not confilct with org-capture
+;; (bind-keys* :prefix-map bergey/case-keymap
+;;             :prefix "C-. c"
+;;             ("u" . upcase-word)
+;;             ("l" . downcase-word)
+;;             ("c" . capitalize-word)
+;;             ("C-u" . upcase-region)
+;;             ("C-l" . downcase-region)
+;;             ("C-c" . capitalize-region))
 (put 'upcase-region 'disabled nil)
 
 (defun bergey/browse-url-or-xref ()
