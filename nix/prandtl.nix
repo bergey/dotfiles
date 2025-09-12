@@ -264,6 +264,9 @@ virtualisation.docker.enable = true;
         job_name = "prandtl";
         static_configs = [{
           targets = [ "127.0.0.1:9002" ];
+          labels = {
+            instance = "prandtl";
+          };
         }];
       }
     ];
