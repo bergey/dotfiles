@@ -35,7 +35,7 @@ bootstrap:
   nix-build nix/bootstrap.nix
   rm result*
 
-prandtl: global emacs nixpkgs-git os-update
+prandtl: os-update global emacs nixpkgs-git
 
 os:
   sudo nixos-rebuild switch
