@@ -129,9 +129,7 @@ let
       linux-workstation = with pkgs; [
         alacritty
         arduino
-        calibre
         crawl
-        dropbox-cli
         feh
         kdePackages.filelight
         gphoto2
@@ -146,6 +144,12 @@ let
         zathura
         inkscape # broken M1 2022-06-16
         zotero # broken M1 2022-05-03
+      ];
+
+      # some things don't work on ubuntu?
+      nixos = with pkgs; [
+        calibre
+        dropbox-cli
       ];
 
       server = [];
@@ -181,6 +185,6 @@ in rec {
 
   prandtl = pkgs.buildEnv {
     name = "bergey-linux-workstation";
-    paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
+    paths = with kits; global ++ linux ++ workstation ++ linux-workstation ++ nixos;
   };
 }
