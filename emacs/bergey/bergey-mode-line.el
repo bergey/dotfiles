@@ -8,13 +8,7 @@
   (setq mode-line-format (--remove (equal it '(vc-mode vc-mode)) mode-line-format))
   )
 
-(telephone-line-defsegment* bergey/telephone-line-position-segment (&optional lines columns)
-  "Optional args set padding on lines/columns."
-  (let* ((l (number-to-string (if lines lines 3)))
-         (c (number-to-string (if columns columns 3))))
-    (list (concat " %" l "l" ":%" c "c"))))
-
-(use-package telephone-line
+(use-package telephone-line :ensure t
   :custom
   (telephone-line-evil-use-short-tag t)
   (telephone-line-lhs
@@ -30,6 +24,14 @@
   (mode-line ((t (:foreground "#ea84fe" :background "gray10"))))
   (mode-line-inactive ((t (:background "gray20"))))
   (telephone-line-projectile ((t (:foreground ,b-indigo))))
-  :config (telephone-line-mode t))
+  :config
+  (telephone-line-mode t)
+
+  (telephone-line-defsegment* bergey/telephone-line-position-segment (&optional lines columns)
+    "Optional args set padding on lines/columns."
+    (let* ((l (number-to-string (if lines lines 3)))
+           (c (number-to-string (if columns columns 3))))
+      (list (concat " %" l "l" ":%" c "c"))))
+  )
 
 (provide 'bergey-mode-line)
