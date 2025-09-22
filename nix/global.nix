@@ -131,7 +131,6 @@ let
         arduino
         calibre
         crawl
-        dmenu
         dropbox-cli
         feh
         kdePackages.filelight
@@ -150,10 +149,6 @@ let
       ];
 
       server = [];
-
-      austenite = with pkgs; [
-        transmission_4
-      ];
 
       braze = with pkgs; [
         awscli2
@@ -174,7 +169,7 @@ in rec {
 
   Austenite = pkgs.buildEnv {
     name = "bergey-austenite";
-    paths = with kits; global ++ linux ++ server ++ austenite;
+    paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
   };
 
   BZUSWVX02L7L7Q = pkgs.buildEnv { # Braze Macbook
