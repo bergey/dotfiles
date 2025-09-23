@@ -8,8 +8,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export GOPATH=/home/$USER/.local/gocode
-
 NEW_PATH=`paste -d ':' -s - << EOF 
 $HOME/.local/bin
 $HOME/.cargo/bin

@@ -220,7 +220,6 @@ fi
 
 # specific to Braze
 
-unset GOPATH
 
 command -v rbenv > /dev/null && eval "$(rbenv init - --no-rehash bash)"
 command -v aws > /dev/null && eval "$(aws configure export-credentials --format env)"
