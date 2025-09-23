@@ -220,25 +220,30 @@ fi
 
 # specific to Braze
 
+if [[ $(uname -o) == "Darwin" ]]; then
+    echo 'on Darwin'
 
-command -v rbenv > /dev/null && eval "$(rbenv init - --no-rehash bash)"
-command -v aws > /dev/null && eval "$(aws configure export-credentials --format env)"
+    command -v rbenv > /dev/null && eval "$(rbenv init - --no-rehash bash)"
+    command -v aws > /dev/null && eval "$(aws configure export-credentials --format env)"
+    . ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.bash
 
-function url_olaf {
-    kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-registration-service $@
-    kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-redirect-service $@
-}
+    function url_olaf {
+        kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-registration-service $@
+        kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-redirect-service $@
+    }
 
-function url_sweeney {
-    kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-registration-service $@
-    kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-redirect-service $@
-}
+    function url_sweeney {
+        kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-registration-service $@
+        kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-redirect-service $@
+    }
 
-function url_prod {
-    echo US
-    kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-redirect-service $@
-    kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-registration-service $@
-    echo EU
-    kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-redirect-service $@
-    kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-registration-service $@
-}
+    function url_prod {
+        echo US
+        kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-redirect-service $@
+        kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-registration-service $@
+        echo EU
+        kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-redirect-service $@
+        kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-registration-service $@
+    }
+fi
+
