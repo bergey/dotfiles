@@ -45,3 +45,7 @@
 
 [url "git@github.com:braze-inc/"]
 	insteadOf = https://github.com/braze-inc/
+[url "ssh://git@github.com/braze-inc"]
+	insteadOf = https://github.com/braze-inc
+[url "ssh://git@github.com/Appboy/*,github.com/braze-inc/*"]
+	insteadOf = https://github.com/Appboy/*,github.com/braze-inc/*
