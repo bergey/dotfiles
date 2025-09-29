@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /6.175/archive/2014/resources/emacs/bsv-snippets/bsv-mode</title>
+ </head>
+ <body>
+<h1>Index of /6.175/archive/2014/resources/emacs/bsv-snippets/bsv-mode</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/6.175/archive/2014/resources/emacs/bsv-snippets/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="typedef.union">typedef.union</a></td><td align="right">2015-09-12 03:20  </td><td align="right">134 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="typedef.struct">typedef.struct</a></td><td align="right">2015-09-12 03:20  </td><td align="right">122 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="typedef.enum">typedef.enum</a></td><td align="right">2015-09-12 03:20  </td><td align="right">108 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="seq">seq</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 70 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="rule">rule</a></td><td align="right">2015-09-12 03:20  </td><td align="right">118 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="ret">ret</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 54 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="repeat">repeat</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 87 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="pragma.ordering">pragma.ordering</a></td><td align="right">2015-09-12 03:20  </td><td align="right">156 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="pragma.firing">pragma.firing</a></td><td align="right">2015-09-12 03:20  </td><td align="right">179 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="par">par</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 70 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="newfile.testbench">newfile.testbench</a></td><td align="right">2015-09-12 03:20  </td><td align="right">624 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="newfile.poly">newfile.poly</a></td><td align="right">2015-09-12 03:20  </td><td align="right">677 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="newfile.basic">newfile.basic</a></td><td align="right">2015-09-12 03:20  </td><td align="right">624 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="module.3">module.3</a></td><td align="right">2015-09-12 03:20  </td><td align="right">221 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="module.2">module.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">196 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="module.1">module.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right">186 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="method.6">method.6</a></td><td align="right">2015-09-12 03:20  </td><td align="right">195 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="method.5">method.5</a></td><td align="right">2015-09-12 03:20  </td><td align="right">167 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="method.4">method.4</a></td><td align="right">2015-09-12 03:20  </td><td align="right">166 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="method.3">method.3</a></td><td align="right">2015-09-12 03:20  </td><td align="right">135 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="method.2">method.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">106 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="method.1">method.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right">103 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="matches">matches</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 95 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="interface.sub">interface.sub</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 89 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="interface.def">interface.def</a></td><td align="right">2015-09-12 03:20  </td><td align="right">111 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="import">import</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 76 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="if.plain">if.plain</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 87 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="if.else">if.else</a></td><td align="right">2015-09-12 03:20  </td><td align="right">115 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="function.value">function.value</a></td><td align="right">2015-09-12 03:20  </td><td align="right">145 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="function.stmt">function.stmt</a></td><td align="right">2015-09-12 03:20  </td><td align="right">203 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="function.rules">function.rules</a></td><td align="right">2015-09-12 03:20  </td><td align="right">195 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="function.actionvalue">function.actionvalue</a></td><td align="right">2015-09-12 03:20  </td><td align="right">202 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="function.action">function.action</a></td><td align="right">2015-09-12 03:20  </td><td align="right">153 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="fshow.2">fshow.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">346 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="fshow.1">fshow.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right">216 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="fromI">fromI</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 66 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="for.Integer">for.Integer</a></td><td align="right">2015-09-12 03:20  </td><td align="right">139 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="endme">endme</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 55 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="doc.file">doc.file</a></td><td align="right">2015-09-12 03:20  </td><td align="right">298 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="disp">disp</a></td><td align="right">2015-09-12 03:20  </td><td align="right">105 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="com">com</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 59 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="case.2">case.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">173 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="case.1">case.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right">141 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="begin">begin</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 69 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="actionvalue">actionvalue</a></td><td align="right">2015-09-12 03:20  </td><td align="right">103 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="actionv">actionv</a></td><td align="right">2015-09-12 03:20  </td><td align="right">103 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="action">action</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 83 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Wire.3">Wire.3</a></td><td align="right">2015-09-12 03:20  </td><td align="right">111 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Wire.2">Wire.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">120 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Wire.1">Wire.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 99 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Vector.Reg">Vector.Reg</a></td><td align="right">2015-09-12 03:20  </td><td align="right">158 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Stmt">Stmt</a></td><td align="right">2015-09-12 03:20  </td><td align="right">138 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="RegFile.full">RegFile.full</a></td><td align="right">2015-09-12 03:20  </td><td align="right">144 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Reg.3">Reg.3</a></td><td align="right">2015-09-12 03:20  </td><td align="right">132 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Reg.2">Reg.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">130 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Reg.1">Reg.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 99 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="RWire">RWire</a></td><td align="right">2015-09-12 03:20  </td><td align="right">105 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Pulse">Pulse</a></td><td align="right">2015-09-12 03:20  </td><td align="right">104 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Makefile">Makefile</a></td><td align="right">2015-09-12 03:20  </td><td align="right">267 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="FIFOF.2">FIFOF.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">135 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="FIFOF.1">FIFOF.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right">127 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="FIFO.2">FIFO.2</a></td><td align="right">2015-09-12 03:20  </td><td align="right">131 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="FIFO.1">FIFO.1</a></td><td align="right">2015-09-12 03:20  </td><td align="right">123 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="DefaultValue">DefaultValue</a></td><td align="right">2015-09-12 03:20  </td><td align="right">154 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Def">Def</a></td><td align="right">2015-09-12 03:20  </td><td align="right">154 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Connectable">Connectable</a></td><td align="right">2015-09-12 03:20  </td><td align="right">668 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="Bit">Bit</a></td><td align="right">2015-09-12 03:20  </td><td align="right"> 56 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+</body></html>

@@ -94,4 +94,7 @@
   :mode "\\.pest$"
   )
 
+(use-package bsv-mode
+  :mode "\\.bsv\\'")
+
 (provide 'bergey-languages)
