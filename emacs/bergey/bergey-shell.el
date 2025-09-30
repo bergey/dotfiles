@@ -23,7 +23,7 @@
          )
 
   :config
-  (use-package native-complete :ensure t
+  (use-package native-complete :ensure t :after company
     :init
     (native-complete-setup-bash)
     (add-to-list 'company-backends 'company-native-complete)

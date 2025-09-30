@@ -49,10 +49,8 @@
  '(message-send-mail-partially-limit 10000000)
  '(mm-verify-option 'known)
  '(notmuch-hello-sections
-   '(notmuch-hello-insert-header notmuch-hello-insert-saved-searches
-                                 notmuch-hello-insert-recent-searches
-                                 notmuch-hello-insert-alltags))
- '(org-export-backends '(ascii html icalendar latex md odt confluence))
+   '(notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags))
+ '(org-export-backends '(ascii html icalendar latex md odt))
  '(package-selected-packages
    '(add-node-modules-path auto-compile auto-complete bbdb bison-mode
                            buffer-move capnp-mode caps-lock
