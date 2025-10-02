@@ -33,3 +33,6 @@ checkout = git clone 'git@github.com:bergey/memex.git' 'memex'
 
 [code/active/delivery]
 checkout = git clone 'git@github.com:bergey/delivery.git' 'delivery'
+
+[code/active/vulture]
+checkout = git clone 'git@github.com:bergey/vulture.git' 'vulture'
