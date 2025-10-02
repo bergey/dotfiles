@@ -106,3 +106,6 @@ checkout = git clone 'git@github.com:Appboy/helm-charts.git' 'helm-charts'
 
 [go-braze-platform]
 checkout = git clone 'git@github.com:braze-inc/go-braze-platform.git' 'go-braze-platform'
+
+[go-apis]
+checkout = git clone 'git@github.com:braze-inc/go-apis.git' 'go-apis'
