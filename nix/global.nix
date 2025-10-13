@@ -9,7 +9,7 @@ let
       args = [ "-c" "$coreutils/bin/mkdir $out; echo foo > $out/bootstrap-envs" ];
       system = builtins.currentSystem;
       inherit coreutils;
-      inherit (bootstrap) ruby javascript;
+      inherit (bootstrap) javascript;
     });
 
     # function to help hold back a single package from system upgrades
