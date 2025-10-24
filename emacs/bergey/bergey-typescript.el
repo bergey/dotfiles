@@ -1,5 +1,4 @@
 (use-package typescript-mode :ensure t
-  :mode "\\.ts"
   :bind (:map typescript-mode-map
               ("C-c C-," . prettier-prettify)
               ("C-c i" . bergey/typescript-navigate-imports)
@@ -26,9 +25,17 @@
   :ensure t
   :init
   (add-hook 'web-mode-hook #'add-node-modules-path)
-  (add-hook 'ts-mode-hook #'add-node-modules-path)
+  (add-hook 'typescript-mode-hook #'add-node-modules-path)
   )
 
 (add-hook 'web-mode-hook #'bergey/fixed-pitch-indent)
+
+(use-package flymake-eslint
+  :ensure t
+  :hook (typescript-mode . flymake-eslint-enable)
+  :config
+  ;; If Emacs is compiled with JSON support
+  (setq flymake-eslint-prefer-json-diagnostics t)
+  )
 
 (provide 'bergey-typescript)
