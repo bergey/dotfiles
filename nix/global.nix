@@ -39,7 +39,6 @@ let
         graphviz
         htop
         jq yq
-        jujutsu
         just
         kondo
         kubectl
@@ -135,6 +134,7 @@ let
         gphoto2
         id3v2
         imagemagick
+        jujutsu
         maim # screenshots
         pavucontrol
         perlPackages.ImageExifTool
