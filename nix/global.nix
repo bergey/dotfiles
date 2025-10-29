@@ -77,7 +77,7 @@ let
         # rust posix replacements / enhancements
         bat
         choose
-        du-dust # https://github.com/bootandy/dust
+        dust # https://github.com/bootandy/dust
         fd
         hexyl
         hyperfine
