@@ -136,7 +136,7 @@ function loc-lang {
     # report lines of code in each sub-directory, in a particular language
     lang="$1"
     {     echo "LOC Directory"
-          for d in $(find . -type d -maxdepth 1); do
+          for d in $(find . -maxdepth 1 -type d); do
               echo -n '*' >&2
           count=$(tokei -t "$lang" "$d")
           if [ $? == 0 ]; then echo "$count" | awk -v d="$d" -v lang="^$lang$" '$1 ~ lang {print $4, d;}'; fi
