@@ -13,6 +13,7 @@ $HOME/.local/bin
 $HOME/.cargo/bin
 $HOME/.nix-profile/bin
 $HOME/.nix-profile/sbin
+$HOME/.juliaup/bin
 EOF`
 
 if [ $(uname -s) == Darwin ]; then
