@@ -94,7 +94,7 @@ let
         docker
         file
         gcc
-        inotifyTools
+        inotify-tools
         lsof
         psmisc # pstree &c
         bpftrace
