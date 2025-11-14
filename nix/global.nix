@@ -49,7 +49,6 @@ let
         nix-prefetch-git
         nix-tree
         nmap
-        nodePackages.jsonlint
         nodePackages.typescript-language-server
         ripgrep
         rsync
