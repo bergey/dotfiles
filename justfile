@@ -68,6 +68,7 @@ stow:
   mkdir -p ~/.local ~/.config ~/.stack ~/code/active
   for d in $(ls stow); do stow -t ~ -d stow $d; done
   ln -s $(pwd)/emacs ~/.emacs.d
+  [ -d private/stow ] && for d in $(ls private/stow); do stow -t ~ -d private/stow $d; done
 
 unstow:
   for package in $(ls stow); do stow --target ~ --dir stow --delete $package; done
