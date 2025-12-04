@@ -106,7 +106,7 @@
 (setq org-directory
       (cl-case system-type
         (gnu/linux "~/records/org/")
-        (darwin "~/records/org/")
+        (darwin "~/dotfiles/private/")
         (windows-nt (format  "c:/Users/%s/records/org/" (user-login-name)))
         ))
 
