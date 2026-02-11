@@ -52,21 +52,33 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   (let* ((direction (or (alist-get 'direction alist) 'left))
          (max-splits (or (alist-get 'max-splits alist) 6))
          (root-window-or-box (car (window-tree)))
+         (root-window (frame-root-window (selected-frame)))
+         (width
+          (let ((count 1) (w (window-left-child root-window)))
+            (while w (setq count (+ 1 count)) (setq w (window-next-sibling w))) count))
+         (right
+          (let ((right root-window) (next (window-left-child root-window)))
+            (while next
+              (setq right next)
+              (setq next (window-next-sibling next)))
+            right))
          (target-window
-          (if (one-window-p)
-              (split-window root-window-or-box nil direction)
-            (let (
-                  (existing (cddr root-window-or-box))
-                  (window-at-side ;; actually first / last visible window of first flex-box
-                   (pcase direction
-                     ('left (nth 2 (car (window-tree))))
-                     ('right (car (last (car (window-tree))))))))
-              ;; check that root box is for horizontal splits?
-              (if (< (length existing) max-splits)
-                  (split-window  window-at-side nil direction)
-                window-at-side)))))
+          (if (< width max-splits)
+              (split-window
+               (pcase direction
+                 ('left (or (window-left-child root-window) root-window))
+                 ('right right))
+               nil direction)
+            ;; if the leftmost / rightmost box is not a display window, pick the top window within that box
+            (pcase direction
+              ('left (or (window-top-child (window-left-child root-window))
+                         (window-left-child root-window)
+                         root-window))
+              ('right (or (window-top-child right) right)))
+            ))
+         )
     (window--display-buffer buffer target-window 'window))
-  (balance-windows-area))
+  (balance-windows))
 
 (defun bergey/mode-in-direction (mode direction)
   `((derived-mode ,mode)
