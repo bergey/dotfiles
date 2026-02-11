@@ -5,6 +5,8 @@
 (bind-keys
  :map org-agenda-mode-map
  ("M-m" . nil) ;; conflicts with window switching; was org-agenda-bulk-toggle
+ ("j" . evil-next-line) ;; was org-agenda-goto-date
+ ("k" . evil-previous-line) ;; was org-agenda-capture
  :map outline-minor-mode-map
  ("M-h" . nil) ;; was outline-promote
  :map org-mode-map
