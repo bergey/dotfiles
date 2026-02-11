@@ -7,18 +7,20 @@
 
 (defun iso-time-formats (arg)
   (cl-case arg
-    (16 "%Y-%m-%dT%H:%M:%S")
-    (4 "%Y-%m-%d %H:%M:%S")
+    ;; could use %F %T to simplify
+    (16 "%Y-%m-%dT%H:%M:%SZ")
+    (4 "%Y-%m-%d %H:%M:%S%z")
     (t "%Y-%m-%d")))
 
 (defun datestamp (arg)
   (interactive "p")
   (insert (format-time-string
-           (iso-time-formats arg))))
+           (iso-time-formats arg) nil (eq arg 16))))
 
 (defun iso-time-at-point (arg)
   (interactive "p")
-  (message (format-time-string (iso-time-formats arg) (thing-at-point 'number 'no-attributes)))
+  (message
+   (format-time-string (iso-time-formats arg) (thing-at-point 'number 'no-attributes) (eq arg 16)))
   )
 
 (override-global-mode t)
