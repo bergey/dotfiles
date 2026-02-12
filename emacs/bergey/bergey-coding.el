@@ -185,10 +185,12 @@
   )
 (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
 
-;; (use-package dash-at-point
-;;   :init (evil-define-key 'normal 'global "D" #'dash-at-point)
-;;   :bind ("M-d" . dash-at-point)
-;;   )
+(use-package counsel-dash
+  :custom
+  (counsel-dash-browser-func #'eww)
+  (dash-docs-common-docsets '("Rust"))
+  :bind ("C-. C-d" . counsel-dash)
+  )
 
 (provide 'bergey-coding)
 

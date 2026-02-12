@@ -14,9 +14,10 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     company-c-headers
     coterm
     counsel
+    counsel-dash
     csv-mode
-    dash
-    dash-at-point
+    dash # list library
+    dash-docs
     default-text-scale
     diminish
     direnv
