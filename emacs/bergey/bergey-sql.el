@@ -54,6 +54,8 @@
         (sql-send-string string))))
 
   (define-key sql-interactive-mode-map (kbd "C-c C-w") nil)
-  (define-key sql-interactive-mode-map (kbd "C-c C-x") nil) )
+  (define-key sql-interactive-mode-map (kbd "C-c C-x") nil)
+  :dash "PostgreSQL"
+  )
 
 (provide 'bergey-sql)

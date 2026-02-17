@@ -8,6 +8,7 @@
   :config
   (add-hook 'rust-mode-hook #'electric-pair-local-mode)
   (add-hook 'rust-mode-hook #'(lambda () (setq-local evil-shift-width 4)))
+  :dash "Rust"
   )
 
 (use-package flymake-clippy

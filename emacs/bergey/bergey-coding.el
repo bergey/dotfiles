@@ -186,10 +186,9 @@
 (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
 
 (use-package counsel-dash
-  :custom
-  (counsel-dash-browser-func #'eww)
-  (dash-docs-common-docsets '("Rust"))
   :bind ("C-. C-d" . counsel-dash)
+  :config
+  (setq counsel-dash-browser-func #'eww)
   )
 
 (provide 'bergey-coding)
