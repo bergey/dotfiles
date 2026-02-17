@@ -129,4 +129,12 @@ by using nxml's indentation rules."
 (use-package json-mode :ensure t
   :mode "\\.avsc")
 
+
+(use-package json5-ts-mode
+  :mode "\\.json5\'"
+  ;; :init
+  ;; (require 'treesit)
+  ;; (add-to-list 'treesit-language-source-alist '(json5 "https://github.com/Joakker/tree-sitter-json5"))
+  )
+
 (provide 'bergey-web)

@@ -45,6 +45,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     idris-mode
     inf-ruby
     ivy
+    json5-ts-mode
     just-mode
     kotlin-mode
     ledger-mode
