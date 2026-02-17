@@ -65,6 +65,8 @@
   :diminish evil-collection-unimpaired-mode
   :config
   (setq bergey/evil-collection-original-mode-list evil-collection-mode-list)
-  (evil-collection-init))
+  (evil-collection-init)
+  (evil-define-key 'normal Info-mode-map (kbd "M-h") nil)
+  )
 
 (provide 'bergey-evil)
