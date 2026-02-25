@@ -137,7 +137,6 @@ let
         maim # screenshots
         pavucontrol
         perlPackages.ImageExifTool
-        slack
         transmission_4
         xorg.xev
         zathura

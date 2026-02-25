@@ -147,7 +147,6 @@ in with pkgs; {
     name = "javascript";
     paths = with nodePackages; [
       pkgs.nodejs
-      node2nix
       pkgs.python3.pkgs.jsmin
       yarn
     ];
