@@ -94,11 +94,11 @@
   (bergey/ruby-yank-class-or-module-name arg t))
 (bind-key "C-c c" #'bergey/ruby-yank-class-name ruby-mode-map)
 
-(defun bergey/ruby-yank-rspec-command ()
+(defun bergey/ruby-yank-rspec-command (arg)
   "copy an rspec command which can be run in the shell to run the tests in the current file"
-  (interactive)
+  (interactive "p")
   (let ((prefix (if (s-match "/domains/" (buffer-file-name)) "^\\(.*\\)domains/" "^\\(.*\\)spec/")))
-    (kill-new (s-replace-regexp prefix "bundle exec rspec " (buffer-file-name) nil nil 1)))
+    (kill-new (s-replace-regexp prefix (if (= arg 4) " " "bundle exec rspec ") (buffer-file-name) nil nil 1)))
   )
 (bind-key "C-c r" #'bergey/ruby-yank-rspec-command rspec-mode-map)
 
