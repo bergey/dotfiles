@@ -126,6 +126,11 @@ input <identifier> xkb_model "pc101"
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    # home row, easier to reach, esp with my top row mapped to !@@#
+    bindsym $mod+a workspace number 1
+    bindsym $mod+o workspace number 2
+    bindsym $mod+e workspace number 3
+    bindsym $mod+u workspace number 4
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -163,7 +168,7 @@ input <identifier> xkb_model "pc101"
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+m focus parent
 #
 # Scratchpad:
 #
