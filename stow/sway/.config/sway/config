@@ -42,6 +42,10 @@ exec swayidle -w \
 
 bindsym F9 exec $lock
 bindsym F10 exec systemctl suspend-then-hibernate
+bindsym F8 exec gdmflexiserver --startnew
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 
 ### Input configuration
 input * {
