@@ -138,7 +138,7 @@ let
         pavucontrol
         perlPackages.ImageExifTool
         transmission_4
-        xorg.xev
+        xev
         zathura
         inkscape # broken M1 2022-06-16
         zotero # broken M1 2022-05-03
