@@ -1,6 +1,8 @@
 ;; smartparens is like paredit, for many languages
 
-(use-package smartparens :ensure t
+(use-package hydra)
+
+(use-package smartparens
   :commands (smartparens-strict-mode smartparens-mode)
   :diminish smartparens-mode
   :config
@@ -26,7 +28,7 @@
 
     ("t" sp-transpose-sexp)
     ("<backspace>" sp-backward-unwrap-sexp "< unwrap")
-    ("x" sp-unwrap-sexsp "unwrap >")
+    ("x" sp-unwrap-sexp "unwrap >")
     ("d" sp-kill-sexp "kill")
 
     ("l" sp-forward-slurp-sexp "slurp >")

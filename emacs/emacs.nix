@@ -42,6 +42,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     highlight-escape-sequences
     highlight-indent-guides
     highlight-quoted
+    hydra
     idris-mode
     inf-ruby
     ivy
