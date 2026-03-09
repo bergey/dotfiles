@@ -247,3 +247,12 @@ if [[ $(uname -o) == "Darwin" ]]; then
     }
 fi
 
+function into_domain {
+    local domain=$1
+    local source=$(echo $2 | sed -E -e 's,(.*)/(appboy/|braze/),\1/./\2,' -e 's,^/,,')
+    local dest=$(echo "$2" | sed -e 's,shared_code/,,' -e 's,lib/shared/.*,public,' -e 's,spec/shared/.*,spec,' -e 's,app/models.*,public,' )
+    dest="shared_code/domains/${domain}/${dest}"
+    # echo "$source"
+    # echo "$dest"
+    rsync -r --remove-source-files --relative "$source" "$dest"
+}
