@@ -5,6 +5,7 @@
     (setq evil-undo-system 'undo-fu)
     )
   (setq evil-want-keybinding nil)
+  (setq evil-want-minibuffer t)
 
   :custom
   (evil-insert-state-cursor '(bar . 1))
