@@ -109,6 +109,10 @@
 
  '(erc-notice-face ((((class color) (background dark)) (:foreground "LightSteelBlue4"))))
 
+ '(mode-line ((t (:foreground "#ea84fe" :background "gray10"))))
+ '(mode-line-inactive ((t (:background "gray20"))))
+ '(telephone-line-projectile ((t (:foreground "#5e84fe"))))
+
  '(default
     ((t (:inherit nil :stipple nil :background "black" :foreground "#1a7"
                   :inverse-video nil :box nil :strike-through
