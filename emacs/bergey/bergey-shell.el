@@ -79,20 +79,18 @@
     (setq completion-at-point-functions '(native-complete-at-point t)))
   (add-hook 'shell-mode-hook 'bergey/set-bash-completion)
 
-  (defun ivy-shell-buffer ()
+  (defun bergey/shell-buffer ()
     (interactive)
-    (let ((this-command 'ivy-shell-buffer))
-      (ivy-read "Switch to buffer: " 'internal-complete-buffer
-                :predicate
-                (lambda (buffer-pair) ;; (name . buffer)
-                  (let ((case-fold-search nil))
-                    (string-match "^\\*shell.*\\*" (car buffer-pair))))
-                :matcher #'ivy--switch-buffer-matcher
-                :preselect (buffer-name (other-buffer (current-buffer)))
-                :action #'ivy--switch-buffer-action
-                :keymap ivy-switch-buffer-map
-                :caller 'ivy-switch-buffer)))
-  (bind-key "h" 'ivy-shell-buffer bergey/jump-keymap)
+    (switch-to-buffer
+     (completing-read
+      "Switch to shell: "
+      #'internal-complete-buffer
+      (lambda (buffer-pair) ;; (name . buffer)
+        (let ((case-fold-search nil))
+          (string-match "^\\*shell.*\\*" (car buffer-pair))))
+      ))
+    )
+  (bind-key "h" #'bergey/shell-buffer bergey/jump-keymap)
 
   (defun rename-shell-buffer (new-name)
     "rename the current buffer with the form shell<foo>"

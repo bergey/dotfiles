@@ -44,13 +44,16 @@
 ;; avoid conflict with bindings above
 (evil-define-key 'normal help-mode-map (kbd "C-o") nil)
 
-(defun bergey/ivy-switch-buffer-regex (regex)
-  (ivy-read "switch to buffer: " #'internal-complete-buffer :action #'ivy--switch-buffer-action
-            :predicate (lambda (s) (s-matches? regex (car s)))))
+(defun bergey/switch-buffer-regex (regex)
+  (switch-to-buffer
+   (completing-read
+    "switch to buffer: "
+    #'internal-complete-buffer
+    (lambda (s) (s-matches? regex (car s))))))
 
 (defun bergey/switch-buffer-magit ()
   (interactive)
-  (bergey/ivy-switch-buffer-regex "^magit:"))
+  (bergey/switch-buffer-regex "^magit:"))
 
 ;; Jump to various buffers
 (bind-keys* :prefix-map bergey/jump-keymap
