@@ -1,11 +1,11 @@
 ;; elisp libraries & variables
 ;; loaded after use-package but before anything else
 
-(use-package dash :ensure t)
-(use-package f :ensure t)
-(use-package s :ensure t)
+(use-package dash )
+(use-package f )
+(use-package s )
 
-(use-package exec-path-from-shell :ensure t
+(use-package exec-path-from-shell
   :config
   (setq exec-path-from-shell-shell-name "bash")
   ;; PATH is set for non-interactive shell, in .bash_env

@@ -1,6 +1,6 @@
 ;; starting point from https://github.com/amake/.emacs.d/blob/master/init.el
 
-(use-package ruby-mode :ensure t
+(use-package ruby-mode
   :mode (rx ".rb" string-end)
   :custom
   (ruby-insert-encoding-magic-comment nil "Not needed in Ruby 2")
@@ -92,7 +92,7 @@
 
         ("C-c C-s" . inf-ruby-console-auto)))
 
-(use-package ruby-test-mode :ensure t
+(use-package ruby-test-mode
   :after ruby-mode
   :diminish ruby-test-mode
   :config
@@ -111,7 +111,7 @@
   (advice-add #'ruby-test-run-command :around #'amk-ruby-test-pretty-error-diffs-setup)
   )
 
-(use-package rspec-mode :ensure t
+(use-package rspec-mode
   :commands rspec-mode
   :init
   (defun bergey/try-ruby-mode ()
@@ -139,7 +139,7 @@
     )
   )
 
-(use-package feature-mode :ensure t
+(use-package feature-mode
   :mode "\\.feature"
   :config
   :bind
@@ -147,7 +147,7 @@
   ("M-." . picklebush-line)
   )
 
-(use-package rubocop :ensure t
+(use-package rubocop
   :commands rubocop-mode
   :custom
   (rubocop-prefer-system-executable t)

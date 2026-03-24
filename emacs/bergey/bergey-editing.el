@@ -12,7 +12,7 @@
  fill-column 90
  )
 
-(use-package unfill :ensure t
+(use-package unfill
   :commands (unfill-paragraph unfill-region))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -31,7 +31,7 @@
         (setq fname (concat "/sudo:root@localhost:" fname)))
       (find-alternate-file fname))))
 
-(use-package whitespace :ensure t
+(use-package whitespace
   :diminish whitespace-mode
   :config (progn
             (setq whitespace-style '(face tabs trailing empty tab-mark lines-tail))
@@ -46,7 +46,7 @@
             (define-key view-mode-map (kbd "k") 'View-scroll-line-back)))
 
 ;; auto completion
-(use-package company :ensure t
+(use-package company
   :diminish company-mode
   :defer 10
   :init (defun bergey/company-short-idle () (setq company-idle-delay 0.1))
@@ -65,11 +65,11 @@
      company-dabbrev-ignore-case nil ; in code, case matters
      company-dabbrev-downcase nil))
 
-(use-package csv-mode :ensure t
+(use-package csv-mode
   :mode "\\.csv$"
   )
 
-(use-package rg :ensure t
+(use-package rg
   :commands rg
   :bind ("M-g M-g" . rg-dwim)
   :bind ("M-g t" . rg-project)

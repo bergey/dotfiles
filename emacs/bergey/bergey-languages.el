@@ -14,52 +14,52 @@
     )
   )
 
-(use-package dockerfile-mode :ensure t
+(use-package dockerfile-mode
   :mode "Dockerfile")
 
-(use-package groovy-mode :ensure t
+(use-package groovy-mode
  :mode (rx (or ".gradle" ".groovy" ".gvy" ".gy" ".gsh" "Jenkinsfile") string-end))
 
-(use-package idris-mode :ensure t
+(use-package idris-mode
   :mode (rx ".idr" string-end)
   )
 
-(use-package just-mode :ensure t
+(use-package just-mode
   :mode "Justfile")
 
-(use-package kotlin-mode :ensure t
+(use-package kotlin-mode
   :mode (rx ".kt[sm]?" string-end))
 
 ;; ocaml
-(use-package merlin :ensure t
+(use-package merlin
   :mode (rx ".ml" string-end)
   :config
-  (use-package tuareg :ensure t))
+  (use-package tuareg ))
 
-(use-package nix-mode :ensure t
+(use-package nix-mode
   :mode (rx ".nix" string-end))
 
 ;; POVRay input files
-(use-package pov-mode :ensure t
+(use-package pov-mode
   :mode (rx ".pov" string-end)
   :config (setq pov-indent-level 4)
   )
 
 ;; purescript
-(use-package purescript-mode :ensure t
+(use-package purescript-mode
   :mode (rx ".ps" string-end)
   :config
     (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
     )
 
-(use-package swift-mode :ensure t
+(use-package swift-mode
   :mode (rx ".swift" string-end)
   )
 
-(use-package systemd :ensure t
+(use-package systemd
   :mode (rx (or ".service" ".unit") string-end))
 
-(use-package yaml-mode :ensure t
+(use-package yaml-mode
   :mode (rx (or ".yaml" ".yml") string-end)
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
@@ -67,18 +67,18 @@
   (add-hook 'yaml-mode-hook #'outline-indent-minor-mode)
 )
 
-(use-package coffee-mode :ensure t
+(use-package coffee-mode
   :mode (rx ".js.coffee" string-end))
 
-(use-package go-mode :ensure t
+(use-package go-mode
   :mode (rx ".go" string-end))
 
 (require 'alloy-mode)
 (add-to-list 'auto-mode-alist `(,(rx ".alloy" string-end) . alloy-mode)) ; mode only has .als
 
-(use-package sed-mode :ensure t)
+(use-package sed-mode )
 
-(use-package terraform-mode :ensure t
+(use-package terraform-mode
   :mode (rx ".tf" string-end)
   )
 
@@ -86,11 +86,11 @@
   :mode (rx string-start "nginx.conf" string-end)
   )
 
-(use-package capnp-mode :ensure t
+(use-package capnp-mode
   :mode (rx ".capnp" string-end)
   )
 
-(use-package pest-mode :ensure t
+(use-package pest-mode
   :mode (rx ".pest" string-end)
   )
 

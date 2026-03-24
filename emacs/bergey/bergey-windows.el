@@ -3,7 +3,7 @@
 ;; never split vertically (into 2 windows above eachother)
 (setq split-height-threshold nil)
 
-(use-package window-number :ensure t
+(use-package window-number
   ;; :commands window-number-meta-mode
   ;; :defer 3
   :bind
@@ -36,7 +36,7 @@
            ("r" . (lambda () (interactive) (window-number-select 9)))
            )
 
-(use-package buffer-move :ensure t
+(use-package buffer-move
   :bind
     ("C-. <left>" . buf-move-left)
     ("C-. <right>" . buf-move-right)
@@ -106,7 +106,7 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   (setq kill-buffer-query-functions (remove #'persp-maybe-kill-buffer kill-buffer-query-functions))
   )
 
-(use-package projectile :ensure t
+(use-package projectile
   :bind (:map projectile-mode-map
               ("C-c p" . projectile-command-map)
               ("M-o" . projectile-command-map)
@@ -120,7 +120,7 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   :config (projectile-mode)
   )
 
-(use-package persp-projectile :ensure t
+(use-package persp-projectile
   :after (perspective projectile)
   :defer 5
   )

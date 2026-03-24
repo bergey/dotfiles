@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(use-package diminish :ensure t
+(use-package diminish
   :commands diminish
   )
 
@@ -8,7 +8,7 @@
   (setq mode-line-format (--remove (equal it '(vc-mode vc-mode)) mode-line-format))
   )
 
-(use-package telephone-line :ensure t
+(use-package telephone-line
   :custom
   (telephone-line-evil-use-short-tag t)
   :custom-face

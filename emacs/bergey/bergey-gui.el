@@ -16,7 +16,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 
 ;; https://github.com/purcell/default-text-scale
 ;; binds C-M-= and C-M--
-(use-package default-text-scale :ensure t)
+(use-package default-text-scale )
 (default-text-scale-mode)
 
 ;; colors
@@ -29,7 +29,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;; C-x C-e next line when testing changes to above
 ;; (setq ansi-color-map (ansi-color-make-color-map))
 
-(use-package rainbow-mode :ensure t)
+(use-package rainbow-mode )
 
 ;; clean up interface
 (measure-time "interface"
@@ -56,7 +56,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;;(add-to-list 'tramp-remote-path "/run/current-system/sw/bin")
 
 (autoload 'buffer-face-mode-invoke "face-remap" )
-(use-package ivy :ensure t
+(use-package ivy
   :diminish ivy-mode
   :config
   (ivy-mode)

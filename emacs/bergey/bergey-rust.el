@@ -1,4 +1,4 @@
-(use-package rust-mode :ensure t
+(use-package rust-mode
   :mode ((rx ".rs" string-end) . rust-mode)
   :dash "Rust"
   :bind (:map rust-mode-map
@@ -41,7 +41,7 @@
 (use-package flymake-clippy
   :hook (rust-mode . flymake-clippy-setup-backend))
 
-(use-package toml-mode :ensure t
+(use-package toml-mode
   :mode (rx (or (seq ".toml" string-end) "Cargo.lock")))
 
 (provide 'bergey-rust)

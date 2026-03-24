@@ -1,6 +1,6 @@
-(use-package evil :ensure t
+(use-package evil
   :init
-  (use-package undo-fu :ensure t
+  (use-package undo-fu
     :config
     (setq evil-undo-system 'undo-fu)
     )

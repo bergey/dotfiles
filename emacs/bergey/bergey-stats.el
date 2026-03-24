@@ -1,9 +1,9 @@
-;; (use-package ess :ensure t
+;; (use-package ess
 ;;   :mode "\\.R"
 ;;   :commands R)
 
 (use-package julia-ts-mode
-  :ensure t
+
   :mode "\\.jl$")
 
 (provide 'bergey-stats)

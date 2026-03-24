@@ -2,7 +2,7 @@
 
 (setq vc-follow-symlinks t)
 
-(use-package magit :ensure t
+(use-package magit
   :bind ("C-. g" . magit-status)
   :diminish auto-revert-mode
   :config
@@ -24,7 +24,7 @@
    ("M-n" . nil) ;; conflicts with window switching; was magit-section-forward-sibling
    ))
 
-(use-package orgit :ensure t :defer t)
+(use-package orgit  :defer t)
 
 (defun bergey/search-forward-diff-lines ()
   (interactive)
@@ -40,7 +40,7 @@
                (message "%s" branch))
       (user-error "There is not current branch"))))
 
-(use-package git-link :ensure t
+(use-package git-link
   :bind ("M-g M-l" . git-link)
   )
 

@@ -9,7 +9,7 @@
   (highlight-quoted-mode)
   )
 
-(use-package racket-mode :ensure t
+(use-package racket-mode
   :mode "\\.rkt'"
   :bind (:map racket-mode-map
               ("C-c C-," . bergey/indent-buffer))
@@ -17,7 +17,7 @@
   (add-hook 'racket-mode-hook 'bergey/lisp-hook))
 
 ;; *** clojure
-(use-package clojure-mode :ensure t
+(use-package clojure-mode
   :mode "\\.clj\\'"
   :config (progn
             (add-hook 'clojure-mode-hook 'bergey/lisp-hook)

@@ -1,4 +1,4 @@
-(use-package python :ensure t
+(use-package python
   :mode "\\.pyc?"
   :commands run-python
   :config
@@ -12,7 +12,7 @@
   :dash (python-mode "Python 3")
   )
 
-(use-package py-isort :ensure t
+(use-package py-isort
   :after python
   :config
   (bind-key "C-c C-," 'py-isort-buffer python-mode-map))

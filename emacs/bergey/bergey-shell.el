@@ -1,4 +1,4 @@
-(use-package shell :ensure t
+(use-package shell
   :commands shell
   :init
   (defun named-shell (new-name)
@@ -121,7 +121,7 @@
 
   )
 
-(use-package eshell :ensure t
+(use-package eshell
   :commands eshell
   ;; TODO lazy bind, only when eshell is actually loaded, and variable is declared
   ;; :bind ((:map eshell-mode-map ("C-M-n" . rename-shell-buffer)))

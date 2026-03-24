@@ -1,5 +1,5 @@
 ;; everything web: HTML,javascript, css
-(use-package web-mode :ensure t
+(use-package web-mode
   :mode "\\.\\(p?html\\|tpl\\|php\\|erb\\|mustach\\|s?css\\|sass\\|fsproj\\|csproj\\|xml\\|tmpl\\)\\'"
   :config
   (progn
@@ -35,7 +35,7 @@
   `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
   )
 
-(use-package prettier :ensure t
+(use-package prettier
   :commands prettier-mode
   :config
   ;; better would be to show in the usual buffer, but leave that buffer off-screen with display-buffer-alist
@@ -43,11 +43,11 @@
     (message "prettier: %s" (car (s-lines (apply #'format string objects)))))
   )
 
-(use-package emmet-mode :ensure t
+(use-package emmet-mode
   :commands emmet-mode
   )
 
-(use-package color-identifiers-mode :ensure t
+(use-package color-identifiers-mode
   :commands color-identifiers-mode
   :config
   (push
@@ -59,7 +59,7 @@
   )
 
 ;; https://github.com/emacsmirror/nodejs-mode
-(use-package nodejs-repl :ensure t
+(use-package nodejs-repl
   :commands nodejs-repl
   )
 
@@ -126,7 +126,7 @@ by using nxml's indentation rules."
   (shell-command-on-region (line-beginning-position) (line-end-position) "jq ." t t)
   )
 
-(use-package json-mode :ensure t
+(use-package json-mode
   :mode "\\.avsc")
 
 

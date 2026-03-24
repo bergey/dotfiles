@@ -1,5 +1,4 @@
 (require 'dired-x)
-;; (use-package dired-details :ensure t+ )
 
 (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\.")
 (define-key dired-mode-map "." 'dired-up-directory)

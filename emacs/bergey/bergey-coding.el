@@ -20,13 +20,13 @@
 
 (time-package 'bergey-smartparens)
 
-(use-package rainbow-delimiters :ensure t
+(use-package rainbow-delimiters
   :commands rainbow-delimiters-mode
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   :custom (rainbow-delimiters-max-face-count 6)
   )
 
-(use-package highlight-indent-guides :ensure t
+(use-package highlight-indent-guides
   :commands highlight-indent-guides-mode
   :diminish highlight-indent-guides-mode
   :init
@@ -66,7 +66,7 @@
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
 (use-package eglot
-  :ensure t
+
   :defer 3
   :hook
   ((
@@ -79,19 +79,19 @@
   (setq eglot-menu-string "")
   )
 
-(use-package highlight-quoted :ensure t
+(use-package highlight-quoted
   :commands highlight-quoted-mode
   )
 
-(use-package highlight-escape-sequences :ensure t
+(use-package highlight-escape-sequences
   )
 
-(use-package fic-mode :ensure t
+(use-package fic-mode
   :commands fic-mode
   :init
   (add-hook 'prog-mode-hook 'fic-mode))
 
-(use-package eldoc :ensure t
+(use-package eldoc
   :config
   (eldoc-add-command
    'paredit-backward-delete
@@ -167,14 +167,14 @@
 (bind-key "C-j" #'jump-down-to-non-whitespace-char-in-same-column)
 (bind-key "C-k" #'jump-up-to-non-whitespace-char-in-same-column)
 
-(use-package protobuf-mode :ensure t
+(use-package protobuf-mode
   :mode "\\.proto\\'")
 
 (use-package direnv
   :config
   (direnv-mode))
 
-(use-package dumb-jump :ensure t
+(use-package dumb-jump
   :commands dumb-jump-xref-activate
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)

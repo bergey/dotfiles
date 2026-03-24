@@ -1,4 +1,4 @@
-(use-package erc :ensure t
+(use-package erc
   :commands erc
   :custom
   (erc-hide-list '("JOIN" "PART" "QUIT" "MODE"))

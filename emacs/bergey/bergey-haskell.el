@@ -2,7 +2,7 @@
 (add-to-list 'revert-without-query "~/.cabal/logs/*")
 (add-to-list 'revert-without-query ".cabal-sandbox/logs/*")
 
-(use-package haskell-mode :ensure t
+(use-package haskell-mode
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"

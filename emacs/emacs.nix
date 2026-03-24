@@ -5,6 +5,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     # agda2-mode # broken on M1? 2022-05-07
     # pkgs.emacsPackages.proofgeneral_HEAD
     add-node-modules-path
+    auto-compile
     buffer-move
     capnp-mode
     clojure-mode
@@ -46,11 +47,12 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     inf-ruby
     ivy
     json5-ts-mode
+    julia-mode
     just-mode
     kotlin-mode
-    ledger-mode
     magit
     markdown-mode
+    merlin
     native-complete
     nginx-mode
     nix-mode
@@ -65,12 +67,16 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     pandoc-mode
     persp-projectile
     perspective
+    pest-mode
     poly-markdown
     polymode
+    pov-mode
+    powershell
     prettier
     projectile
     protobuf-mode
     purescript-mode
+    python
     py-isort
     pyvenv
     racket-mode
@@ -78,7 +84,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     rainbow-mode
     rbs-mode
     real-auto-save
-    restclient
     rg
     rspec-mode
     rubocop
@@ -91,13 +96,12 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     systemd
     telephone-line
     terraform-mode
-    tide
     toml-mode
     treesit-grammars.with-all-grammars
+    tuareg
     typescript-mode
     undo-fu
     unfill
-    use-package
     w3m
     web-mode
     window-number

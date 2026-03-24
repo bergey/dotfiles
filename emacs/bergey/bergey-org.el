@@ -217,7 +217,7 @@
 
 (use-package org-cliplink
   ;; create bookmarks from OS clipboard
-  :ensure t
+
   :commands org-cliplink-capture
   )
 

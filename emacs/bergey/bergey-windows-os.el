@@ -1,4 +1,4 @@
-(use-package powershell :ensure t
+(use-package powershell
   :mode "\\.ps1$"
   )
 
