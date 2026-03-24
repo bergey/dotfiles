@@ -1,6 +1,11 @@
 (deftheme bergey
   "Created 2013-01-18.")
 
+;; TODO rainbow-mode highlighting for my color names
+;; TODO macro wrap custom-theme-set-faces - display spec t, string implies :foreground
+;; TODO remove unused faces
+;; TODO consolidate colors again
+
 (setq
  b-red "#fe0b54" ;; lch 55 87 21
  b-orange "#f6bb2b" ;; lch 80 75 80

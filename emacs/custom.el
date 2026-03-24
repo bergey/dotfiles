@@ -19,7 +19,8 @@
      ".pyc" ".pyo"))
  '(custom-enabled-themes '(bergey))
  '(custom-safe-themes
-   '("07a3f9c94cac5a3947d0eb167ac3ae459c5eaa27e040a283f6e54d8c807fdfbb"
+   '("f3e04fe8727084a2b94dbe82a476b93f79a06d30a1a2c773064c8578c6fac9e4"
+     "07a3f9c94cac5a3947d0eb167ac3ae459c5eaa27e040a283f6e54d8c807fdfbb"
      default))
  '(eval-expression-print-length nil)
  '(frame-background-mode 'dark)
