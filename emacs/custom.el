@@ -19,19 +19,10 @@
      ".pyc" ".pyo"))
  '(custom-enabled-themes '(bergey))
  '(custom-safe-themes
-   '("79086142afd41373ab832301602de492ba858605178caad2b40cdfe6a2e5d388"
+   '("07a3f9c94cac5a3947d0eb167ac3ae459c5eaa27e040a283f6e54d8c807fdfbb"
      default))
- '(erc-hide-list '("JOIN" "PART" "QUIT" "MODE"))
- '(erc-modules
-   '(autojoin button completion fill irccontrols list match menu
-              move-to-prompt netsplit networks noncommands readonly
-              ring scrolltobottom services stamp track truncate))
  '(eval-expression-print-length nil)
  '(frame-background-mode 'dark)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t)
- '(haskell-process-suggest-hoogle-imports t)
- '(haskell-process-suggest-remove-import-lines t)
  '(ibuffer-saved-filter-groups nil)
  '(ibuffer-saved-filters
    '(("sh" ((size-gt . 4000) (size-gt . 2000)))
@@ -48,9 +39,6 @@
  '(max-mini-window-height 2)
  '(message-send-mail-partially-limit 10000000)
  '(mm-verify-option 'known)
- '(notmuch-hello-sections
-   '(notmuch-hello-insert-header notmuch-hello-insert-saved-searches notmuch-hello-insert-recent-searches notmuch-hello-insert-alltags))
- '(org-export-backends '(ascii html icalendar latex md odt))
  '(package-selected-packages
    '(add-node-modules-path auto-compile auto-complete bbdb bison-mode
                            buffer-move capnp-mode caps-lock

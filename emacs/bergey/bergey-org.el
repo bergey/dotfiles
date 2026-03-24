@@ -223,6 +223,8 @@
 
 (use-package ox
   :commands org-export-dispatch
+  :custom
+  (org-export-backends '(ascii html icalendar latex md odt))
   :config
   (use-package ox-jira)
 

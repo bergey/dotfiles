@@ -6,8 +6,13 @@
   :mode "\\.hs\'"
   :mode "\\.lhs\'"
   :mode "\\.cabal\'"
-  :config
+  :custom
+  (haskell-process-auto-import-loaded-modules t)
+  (haskell-process-log t)
+  (haskell-process-suggest-hoogle-imports t)
+  (haskell-process-suggest-remove-import-lines t)
 
+  :config
   (setq haskell-mode-hook '(
                             whitespace-mode
                             bergey/company-short-idle

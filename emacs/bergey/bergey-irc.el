@@ -1,5 +1,12 @@
 (use-package erc :ensure t
   :commands erc
+  :custom
+  (erc-hide-list '("JOIN" "PART" "QUIT" "MODE"))
+  (erc-modules
+   '(autojoin button completion fill irccontrols list match menu
+              move-to-prompt netsplit networks noncommands readonly
+              ring scrolltobottom services stamp track truncate))
+
   :init
   (defun bergey/erc ()
     (interactive)
