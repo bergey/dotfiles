@@ -185,6 +185,11 @@
   )
 (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
 
+(use-package dash-docs :demand t
+  :init
+  (require 'use-package-dash-docs) ; for :dash keyword in use-package
+  )
+
 (use-package counsel-dash
   :bind ("C-. C-d" . counsel-dash)
   :demand t ;; needed for :dash option to use-package
