@@ -12,7 +12,6 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     color-identifiers-mode
     company
     company-c-headers
-    coterm
     counsel
     counsel-dash
     csv-mode
