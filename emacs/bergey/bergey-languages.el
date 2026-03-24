@@ -8,7 +8,7 @@
   :defer t
   :config
   (use-package coq
-    :mode "\\.v\\'"
+    :mode (rx ".v" string-end)
     :config
       (setq coq-compile-before-require t)
     )
@@ -18,46 +18,46 @@
   :mode "Dockerfile")
 
 (use-package groovy-mode :ensure t
-  :mode "\\.\\(gradle\\|groovy\\|gvy\\|gy\\|gsh\\)\\|Jenkinsfile")
+ :mode (rx (or ".gradle" ".groovy" ".gvy" ".gy" ".gsh" "Jenkinsfile") string-end))
 
 (use-package idris-mode :ensure t
-  :mode "\\.idr"
+  :mode (rx ".idr" string-end)
   )
 
 (use-package just-mode :ensure t
   :mode "Justfile")
 
 (use-package kotlin-mode :ensure t
-  :mode "\\.kt[sm]?")
+  :mode (rx ".kt[sm]?" string-end))
 
 ;; ocaml
 (use-package merlin :ensure t
-  :mode "\\.ml"
+  :mode (rx ".ml" string-end)
   :config
   (use-package tuareg :ensure t))
 
 (use-package nix-mode :ensure t
-  :mode "\\.nix")
+  :mode (rx ".nix" string-end))
 
 ;; POVRay input files
 (use-package pov-mode :ensure t
-  :mode "\\.pov\\'"
+  :mode (rx ".pov" string-end)
   :config (setq pov-indent-level 4)
   )
 
 ;; purescript
 (use-package purescript-mode :ensure t
-  :mode "\\.ps$"
+  :mode (rx ".ps" string-end)
   :config
     (add-hook 'purescript-mode-hook 'purescript-indentation-mode)
     )
 
 (use-package swift-mode :ensure t
-  :mode "\\.swift"
+  :mode (rx ".swift" string-end)
   )
 
 (use-package systemd :ensure t
-  :mode "\\.service\\|\\.unit")
+  :mode (rx (or ".service" ".unit") string-end))
 
 (use-package yaml-mode :ensure t
   :mode (rx (or ".yaml" ".yml") string-end)
@@ -68,33 +68,33 @@
 )
 
 (use-package coffee-mode :ensure t
-  :mode "\\.js.coffee")
+  :mode (rx ".js.coffee" string-end))
 
 (use-package go-mode :ensure t
-  :mode "\\.go$")
+  :mode (rx ".go" string-end))
 
 (require 'alloy-mode)
-(add-to-list 'auto-mode-alist '("\\.alloy\\'" . alloy-mode)) ; mode only has .als
+(add-to-list 'auto-mode-alist `(,(rx ".alloy" string-end) . alloy-mode)) ; mode only has .als
 
 (use-package sed-mode :ensure t)
 
 (use-package terraform-mode :ensure t
-  :mode "\\.tf$"
+  :mode (rx ".tf" string-end)
   )
 
 (use-package nginx-mode
-  :mode "^nginx\\.conf$"
+  :mode (rx string-start "nginx.conf" string-end)
   )
 
 (use-package capnp-mode :ensure t
-  :mode "\\.capnp$"
+  :mode (rx ".capnp" string-end)
   )
 
 (use-package pest-mode :ensure t
-  :mode "\\.pest$"
+  :mode (rx ".pest" string-end)
   )
 
 (use-package bsv-mode
-  :mode "\\.bsv\\'")
+  :mode (rx ".bsv" string-end))
 
 (provide 'bergey-languages)
