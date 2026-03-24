@@ -18,6 +18,7 @@
    ("dark-green" . "#246c01")
    ("dark-blue" . "#086783")
    ("dark-indigo" . "#475aac")
+   ("dark-violet" . "#8b418d")
    ))
 
 (defmacro bergey/theme (name &rest body)
@@ -151,6 +152,6 @@
 
 ;; Local Variables:
 ;; rainbow-r-colors: t
-;; rainbow-r-colors-alist: (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b") ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8") ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe") ("dark-red" . "#8c0437") ("dark-orange" . "#8f4a31") ("dark-green" . "#246c01") ("dark-blue" . "#086783") ("dark-indigo" . "#475aac"))
+;; rainbow-r-colors-alist: (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b") ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8") ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe") ("dark-red" . "#8c0437") ("dark-orange" . "#8f4a31") ("dark-green" . "#246c01") ("dark-blue" . "#086783") ("dark-indigo" . "#475aac") ("dark-violet" . "#8b418d"))
 ;; eval: (rainbow-mode)
 ;; End:

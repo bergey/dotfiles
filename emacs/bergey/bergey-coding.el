@@ -39,15 +39,14 @@
   (setq highlight-indent-guides-character ?\┆)
   (setq highlight-indent-guides-auto-enabled nil)
 
+  ;; these are the dark-* colors in bergey-theme.el
   (defface indent-guides-depth-1 '((t (:foreground "#8c0437" ))) "lch 30 54 13")
   (defface indent-guides-depth-2 '((t (:foreground  "#8f4a31"))) "lch 40 40 45")
   (defface indent-guides-depth-3 '((t (:foreground  "#246c01"))) "lch 40 57 130")
   (defface indent-guides-depth-4 '((t (:foreground  "#086783"))) "lch 40 29 233")
   (defface indent-guides-depth-5 '((t (:foreground  "#475aac"))) "lch 40 49 285")
   (defface indent-guides-depth-6 '((t (:foreground  "#8b418d"))) "lch 40 49 325")
-  ;; These colors are really too aggressive; I should make a darker
-  ;; set, or maybe even a spectrum that doesn't vary much in hue.
-  ;; This shows how to do it, though.
+
   (defun bergey/highlight-indent (level responsive display)
     (cl-case (+ 1 (mod level 6))
       (1 'indent-guides-depth-1)
@@ -66,7 +65,6 @@
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
 (use-package eglot
-
   :defer 3
   :hook
   ((
@@ -87,16 +85,16 @@
   )
 
 (use-package fic-mode
-  :commands fic-mode
-  :init
-  (add-hook 'prog-mode-hook 'fic-mode))
+  :hook prog-mode
+  )
 
 (use-package eldoc
+  :custom
+  (eldoc-echo-area-display-truncation-message nil)
   :config
   (eldoc-add-command
    'paredit-backward-delete
    'paredit-close-round)
-  (setq eldoc-echo-area-display-truncation-message nil)
   )
 
 ;; ediff customization
@@ -127,6 +125,7 @@
 ;; end for org-mode
 
 (use-package flymake
+  :commands flymake-mode
   :diminish flymake-mode
   :bind (:map flymake-mode-map
               ("C-! j" . flymake-goto-next-error)
