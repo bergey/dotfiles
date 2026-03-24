@@ -187,6 +187,7 @@
 
 (use-package counsel-dash
   :bind ("C-. C-d" . counsel-dash)
+  :demand t ;; needed for :dash option to use-package
   :config
   (setq counsel-dash-browser-func #'eww)
   )

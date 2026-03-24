@@ -1,4 +1,5 @@
 (use-package tramp
+  :defer 10
   :custom
   (password-cache-expiry 3600)
   :config

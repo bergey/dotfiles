@@ -102,7 +102,6 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   (persp-show-modestring nil)
   :config
   :init
-  (persp-mode)
   ;; this takes ~10s, which is excessive, especially for temp buffers in other commands
   (setq kill-buffer-query-functions (remove #'persp-maybe-kill-buffer kill-buffer-query-functions))
   )
@@ -117,7 +116,8 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   :custom
   ;; buggy nix on macos, and the error window is annoying
   (projectile-git-submodule-command nil)
-  :init (projectile-mode)
+  :defer 5
+  :config (projectile-mode)
   )
 
 (use-package persp-projectile :ensure t
