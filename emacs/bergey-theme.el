@@ -6,27 +6,34 @@
 ;; TODO remove unused faces
 ;; TODO consolidate colors again
 
-;; (setq
-;;  b-red "#fe0b54" ;; lch 55 87 21
-;;  b-orange "#f6bb2b" ;; lch 80 75 80
-;;  b-green "#0be37a" ;; lch 80 75 150
-;;  b-cyan "#13f2f8" ;; lch 87 50 200
-;;  b-indigo "#5e84fe" ;; lch 57 64 282
-;;  b-violet "#ea84fe" ;; lch 70 70 320
-;;  dark-red "#8c0437"  ;; lch 30 54 13
-;;  dark-orange "#8f4a31" ;; lch 40 40 45
-;;  dark-blue "#086783" ;; lch 40 29 233
-;;  )
+;; must match rainbow-r-colors-alist at bottom of file or these names will not get highlighted
+(setq
+ bergey-colors
+ '(
+   ("b-red" . "#fe0b54")
+   ("b-orange" . "#f6bb2b")
+   ("b-green" . "#0be37a")
+   ("b-cyan" . "#13f2f8")
+   ("b-indigo" . "#5e84fe")
+   ("b-violet" . "#ea84fe")
+   ("dark-red" . "#8c0437")
+   ("dark-orange" . "#8f4a31")
+   ("dark-blue" . "#086783")
+   ))
 
 (defmacro bergey/theme (name &rest body)
   `(custom-theme-set-faces
     ,name
-    ,@(--map
-       (let* (
-              (face-name (car it))
-              (definition (cadr it))
-              (attrs (if (stringp definition) `(:foreground ,definition) definition)))
-         `(list (quote ,face-name) (list (list 't (list ,@attrs)))))
+    ,@(-map
+       (lambda (face)
+         (let* (
+                (face-name (car face))
+                (definition (cadr face))
+                (attrs (-map
+                        ;; replace my local color aliases; emacs doesn't actually know them
+                        (lambda (a) (or (cdr (assoc a bergey-colors)) a))
+                        (if (stringp definition) `(:foreground ,definition) definition))))
+           `(list (quote ,face-name) (list (list 't (list ,@attrs))))))
        body)))
 
 (bergey/theme 'bergey
@@ -35,21 +42,21 @@
               (italic (:underline nil :slant 'italic))
               (cursor (:background "thistle"))
 
-              (mode-line (:foreground "#ea84fe" :background "gray10"))
+              (mode-line (:foreground "b-violet" :background "gray10"))
               (mode-line-inactive (:background "gray20"))
-              (telephone-line-projectile "#5e84fe")
+              (telephone-line-projectile "b-indigo")
 
               ;; programming language syntax, general
-              (font-lock-builtin-face "#5e84fe")
-              (font-lock-comment-face "#8c0437")
-              (font-lock-constant-face "#13f2f8")
-              (font-lock-keyword-face "#5e84fe")
-              (font-lock-preprocessor-face (:inherit 'font-lock-builtin-face :foreground "#13f2f8"))
-              (font-lock-string-face "#f6bb2b")
-              (font-lock-type-face "#ea84fe")
+              (font-lock-builtin-face "b-indigo")
+              (font-lock-comment-face "dark-red")
+              (font-lock-constant-face "b-cyan")
+              (font-lock-keyword-face "b-indigo")
+              (font-lock-preprocessor-face (:inherit 'font-lock-builtin-face :foreground "b-cyan"))
+              (font-lock-string-face "b-orange")
+              (font-lock-type-face "b-violet")
               (font-lock-function-name-face "white")
               (font-lock-variable-name-face "white")
-              (font-lock-doc-face "#0be37a")
+              (font-lock-doc-face "b-green")
               (font-lock-regexp-grouping-backslash "turquoise")
               (font-lock-regexp-grouping-construct "turquoise")
 
@@ -60,7 +67,7 @@
               (whitespace-line (:underline "DeepSkyBlue" :foreground nil :background nil))
 
               ;; syntax for particular languages
-              (web-mode-function-call-face "#0be37a")
+              (web-mode-function-call-face "b-green")
               (font-mediawiki-sedate-face "gold")
               (highlight-quoted-quote "white")
               (highlight-quoted-symbol "#95f")
@@ -83,27 +90,27 @@
 
               ;; org-mode
               (org-verbatim "white")
-              (org-code "#8f4a31")
+              (org-code "dark-orange")
               (org-column (:family "Inconsolata" :height 90))
               (org-habit-alert-face (:foreground "black" :background "darkgoldenrod"))
               (org-tag (:background "#1f004d"))
               (org-table (:foreground "gray70" :inherit 'fixed-pitch))
 
               ;; outlines / headings
-              (outline-1 "#fe0b54") ;; lch 55 87 21
-              (outline-2 "#f6bb2b") ;; lch 80 75 80
-              (outline-3 "#0be37a") ;; lch 80 75 150
-              (outline-4 "#13f2f8") ;; lch 87 50 200
-              (outline-5 "#5e84fe") ;; lch 57 64 282
-              (outline-6 "#ea84fe") ;; lch 70 70 320
+              (outline-1 "b-red") ;; lch 55 87 21
+              (outline-2 "b-orange") ;; lch 80 75 80
+              (outline-3 "b-green") ;; lch 80 75 150
+              (outline-4 "b-cyan") ;; lch 87 50 200
+              (outline-5 "b-indigo") ;; lch 57 64 282
+              (outline-6 "b-violet") ;; lch 70 70 320
 
               ;; nested parens
-              (rainbow-delimiters-depth-1-face "#fe0b54") ;; lch 55 87 21
-              (rainbow-delimiters-depth-2-face "#f6bb2b") ;; lch 80 75 80
-              (rainbow-delimiters-depth-3-face "#0be37a") ;; lch 80 75 150
-              (rainbow-delimiters-depth-4-face "#13f2f8") ;; lch 87 50 200
-              (rainbow-delimiters-depth-5-face "#5e84fe") ;; lch 57 64 282
-              (rainbow-delimiters-depth-6-face "#ea84fe") ;; lch 70 70 320
+              (rainbow-delimiters-depth-1-face "b-red") ;; lch 55 87 21
+              (rainbow-delimiters-depth-2-face "b-orange") ;; lch 80 75 80
+              (rainbow-delimiters-depth-3-face "b-green") ;; lch 80 75 150
+              (rainbow-delimiters-depth-4-face "b-cyan") ;; lch 87 50 200
+              (rainbow-delimiters-depth-5-face "b-indigo") ;; lch 57 64 282
+              (rainbow-delimiters-depth-6-face "b-violet") ;; lch 70 70 320
 
               (error "salmon1")
               (warning "orange")
@@ -133,8 +140,8 @@
 
 ;; https://colorjs.io/apps/picker/
 (defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
-;; (rgb 55.2 1.67 21.6) "#8c0437" ;; lch 30 54 13
-;; (rgb 56.2 29.1 19.4) "#8f4a31" ;; lch 40 40 45
+;; (rgb 55.2 1.67 21.6) "dark-red" ;; lch 30 54 13
+;; (rgb 56.2 29.1 19.4) "dark-orange" ;; lch 40 40 45
 ;; (rgb 14.3 42.5 0.57) "#246c01" ;; lch 40 57 130
 ;; (rgb 3.5 40.5 51.6) "#086783" ;; lch 40 29 233
 ;; (rgb 28 35.3 67.6) "#475aac"
@@ -146,4 +153,6 @@
 
 ;; Local Variables:
 ;; eval: (rainbow-mode)
+;; rainbow-r-colors: t
+;; rainbow-r-colors-alist: (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b") ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8") ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe") ("dark-red" . "#8c0437") ("dark-orange" . "#8f4a31") ("dark-blue" . "#086783"))
 ;; End:
