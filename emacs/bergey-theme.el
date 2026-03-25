@@ -55,14 +55,14 @@
  (font-lock-preprocessor-face (:inherit 'font-lock-builtin-face :foreground "b-cyan"))
  (font-lock-string-face "b-orange")
  (font-lock-type-face "b-violet")
- (font-lock-function-name-face "white")
- (font-lock-variable-name-face "white")
+ (font-lock-function-name-face "gray70")
+ (font-lock-variable-name-face "gray70")
  (font-lock-doc-face "b-green")
  (font-lock-regexp-grouping-backslash "turquoise")
  (font-lock-regexp-grouping-construct "turquoise")
 
  (fic-face (:background "dark-blue" :foreground "black"))
- (mmm-default-submode-face (:background "gray1"))
+ (mmm-default-submode-face (:background "gray20"))
  (show-paren-match (:background "dark-green" :foreground "black"))
  (show-paren-mismatch (:background "b-violet" :foreground "black"))
  (whitespace-line (:underline "dark-blue" :foreground nil :background nil))
@@ -70,7 +70,7 @@
  ;; syntax for particular languages
  (web-mode-function-call-face "b-green")
  (font-mediawiki-sedate-face "gold")
- (highlight-quoted-quote "white")
+ (highlight-quoted-quote "gray70")
  (highlight-quoted-symbol "b-violet")
  ;; (haskell-constructor-face (:foreground ,b-red))
  (ledger-font-xact-highlight-face (:background "black"))
@@ -79,19 +79,19 @@
  (markdown-table-face (:inherit 'org-table))
  (proof-locked-face (:background "#333"))
  (shm-quarantine-face (:background "saddle brown")) ; structured haskell mode
- (web-mode-html-attr-name-face "white")
+ (web-mode-html-attr-name-face "gray70")
  (web-mode-html-tag-face "b-red")
  ;; other, non-programming modes
- (company-tooltip (:background "grey40" :foreground "white"))
- (company-tooltip-selection (:background "grey20" :foreground "white"))
+ (company-tooltip (:background "gray20"))
+ (company-tooltip-selection (:background "gray10"))
  (dired-directory "b-orange")
  (magit-item-highlight (:background "#101010" :foreground "b-cyan"))
 
  ;; org-mode
- (org-verbatim "white")
+ (org-verbatim "gray70")
  (org-code "dark-orange")
  (org-column (:family "Inconsolata" :height 90))
- (org-habit-alert-face (:foreground "black" :background "darkgoldenrod"))
+ (org-habit-alert-face (:foreground "black" :background "b-orange"))
  (org-tag (:background "#1f004d"))
  (org-table (:foreground "gray70" :inherit 'fixed-pitch))
 
@@ -114,24 +114,23 @@
  (error "b-red")
  (warning "b-orange")
  (success "b-green")
- (highlight (:foreground "white" :background "dark-green"))
+ (highlight (:foreground "gray70" :background "dark-green"))
  (region (:foreground "black" :background "dark-indigo"))
- (isearch (:background "palevioletred2" :foreground "black"))
- (lazy-highlight (:background "paleturquoise4" :foreground "black"))
- (lazy-highlight (:background "gray25"))
+ (isearch (:background "dark-red" :foreground "gray70"))
+ (lazy-highlight (:background "dark-blue" :foreground "gray70"))
  (link (:foreground "b-cyan" :background "#134"))
  (link-visited (:foreground "b-indigo" :background "#134"))
  (secondary-selection (:background "paleturquoise" :foreground "black"))
  (diff-added (:inherit 'diff-changed :foreground "b-green"))
  (diff-removed (:inherit 'diff-changed :foreground "b-red"))
- (ediff-current-diff-A (:foreground"light gray" :background "dark-orange"))
- (ediff-current-diff-B (:foreground"light gray" :background "dark-green"))
+ (ediff-current-diff-A (:foreground"gray70" :background "dark-orange"))
+ (ediff-current-diff-B (:foreground"gray70" :background "dark-green"))
  (smerge-refined-added (:foreground"#005000"))
  (eglot-highlight-symbol-face (:inherit nil) (:underline t))
- (erc-notice-face "LightSteelBlue4")
 
+ (ansi-color-red "dark-red")
  (ansi-color-bright-red "b-red")
- (ansi-color-bright-green "light gray")
+ (ansi-color-bright-green "gray70")
  (ansi-color-bright-cyan "b-cyan")
  (ansi-color-bright-blue "b-indigo")
  (ansi-color-magenta "b-violet")
@@ -144,7 +143,7 @@
  )
 
 ;; https://colorjs.io/apps/picker/
-(defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
+;; (defun rgb (r g b) (format "#%02x%02x%02x" (* 2.55 r) (* 2.55 g) (* 2.55 b)))
 ;; (rgb 55.2 1.67 21.6) "dark-red" ;; lch 30 54 13
 ;; (rgb 56.2 29.1 19.4) "dark-orange" ;; lch 40 40 45
 ;; (rgb 14.3 42.5 0.57) "#246c01" ;; lch 40 57 130
