@@ -130,6 +130,12 @@
  (eglot-highlight-symbol-face (:inherit nil) (:underline t))
  (erc-notice-face "LightSteelBlue4")
 
+ (ansi-color-bright-red "b-red")
+ (ansi-color-bright-green "light gray")
+ (ansi-color-bright-cyan "b-cyan")
+ (ansi-color-bright-blue "b-indigo")
+ (ansi-color-magenta "b-violet")
+
  (default (:inherit nil :stipple nil :background "black" :foreground "#1a7"
                     :inverse-video nil :box nil :strike-through
                     nil :overline nil
