@@ -16,6 +16,7 @@
    ("dark-blue" . "#086783") ;; lch 40 29 233
    ("dark-indigo" . "#475aac") ;; lch 40 49 285
    ("dark-violet" . "#8b418d") ;; lch 40 49 325
+   ("light-gray" . "gray80")
    ))
 ;; run after changing above, so strings get highlighted in this file
 ;; (add-file-local-variable 'rainbow-r-colors-alist bergey-colors)
@@ -54,8 +55,8 @@
  (font-lock-preprocessor-face (:inherit 'font-lock-builtin-face :foreground "b-cyan"))
  (font-lock-string-face "b-orange")
  (font-lock-type-face "b-violet")
- (font-lock-function-name-face "gray70")
- (font-lock-variable-name-face "gray70")
+ (font-lock-function-name-face "light-gray")
+ (font-lock-variable-name-face "light-gray")
  (font-lock-doc-face "b-green")
  (font-lock-regexp-grouping-backslash "turquoise")
  (font-lock-regexp-grouping-construct "turquoise")
@@ -69,7 +70,7 @@
  ;; syntax for particular languages
  (web-mode-function-call-face "b-green")
  (font-mediawiki-sedate-face "gold")
- (highlight-quoted-quote "gray70")
+ (highlight-quoted-quote "light-gray")
  (highlight-quoted-symbol "b-violet")
  ;; (haskell-constructor-face (:foreground ,b-red))
  (ledger-font-xact-highlight-face (:background "black"))
@@ -78,7 +79,7 @@
  (markdown-table-face (:inherit 'org-table))
  (proof-locked-face (:background "#333"))
  (shm-quarantine-face (:background "saddle brown")) ; structured haskell mode
- (web-mode-html-attr-name-face "gray70")
+ (web-mode-html-attr-name-face "light-gray")
  (web-mode-html-tag-face "b-red")
  ;; other, non-programming modes
  (company-tooltip (:background "gray20"))
@@ -87,12 +88,13 @@
  (magit-item-highlight (:background "#101010" :foreground "b-cyan"))
 
  ;; org-mode
- (org-verbatim "gray70")
+ (org-verbatim "light-gray")
  (org-code "dark-orange")
  (org-column (:family "Inconsolata" :height 90))
  (org-habit-alert-face (:foreground "black" :background "b-orange"))
  (org-tag (:background "#1f004d"))
- (org-table (:foreground "gray70" :inherit 'fixed-pitch))
+ (org-table (:foreground "light-gray" :inherit 'fixed-pitch))
+ (org-archived "dark-indigo")
 
  ;; outlines / headings
  (outline-1 "b-red") ;; lch 55 87 21
@@ -113,24 +115,24 @@
  (error "b-red")
  (warning "b-orange")
  (success "b-green")
- (highlight (:foreground "gray70" :background "dark-green"))
+ (highlight (:foreground "light-gray" :background "dark-green"))
  (region (:foreground "black" :background "dark-indigo"))
- (isearch (:background "dark-red" :foreground "gray70"))
- (lazy-highlight (:background "dark-blue" :foreground "gray70"))
+ (isearch (:background "dark-red" :foreground "light-gray"))
+ (lazy-highlight (:background "dark-blue" :foreground "light-gray"))
  (link (:foreground "b-cyan" :background "#134"))
  (link-visited (:foreground "b-indigo" :background "#134"))
  (secondary-selection (:background "paleturquoise" :foreground "black"))
  (diff-added (:inherit 'diff-changed :foreground "b-green"))
  (diff-removed (:inherit 'diff-changed :foreground "b-red"))
- (ediff-current-diff-A (:foreground"gray70" :background "dark-orange"))
- (ediff-current-diff-B (:foreground"gray70" :background "dark-green"))
+ (ediff-current-diff-A (:foreground"light-gray" :background "dark-orange"))
+ (ediff-current-diff-B (:foreground"light-gray" :background "dark-green"))
  (smerge-refined-added (:foreground"#005000"))
  (eglot-highlight-symbol-face (:inherit nil) (:underline t))
 
  ;; used in terminal / shell modes
  (ansi-color-bright-red "b-red")
  (ansi-color-bright-yellow "b-orange")
- (ansi-color-bright-green "gray70")
+ (ansi-color-bright-green "light-gray")
  (ansi-color-bright-cyan "b-cyan")
  (ansi-color-bright-blue "b-indigo")
  (ansi-color-bright-magenta "b-violet")
@@ -163,6 +165,6 @@
 
 ;; Local Variables:
 ;; rainbow-r-colors: t
-;; rainbow-r-colors-alist: (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b") ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8") ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe") ("dark-red" . "#8c0437") ("dark-orange" . "#8f4a31") ("dark-green" . "#246c01") ("dark-blue" . "#086783") ("dark-indigo" . "#475aac") ("dark-violet" . "#8b418d"))
+;; rainbow-r-colors-alist: (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b") ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8") ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe") ("dark-red" . "#8c0437") ("dark-orange" . "#8f4a31") ("dark-green" . "#246c01") ("dark-blue" . "#086783") ("dark-indigo" . "#475aac") ("dark-violet" . "#8b418d") ("light-gray" . "gray80"))
 ;; eval: (rainbow-mode)
 ;; End:
