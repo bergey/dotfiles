@@ -1,9 +1,6 @@
 (deftheme bergey
   "Created 2013-01-18.")
 
-;; TODO remove unused faces
-
-;; must match rainbow-r-colors-alist at bottom of file or these names will not get highlighted
 (setq
  bergey-colors
  '(
@@ -20,6 +17,8 @@
    ("dark-indigo" . "#475aac")
    ("dark-violet" . "#8b418d")
    ))
+;; run after changing above, so strings get highlighted in this file
+;; (add-file-local-variable 'rainbow-r-colors-alist bergey-colors)
 
 (defmacro bergey/theme (name &rest body)
   `(custom-theme-set-faces
