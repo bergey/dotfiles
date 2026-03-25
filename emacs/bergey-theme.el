@@ -4,18 +4,18 @@
 (setq
  bergey-colors
  '(
-   ("b-red" . "#fe0b54")
-   ("b-orange" . "#f6bb2b")
-   ("b-green" . "#0be37a")
-   ("b-cyan" . "#13f2f8")
-   ("b-indigo" . "#5e84fe")
-   ("b-violet" . "#ea84fe")
-   ("dark-red" . "#8c0437")
-   ("dark-orange" . "#8f4a31")
-   ("dark-green" . "#246c01")
-   ("dark-blue" . "#086783")
-   ("dark-indigo" . "#475aac")
-   ("dark-violet" . "#8b418d")
+   ("b-red" . "#fe0b54") ;; lch 55 87 21
+   ("b-orange" . "#f6bb2b") ;; lch 80 75 80
+   ("b-green" . "#0be37a") ;; lch 80 75 150
+   ("b-cyan" . "#13f2f8") ;; lch 87 50 200
+   ("b-indigo" . "#5e84fe") ;; lch 57 64 282
+   ("b-violet" . "#ea84fe") ;; lch 70 70 320
+   ("dark-red" . "#8c0437") ;; lch 30 54 13
+   ("dark-orange" . "#8f4a31") ;; lch 40 40 45
+   ("dark-green" . "#246c01") ;; lch 40 57 130
+   ("dark-blue" . "#086783") ;; lch 40 29 233
+   ("dark-indigo" . "#475aac") ;; lch 40 49 285
+   ("dark-violet" . "#8b418d") ;; lch 40 49 325
    ))
 ;; run after changing above, so strings get highlighted in this file
 ;; (add-file-local-variable 'rainbow-r-colors-alist bergey-colors)
