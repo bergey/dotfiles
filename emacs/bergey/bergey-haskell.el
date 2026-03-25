@@ -43,12 +43,14 @@
       (goto-char (point-min))
       (insert "{-# LANGUAGE " extension " #-}\n")))
 
-  (defun bergey/ivy-haskell-language-pragma ()
+  (defun bergey/read-haskell-language-pragma ()
     (interactive)
-    (ivy-read "Extend LANGUAGE: " haskell-ghc-supported-extensions
-              :predicate (lambda (s) (not (string-prefix-p "No" s)))
-              :action #'bergey/haskell-insert-language-pragma
-              ))
+    (bergey/haskell-insert-language-pragma
+     (completing-read
+      "Extend LANGUAGE: "
+      haskell-ghc-supported-extensions
+      (lambda (s) (not (string-prefix-p "No" s)))
+      )))
 
   (mapcar (lambda (ext) (add-to-list 'haskell-ghc-supported-extensions ext)) '("BlockArguments" "DerivingStrategies" "NumericUnderscores"))
 
@@ -93,7 +95,7 @@
              ("C-c c" . haskell-process-cabal)
              ("C-c i" . haskell-navigate-imports)
              ("M-." . haskell-mode-tag-find)
-             ("C-h C-l" . bergey/ivy-haskell-language-pragma)
+             ("C-h C-l" . bergey/read-haskell-language-pragma)
              ("C-c m" . bergey/haskell-yank-module-name)
              )
 

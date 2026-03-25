@@ -56,12 +56,8 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;;(add-to-list 'tramp-remote-path "/run/current-system/sw/bin")
 
 (autoload 'buffer-face-mode-invoke "face-remap" )
-(use-package ivy
-  :diminish ivy-mode
-  :config
-  (ivy-mode)
-  (bind-key "C-<return>" 'ivy-immediate-done ivy-minibuffer-map)
-  (setq ivy-extra-directories '())
+(use-package vertico
+  :config (vertico-mode)
   )
 
 (defun bergey/buffer-file-name-as-kill (arg)
@@ -90,6 +86,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
   )
 (setcdr (assoc 'continuation fringe-indicator-alist) '(small-left-arrow small-right-arrow))
 (setcdr (assoc 'truncation fringe-indicator-alist) '(small-left-arrow small-right-arrow))
+
 (bind-key "C-x x f" #'follow-mode)
 
 (provide 'bergey-gui)

@@ -102,6 +102,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     typescript-mode
     undo-fu
     unfill
+    vertico
     w3m
     web-mode
     window-number
