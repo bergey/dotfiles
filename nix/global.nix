@@ -26,7 +26,11 @@ let
         atool
         bash-completion
         brotli
-        direnv
+        (pinned { # broken on macos
+          package = (pkgs: pkgs.direnv);
+          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
+          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
+        })
         dtach
         editorconfig-core-c
         fastmod
@@ -44,7 +48,11 @@ let
         kubectl
         lftp
         lrzip
-        mise
+        (pinned { # broken on macos, cgo
+          package = (pkgs: pkgs.mise);
+          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
+          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
+        })
         mr
         nix-prefetch-git
         nix-tree
