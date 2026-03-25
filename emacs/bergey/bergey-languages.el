@@ -59,12 +59,17 @@
 (use-package systemd
   :mode (rx (or ".service" ".unit") string-end))
 
+(use-package outline-indent
+  :commands outline-indent-minor-mode
+  :custom
+  (outline-indent-ellipsis " ▼")
+  :hook ((yaml-mode ruby-mode) . outline-indent-minor-mode)
+  )
+
 (use-package yaml-mode
   :mode (rx (or ".yaml" ".yml") string-end)
   :config
   (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
-  (use-package outline-indent)
-  (add-hook 'yaml-mode-hook #'outline-indent-minor-mode)
 )
 
 (use-package coffee-mode
