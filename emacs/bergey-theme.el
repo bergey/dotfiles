@@ -127,12 +127,19 @@
  (smerge-refined-added (:foreground"#005000"))
  (eglot-highlight-symbol-face (:inherit nil) (:underline t))
 
- (ansi-color-red "dark-red")
+ ;; used in terminal / shell modes
  (ansi-color-bright-red "b-red")
+ (ansi-color-bright-yellow "b-orange")
  (ansi-color-bright-green "gray70")
  (ansi-color-bright-cyan "b-cyan")
  (ansi-color-bright-blue "b-indigo")
- (ansi-color-magenta "b-violet")
+ (ansi-color-bright-magenta "b-violet")
+ (ansi-color-red "dark-red")
+ (ansi-color-yellow "dark-orange")
+ (ansi-color-green "b-green")
+ (ansi-color-cyan "dark-blue")
+ (ansi-color-blue "dark-indigo")
+ (ansi-color-magenta "dark-violet")
 
  (default (:inherit nil :stipple nil :background "black" :foreground "#1a7"
                     :inverse-video nil :box nil :strike-through
