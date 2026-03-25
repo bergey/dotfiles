@@ -1,21 +1,21 @@
 (use-package evil
+  :commands evil-mode
   :bind (
          :map evil-normal-state-map
          ("s" . evil-forward-char)
-         ("Q" call-last-kbd-macro)
+         ("Q" . call-last-kbd-macro)
          :map evil-visual-state-map
-         ("Q" call-last-kbd-macro)
+         ("Q" . call-last-kbd-macro)
          :map evil-motion-state-map
-         ("M-<down>" evil-scroll-line-down )
-         ("M-<up>" evil-scroll-line-up)
+         ("M-<down>" . evil-scroll-line-down)
+         ("M-<up>" . evil-scroll-line-up)
          ;; bindings that should only apply in certain evil states, not all
          :map evil-insert-state-map
-         (evil-toggle-key evil-emacs-state)
-         ("<escape>" evil-normal-state)
-         ;; replaces 'evil-repeat-pop-next'; I haven't decided where to rebind that
-         (define-key evil-normal-state-map (kbd "M-.") nil)
+         ("C-z" . evil-emacs-state)
+        ("<escape>" . evil-normal-state)
          )
   :init
+  (evil-mode 1)
   (use-package undo-fu
     :config
     (setq evil-undo-system 'undo-fu)
@@ -35,7 +35,6 @@
   (evil-move-cursor-back nil)
 
   :config
-  (evil-mode 1)
 
   (mapcar (lambda (key-string)
             (define-key evil-motion-state-map (kbd key-string) nil)
@@ -46,6 +45,8 @@
           '("C-o" "C-." "TAB" ";"))
   (setcdr evil-insert-state-map nil)
   (define-key evil-motion-state-map (kbd "RET") nil)
+  ;; replaces 'evil-repeat-pop-next'; I haven't decided where to rebind that
+  (define-key evil-normal-state-map (kbd "M-.") nil)
 
   (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
 

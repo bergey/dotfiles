@@ -3,7 +3,8 @@
 (use-package hydra)
 
 (use-package smartparens
-  :commands (smartparens-strict-mode smartparens-mode)
+    :commands (smartparens-strict-mode smartparens-mode)
+    :after evil
   :diminish smartparens-mode
   :config
 
