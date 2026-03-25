@@ -1,6 +1,6 @@
 (use-package coterm
   :after shell
-  :init (coterm-mode))
+  :config (coterm-mode))
 
 (use-package shell
   :commands shell
