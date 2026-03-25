@@ -1,3 +1,7 @@
+(use-package coterm
+  :after shell
+  :init (coterm-mode))
+
 (use-package shell
   :commands shell
   :init
