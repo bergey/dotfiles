@@ -128,19 +128,19 @@
     ('windows-nt
      (setq eshell-mode-hook
            #'(lambda ()
-              (setq eshell-path-env
-                    (concat
-                     "C:\\Program Files\\Git\\mingw64\\bin;"
-                     "C:\\Program Files\\Git\\usr\\local\\bin;"
-                     "C:\TDM-GCC-64\bin;"
-                     "C:\\Program Files\\Git\\usr\\bin;"
-                     "C:\\Program Files\\Git\\bin;"
-                     "C:\\Program Files\\Git\\cmd;"
-                     eshell-path-env
-                     ";"
-                     "C:\\Program Files\\Git\\usr\\bin\\vendor_perl;"
-                     "C:\\Program Files\\Git\\usr\\bin\\core_perl"
-                     ))))
+               (setq eshell-path-env
+                     (concat
+                      "C:\\Program Files\\Git\\mingw64\\bin;"
+                      "C:\\Program Files\\Git\\usr\\local\\bin;"
+                      "C:\TDM-GCC-64\bin;"
+                      "C:\\Program Files\\Git\\usr\\bin;"
+                      "C:\\Program Files\\Git\\bin;"
+                      "C:\\Program Files\\Git\\cmd;"
+                      eshell-path-env
+                      ";"
+                      "C:\\Program Files\\Git\\usr\\bin\\vendor_perl;"
+                      "C:\\Program Files\\Git\\usr\\bin\\core_perl"
+                      ))))
      (setq eshell-login-script "/Users/bergey/.emacs.d/eshell/windows-login"))
     ('darwin
      (setq eshell-login-script "/Users/bergey/.emacs.d/eshell/macos-login"))
