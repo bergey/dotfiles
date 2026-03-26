@@ -26,9 +26,9 @@
   :config
   (use-package native-complete :after company
     :init
-    (native-complete-setup-bash)
     (add-to-list 'company-backends 'company-native-complete)
     )
+  (native-complete-setup-bash)
 
   (setq
    tramp-default-method "ssh"          ; uses ControlMaster
