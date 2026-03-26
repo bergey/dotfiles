@@ -58,6 +58,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     nginx-mode
     nix-mode
     nodejs-repl
+    orderless
     org
     org-cliplink
     orgit

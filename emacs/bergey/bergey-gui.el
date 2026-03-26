@@ -58,8 +58,11 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 (autoload 'buffer-face-mode-invoke "face-remap" )
 (use-package vertico
   :config (vertico-mode)
+  )
+
+(use-package orderless
   :custom
-  (completion-styles (partial-completion basic))
+  (completion-styles '(orderless basic))
   )
 
 (defun bergey/buffer-file-name-as-kill (arg)
