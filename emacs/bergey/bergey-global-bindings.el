@@ -32,6 +32,7 @@
 (bind-keys*
  ("C-x t" . revert-buffer)
  ("C-x s" . save-all-buffers)
+ ("C-o" . other-window)
  ;; M-; is hard to type on my keymapping; rebind to something easier
  ;; -- inspired by haskell comment char, and negative-argument is bound to several keys
  ("C--" . comment-dwim)

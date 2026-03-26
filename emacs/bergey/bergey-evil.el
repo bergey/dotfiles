@@ -47,6 +47,7 @@
   (define-key evil-motion-state-map (kbd "RET") nil)
   ;; replaces 'evil-repeat-pop-next'; I haven't decided where to rebind that
   (define-key evil-normal-state-map (kbd "M-.") nil)
+  (evil-define-key 'normal help-mode-map (kbd "C-o") nil)
 
   (evil-define-key 'normal magit-blame-mode-map "q" 'magit-blame-quit)
 
