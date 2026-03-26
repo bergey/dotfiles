@@ -31,10 +31,6 @@
             ad-do-it)
         ad-do-it))))
 
-(defmacro string-case (actual &rest branches)
-  `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
-  )
-
 (use-package prettier
   :commands prettier-mode
   :config
@@ -61,6 +57,21 @@
 ;; https://github.com/emacsmirror/nodejs-mode
 (use-package nodejs-repl
   :commands nodejs-repl
+  )
+
+(use-package json-mode
+  :mode "\\.avsc")
+
+
+(use-package json5-ts-mode
+  :mode "\\.json5\'"
+  ;; :init
+  ;; (require 'treesit)
+  ;; (add-to-list 'treesit-language-source-alist '(json5 "https://github.com/Joakker/tree-sitter-json5"))
+  )
+
+(defmacro string-case (actual &rest branches)
+  `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
   )
 
 (defun bergey/yas-by-file-extension ()
@@ -125,16 +136,4 @@ by using nxml's indentation rules."
   (interactive)
   (shell-command-on-region (line-beginning-position) (line-end-position) "jq ." t t)
   )
-
-(use-package json-mode
-  :mode "\\.avsc")
-
-
-(use-package json5-ts-mode
-  :mode "\\.json5\'"
-  ;; :init
-  ;; (require 'treesit)
-  ;; (add-to-list 'treesit-language-source-alist '(json5 "https://github.com/Joakker/tree-sitter-json5"))
-  )
-
 (provide 'bergey-web)
