@@ -63,7 +63,7 @@
   :commands outline-indent-minor-mode
   :custom
   (outline-indent-ellipsis " ▼")
-  :hook ((yaml-mode ruby-mode) . outline-indent-minor-mode)
+  :hook ((yaml-mode ruby-mode json-mode json5-ts-mode web-mode) . outline-indent-minor-mode)
   )
 
 (use-package yaml-mode
