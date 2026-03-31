@@ -145,9 +145,9 @@ in with pkgs; {
 
   javascript = mkBootstrap {
     name = "javascript";
-    paths = with nodePackages; [
-      pkgs.nodejs
-      pkgs.python3.pkgs.jsmin
+    paths = with pkgs; [
+      nodejs
+      python3.pkgs.jsmin
       yarn
     ];
   };

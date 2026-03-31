@@ -57,7 +57,7 @@ let
         nix-prefetch-git
         nix-tree
         nmap
-        nodePackages.typescript-language-server
+        typescript-language-server
         ripgrep
         rsync
         rustup
