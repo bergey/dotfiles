@@ -124,6 +124,7 @@ let
         cargo-dist
         oranda
         ledger
+        sqlite
         google-cloud-sdk
         (pinned {
           package = pp: pp.rWrapper.override{ packages = with pp.rPackages; [ tidyverse promr ]; };
