@@ -96,7 +96,7 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
         ))
 
 (use-package perspective
-  :commands (persp-switch persp-rename)
+  :bind ("C-x x s" . persp-switch)
   :custom
   (persp-mode-prefix-key (kbd "C-x x"))
   (persp-show-modestring nil)
