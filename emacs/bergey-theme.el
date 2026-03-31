@@ -68,7 +68,6 @@
  (whitespace-line (:underline "dark-blue" :foreground nil :background nil))
 
  ;; syntax for particular languages
- (web-mode-function-call-face "b-green")
  (font-mediawiki-sedate-face "gold")
  (highlight-quoted-quote "light-gray")
  (highlight-quoted-symbol "b-violet")
@@ -79,8 +78,12 @@
  (markdown-table-face (:inherit 'org-table))
  (proof-locked-face (:background "#333"))
  (shm-quarantine-face (:background "saddle brown")) ; structured haskell mode
- (web-mode-html-attr-name-face "light-gray")
- (web-mode-html-tag-face "b-red")
+
+ (web-mode-html-tag-face "b-indigo")
+ (web-mode-html-tag-bracket-face "b-indigo")
+ (web-mode-html-attr-name-face "b-cyan")
+ (web-mode-function-call-face "light-gray")
+
  ;; other, non-programming modes
  (company-tooltip (:background "gray20"))
  (company-tooltip-selection (:background "gray10"))
@@ -111,6 +114,8 @@
  (rainbow-delimiters-depth-4-face "b-cyan") ;; lch 87 50 200
  (rainbow-delimiters-depth-5-face "b-indigo") ;; lch 57 64 282
  (rainbow-delimiters-depth-6-face "b-violet") ;; lch 70 70 320
+ ;; mismatched or unmatched
+ (rainbow-delimiters-base-error-face (:foreground "black" :background "light-gray"))
 
  (error "b-red")
  (warning "b-orange")
