@@ -86,7 +86,8 @@
     "search the current project for ruby non-spec files"
     :dir project
     :files "ruby"
-    :flags ("-g" "'!*_spec.rb'")
+    ;; this is a bit conservative.  simpler !**spec** could replace these 3
+    :flags ("-g" "'!*_spec.rb'" "-g" "'!*.feature'" "-g" "'!**/spec/**'")
     )
   )
 
