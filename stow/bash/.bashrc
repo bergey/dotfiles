@@ -225,7 +225,6 @@ if [[ $(uname -o) == "Darwin" ]]; then
     echo 'on Darwin'
 
     command -v rbenv > /dev/null && eval "$(rbenv init - --no-rehash bash)"
-    command -v aws > /dev/null && eval "$(aws configure export-credentials --format env)"
     . ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.bash
 
     function url_olaf {
