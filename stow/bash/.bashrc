@@ -51,6 +51,7 @@ function restore_prompt_after_nix_shell() {
 }
 
 case "$HOSTNAME" in
+    BZCDXGX362CR) ;& # 2026-04
     BZUSCDXGX362CR) ;& # new 2025-07
     BZUSWVX02L7L7Q) # 2022-05
         FRIENDLY_HOSTNAME='macbook';;
