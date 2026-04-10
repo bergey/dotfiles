@@ -19,7 +19,8 @@
      ".pyc" ".pyo"))
  '(custom-enabled-themes '(bergey))
  '(custom-safe-themes
-   '("19c8d43a3e88c6942ef583c054f337dd594a313be6187572d35f76fa0f56d648"
+   '("098e47d810de9c0ec1bd7ee8d6783b9d4b27c690110d318de24c1a40b5cdc63a"
+     "19c8d43a3e88c6942ef583c054f337dd594a313be6187572d35f76fa0f56d648"
      default))
  '(eval-expression-print-length nil)
  '(frame-background-mode 'dark)
@@ -61,6 +62,19 @@
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    '((rainbow-r-colors-alist ("b-red" . "#fe0b54")
+                             ("b-orange" . "#f6bb2b")
+                             ("b-green" . "#0be37a")
+                             ("b-cyan" . "#13f2f8")
+                             ("b-indigo" . "#5e84fe")
+                             ("b-violet" . "#ea84fe")
+                             ("dark-red" . "#8c0437")
+                             ("dark-orange" . "#8f4a31")
+                             ("dark-green" . "#246c01")
+                             ("dark-blue" . "#086783")
+                             ("dark-indigo" . "#475aac")
+                             ("dark-violet" . "#8b418d")
+                             ("light-gray" . "gray80"))
+     (rainbow-r-colors-alist ("b-red" . "#fe0b54")
                              ("b-orange" . "#f6bb2b")
                              ("b-green" . "#0be37a")
                              ("b-cyan" . "#13f2f8")
