@@ -16,21 +16,13 @@
   ("M-n" . (lambda () (interactive) (window-number-select 6)))
   )
 
-(advice-add 'split-window-right :after #'balance-windows)
-(advice-add 'split-window-below :after #'balance-windows)
-;; causes problems with dired-do-flagged-delete? (advice-add 'delete-window :after #'balance-windows)
-(defun bergey/delete-window-rebalance ()
-  (interactive)
-  (delete-window)
-  (balance-windows)
-  )
-(bind-key "C-x 0" #'bergey/delete-window-rebalance)
+(setq window-combination-resize t)
 (bind-keys :prefix-map bergey/window-management
            :prefix "M-r"
            ("v" . split-window-right)
            ("w" . split-window-below)
            ("m" . delete-other-windows)
-           ("h" . bergey/delete-window-rebalance)
+           ("h" . delete-window)
            ("g" . (lambda () (interactive) (window-number-select 7)))
            ("c" . (lambda () (interactive) (window-number-select 8)))
            ("r" . (lambda () (interactive) (window-number-select 9)))
