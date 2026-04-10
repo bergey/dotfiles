@@ -196,6 +196,9 @@
   (setq counsel-dash-browser-func #'eww)
   )
 
+(add-hook 'after-save-hook
+          #'executable-make-buffer-file-executable-if-script-p)
+
 (provide 'bergey-coding)
 
 ;; Local Variables:
