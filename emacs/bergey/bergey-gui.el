@@ -22,13 +22,6 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
 
-;; set this before ansi-color is loaded, and it gets picked up automaticaly
-(setq ansi-color-names-vector
-      '["black" "red3" "green3" "yellow3" "deep sky blue" "magenta3" "turquoise" "gray90"]
-      )
-;; C-x C-e next line when testing changes to above
-;; (setq ansi-color-map (ansi-color-make-color-map))
-
 (use-package rainbow-mode )
 
 ;; clean up interface
