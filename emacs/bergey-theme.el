@@ -40,6 +40,7 @@
  'bergey
  (fixed-pitch (:family "Inconsolata"))
  (monospace  (:family "Inconsolata"))
+ (variable-pitch (:inherit nil))
  (italic (:underline nil :slant 'italic))
  (cursor (:background "thistle"))
 
@@ -164,7 +165,7 @@
 ;; (rgb 28 35.3 67.6) "#475aac"
 ;; (rgb 54.6 25.7 55.4) "#8b418d"
 
-;; (set-face-foreground 'org-headline-done nil) ;; lch 70 70 320
+;; (set-face-foreground 'org-headline-done nil)
 
 ;; (set-face-attribute 'powerline-active1 nil :inherit nil)
 
