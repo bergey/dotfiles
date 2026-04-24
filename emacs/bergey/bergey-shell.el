@@ -5,14 +5,14 @@
 (use-package shell
   :commands shell
   :init
-  (defun named-shell (new-name)
+  (defun bergey/named-shell (new-name)
     (interactive "M*shell*<_>:")
     (shell (get-buffer-create (concat "*shell*<" new-name ">"))))
 
   :bind (
-         ("C-. h" . #'named-shell)
+         ("C-. h" . #'bergey/named-shell)
          :map shell-mode-map
-         ("C-M-n" . #'rename-shell-buffer)
+         ("C-M-n" . #'bergey/rename-shell-buffer)
          ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?
          ("C-s" . #'comint-history-isearch-backward-regexp) ;; works in nav mode
          ("C-c C-w" . nil)
@@ -24,11 +24,12 @@
          )
 
   :config
-  (use-package native-complete :after company
-    :init
-    (add-to-list 'company-backends 'company-native-complete)
+  (use-package native-complete ;; :after company
+    ;; :init
+    ;; (add-to-list 'company-backends 'company-native-complete)
+    :config
+    (native-complete-setup-bash)
     )
-  (native-complete-setup-bash)
 
   (setq
    tramp-default-method "ssh"          ; uses ControlMaster
@@ -95,7 +96,7 @@
     )
   (bind-key "h" #'bergey/shell-buffer bergey/jump-keymap)
 
-  (defun rename-shell-buffer (new-name)
+  (defun bergey/rename-shell-buffer (new-name)
     "rename the current buffer with the form shell<foo>"
     (interactive "M*shell*<_>:")
     (rename-buffer (concat "*shell*<" new-name ">") t))
