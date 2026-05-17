@@ -616,7 +616,3 @@ lines = 0
 [window.padding]
 x = 0
 y = 0
-
-[general]
-live_config_reload = true
-working_directory = "None"
