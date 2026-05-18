@@ -115,6 +115,13 @@
    ("j" . evil-next-line) ;; was org-agenda-goto-date
    ("k" . evil-previous-line) ;; was org-agenda-capture
    )
+
+  :config
+  (setq bergey/work-agenda-files '("braze.org"))
+  (setq bergey/home-agenda-files '("house.org"))
+  (setq bergey/teal-agenda-files '("teal.org"))
+  (setq bergey/not-work-agenda-files '("house.org" "teal.org" "capture.org"))
+
   :custom
   (org-agenda-window-setup 'other-window)
   (org-agenda-restore-windows-after-quit t)
@@ -122,10 +129,6 @@
   (org-agenda-span 'day)
   (org-agenda-dim-blocked-tasks t)
   (org-agenda-files (in-org-directory "org-agenda-files"))
-  (bergey/work-agenda-files '("braze.org"))
-  (bergey/home-agenda-files '("house.org"))
-  (bergey/teal-agenda-files '("teal.org"))
-  (bergey/not-work-agenda-files '("house.org" "teal.org" "capture.org"))
   ;; don't show scheduled items in the agenda list of all TODO items
   (org-agenda-todo-ignore-scheduled "all")
 
