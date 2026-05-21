@@ -144,12 +144,13 @@ let
         imagemagick
         jujutsu
         maim # screenshots
+        inkscape # broken M1 2022-06-16
         pavucontrol
         perlPackages.ImageExifTool
         transmission_4
         xev
+        yarn
         zathura
-        inkscape # broken M1 2022-06-16
         zotero # broken M1 2022-05-03
       ];
 
