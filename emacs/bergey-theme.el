@@ -69,6 +69,7 @@
  (whitespace-line (:underline "dark-blue" :foreground nil :background nil))
 
  ;; syntax for particular languages
+ (rust-question-mark "b-cyan")
  (font-mediawiki-sedate-face "gold")
  (highlight-quoted-quote "light-gray")
  (highlight-quoted-symbol "b-violet")
