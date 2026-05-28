@@ -6,6 +6,8 @@
               ("C-c i" . bergey/rust-navigate-imports)
               ("C-c m" . bergey/rust-yank-module-name)
               )
+  :custom
+  (rust-rustfmt-switches '("--edition" "2024"))
   :config
   (add-hook 'rust-mode-hook #'electric-pair-local-mode)
   (add-hook 'rust-mode-hook #'(lambda () (setq-local evil-shift-width 4)))
