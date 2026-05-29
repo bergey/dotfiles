@@ -13,6 +13,7 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
                            (called-interactively-p 'interactive)))
 
 (add-hook 'calendar-mode-hook #'monospace-mode)
+(add-hook 'compilation-mode-hook #'monospace-mode)
 
 ;; https://github.com/purcell/default-text-scale
 ;; binds C-M-= and C-M--
