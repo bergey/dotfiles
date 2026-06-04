@@ -9,23 +9,23 @@ draw_bold_text_with_bright_colors = true
 
 [colors.bright]
 black = "0x666666"
-blue = "0x7aa6da"
-cyan = "0x54ced6"
-green = "0x9ec400"
-magenta = "0xb77ee0"
-red = "0xff3334"
+blue = "0x5e84fe"
+cyan = "0x13f2f8"
+green = "0xaaaaaa"
+magenta = "0xea84fe"
+red = "0xfe0b54"
 white = "0xffffff"
-yellow = "0xe7c547"
+yellow = "0xffe000"
 
 [colors.normal]
 black = "0x000000"
-blue = "0x7aa6da"
-cyan = "0x70c0ba"
-green = "0x11aa77"
-magenta = "0xc397d8"
-red = "0xd54e53"
+blue = "0x475aac"
+cyan = "0x086783"
+green = "0x0be37a"
+magenta = "0x8b418d"
+red = "0x8c0437"
 white = "0xeaeaea"
-yellow = "0xe6c547"
+yellow = "0xf6bb2b"
 
 [colors.primary]
 background = "0x000000"
