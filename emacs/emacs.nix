@@ -26,6 +26,7 @@ in (pkgs.emacsPackagesFor pkgs.emacs30).emacsWithPackages (epkgs: (with epkgs; [
     dumb-jump
     eat
     emmet-mode
+    emms
     ess
     evil
     evil-collection
