@@ -21,64 +21,23 @@ let
 
     kits = {
       global = (with pkgs; [
-        aspell
-        aspellDicts.en
         atool
         bash-completion
         brotli
-        (pinned { # broken on macos
-          package = (pkgs: pkgs.direnv);
-          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
-          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
-        })
         dtach
-        editorconfig-core-c
-        fastmod
-        gh
         git
-        git-lfs
         gnumake
-        gnupg
-        gopls
-        graphviz
         htop
         jq yq
         just
-        kondo
-        kubectl
         lftp
         lrzip
-        (pinned { # broken on macos, cgo
-          package = (pkgs: pkgs.mise);
-          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
-          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
-        })
-        mr
-        nix-prefetch-git
-        nix-tree
         nmap
-        typescript-language-server
-        ripgrep
         rsync
-        rustup
-        # rust-analyzer-unwrapped
         shellcheck
-        stow
-        textql
-        tmux
-        typos
         watch
         wget
-        (pinned {
-          package = (pkgs: pkgs.wireshark);
-          rev = "18dd725c29603f582cf1900e0d25f9f1063dbf11";
-          sha256 = "0zrp7w41vqln7mmhvpb8ww6g6807bhic5c72mkqf9qh5336vc13b";
-        })
-        wrk
-        xlsfonts
         xz
-        yaml2json
-        python3.pkgs.yamllint
         zstd
 
         # rust posix replacements / enhancements
@@ -118,19 +77,59 @@ let
       # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz zotero
 
       workstation = with pkgs; [
+        aspell
+        aspellDicts.en
         bootstrap-prebuild
         capnproto 
         capnproto-rust
         cargo-dist
-        oranda
-        ledger
-        sqlite
+        (pinned { # broken on macos
+          package = (pkgs: pkgs.direnv);
+          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
+          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
+        })
+        editorconfig-core-c
+        fastmod
+        gh
+        git-lfs
+        gnupg
         google-cloud-sdk
-        (pinned {
+        gopls
+        graphviz
+        kondo
+        kubectl
+        ledger
+        (pinned { # broken on macos, cgo
+          package = (pkgs: pkgs.mise);
+          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
+          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
+        })
+        mr
+        nix-prefetch-git
+        nix-tree
+        oranda
+        ripgrep
+        rustup
+        sqlite
+        stow
+        textql
+        tmux
+        typescript-language-server
+        typos
+        (pinned { # R
           package = pp: pp.rWrapper.override{ packages = with pp.rPackages; [ tidyverse promr ]; };
           rev = "85f7e662eda4fa3a995556527c87b2524b691933";
           sha256 = "1p8qam6pixcin63wai3y55bcyfi1i8525s1hh17177cqchh1j117";
         })
+        (pinned {
+          package = (pkgs: pkgs.wireshark);
+          rev = "18dd725c29603f582cf1900e0d25f9f1063dbf11";
+          sha256 = "0zrp7w41vqln7mmhvpb8ww6g6807bhic5c72mkqf9qh5336vc13b";
+        })
+        wrk
+        xlsfonts
+        yaml2json
+        python3.pkgs.yamllint
       ];
 
       linux-workstation = with pkgs; [
