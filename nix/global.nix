@@ -184,12 +184,13 @@ in rec {
     paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
   };
 
-  BZUSWVX02L7L7Q = pkgs.buildEnv { # Braze Macbook
+  braze = pkgs.buildEnv { # Braze Macbook
     name = "bergey-braze";
     paths = with kits; global ++ darwin ++ workstation ++ braze;
   };
-  BZUSCDXGX362CR = BZUSWVX02L7L7Q;
-  BZCDXGX362CR = BZUSWVX02L7L7Q ;
+  BZUSWVX02L7L7Q = braze;
+  BZUSCDXGX362CR = braze;
+  BZCDXGX362CR = braze ;
 
   prandtl = pkgs.buildEnv {
     name = "bergey-linux-workstation";
