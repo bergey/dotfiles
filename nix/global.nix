@@ -161,7 +161,7 @@ let
 
       server = [];
 
-      braze = with pkgs; [
+      braze_ = with pkgs; [
         awscli2
         cmake
         imagemagick
@@ -185,7 +185,7 @@ in rec {
 
   braze = pkgs.buildEnv { # Braze Macbook
     name = "bergey-braze";
-    paths = with kits; global ++ darwin ++ workstation ++ braze;
+    paths = with kits; global ++ darwin ++ workstation ++ braze_;
   };
   BZUSWVX02L7L7Q = braze;
   BZUSCDXGX362CR = braze;
