@@ -130,6 +130,7 @@ let
         xlsfonts
         yaml2json
         python3.pkgs.yamllint
+        zed-editor
       ];
 
       linux-workstation = with pkgs; [
