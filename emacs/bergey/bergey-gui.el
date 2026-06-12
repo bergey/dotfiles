@@ -1,7 +1,9 @@
 ;; fonts
 (measure-time "gentium"
               (setq gentium (-first (-partial '-contains? '("Gentium" "GentiumPlus" "Gentium Plus")) (font-family-list)))
-              (set-face-font 'default gentium)
+	      (if gentium
+		  (set-face-font 'default gentium)
+		(message "skipping gentium font"))
               )
 
 (defun monospace-mode (&optional arg)
