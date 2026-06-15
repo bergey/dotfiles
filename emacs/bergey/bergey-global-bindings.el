@@ -99,18 +99,6 @@ bind them to the specified keys."
   ("M-l" . company-show-location)
   )
 
-;; move case-change commands under a prefix
-;; TODO find a prefix that does not confilct with org-capture
-;; (bind-keys* :prefix-map bergey/case-keymap
-;;             :prefix "C-. c"
-;;             ("u" . upcase-word)
-;;             ("l" . downcase-word)
-;;             ("c" . capitalize-word)
-;;             ("C-u" . upcase-region)
-;;             ("C-l" . downcase-region)
-;;             ("C-c" . capitalize-region))
-(put 'upcase-region 'disabled nil)
-
 (defun bergey/browse-url-or-xref ()
   (interactive)
   (let* ((url (thing-at-point 'url))
