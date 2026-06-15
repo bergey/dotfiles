@@ -33,6 +33,7 @@ let
         lftp
         lrzip
         nmap
+        rclone
         rsync
         shellcheck
         watch
