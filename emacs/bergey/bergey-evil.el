@@ -17,8 +17,8 @@
   :init
   (evil-mode 1)
   (use-package undo-fu
-    :config
-    (setq evil-undo-system 'undo-fu)
+    :custom
+    (evil-undo-system 'undo-fu)
     )
 
   :custom
