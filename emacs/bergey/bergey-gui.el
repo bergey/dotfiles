@@ -25,7 +25,9 @@ Besides the choice of face, it is the same as `buffer-face-mode'."
 ;; colors
 (measure-time "theme" (load-theme 'bergey t))
 
-(use-package rainbow-mode )
+(use-package rainbow-mode
+  :defer t
+  )
 
 ;; clean up interface
 (measure-time "interface"
