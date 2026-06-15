@@ -33,6 +33,7 @@
 
 (use-package whitespace
   :diminish whitespace-mode
+  :hook (prog-mode)
   :config (progn
             (setq whitespace-style '(face tabs trailing empty tab-mark lines-tail))
             (setq whitespace-action '(auto-cleanup))

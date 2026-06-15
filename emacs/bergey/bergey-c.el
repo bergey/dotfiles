@@ -15,8 +15,7 @@
 (add-to-list 'auto-mode-alist '("\\.cl" . c-mode))
 
 (setq c-mode-hook
-      '(whitespace-mode
-        smartparens-mode
+      '(smartparens-mode
         bergey/company-short-idle))
 
 ;; *** C

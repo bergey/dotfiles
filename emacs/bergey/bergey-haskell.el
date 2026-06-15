@@ -14,7 +14,6 @@
 
   :config
   (setq haskell-mode-hook '(
-                            whitespace-mode
                             bergey/company-short-idle
                             haskell-auto-insert-module-template
                             ))

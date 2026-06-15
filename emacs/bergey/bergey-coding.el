@@ -21,16 +21,14 @@
 (time-package 'bergey-smartparens)
 
 (use-package rainbow-delimiters
-  :commands rainbow-delimiters-mode
-  :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  :hook (prog-mode)
   :custom (rainbow-delimiters-max-face-count 6)
   )
 
 (use-package highlight-indent-guides
-  :commands highlight-indent-guides-mode
   :diminish highlight-indent-guides-mode
+  :hook (prog-mode)
   :init
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   ;; :bind doesn't put the binding in override-global-map, and it doesn't show up in Haskell
   (bind-key "C-c C-x h" #'highlight-indent-guides-mode override-global-map)
 
@@ -65,7 +63,7 @@
 (font-lock-add-keywords 'yaml-mode '(("^ [ -]*" . 'fixed-pitch)))
 
 (use-package eglot
-  :defer 3
+  :defer t
   :hook
   ((
     go-mode

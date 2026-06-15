@@ -5,7 +5,6 @@
   (smartparens-strict-mode +1)
   (bergey/company-short-idle)
   (show-paren-mode 1)
-  (whitespace-mode)
   (highlight-quoted-mode)
   )
 

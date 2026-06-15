@@ -1,7 +1,6 @@
 (use-package fsharp-mode
   :mode "\\.fsx?"
-  :config
-  (add-hook 'fsharp-mode-hook 'whitespace-mode))
+  )
 
 ;; generate to / from JSON boilerplate
 (defun fsharp-find-record-fields ()
