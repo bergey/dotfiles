@@ -33,8 +33,6 @@
     ("C-. <left>" . buf-move-left)
     ("C-. <right>" . buf-move-right)
     ("C-. m" . buf-move)
-    ;; ("C-. <up>" . buf-move up)
-    ;; ("C-. <down>" . buf-move-down)
     )
 
 (defun bergey/display-buffer-in-direction (buffer alist)
