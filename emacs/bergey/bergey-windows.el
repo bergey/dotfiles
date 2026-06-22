@@ -85,6 +85,22 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
         ,(bergey/mode-in-direction 'eww-mode 'right)
         ))
 
+(defun bergey/goto-window-of-mode (mode)
+ (let ((window
+         (--find (with-current-buffer (window-buffer it)
+                   (eq major-mode mode))
+                 (window-number-list)))) ;; more vanilla way?
+   (if window (select-window window))))
+
+(defun bergey/goto-shell-prompt ()
+  (interactive)
+  (when (bergey/goto-window-of-mode 'shell-mode)
+    (end-of-buffer)
+    (evil-insert 1))
+  )
+
+(bind-key "C-. b s" bergey/goto-shell-prompt)
+
 (use-package perspective
   :bind ("C-x x s" . persp-switch)
   :custom
