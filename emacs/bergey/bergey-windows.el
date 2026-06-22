@@ -85,13 +85,12 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
         ,(bergey/mode-in-direction 'eww-mode 'right)
         ))
 
-;; TODO in case of multiple, pick most recently visited
 (defun bergey/goto-window-of-mode (mode)
- (let ((window
-         (--find (with-current-buffer (window-buffer it)
-                   (eq major-mode mode))
-                 (window-number-list)))) ;; more vanilla way?
-   (if window (select-window window))))
+  (let ((buffer
+         (--find (with-current-buffer it (eq major-mode mode)) (buffer-list))
+         ))
+    (if buffer (display-buffer buffer)))
+  )
 
 (defun bergey/goto-shell-prompt ()
   (interactive)
