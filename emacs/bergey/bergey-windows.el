@@ -30,10 +30,10 @@
 
 (use-package buffer-move
   :bind
-    ("C-. <left>" . buf-move-left)
-    ("C-. <right>" . buf-move-right)
-    ("C-. m" . buf-move)
-    )
+  ("C-. <left>" . buf-move-left)
+  ("C-. <right>" . buf-move-right)
+  ("C-. m" . buf-move)
+  )
 
 (defun bergey/display-buffer-in-direction (buffer alist)
   "If there are fewer than N splits, split another.
