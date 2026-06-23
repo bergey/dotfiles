@@ -99,7 +99,7 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
     (evil-insert 1))
   )
 
-(bind-key "C-. b s" bergey/goto-shell-prompt)
+(bind-key "C-. b s" #'bergey/goto-shell-prompt)
 
 (use-package perspective
   :bind ("C-x x s" . persp-switch)
