@@ -166,7 +166,10 @@
   )
 
 (use-package org-capture
-  :bind ("C-. c" . org-capture)
+  :bind
+  ( :map bergey/global-keymap
+    ("c" . org-capture)
+    )
   :custom
   (org-capture-templates
    '(("t" "task" entry (file "capture.org")
@@ -199,7 +202,10 @@
     (interactive)
     (message (substring-no-properties (org-clock-get-clock-string)))
     )
-  :bind ("C-. C-t" . 'bergey/org-clock-message-clock-string)
+  :bind
+  ( :map bergey/global-keymap
+    ("C-t" . 'bergey/org-clock-message-clock-string)
+    )
   )
 
 (use-package org-archive

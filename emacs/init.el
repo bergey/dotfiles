@@ -1,4 +1,4 @@
-;; from https://github.com/bodil/ohai-emacs
+; from https://github.com/bodil/ohai-emacs
 ;; Figure out the path to our .emacs.d by getting the path part of the
 ;; current file (`init.el`).
 (setq dotfiles-dir (file-name-directory

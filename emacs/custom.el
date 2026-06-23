@@ -19,7 +19,8 @@
      ".pyc" ".pyo"))
  '(custom-enabled-themes '(bergey))
  '(custom-safe-themes
-   '("d9703a42210b6bb68e14040a21958b24491e4ac7803c42b3f5f376cb9b2dd0bf"
+   '("abfce0dc2f678405f10b981eb74f7cca46837a6b948c1a80efae896380373485"
+     "d9703a42210b6bb68e14040a21958b24491e4ac7803c42b3f5f376cb9b2dd0bf"
      "098e47d810de9c0ec1bd7ee8d6783b9d4b27c690110d318de24c1a40b5cdc63a"
      "19c8d43a3e88c6942ef583c054f337dd594a313be6187572d35f76fa0f56d648"
      default))
@@ -30,12 +31,12 @@
    '(("sh" ((size-gt . 4000) (size-gt . 2000)))
      ("gnus"
       ((or (mode . message-mode) (mode . mail-mode)
-           (mode . gnus-group-mode) (mode . gnus-summary-mode)
-           (mode . gnus-article-mode))))
+	   (mode . gnus-group-mode) (mode . gnus-summary-mode)
+	   (mode . gnus-article-mode))))
      ("programming"
       ((or (mode . emacs-lisp-mode) (mode . cperl-mode)
-           (mode . c-mode) (mode . java-mode) (mode . idl-mode)
-           (mode . lisp-mode))))))
+	   (mode . c-mode) (mode . java-mode) (mode . idl-mode)
+	   (mode . lisp-mode))))))
  '(latex-run-command "pdflatex")
  '(max-lisp-eval-depth 1000)
  '(max-mini-window-height 2)
@@ -43,77 +44,77 @@
  '(mm-verify-option 'known)
  '(package-selected-packages
    '(add-node-modules-path auto-compile auto-complete bbdb bison-mode
-                           buffer-move capnp-mode caps-lock
-                           clojure-mode code-review coffee-mode
-                           color-identifiers-mode counsel csv-mode
-                           default-text-scale diminish dockerfile-mode
-                           edit-indirect editorconfig
-                           emacs-dir-treeview emmet-mode emms ensime
-                           exec-path-from-shell eyebrowse feature-mode
-                           fic-mode font-lock-studio fsharp-mode
-                           fstar-mode git-annex git-link git-review
-                           google-this groovy-mode haskell-mode
-                           haskell-snippets highlight-escape-sequences
-                           highlight-indent-guides highlight-quoted
-                           idris-mode ivy kotlin-mode merlin move-text
-                           nov org-cliplink org-evil ox-reveal
-                           pest-mode powershell rbs-mode rspec-mode
-                           rubocop ruby-test-mode smart-mode-line
-                           smart-mode-line-powerline-theme w3m))
+			   buffer-move capnp-mode caps-lock
+			   clojure-mode code-review coffee-mode
+			   color-identifiers-mode counsel csv-mode
+			   default-text-scale diminish dockerfile-mode
+			   edit-indirect editorconfig
+			   emacs-dir-treeview emmet-mode emms ensime
+			   exec-path-from-shell eyebrowse feature-mode
+			   fic-mode font-lock-studio fsharp-mode
+			   fstar-mode git-annex git-link git-review
+			   google-this groovy-mode haskell-mode
+			   haskell-snippets highlight-escape-sequences
+			   highlight-indent-guides highlight-quoted
+			   idris-mode ivy kotlin-mode merlin move-text
+			   nov org-cliplink org-evil ox-reveal
+			   pest-mode powershell rbs-mode rspec-mode
+			   rubocop ruby-test-mode smart-mode-line
+			   smart-mode-line-powerline-theme w3m))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
    '((rainbow-r-colors-alist ("b-red" . "#fe0b54")
-                             ("b-orange" . "#f6bb2b")
-                             ("b-green" . "#0be37a")
-                             ("b-cyan" . "#13f2f8")
-                             ("b-indigo" . "#5e84fe")
-                             ("b-violet" . "#ea84fe")
-                             ("dark-red" . "#8c0437")
-                             ("dark-orange" . "#8f4a31")
-                             ("dark-green" . "#246c01")
-                             ("dark-blue" . "#086783")
-                             ("dark-indigo" . "#475aac")
-                             ("dark-violet" . "#8b418d")
-                             ("light-gray" . "gray80"))
+			     ("b-orange" . "#f6bb2b")
+			     ("b-green" . "#0be37a")
+			     ("b-cyan" . "#13f2f8")
+			     ("b-indigo" . "#5e84fe")
+			     ("b-violet" . "#ea84fe")
+			     ("dark-red" . "#8c0437")
+			     ("dark-orange" . "#8f4a31")
+			     ("dark-green" . "#246c01")
+			     ("dark-blue" . "#086783")
+			     ("dark-indigo" . "#475aac")
+			     ("dark-violet" . "#8b418d")
+			     ("light-gray" . "gray80"))
      (rainbow-r-colors-alist ("b-red" . "#fe0b54")
-                             ("b-orange" . "#f6bb2b")
-                             ("b-green" . "#0be37a")
-                             ("b-cyan" . "#13f2f8")
-                             ("b-indigo" . "#5e84fe")
-                             ("b-violet" . "#ea84fe")
-                             ("dark-red" . "#8c0437")
-                             ("dark-orange" . "#8f4a31")
-                             ("dark-green" . "#246c01")
-                             ("dark-blue" . "#086783")
-                             ("dark-indigo" . "#475aac")
-                             ("dark-violet" . "#8b418d"))
+			     ("b-orange" . "#f6bb2b")
+			     ("b-green" . "#0be37a")
+			     ("b-cyan" . "#13f2f8")
+			     ("b-indigo" . "#5e84fe")
+			     ("b-violet" . "#ea84fe")
+			     ("dark-red" . "#8c0437")
+			     ("dark-orange" . "#8f4a31")
+			     ("dark-green" . "#246c01")
+			     ("dark-blue" . "#086783")
+			     ("dark-indigo" . "#475aac")
+			     ("dark-violet" . "#8b418d"))
      (rainbow-r-colors-alist ("b-red" . "#fe0b54")
-                             ("b-orange" . "#f6bb2b")
-                             ("b-green" . "#0be37a")
-                             ("b-cyan" . "#13f2f8")
-                             ("b-indigo" . "#5e84fe")
-                             ("b-violet" . "#ea84fe")
-                             ("dark-red" . "#8c0437")
-                             ("dark-orange" . "#8f4a31")
-                             ("dark-green" . "#246c01")
-                             ("dark-blue" . "#086783"))
+			     ("b-orange" . "#f6bb2b")
+			     ("b-green" . "#0be37a")
+			     ("b-cyan" . "#13f2f8")
+			     ("b-indigo" . "#5e84fe")
+			     ("b-violet" . "#ea84fe")
+			     ("dark-red" . "#8c0437")
+			     ("dark-orange" . "#8f4a31")
+			     ("dark-green" . "#246c01")
+			     ("dark-blue" . "#086783"))
      (rainbow-r-colors-alist ("b-red" . "#fe0b54")
-                             ("b-orange" . "#f6bb2b")
-                             ("b-green" . "#0be37a")
-                             ("b-cyan" . "#13f2f8")
-                             ("b-indigo" . "#5e84fe")
-                             ("b-violet" . "#ea84fe")
-                             ("dark-red" . "#8c0437")
-                             ("dark-orange" . "#8f4a31")
-                             ("dark-blue" . "#086783"))
+			     ("b-orange" . "#f6bb2b")
+			     ("b-green" . "#0be37a")
+			     ("b-cyan" . "#13f2f8")
+			     ("b-indigo" . "#5e84fe")
+			     ("b-violet" . "#ea84fe")
+			     ("dark-red" . "#8c0437")
+			     ("dark-orange" . "#8f4a31")
+			     ("dark-blue" . "#086783"))
      (rainbow-r-colors-alist . bergey-colors)
      (bergey-colors quote
-                    (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b")
-                     ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8")
-                     ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe")
-                     ("dark-red" . "#8c0437")
-                     ("dark-orange" . "#8f4a31")
-                     ("dark-blue" . "#086783")))
+		    (("b-red" . "#fe0b54") ("b-orange" . "#f6bb2b")
+		     ("b-green" . "#0be37a") ("b-cyan" . "#13f2f8")
+		     ("b-indigo" . "#5e84fe") ("b-violet" . "#ea84fe")
+		     ("dark-red" . "#8c0437")
+		     ("dark-orange" . "#8f4a31")
+		     ("dark-blue" . "#086783")))
      (rainbow-r-colors . t)
      (eglot-server-programs
       (ruby-base-mode "bundle" "exec" "solargraph" "stdio"))
@@ -122,15 +123,15 @@
      (py-shell-local-path . "./virtualenv/bin/ipython")
      (buffer-file-coding-system . utf-8-unix)
      (eval font-lock-add-keywords nil
-           `
-           ((,(concat "("
-                      (regexp-opt
-                       '("sp-do-move-op" "sp-do-move-cl"
-                         "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op"
-                         "sp-do-del-cl")
-                       t)
-                      "\\_>")
-             1 'font-lock-variable-name-face)))
+	   `
+	   ((,(concat "("
+		      (regexp-opt
+		       '("sp-do-move-op" "sp-do-move-cl"
+			 "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op"
+			 "sp-do-del-cl")
+		       t)
+		      "\\_>")
+	     1 'font-lock-variable-name-face)))
      (haskell-indent-spaces . 4) (haskell-process-use-ghci . t)
      (hamlet/basic-offset . 4) (python-indent . 8)))
  '(warning-suppress-types '((comp) (undo discard-info))))

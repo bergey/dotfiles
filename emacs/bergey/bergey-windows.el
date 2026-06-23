@@ -30,9 +30,12 @@
 
 (use-package buffer-move
   :bind
-  ("C-. <left>" . buf-move-left)
-  ("C-. <right>" . buf-move-right)
-  ("C-. m" . buf-move)
+  (
+   :map bergey/global-keymap
+   ("<left>" . buf-move-left)
+   ("<right>" . buf-move-right)
+   ("m" . buf-move)
+   )
   )
 
 (defun bergey/display-buffer-in-direction (buffer alist)
@@ -98,8 +101,7 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
     (end-of-buffer)
     (evil-insert 1))
   )
-
-(bind-key "C-. b s" #'bergey/goto-shell-prompt)
+;; bound in bergey-global-bindings
 
 (use-package perspective
   :bind ("C-x x s" . persp-switch)

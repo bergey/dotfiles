@@ -188,7 +188,10 @@
   )
 
 (use-package counsel-dash
-  :bind ("C-. C-d" . counsel-dash)
+  :bind
+  ( :map bergey/global-keymap
+    ("C-d" . counsel-dash)
+    )
   :demand t ;; needed for :dash option to use-package
   :config
   (setq counsel-dash-browser-func #'eww)

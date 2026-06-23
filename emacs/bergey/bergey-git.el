@@ -3,7 +3,10 @@
 (setq vc-follow-symlinks t)
 
 (use-package magit
-  :bind ("C-. g" . magit-status)
+  :bind
+  ( :map bergey/global-keymap
+    ("g" . magit-status)
+    )
   :diminish auto-revert-mode
   :config
   (setq magit-log-margin '(t "%Y-%m-%d %H:%M:%S" magit-log-margin-width t 18))

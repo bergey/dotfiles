@@ -10,7 +10,8 @@
     (shell (get-buffer-create (concat "*shell*<" new-name ">"))))
 
   :bind (
-         ("C-. h" . #'bergey/named-shell)
+         :map bergey/global-keymap
+         ("h" . #'bergey/named-shell)
          :map shell-mode-map
          ("C-M-n" . #'bergey/rename-shell-buffer)
          ("C-r" . comint-history-isearch-backward-regexp) ;; was isearch-backward, but I prefer evil ?

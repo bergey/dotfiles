@@ -17,7 +17,7 @@
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook (lambda() (diminish 'visual-line-mode)))
-(bind-key "C-. v" 'visual-line-mode)
+(bind-key "v" 'visual-line-mode bergey/global-keymap)
 
 (defun find-alternative-file-with-sudo ()
   (interactive)
@@ -150,7 +150,7 @@
 (defun bergey/line-length ()
   (interactive)
   (message "%s" (- (pos-eol) (pos-bol))))
-(bind-key "C-. $" #'bergey/line-length)
+(bind-key "$" #'bergey/line-length bergey/global-keymap)
 
 (defun bergey/delete-current-file ()
   (interactive)
