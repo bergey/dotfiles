@@ -2,7 +2,14 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("bergey-mode-line.el"
+(("3  Data transformation – R for Data Science (2e)"
+ (front-context-string . "\n* 3.4 The pipe\n")
+ (rear-context-string . "3.3.5 Exercises\n")
+ (position . 1212)
+ (last-modified 27115 13372 157836 898000)
+ (location . "https://r4ds.hadley.nz/data-transform.html?")
+ (handler . eww-bookmark-jump))
+("bergey-mode-line.el"
  (filename . "~/dotfiles/emacs/bergey/bergey-mode-line.el")
  (front-context-string . "  \"Optional args")
  (rear-context-string . "e Top / All bit\n")
@@ -51,17 +58,17 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/records/org/capture.org")
- (front-context-string . "* TODO sponsor m")
- (rear-context-string . "11:21] =>  0:04\n")
- (position . 14096)
- (last-modified 26713 39986 33278 0))
+ (filename . "~/records/org/notes.org")
+ (front-context-string . "* 2026-05-29 blo")
+ (rear-context-string . "erus or Prusti.\n")
+ (position . 708428)
+ (last-modified 27161 44527 38428 465000))
 ("org-refile-last-stored"
- (filename . "~/records/org/braze.org")
- (front-context-string . "** TODO try agai")
- (rear-context-string . "esting at Braze\n")
- (position . 94387)
- (last-modified 26713 26056 294688 0))
+ (filename . "~/records/org/teal.org")
+ (front-context-string . "** email \n*** TO")
+ (rear-context-string . "loyed versions?\n")
+ (position . 36811)
+ (last-modified 27186 37706 587940 507000))
 ("global.nix"
  (filename . "~/dotfiles/nix/global.nix")
  (front-context-string . "let\n    pkgs = i")

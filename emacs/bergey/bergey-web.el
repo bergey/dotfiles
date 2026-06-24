@@ -1,35 +1,38 @@
 ;; everything web: HTML,javascript, css
 (use-package web-mode
   :mode (rx (or ".html" ".js" ".jsx" ".ts" ".tsx" ".css" ".xml") string-end)
+
   :config
-  (progn
-    (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
-    (setq web-mode-hook '(
-                          bergey/yas-by-file-extension
-                          bergey/auto-quote-by-file-extension
-                          bergey/prettier-parsers-by-file-extension
-                          color-identifiers-mode
-                          bergey/company-short-idle
-                          ;; emmet-mode
-                          prettier-mode
-                          whitespace-mode
-                          ))
+  (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
+  (setq web-mode-hook '(
+                        bergey/yas-by-file-extension
+                        bergey/auto-quote-by-file-extension
+                        bergey/prettier-parsers-by-file-extension
+                        color-identifiers-mode
+                        bergey/company-short-idle
+                        ;; emmet-mode
+                        prettier-mode
+                        whitespace-mode
+                        ))
 
-    (bind-keys*
-     :map web-mode-map
-     ("C-j" . nil)
-     ("RET" . newline-and-indent)
-     ("C-c C-r" . run-mocha)
-     ("C--" . web-mode-comment-or-uncomment)
-     ("C-c C-m" . nil) ;; masks imenu
-     ("C-c C-," . prettier-prettify))
-    (setq web-mode-code-indent-offset 2)
+  (bind-keys*
+   :map web-mode-map
+   ("C-j" . nil)
+   ("RET" . newline-and-indent)
+   ("C-c C-r" . run-mocha)
+   ("C--" . web-mode-comment-or-uncomment)
+   ("C-c C-m" . nil) ;; masks imenu
+   ("C-c C-," . prettier-prettify))
+  (setq web-mode-code-indent-offset 2)
 
-    (defadvice web-mode-highlight-part (around tweak-jsx activate)
-      (if (equal web-mode-content-type "jsx")
-          (let ((web-mode-enable-part-face nil))
-            ad-do-it)
-        ad-do-it))))
+  (defadvice web-mode-highlight-part (around tweak-jsx activate)
+    (if (equal web-mode-content-type "jsx")
+        (let ((web-mode-enable-part-face nil))
+          ad-do-it)
+      ad-do-it))
+  (setq web-mode-content-types-alist
+        '(("css". (rx ".css" string-end))))
+  )
 
 (use-package prettier
   :commands prettier-mode

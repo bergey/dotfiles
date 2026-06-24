@@ -1,6 +1,6 @@
-;; (use-package ess
-;;   :mode "\\.R"
-;;   :commands R)
+(use-package ess
+  :mode "\\.R"
+  :commands R)
 
 (use-package julia-ts-mode
 
