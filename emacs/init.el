@@ -51,10 +51,11 @@
                  ;; misc
                  bergey-emacsclient
                  bergey-markup
-                 bergey-irc
                  bergey-shell
                  bergey-dired
                  bergey-sql
+                 bergey-music
+                 bergey-irc
                  bergey-wifi
                  bergey-google
                  bergey-os
