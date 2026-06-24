@@ -46,21 +46,22 @@
  )
 
 (cl-loop for binding in
-       '(("y" . "*Ipython*")
-	 ("S" . "*scratch*"))
-       do
-       (let* ((keys (car binding))
-              (buffer-name (cdr binding))
-              (function-name (intern (format "switch-to-%s-buffer" buffer-name)))
-              )
-         (eval
-	  `(defun ,function-name ()
-           ,(format "switch to the buffer \"%s\"" buffer-name)
-           (interactive)
-           (switch-to-buffer ,buffer-name))
-	  )
-         (eval `(bind-key keys function-name bergey/jump-keymap))
-         ))
+         '(
+           ("y" . "*Ipython*")
+           ("S" . "*scratch*"))
+         do
+         (let* ((keys (car binding))
+                (buffer-name (cdr binding))
+                (function-name (intern (format "switch-to-%s-buffer" buffer-name)))
+                )
+           (eval
+            `(defun ,function-name ()
+               ,(format "switch to the buffer \"%s\"" buffer-name)
+               (interactive)
+               (switch-to-buffer ,buffer-name))
+            )
+           (eval `(bind-key keys function-name bergey/jump-keymap))
+           ))
 
 (defun shell-date ()
   "Show today's date in the status bar."
