@@ -34,7 +34,7 @@
  ("s" . bergey/goto-shell-prompt)
  )
 
-(evil-define-key '(normal motion visual) override-global-map " " bergey/global-keymap)
+(evil-define-key '(normal visual) override-global-map " " bergey/global-keymap)
 
 ;; Jump to various buffers
 (bind-keys*
