@@ -23,9 +23,9 @@
                  bergey-environment
                  bergey-keyboard
                  bergey-gui
-                 bergey-windows
                  bergey-evil
                  bergey-global-bindings
+                 bergey-windows
                  bergey-mode-line
                  bergey-isearch
                  bergey-editing
