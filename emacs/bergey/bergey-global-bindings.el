@@ -43,6 +43,8 @@
  :prefix-map bergey/jump-keymap
  ("o" . org-switchb)
  ("g" . bergey/switch-buffer-magit)
+ ("p" . previous-buffer)
+ ("b" . ivy-switch-buffer)
  )
 
 (cl-loop for binding in
