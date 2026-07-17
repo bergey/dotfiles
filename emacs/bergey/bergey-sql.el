@@ -1,5 +1,6 @@
 (use-package sql
   :defer t
+  :dash "PostgreSQL"
   :config
   ;; matches \set PROMPT1 '%`date +%H:%M:%S`%R%# ' in ~/.psqlrc
   (sql-set-product-feature 'postgres :prompt-regexp "^[_:[:alnum:]]*[=][#>] ")
@@ -56,7 +57,8 @@
 
   (define-key sql-interactive-mode-map (kbd "C-c C-w") nil)
   (define-key sql-interactive-mode-map (kbd "C-c C-x") nil)
-  :dash "PostgreSQL"
+
+  (add-hook 'sql-interactive-mode-map #'monospace-mode)
   )
 
 (provide 'bergey-sql)
