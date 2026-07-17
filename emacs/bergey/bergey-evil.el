@@ -26,6 +26,7 @@
   (evil-insert-state-cursor '(bar . 1))
   (evil-want-keybinding nil)
   (evil-want-minibuffer t)
+  (evil-bigword "^,;() \t\r\n\f")
 
   ;; This makes the cursor position more like emacs position.  It also
   ;; makes `sp-forward-sexp' work, for some reason.  I only care about
@@ -61,6 +62,19 @@
   (evil-ex-define-cmd "q" 'kill-this-buffer)
 
   (setq-default evil-shift-width 2)
+
+  ;; https://github.com/emacs-evil/evil/issues/1450
+  (defun forward-evil-WORD (&optional count)
+    "Move forward COUNT \"WORDS\".
+Moves point COUNT WORDS forward or (- COUNT) WORDS backward if
+COUNT is negative. Point is placed after the end of the WORD (if
+forward) or at the first character of the WORD (if backward). A
+WORD is a sequence of non-whitespace characters
+'[^\\n\\r\\t\\f ]', or an empty line matching ^$."
+    (evil-forward-nearest count
+                          #'(lambda (&optional cnt)
+                              (evil-forward-chars evil-bigword cnt))
+                          #'forward-evil-empty-line))
   )
 
 (use-package evil-collection
