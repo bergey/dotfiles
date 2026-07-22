@@ -84,7 +84,8 @@ WORD is a sequence of non-whitespace characters
   :custom
   (bergey/evil-collection-original-mode-list evil-collection-mode-list)
   :config
-  (evil-collection-init)
+  ;; shell-mode in particular breaks, so try being explicit
+  (evil-collection-init '(dired emms flycheck flymake grep help info magit org org-agenda outline python rg ripgrep ruby-mode))
   (evil-define-key 'normal Info-mode-map (kbd "M-h") nil)
   )
 
