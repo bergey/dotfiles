@@ -33,6 +33,7 @@
    ("C-S-j" . org-move-subtree-down)
    ("C-S-RET" . bergey/org-insert-todo-heading)
    ("M-RET" . bergey/org-meta-return)
+   ("C-c o" . org-occur)
    )
 
   :custom
