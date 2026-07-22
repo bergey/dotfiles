@@ -5,13 +5,12 @@
   :config
   (define-key web-mode-map (kbd "C-c C-l") 'w3m-browse-current-buffer)
   (setq web-mode-hook '(
-                        bergey/yas-by-file-extension
                         bergey/auto-quote-by-file-extension
                         bergey/prettier-parsers-by-file-extension
                         color-identifiers-mode
                         bergey/company-short-idle
                         ;; emmet-mode
-                        prettier-mode
+                        bergey/maybe-prettier-mode
                         whitespace-mode
                         ))
 
@@ -31,7 +30,7 @@
           ad-do-it)
       ad-do-it))
   (setq web-mode-content-types-alist
-        '(("css". (rx ".css" string-end))))
+        `(("css". ,(rx ".css" string-end))))
   )
 
 (use-package prettier
@@ -40,6 +39,8 @@
   ;; better would be to show in the usual buffer, but leave that buffer off-screen with display-buffer-alist
   (defun prettier--show-error (string &rest objects)
     (message "prettier: %s" (car (s-lines (apply #'format string objects)))))
+  (defun bergey/maybe-prettier-mode ()
+    (if (executable-find "node") (prettier-mode)))
   )
 
 (use-package emmet-mode
@@ -75,14 +76,6 @@
 
 (defmacro string-case (actual &rest branches)
   `(pcase ,actual ,@(mapcar (lambda (b) `((pred (string-equal ,(car b))) ,(cadr b))) branches))
-  )
-
-(defun bergey/yas-by-file-extension ()
-  (string-case (downcase (file-name-extension (buffer-file-name)))
-               ("js"  (yas-activate-extra-mode 'js-mode))
-               ("html" (yas-activate-extra-mode 'html-mode))
-               ;; ("tsx" (message "tsx")) ;; for debugging
-               )
   )
 
 (defun bergey/auto-quote-by-file-extension ()

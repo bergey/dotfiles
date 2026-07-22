@@ -30,7 +30,6 @@
                  bergey-isearch
                  bergey-editing
                  bergey-unicode
-                 ;; org mode
                  bergey-org
                  ;; programming
                  picklebush
