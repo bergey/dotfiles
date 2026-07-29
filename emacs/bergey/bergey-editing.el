@@ -98,6 +98,7 @@
     "search docs in org mode"
     :dir (concat (rg-project-root buffer-file-name) "target/doc") ;; narrow to target/doc ?
     :files "org"
+    :flags ("-g" "!/src")
     )
   )
 
