@@ -94,6 +94,11 @@
     ;; this is a bit conservative.  simpler !**spec** could replace these 3
     :flags ("-g" "'!*_spec.rb'" "-g" "'!*.feature'" "-g" "'!**/spec/**'")
     )
+  (rg-define-search rg-rust-org-docs
+    "search docs in org mode"
+    :dir (concat (rg-project-root buffer-file-name) "target/doc") ;; narrow to target/doc ?
+    :files "org"
+    )
   )
 
 ;; (global-unset-key (kbd "C-t"))

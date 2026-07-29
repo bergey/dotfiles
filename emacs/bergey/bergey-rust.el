@@ -5,6 +5,7 @@
               ("C-c C-," . rust-format-buffer)
               ("C-c i" . bergey/rust-navigate-imports)
               ("C-c m" . bergey/rust-yank-module-name)
+              ("M-g d" . rg-rust-org-docs)
               )
   :custom
   (rust-rustfmt-switches '("--edition" "2024"))
