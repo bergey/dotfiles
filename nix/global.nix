@@ -143,6 +143,7 @@ let
         gphoto2
         id3v2
         imagemagick
+        isync
         jujutsu
         maim # screenshots
         inkscape # broken M1 2022-06-16
