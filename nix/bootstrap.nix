@@ -22,8 +22,29 @@ let
       zlib
       ghc
     ];
-  
+
 in with pkgs; {
+
+  # I think I don't use these, or should only install for specific projects
+  # 2026-07-30 keep them here a few months to see
+  old = mkBootstrap {
+    name = "old";
+    paths = [
+      capnproto
+      capnproto-rust
+      editorconfig-core-c
+      gh
+      git-lfs
+      ledger
+      tmux
+      zed-editor
+
+      arduino
+      feh
+      kdePackages.filelight
+      yarn
+    ];
+  };
 
   alloy = mkBootstrap {
     name = "alloy";
@@ -192,7 +213,7 @@ in with pkgs; {
       rubocop
     ];
   };
-  
+
   rust = mkBootstrap { # rustup simpler
     name = "rust";
     paths = [
@@ -227,7 +248,7 @@ in with pkgs; {
     ];
     FONTCONFIG_FILE = makeFontsConf { fontDirectories = texlive.tex-gyre.pkgs; };
   };
-  
+
   vcs = mkBootstrap {
     name = "vcs";
     paths = [

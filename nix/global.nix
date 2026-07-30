@@ -81,25 +81,18 @@ let
         aspell
         aspellDicts.en
         bootstrap-prebuild
-        capnproto
-        capnproto-rust
         cargo-dist
         (pinned { # broken on macos
           package = (pkgs: pkgs.direnv);
           rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
           sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
         })
-        editorconfig-core-c
         fastmod
-        gh
-        git-lfs
         gnupg
         google-cloud-sdk
-        gopls
         graphviz
         kondo
         kubectl
-        ledger
         (pinned { # broken on macos, cgo
           package = (pkgs: pkgs.mise);
           rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
@@ -114,7 +107,6 @@ let
         sqlite
         stow
         textql
-        tmux
         typescript-language-server
         typos
         (pinned { # R
@@ -131,15 +123,11 @@ let
         xlsfonts
         yaml2json
         python3.pkgs.yamllint
-        zed-editor
       ];
 
       linux-workstation = with pkgs; [
         alacritty
-        arduino
         crawl
-        feh
-        kdePackages.filelight
         gphoto2
         id3v2
         imagemagick
@@ -151,7 +139,6 @@ let
         perlPackages.ImageExifTool
         transmission_4
         xev
-        yarn
         zathura
         zotero # broken M1 2022-05-03
       ];
