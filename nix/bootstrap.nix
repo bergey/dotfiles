@@ -193,8 +193,7 @@ in with pkgs; {
       flake8
       ipython
       python
-      pip
-      virtualenv
+      uv
     ];
   };
 
