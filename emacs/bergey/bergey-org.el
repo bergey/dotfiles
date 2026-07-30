@@ -118,7 +118,7 @@
    )
 
   :config
-  (setq bergey/work-agenda-files '("braze.org"))
+  (setq bergey/work-agenda-files '("teal.org"))
   (setq bergey/home-agenda-files '("house.org"))
   (setq bergey/teal-agenda-files '("teal.org"))
   (setq bergey/not-work-agenda-files '("house.org" "teal.org" "capture.org"))

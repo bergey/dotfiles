@@ -79,7 +79,6 @@ emacs:
 
 mr:
     - mr -d {{home}} update
-    - cd {{home}}/braze && mr update
 
 home := env_var('HOME')
 escaped_home := replace(home, '/', '\/')

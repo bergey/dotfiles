@@ -77,28 +77,4 @@ alias json_lines='jq -r ".[]"'
 # https://stackoverflow.com/questions/78514306/how-do-i-tell-cargo-to-update-dependencies-beyond-the-current-versions-of-my-pro
 alias cargo-upgrade='cargo +nightly update --breaking -Z unstable-options'
 
-# Braze environments
-alias olaf='kubectl --context=k8s.cluster-001.d-use-1.braze.com-opsengineer'
-alias sweeney='kubectl --context=k8s.cluster-001.s-use-1.braze.com-opsengineer'
-alias us1='kubectl --context=k8s.cluster-001.p-use-1.braze.com-opsengineer'
-alias us2='kubectl --context=k8s.cluster-002.p-use-1.braze.com-opsengineer'
-alias us3='kubectl --context=k8s.cluster-003.p-use-1.braze.com-opsengineer'
-alias us4='kubectl --context=k8s.cluster-004.p-use-1.braze.com-opsengineer'
-alias us5='kubectl --context=k8s.cluster-005.p-use-1.braze.com-opsengineer'
-alias us6='kubectl --context=k8s.cluster-006.p-use-1.braze.com-opsengineer'
-alias us7='kubectl --context=k8s.cluster-007.p-use-1.braze.com-opsengineer'
-alias us8='kubectl --context=k8s.cluster-001.p-aze-us.braze.com-opsengineer'
-alias eu1='kubectl --context=k8s.cluster-001.p-euc-1.braze.eu-opsengineer'
-alias eu2='kubectl --context=k8s.cluster-002.p-euc-1.braze.eu-opsengineer'
-alias us_redirect='kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-redirect-service'
-alias us_register='kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n url-shortener-registration-service'
-alias eu_redirect='kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-redirect-service'
-alias eu_register='kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n url-shortener-registration-service'
-alias olaf_register='kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-registration-service'
-alias olaf_redirect='kubectl --context k8s.region-001.d-use-1.braze.com-opsadmin -n url-shortener-redirect-service'
-alias sweeney_register='kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-registration-service'
-alias sweeney_redirect='kubectl --context k8s.region-001.s-use-1.braze.com-opsengineer -n url-shortener-redirect-service'
-alias eu_webhook='kubectl --context k8s.region-001.p-euc-1.braze.eu-opsengineer -n backup-webhook'
-alias us_webhook='kubectl --context k8s.region-001.p-use-1.braze.com-opsengineer -n backup-webhook'
-
 . ~/dotfiles/nix/bash_aliases

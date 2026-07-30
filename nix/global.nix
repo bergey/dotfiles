@@ -81,7 +81,7 @@ let
         aspell
         aspellDicts.en
         bootstrap-prebuild
-        capnproto 
+        capnproto
         capnproto-rust
         cargo-dist
         (pinned { # broken on macos
@@ -163,16 +163,6 @@ let
       ];
 
       server = [];
-
-      braze_ = with pkgs; [
-        awscli2
-        cmake
-        imagemagick
-        kops
-        postman
-        snappy
-        sops
-      ];
     };
 
 in rec {
@@ -185,14 +175,6 @@ in rec {
     name = "bergey-austenite";
     paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
   };
-
-  braze = pkgs.buildEnv { # Braze Macbook
-    name = "bergey-braze";
-    paths = with kits; global ++ darwin ++ workstation ++ braze_;
-  };
-  BZUSWVX02L7L7Q = braze;
-  BZUSCDXGX362CR = braze;
-  BZCDXGX362CR = braze ;
 
   prandtl = pkgs.buildEnv {
     name = "bergey-linux-workstation";
