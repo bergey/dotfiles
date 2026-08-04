@@ -31,6 +31,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "apfs" "zfs" ];
+  boot.zfs.forceImportRoot = false;
 
   networking = {
     hostName = "prandtl"; # Define your hostname.
@@ -45,7 +46,7 @@
     useDHCP = false;
     wireless = {
       enable = true;
-      userControlled.enable = true;
+      userControlled = true;
       # contains passwords, not part of public git repo
       networks = import ./wireless-networks.nix;
     };
@@ -163,7 +164,10 @@ virtualisation.docker.enable = true;
 
   systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
 
-  services.transmission.enable = true;
+  services.transmission = {
+    enable = true;
+    package = pkgs.transmission_4;
+  };
 
   fileSystems."/mnt/babel" = {
       label = "Babel";
@@ -183,7 +187,7 @@ virtualisation.docker.enable = true;
     inconsolata
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     # noto-fonts-extra # more weights?
     # tex-gyre
   ];
@@ -238,10 +242,14 @@ virtualisation.docker.enable = true;
 
   services.grafana = {
     enable = true;
-    settings.server = {
-      domain = "spaceways.home";
-      http_port = 3000;
-      addr = "127.0.0.1";
+    settings = {
+      server = {
+        domain = "spaceways.home";
+        http_port = 3000;
+        addr = "127.0.0.1";
+      };
+      # pre-26.05 key, because I have no secrets in grafana
+      security.secret_key = "SW2YcwTIb9zpOOhoPsMm";
     };
   };
 
