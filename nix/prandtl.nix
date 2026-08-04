@@ -292,35 +292,24 @@ virtualisation.docker.enable = true;
           type = "prometheus_remote_write";
           address = "127.0.0.1:9099";
         };
-
-        # syslog_in = {
-        #   type = "syslog";
-        #   mode = "tcp";
-        #   address = "0.0.0.0:514";
-        # };
       };
-      sinks = {
 
-        # logs_out = {
-        #   type = "clickhouse";
-        #   inputs = ["journald"];
-        #   endpoint = "http://localhost:9000";
-        #   database = "default";
-        #   table = "syslog";
-        #   skip_unknown_fields = true;
-        #   # auth = {
-        #   #   strategy = "basic";
-        #   #   user = "default";
-        #   #   password = "";
-        #   # };
-        #   batch = {
-        #     max_events = 5000;
-        #     timeout_secs = 5;
-        #   };
-        #   encoding = {
-        #     timestamp_format = "unix";
-        #   };
-        # };
+      sinks = {
+        logs_out = {
+          type = "clickhouse";
+          inputs = ["journald"];
+          endpoint = "http://localhost:8123";
+          database = "default";
+          table = "journald";
+          skip_unknown_fields = true;
+          batch = {
+            max_events = 5000;
+            timeout_secs = 5;
+          };
+          encoding = {
+            timestamp_format = "unix";
+          };
+        };
 
         metrics_out = {
           type = "clickhouse";
@@ -329,13 +318,16 @@ virtualisation.docker.enable = true;
           database = "default";
           table = "metrics";
           skip_unknown_fields = true;
+          encoding = {
+            timestamp_format = "unix";
+          };
         };
 
-        debug_console = {
-          type = "console";
-          inputs = [ "journald" ];
-          encoding.codec = "json";
-        };
+        # debug_console = {
+        #   type = "console";
+        #   inputs = [ "journald" ];
+        #   encoding.codec = "json";
+        # };
       };
 
       transforms = {
@@ -348,15 +340,6 @@ virtualisation.docker.enable = true;
           type = "remap";
           inputs = [ "metrics_to_logs" ];
           source = ''
-# https://vector.dev/docs/reference/vrl/
-parsed_timestamp, err = parse_timestamp(.timestamp, format: "%Y-%m-%dT%H:%M:%S.%fZ")
-
-if err == null {
-  .timestamp = to_unix_timestamp(parsed_timestamp)
-} else {
-  .timestamp = to_unix_timestamp(now())
-}
-
 .value = .gauge.value
 del(.gauge)
 '';
