@@ -74,6 +74,7 @@
       (goto-char (match-beginning 1))
       (bergey/scroll-align-left))
     )
+  )
 
 (use-package inf-ruby
   :commands inf-ruby
