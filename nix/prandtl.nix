@@ -256,8 +256,8 @@ virtualisation.docker.enable = true;
       };
     };
     globalConfig = {
-      scrape_interval = "10s";
-      scrape_timeout = "5s";
+      scrape_interval = "3s";
+      scrape_timeout = "3s";
     };
     scrapeConfigs = [
       {
@@ -270,8 +270,98 @@ virtualisation.docker.enable = true;
         }];
       }
     ];
+    remoteWrite = [
+      { url = "http://localhost:9099"; }
+    ];
   };
 
   services.clickhouse.enable = true;
 
+  services.vector = {
+    enable = true;
+    journaldAccess = true;
+    settings = {
+      api.enabled = true;
+      sources = {
+
+        journald = {
+          type = "journald";
+        };
+
+        prometheus = {
+          type = "prometheus_remote_write";
+          address = "127.0.0.1:9099";
+        };
+
+        # syslog_in = {
+        #   type = "syslog";
+        #   mode = "tcp";
+        #   address = "0.0.0.0:514";
+        # };
+      };
+      sinks = {
+
+        # logs_out = {
+        #   type = "clickhouse";
+        #   inputs = ["journald"];
+        #   endpoint = "http://localhost:9000";
+        #   database = "default";
+        #   table = "syslog";
+        #   skip_unknown_fields = true;
+        #   # auth = {
+        #   #   strategy = "basic";
+        #   #   user = "default";
+        #   #   password = "";
+        #   # };
+        #   batch = {
+        #     max_events = 5000;
+        #     timeout_secs = 5;
+        #   };
+        #   encoding = {
+        #     timestamp_format = "unix";
+        #   };
+        # };
+
+        metrics_out = {
+          type = "clickhouse";
+          inputs = [ "clickhouse_metrics" ];
+          endpoint = "http://localhost:8123";
+          database = "default";
+          table = "metrics";
+          skip_unknown_fields = true;
+        };
+
+        debug_console = {
+          type = "console";
+          inputs = [ "journald" ];
+          encoding.codec = "json";
+        };
+      };
+
+      transforms = {
+        metrics_to_logs = {
+          type = "metric_to_log";
+          inputs = [ "prometheus" ];
+        };
+
+        clickhouse_metrics = {
+          type = "remap";
+          inputs = [ "metrics_to_logs" ];
+          source = ''
+# https://vector.dev/docs/reference/vrl/
+parsed_timestamp, err = parse_timestamp(.timestamp, format: "%Y-%m-%dT%H:%M:%S.%fZ")
+
+if err == null {
+  .timestamp = to_unix_timestamp(parsed_timestamp)
+} else {
+  .timestamp = to_unix_timestamp(now())
+}
+
+.value = .gauge.value
+del(.gauge)
+'';
+        };
+      };
+    };
+  };
 }
