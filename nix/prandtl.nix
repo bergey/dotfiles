@@ -325,7 +325,7 @@ virtualisation.docker.enable = true;
 
         # debug_console = {
         #   type = "console";
-        #   inputs = [ "journald" ];
+        #   inputs = [ "logs_not_vector" ];
         #   encoding.codec = "json";
         # };
       };
@@ -343,6 +343,18 @@ virtualisation.docker.enable = true;
 .value = .gauge.value
 del(.gauge)
 '';
+        };
+
+        logs_not_vector = {
+          type = "filter";
+          inputs = [ "journald" ];
+          condition = {
+            type = "vrl";
+            # source = ''!(._COMM == "vector" && starts_with(to_string(.message), "{"))'';
+            source = ''
+._COMM != "vector"
+'';
+          };
         };
       };
     };
