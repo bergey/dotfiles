@@ -2,6 +2,8 @@
   :init
   (require 'emms-setup)
   (emms-all)
+  (emms-mode-line-mode -1)
+  (emms-playing-time-mode -1)
 
   :custom
   (emms-player-list '(emms-player-vlc))
