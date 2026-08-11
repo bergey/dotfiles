@@ -169,7 +169,7 @@ in with pkgs; {
     paths = with pkgs; [
       nodejs
       python3.pkgs.jsmin
-      yarn
+      pnpm
     ];
   };
 
