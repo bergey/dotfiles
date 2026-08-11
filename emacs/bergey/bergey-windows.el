@@ -114,23 +114,4 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   (setq kill-buffer-query-functions (remove #'persp-maybe-kill-buffer kill-buffer-query-functions))
   )
 
-(use-package projectile
-  :bind (:map projectile-mode-map
-              ("C-c p" . projectile-command-map)
-              ("M-o" . projectile-command-map)
-              :map projectile-command-map
-              ("$ b" . projectile-switch-to-buffer-other-window)
-              ("$ f" . projectile-find-file-other-window))
-  :custom
-  ;; buggy nix on macos, and the error window is annoying
-  (projectile-git-submodule-command nil)
-  :defer 5
-  :config (projectile-mode)
-  )
-
-(use-package persp-projectile
-  :after (perspective projectile)
-  :defer 5
-  )
-
 (provide 'bergey-windows)
