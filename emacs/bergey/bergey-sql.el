@@ -20,6 +20,14 @@
            (sql-server "localhost")
            (sql-port 15432)
            (sql-password "password"))
+          (memex
+           (sql-product 'postgres)
+           (sql-database "memex")
+           (sql-user "memex")
+           (sql-password "memex")
+           (sql-server "localhost")
+           (sql-port 5432)
+           )
           ))
 
   (defvar my-sql-replacements nil)
