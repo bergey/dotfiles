@@ -66,7 +66,7 @@
   (define-key sql-interactive-mode-map (kbd "C-c C-w") nil)
   (define-key sql-interactive-mode-map (kbd "C-c C-x") nil)
 
-  (add-hook 'sql-interactive-mode-map #'monospace-mode)
+  (add-hook 'sql-interactive-mode-hook #'monospace-mode)
   )
 
 (provide 'bergey-sql)
