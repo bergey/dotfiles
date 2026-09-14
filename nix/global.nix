@@ -158,7 +158,7 @@ in rec {
     paths = with kits; global ++ linux ++ server;
   };
 
-  Austenite = pkgs.buildEnv {
+  austenite = pkgs.buildEnv {
     name = "bergey-austenite";
     paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
   };
