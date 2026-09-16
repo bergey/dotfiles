@@ -24,7 +24,7 @@ let
       };
     in package pkgs;
 
-    {
+    in {
       global = (with pkgs; [
         atool
         bash-completion
