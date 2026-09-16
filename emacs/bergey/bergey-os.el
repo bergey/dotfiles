@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; interactions with the OS at large
 
 ;; Use system default web browser

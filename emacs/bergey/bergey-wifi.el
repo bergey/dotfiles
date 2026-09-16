@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; TODO use `nmcli con up' if connection already exists
 ;; maybe add a separate function to pick among known networks
 (defun wifi-connect ()

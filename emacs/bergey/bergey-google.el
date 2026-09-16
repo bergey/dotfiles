@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package tramp
   :defer 10
   :custom
