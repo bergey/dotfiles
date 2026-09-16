@@ -4,6 +4,8 @@ global:
   #!/usr/bin/env bash
   set -euxo pipefail
   nix-env --no-build-output -if nix/global.nix -A $(hostname)
+  # cd nix
+  # nix profile add #austenite
   # symlink MacOS Applications
   if [[ -d ~/.nix-profile/Applications ]]; then
     for path in ~/.nix-profile/Applications/*; do
