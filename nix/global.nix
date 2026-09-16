@@ -1,6 +1,5 @@
+{pkgs}:
 let
-    pkgs = import ./nixpkgs.nix {};
-
     bootstrap = import ./bootstrap.nix {inherit pkgs;};
     # minimal derivation, ensures that we depend on specific bootstrap envs
     bootstrap-prebuild = with pkgs; (derivation {
@@ -13,13 +12,19 @@ let
     });
 
     # function to help hold back a single package from system upgrades
-    pinned = args: let
-      pkgs = import ./nixpkgs.nix {
-        snapshot = {inherit (args) rev sha256;};
+    pinned = {rev, sha256, package}: let
+      nixpkgs = builtins.fetchTarball {
+        inherit sha256;
+        url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
       };
-    in args.package pkgs;
+      pkgs = import nixpkgs {
+        config = {
+          allowUnfree = true;
+        };
+      };
+    in package pkgs;
 
-    kits = {
+    {
       global = (with pkgs; [
         atool
         bash-completion
@@ -135,21 +140,4 @@ let
       ];
 
       server = [];
-    };
-
-in rec {
-  linux-server = pkgs.buildEnv {
-    name = "bergey-linux-server";
-    paths = with kits; global ++ linux ++ server;
-  };
-
-  austenite = pkgs.buildEnv {
-    name = "bergey-austenite";
-    paths = with kits; global ++ linux ++ workstation ++ linux-workstation;
-  };
-
-  prandtl = pkgs.buildEnv {
-    name = "bergey-linux-workstation";
-    paths = with kits; global ++ linux ++ workstation ++ linux-workstation ++ nixos;
-  };
-}
+    }
