@@ -5,7 +5,12 @@
   :commands R)
 
 (use-package julia-ts-mode
+  :mode "\\.jl$"
+  :custom
+  (julia-ts-mode-hook '(julia-repl-mode))
+  )
 
-  :mode "\\.jl$")
+(use-package julia-repl
+  :functions julia-repl-mode)
 
 (provide 'bergey-stats)

@@ -49,7 +49,8 @@ in (pkgs.emacsPackagesFor pkgs.emacs).emacsWithPackages (epkgs: (with epkgs; [
     inf-ruby
     ivy
     json5-ts-mode
-    julia-mode
+    julia-ts-mode
+    julia-repl
     just-mode
     kotlin-mode
     magit

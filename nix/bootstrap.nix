@@ -173,6 +173,16 @@ in with pkgs; {
     ];
   };
 
+  julia = mkBootstrap {
+    name = "julia";
+    paths = [
+      (pkgs.julia-bin.withPackages [
+        "Gadfly"
+        "Revise"
+      ])
+    ];
+  };
+
   pandoc = mkBootstrap {
     name = "pandoc";
     paths = [
