@@ -162,4 +162,22 @@
   (eat-update-semi-char-mode-map)
   )
 
+;; comint-show-output does roughly the same, on C-r, so maybe use that instead?
+;; but only for most recent command
+(defun bergey/comint-scroll-last-prompt-to-top ()
+  (interactive)
+  (comint-previous-prompt 1)
+  (evil-scroll-line-to-top nil))
+(evil-define-key 'normal comint-mode-map (kbd "z p") 'bergey/comint-scroll-last-prompt-to-top)
+
+(defun bergey/rerun-last-command ()
+  (interactive)
+  (evil-goto-line)
+  (comint-bol)
+  (comint-previous-input 0)
+  (comint-send-input)
+  (bergey/comint-scroll-last-prompt-to-top)
+  )
+(evil-define-key 'normal comint-mode-map (kbd "C-c r") 'bergey/rerun-last-command)
+
 (provide 'bergey-shell)
