@@ -25,7 +25,6 @@
   (evil-cross-lines t)
   (evil-insert-state-cursor '(bar . 1))
   (evil-want-keybinding nil)
-  (evil-want-minibuffer t)
   (evil-bigword "^,;() \t\r\n\f")
 
   ;; This makes the cursor position more like emacs position.  It also
