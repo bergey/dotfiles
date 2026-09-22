@@ -178,6 +178,7 @@ in with pkgs; {
     paths = [
       (pkgs.julia-bin.withPackages [
         "Gadfly"
+        "RDatasets"
         "Revise"
       ])
     ];
