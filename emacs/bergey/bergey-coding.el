@@ -133,6 +133,7 @@
               ("C-! l" . flymake-show-buffer-diagnostics)
               ("C-! C-l" . flymake-show-project-diagnostics)
               ("C-! L" . flymake-show-project-diagnostics)
+              ("C-! d" . eldoc-doc-buffer)
               )
   :custom
   (flymake-no-changes-timeout 3)
