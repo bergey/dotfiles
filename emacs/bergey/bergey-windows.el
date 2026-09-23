@@ -110,6 +110,7 @@ Similar to display-buffer-in-direction but adds a window to an existing row, rat
   (persp-mode-prefix-key (kbd "C-x x"))
   (persp-show-modestring nil)
   :config
+  (persp-mode)
   :init
   ;; this takes ~10s, which is excessive, especially for temp buffers in other commands
   (setq kill-buffer-query-functions (remove #'persp-maybe-kill-buffer kill-buffer-query-functions))
