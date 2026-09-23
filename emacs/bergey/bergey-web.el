@@ -35,12 +35,13 @@
 
 (use-package prettier
   :commands prettier-mode
+  :init
+  (defun bergey/maybe-prettier-mode ()
+    (if (executable-find "node") (prettier-mode)))
   :config
   ;; better would be to show in the usual buffer, but leave that buffer off-screen with display-buffer-alist
   (defun prettier--show-error (string &rest objects)
     (message "prettier: %s" (car (s-lines (apply #'format string objects)))))
-  (defun bergey/maybe-prettier-mode ()
-    (if (executable-find "node") (prettier-mode)))
   )
 
 (use-package emmet-mode
