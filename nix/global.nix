@@ -91,6 +91,7 @@ let
         gnupg
         google-cloud-sdk
         graphviz
+        bootstrap.julia # global so emacs comint can find it
         kondo
         kubectl
         (pinned { # broken on macos, cgo
