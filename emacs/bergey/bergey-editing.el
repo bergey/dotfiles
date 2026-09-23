@@ -52,6 +52,7 @@
   :defer 10
   :init (defun bergey/company-short-idle () (setq company-idle-delay 0.1))
   :config
+    (require 'company-childframe)
     (setq company-show-numbers t)
     ;; (setq company-quick-access-keys '("m" "w" "v" "h" "t" "n" "g" "c" "r")) ;; cf keypad
     ;; (setq company-quick-access-keys '("1" "2" "3" "4" "5" "6" "7" "8" "9" "0"))
