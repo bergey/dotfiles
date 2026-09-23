@@ -82,11 +82,7 @@ let
         aspellDicts.en
         bootstrap-prebuild
         cargo-dist
-        (pinned { # broken on macos
-          package = (pkgs: pkgs.direnv);
-          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
-          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
-        })
+        direnv
         fastmod
         gnupg
         google-cloud-sdk
@@ -94,11 +90,7 @@ let
         bootstrap.julia # global so emacs comint can find it
         kondo
         kubectl
-        (pinned { # broken on macos, cgo
-          package = (pkgs: pkgs.mise);
-          rev = "f8573b9c935cfaa162dd62cc9e75ae2db86f85df";
-          sha256 = "01j24h5r9cypqsq9nkznakckp3r9z9fpp8vngks1pxya7p9wg5c6";
-        })
+        mise
         mr
         nix-prefetch-git
         nix-tree
@@ -110,16 +102,8 @@ let
         textql
         typescript-language-server
         typos
-        (pinned { # R
-          package = pp: pp.rWrapper.override{ packages = with pp.rPackages; [ tidyverse promr ]; };
-          rev = "85f7e662eda4fa3a995556527c87b2524b691933";
-          sha256 = "1p8qam6pixcin63wai3y55bcyfi1i8525s1hh17177cqchh1j117";
-        })
-        (pinned {
-          package = (pkgs: pkgs.wireshark);
-          rev = "18dd725c29603f582cf1900e0d25f9f1063dbf11";
-          sha256 = "0zrp7w41vqln7mmhvpb8ww6g6807bhic5c72mkqf9qh5336vc13b";
-        })
+        (rWrapper.override{ packages = with rPackages; [ tidyverse promr ]; })
+        wireshark
         wrk
         xlsfonts
         yaml2json
