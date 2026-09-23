@@ -21,7 +21,11 @@
    ("C-c C-r" . run-mocha)
    ("C--" . web-mode-comment-or-uncomment)
    ("C-c C-m" . nil) ;; masks imenu
-   ("C-c C-," . prettier-prettify))
+   ("C-c C-," . prettier-prettify)
+   ("C-c C-t" . bergey/web-mode-tag)
+   ("C-c C-b" . bergey/web-mode-block)
+   ("C-c C-e" . bergey/web-mode-element)
+   )
   (setq web-mode-code-indent-offset 2)
 
   (defadvice web-mode-highlight-part (around tweak-jsx activate)
@@ -31,6 +35,54 @@
       ad-do-it))
   (setq web-mode-content-types-alist
         `(("css". ,(rx ".css" string-end))))
+
+  (use-package transient)
+  (transient-define-prefix bergey/web-mode-tag ()
+                           [
+                            ("b" "move to beginning of tag at point" web-mode-tag-beginning)
+                            ("e" "move to end of tag at point" web-mode-tag-end)
+                            ("n" "next tag." web-mode-tag-next)
+                            ("p" "previous tag" web-mode-tag-previous)
+                            ("m" "Move point to the matching opening/closing tag." web-mode-tag-match)
+                            ("s" "Select the current html tag." web-mode-tag-select)
+                            ("a" "Sort the attributes inside the current html tag." web-mode-tag-attributes-sort)
+                            ])
+
+  (transient-define-prefix bergey/web-mode-block ()
+                           "block movement / select in web-mode"
+                           [("b" "beginning" web-mode-block-beginning)
+                            ("c" "close" web-mode-block-close)
+                            ("e" "end" web-mode-block-end)
+                            ("k" "kill" web-mode-block-kill)
+                            ("n" "next" web-mode-block-next)
+                            ("p" "previous" web-mode-block-previous)
+                            ("s" "select" web-mode-block-select)
+                            ])
+
+  (transient-define-prefix bergey/web-mode-element ()
+                           [
+                            ("+" "extract" web-mode-element-extract)
+                            ("-" "contract" web-mode-element-contract)
+                            ("/" "close" web-mode-element-close)
+                            ("I" "insert at point" web-mode-element-insert-at-point)
+                            ("a" "select content" web-mode-element-content-select)
+                            ("b" "beginning" web-mode-element-beginning)
+                            ("c" "clone" web-mode-element-clone)
+                            ("d" "child" web-mode-element-child)
+                            ("e" "end" web-mode-element-end)
+                            ("f" "fold or unfold" web-mode-element-children-fold-or-unfold)
+                            ("i" "insert" web-mode-element-insert)
+                            ("k" "kill" web-mode-element-kill)
+                            ("m" "mute blanks" web-mode-element-mute-blanks)
+                            ("n" "next" web-mode-element-next)
+                            ("p" "previous" web-mode-element-previous)
+                            ("r" "rename" web-mode-element-rename)
+                            ("s" "select" web-mode-element-select)
+                            ("t" "transpose" web-mode-element-transpose)
+                            ("u" "parent" web-mode-element-parent)
+                            ("v" "vanish" web-mode-element-vanish)
+                            ("w" "wrap" web-mode-element-wrap)
+                            ])
   )
 
 (use-package prettier
