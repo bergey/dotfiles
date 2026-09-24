@@ -17,7 +17,7 @@
       # TODO these only make sense for Linux, and mostly x86
       # do I really want mapAttrs this way?
       packages = builtins.mapAttrs (system: pkgs:
-        let kits = import ./global.nix { inherit pkgs; };
+        let kits = import ./global.nix { inherit pkgs system; };
         in {
           linux-server = pkgs.buildEnv {
             name = "bergey-linux-server";

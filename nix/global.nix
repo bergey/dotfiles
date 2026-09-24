@@ -1,4 +1,4 @@
-{pkgs}:
+{pkgs, system}:
 let
     bootstrap = import ./bootstrap.nix {inherit pkgs;};
     # minimal derivation, ensures that we depend on specific bootstrap envs
@@ -6,8 +6,7 @@ let
       name = "bootstrap-envs";
       builder = "${bash}/bin/bash";
       args = [ "-c" "$coreutils/bin/mkdir $out; echo foo > $out/bootstrap-envs" ];
-      system = builtins.currentSystem;
-      inherit coreutils;
+      inherit coreutils system;
       inherit (bootstrap) javascript python;
     });
 
