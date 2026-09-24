@@ -1,9 +1,13 @@
 default: update global emacs
 
+[working-directory: 'nix']
+init:
+    nix profile add "#$(hostname)"
+
 global:
   #!/usr/bin/env bash
   set -euxo pipefail
-  nix-env --no-build-output -if nix/global.nix -A $(hostname)
+  nix profile upgrade nix
   # symlink MacOS Applications
   if [[ -d ~/.nix-profile/Applications ]]; then
     for path in ~/.nix-profile/Applications/*; do
@@ -15,11 +19,16 @@ global:
   fi
 
 show-trace:
-  nix-env --no-build-output -if nix/global.nix -A $(hostname) --show-trace
+    nix profile upgrade nix --show-trace
 
 update:
-  @nix/update.sh
-  # TODO only checkout newer commit of nixpkgs git repo & commit here if global rule built successfully
+    #!/usr/bin/env bash
+    nix flake update
+    if ! git diff --cached --exit-code  --quiet; \
+        then git commit -m "nix flake update"; \
+        else echo "nothing to commit"; \
+        fi
+    just nixpkgs-git
 
 nixpkgs-git:
     #!/usr/bin/env bash
@@ -74,8 +83,14 @@ unstow:
   for package in $(ls stow); do stow --target ~ --dir stow --delete $package; done
   rm ~/.emacs.d
 
-emacs:
-	nix-env -if emacs/emacs.nix --no-build-output
+emacs: (ensure "emacs")
+
+ensure flake:
+    #!/usr/bin/env bash
+    if nix profile list --json | jq -e .elements.{{flake}} > /dev/null; \
+        then nix profile upgrade {{flake}}; \
+        else nix profile add ./{{flake}}; \
+        fi
 
 mr:
     - mr -d {{home}} update
