@@ -83,8 +83,14 @@ unstow:
   for package in $(ls stow); do stow --target ~ --dir stow --delete $package; done
   rm ~/.emacs.d
 
-emacs:
-    nix profile upgrade emacs
+emacs: (ensure "emacs")
+
+ensure flake:
+    #!/usr/bin/env bash
+    if nix profile list --json | jq -e .elements.{{flake}} > /dev/null; \
+        then nix profile upgrade {{flake}}; \
+        else nix profile add ./{{flake}}; \
+        fi
 
 mr:
     - mr -d {{home}} update
