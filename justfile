@@ -19,7 +19,7 @@ global:
   fi
 
 show-trace:
-  nix-env --no-build-output -if nix/global.nix -A $(hostname) --show-trace
+    nix profile upgrade nix --show-trace
 
 update:
     #!/usr/bin/env bash
