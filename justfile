@@ -4,7 +4,7 @@ global:
   #!/usr/bin/env bash
   set -euxo pipefail
   cd nix
-  nix profile add '#austenite'
+  nix profile add "#$(hostname)"
   # symlink MacOS Applications
   if [[ -d ~/.nix-profile/Applications ]]; then
     for path in ~/.nix-profile/Applications/*; do
