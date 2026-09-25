@@ -135,7 +135,7 @@ let
       # some things don't work on ubuntu?
       nixos = with pkgs; [
         calibre
-        dropbox-cli
+        # dropbox-cli # unfree
       ];
 
       server = [];
