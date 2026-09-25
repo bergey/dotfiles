@@ -6,6 +6,7 @@
               ("C-c i" . bergey/rust-navigate-imports)
               ("C-c m" . bergey/rust-yank-module-name)
               ("M-g d" . rg-rust-org-docs)
+              ("M-;" . bergey/append-semicolon)
               )
   :custom
   (rust-rustfmt-switches '("--edition" "2024"))
@@ -38,6 +39,12 @@
     > "fn " str "() {\n"
     > _ "\n"
     > "}")
+
+  (defun bergey/append-semicolon ()
+    (interactive)
+    (save-excursion
+      (end-of-line)
+      (insert-char ?\;)))
   )
 
 (use-package flymake-clippy
