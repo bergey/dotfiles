@@ -33,7 +33,7 @@ update:
 nixpkgs-git:
     #!/usr/bin/env bash
     set -euxo pipefail
-    REV=$(jq -r .rev < nixpkgs-snapshot.json)
+    REV=$(jq -r .nodes.nixpkgs.locked.rev < flake.lock)
     [ ! -d ~/code ] && mkdir ~/code
     [ ! -d ~/code/nixpkgs ] && git clone git@github.com:NixOS/nixpkgs.git
     cd ~/code/nixpkgs
