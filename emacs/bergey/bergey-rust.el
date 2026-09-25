@@ -10,7 +10,6 @@
   :custom
   (rust-rustfmt-switches '("--edition" "2024"))
   :config
-  (add-hook 'rust-mode-hook #'electric-pair-local-mode)
   (add-hook 'rust-mode-hook #'(lambda () (setq-local evil-shift-width 4)))
   (defun bergey/rust-navigate-imports()
     "move point to the beginning of the first import line"

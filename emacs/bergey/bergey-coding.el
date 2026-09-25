@@ -201,6 +201,8 @@
 (add-hook 'after-save-hook
           #'executable-make-buffer-file-executable-if-script-p)
 
+(electric-pair-mode)
+
 (provide 'bergey-coding)
 
 ;; Local Variables:
