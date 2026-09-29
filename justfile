@@ -24,6 +24,8 @@ show-trace:
 update:
     #!/usr/bin/env bash
     nix flake update
+    git reset # make sure we aren't commiting anything else
+    git add flake.lock
     if ! git diff --cached --exit-code  --quiet; \
         then git commit -m "nix flake update"; \
         else echo "nothing to commit"; \
