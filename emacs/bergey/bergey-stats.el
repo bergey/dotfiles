@@ -13,4 +13,6 @@
 (use-package julia-repl
   :functions julia-repl-mode)
 
+(add-hook 'image-mode-hook #'auto-revert-mode)
+
 (provide 'bergey-stats)

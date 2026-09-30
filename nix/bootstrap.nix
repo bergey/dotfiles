@@ -177,9 +177,11 @@ in with pkgs; {
     name = "julia";
     paths = [
       (pkgs.julia-bin.withPackages [
+        "Distributions"
         "Gadfly"
         "RDatasets"
         "Revise"
+        "StatsBase"
       ])
     ];
   };
