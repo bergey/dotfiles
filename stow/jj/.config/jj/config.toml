@@ -1,3 +1,6 @@
 [user]
 name = "Daniel Bergey"
 email = "bergey@teallabs.org"
+
+[ui]
+default-command = "status"

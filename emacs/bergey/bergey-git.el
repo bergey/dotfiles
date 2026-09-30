@@ -55,4 +55,10 @@
 
 (bind-key "M-g M-d" #'bergey/git-link-main)
 
+(use-package jj-mode
+  :vc (:url "https://github.com/bolivier/jj-mode.el")
+  :init
+  (evil-make-overriding-map jj-mode-map 'normal)
+  )
+
 (provide 'bergey-git)

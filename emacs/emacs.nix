@@ -103,6 +103,7 @@
     typescript-mode
     undo-fu
     unfill
+    vc-jj
     w3m
     web-mode
     window-number
