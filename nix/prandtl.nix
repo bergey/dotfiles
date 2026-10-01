@@ -1,16 +1,17 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
+  # This value determines the NixOS release with which your system is to be
+  # compatible, in order to avoid breaking some software such as database
+  # servers. You should change this only after NixOS release notes say you
+  # should.
+  system.stateVersion = "21.11"; # Did you read the comment?
 
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.overlays = [ (self: super: {
     firejail = super.lib.overrideDerivation super.firejail (attrs: {
-        postInstall = ''
+      postInstall = ''
     sed -E -e 's@^include (.*/)?(.*.local)$@include /etc/firejail/\2@g' -i $out/etc/firejail/*.profile
   '';
     });
@@ -37,8 +38,6 @@
     hostName = "prandtl"; # Define your hostname.
     hostId = "a9d1a9c2"; # required for ZFS
     interfaces = {
-      # Per-interface useDHCP will be mandatory in the future, so this generated config
-      # replicates the default behaviour.
       enp0s25.useDHCP = true;
       wlp3s0.useDHCP = true;
     };
@@ -51,72 +50,105 @@
       networks = import ./wireless-networks.nix;
     };
     hosts = {
-        "127.0.0.1" = [ "grafana" "prometheus" ];
+      "127.0.0.1" = [ "grafana" "prometheus" ];
     };
     # Open ports in the firewall.
     firewall.allowedTCPPorts = [ 80 ];
     # firewall.allowedUDPPorts = [ ... ];
   };
 
-    # Select internationalisation properties.
-    i18n = {
-        defaultLocale = "en_US.UTF-8";
-    };
+  # Select internationalisation properties.
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
 
-    console = {
-        font = "Lat2-Terminus16";
-        keyMap = "dvorak";
-    };
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "dvorak";
+  };
 
   # Set your time zone.
   time.timeZone = "UTC";
 
-virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
+
+  services.udev.extraHwdb = ''
+        evdev:atkbd:dmi:*            # built-in keyboard: match all AT keyboards for now
+            KEYBOARD_KEY_3a=backspace     # bind capslock to backspace
+            KEYBOARD_KEY_38=leftctrl   # left alt to left control
+            KEYBOARD_KEY_db=leftalt # windows to left alt
+            KEYBOARD_KEY_1d=leftmeta # left control to left meta
+            KEYBOARD_KEY_b8=rightctrl    # right alt to right control
+            KEYBOARD_KEY_b7=rightalt # print screen to right alt
+            KEYBOARD_KEY_9d=esc    # right control to escape
+        '';
+
+  fileSystems."/mnt/babel" = {
+    label = "Babel";
+    fsType = "ext4";
+    options = [ "relatime" "noauto" ];
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.extraUsers.bergey = {
+    isNormalUser = true;
+    uid = 1000;
+    extraGroups = [ "audio" "wheel" "networkmanager" "docker" "dialout" ];
+  };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-   environment.systemPackages = with pkgs; [
-     cacert
-     wget vim
-     bash-completion
-     # pavucontrol
-     xcape
-   ];
+  environment.systemPackages = with pkgs; [
+    cacert
+    wget vim
+    bash-completion
+  ];
 
-   programs.firejail = {
+  # TODO evaluate firejail, and these apps
+  # why are these in system config rather than global.nix?
+  programs.firejail = {
     enable = true;
     wrappedBinaries = let inherit (pkgs.lib) getBin; in {
-        chromium = "${getBin pkgs.chromium}/bin/chromium";
-        darktable = "${getBin pkgs.darktable}/bin/darktable";
-        firefox = "${getBin pkgs.firefox}/bin/firefox";
-        gimp = "${getBin pkgs.gimp}/bin/gimp";
-        krita = "${getBin pkgs.krita}/bin/krita";
-        libreoffice = "${getBin pkgs.libreoffice}/bin/libreoffice";
-        slack = "${getBin pkgs.slack}/bin/slack";
-        spotify = "${getBin pkgs.spotify}/bin/spotify";
-        vlc = "${getBin pkgs.vlc}/bin/vlc";
-        # zoom = "${getBin pkgs.zoom}/bin/zoom";
+      chromium = "${getBin pkgs.chromium}/bin/chromium";
+      darktable = "${getBin pkgs.darktable}/bin/darktable";
+      firefox = "${getBin pkgs.firefox}/bin/firefox";
+      gimp = "${getBin pkgs.gimp}/bin/gimp";
+      krita = "${getBin pkgs.krita}/bin/krita";
+      libreoffice = "${getBin pkgs.libreoffice}/bin/libreoffice";
+      slack = "${getBin pkgs.slack}/bin/slack";
+      spotify = "${getBin pkgs.spotify}/bin/spotify";
+      vlc = "${getBin pkgs.vlc}/bin/vlc";
+      # zoom = "${getBin pkgs.zoom}/bin/zoom";
     };
-   };
+  };
 
-   environment.etc = {
-     "firejail/chromium.local" = {
-       mode = "0444";
-       text = ''
+  environment.etc = {
+    "firejail/chromium.local" = {
+      mode = "0444";
+      text = ''
             ignore private-dev
             '';
-     };
-     "firejail/firefox.local" = {
-       mode = "0444";
-       text = ''
+    };
+    "firejail/firefox.local" = {
+      mode = "0444";
+      text = ''
             ignore private-dev
             '';
-     };
-   };
+    };
+  };
+
+  fonts.packages = with pkgs; [
+    gentium
+    inconsolata
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    # noto-fonts-extra # more weights?
+    # tex-gyre
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   programs.ssh.startAgent = false;
 
@@ -124,10 +156,6 @@ virtualisation.docker.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver = {
@@ -145,22 +173,7 @@ virtualisation.docker.enable = true;
     extraPackages = (with pkgs; [ swaylock swayidle bemenu networkmanager]);
   };
 
-
   services.autorandr.enable = true;
-
- # hardware.opengl.enable = true;
- #  hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver beignet ];
-
-  services.udev.extraHwdb = ''
-        evdev:atkbd:dmi:*            # built-in keyboard: match all AT keyboards for now
-            KEYBOARD_KEY_3a=backspace     # bind capslock to backspace
-            KEYBOARD_KEY_38=leftctrl   # left alt to left control
-            KEYBOARD_KEY_db=leftalt # windows to left alt
-            KEYBOARD_KEY_1d=leftmeta # left control to left meta
-            KEYBOARD_KEY_b8=rightctrl    # right alt to right control
-            KEYBOARD_KEY_b7=rightalt # print screen to right alt
-            KEYBOARD_KEY_9d=esc    # right control to escape
-        '';
 
   systemd.tmpfiles.rules = [ "d /tmp 1777 root root 14d" ];
 
@@ -169,59 +182,29 @@ virtualisation.docker.enable = true;
     package = pkgs.transmission_4;
   };
 
-  fileSystems."/mnt/babel" = {
-      label = "Babel";
-      fsType = "ext4";
-      options = [ "relatime" "noauto" ];
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+    ];
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.extraUsers.bergey = {
-     isNormalUser = true;
-     uid = 1000;
-     extraGroups = [ "audio" "wheel" "networkmanager" "docker" "dialout" ];
-   };
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+    extensions = with pkgs.postgresql_16.pkgs; [ pgvector ];
 
-  fonts.packages = with pkgs; [
-    gentium
-    inconsolata
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    # noto-fonts-extra # more weights?
-    # tex-gyre
-  ];
-
-      services.postgresql = {
-        enable = true;
-        package = pkgs.postgresql_16;
-        extensions = with pkgs.postgresql_16.pkgs; [ pgvector ];
-
-        authentication = pkgs.lib.mkOverride 10 ''
+    authentication = pkgs.lib.mkOverride 10 ''
             local all all trust
             host all all ::1/128 trust
             '';
-        initialScript = pkgs.writeText "bergey-initScript" ''
+    initialScript = pkgs.writeText "bergey-initScript" ''
                       CREATE USER bergey;
                       CREATE DATABASE bergey;
                       GRANT ALL ON DATABASE bergey TO bergey;
                       '';
-    };
+  };
 
-    # Enable cron service
-    services.cron = {
-        enable = true;
-        systemCronJobs = [
-        ];
-    };
-
-
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "21.11"; # Did you read the comment?
-
+  # TODO replace with Caddy
   # getting some home practice with these before trying to run in the DC
   services.nginx = {
     enable = true;
@@ -229,8 +212,8 @@ virtualisation.docker.enable = true;
       "prometheus" = {
         serverAliases = [ "localhost" ];
         locations."/" = {
-            proxyPass = "http://localhost:9001";
-          };
+          proxyPass = "http://localhost:9001";
+        };
       };
       "grafana" = {
         locations."/" = {
@@ -239,6 +222,8 @@ virtualisation.docker.enable = true;
       };
     };
   };
+
+  # Observability
 
   services.grafana = {
     enable = true;
@@ -330,12 +315,6 @@ virtualisation.docker.enable = true;
             timestamp_format = "unix";
           };
         };
-
-        # debug_console = {
-        #   type = "console";
-        #   inputs = [ "logs_not_vector" ];
-        #   encoding.codec = "json";
-        # };
       };
 
       transforms = {
