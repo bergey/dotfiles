@@ -1,4 +1,4 @@
-default: update global emacs
+default: (update "nix") global emacs nixpkgs-git
 
 [working-directory: 'nix']
 init:
@@ -21,21 +21,21 @@ global:
 show-trace:
     nix profile upgrade nix --show-trace
 
-update:
+update dir:
     #!/usr/bin/env bash
+    cd {{dir}}
     nix flake update
     git reset # make sure we aren't commiting anything else
     git add flake.lock
     if ! git diff --cached --exit-code  --quiet; \
-        then git commit -m "nix flake update"; \
+        then git commit -m "{{dir}} flake update"; \
         else echo "nothing to commit"; \
         fi
-    just nixpkgs-git
 
 nixpkgs-git:
     #!/usr/bin/env bash
     set -euxo pipefail
-    REV=$(jq -r .nodes.nixpkgs.locked.rev < flake.lock)
+    REV=$(jq -r .nodes.nixpkgs.locked.rev < nix/flake.lock)
     [ ! -d ~/code ] && mkdir ~/code
     [ ! -d ~/code/nixpkgs ] && git clone git@github.com:NixOS/nixpkgs.git
     cd ~/code/nixpkgs
@@ -85,7 +85,7 @@ unstow:
   for package in $(ls stow); do stow --target ~ --dir stow --delete $package; done
   rm ~/.emacs.d
 
-emacs: (ensure "emacs")
+emacs: (update "emacs") (ensure "emacs")
 
 ensure flake:
     #!/usr/bin/env bash

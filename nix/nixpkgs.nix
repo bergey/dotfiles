@@ -5,10 +5,10 @@ let
   # after https://vaibhavsagar.com/blog/2018/05/27/quick-easy-nixpkgs-pinning/
   # and https://github.com/obsidiansystems/obelisk/blob/91483bab786b41eb451e7443f38341124e61244a/dep/reflex-platform/default.nix
     nixpkgs =
-        let ss = builtins.fromJSON (builtins.readFile ../nixpkgs-snapshot.json) // snapshot;
-        inherit (ss) owner repo rev;
+        let ss = builtins.fromJSON (builtins.readFile ../flake.lock) // snapshot;
+        inherit (ss.nodes.nixpkgs.locked) owner repo rev;
         in builtins.fetchTarball {
-            inherit (ss) sha256;
+            sha256 = ss.nodes.nixpkgs.locked.narHash;
             url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
             };
     pkgs = import nixpkgs {};   # bootstrap for config below
@@ -37,4 +37,3 @@ let
             });
         })] ++ overlays;
     }
-
