@@ -215,22 +215,25 @@
                       '';
   };
 
-  # TODO replace with Caddy
-  # getting some home practice with these before trying to run in the DC
-  services.nginx = {
+  services.caddy = {
     enable = true;
-    virtualHosts = {
-      "prometheus" = {
-        serverAliases = [ "localhost" ];
-        locations."/" = {
-          proxyPass = "http://localhost:9001";
-        };
-      };
-      "grafana" = {
-        locations."/" = {
-          proxyPass = "http://localhost:3000/";
-        };
-      };
+    virtualHosts."http://prandtl" = {
+      serverAliases = [ "localhost" ];
+      extraConfig = ''
+        handle_path /memex/api/* {
+          reverse_proxy localhost:8810
+        }
+
+        rewrite /prometheus /prometheus/
+        handle /prometheus/* {
+          reverse_proxy localhost:9001
+        }
+
+        rewrite /grafana /grafana/
+        handle_path /grafana/* {
+          reverse_proxy localhost:3000
+        }
+      '';
     };
   };
 
@@ -243,6 +246,7 @@
         domain = "spaceways.home";
         http_port = 3000;
         addr = "127.0.0.1";
+        root_url = "http://prandtl/grafana/";
       };
       # pre-26.05 key, because I have no secrets in grafana
       security.secret_key = "SW2YcwTIb9zpOOhoPsMm";
@@ -252,6 +256,7 @@
   services.prometheus = {
     enable = true;
     port = 9001;
+    webExternalUrl = "/prometheus/";
     exporters = {
       node = {
         enable = true;
