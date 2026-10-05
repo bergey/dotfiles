@@ -23,9 +23,20 @@
       ./hardware-configuration.nix
     ];
 
-  nix.settings = {
-    trusted-users = [ "bergey" ];
-    experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      trusted-users = [ "bergey" ];
+      experimental-features = [ "nix-command" "flakes" ];
+      substituters = pkgs.lib.mkBefore [
+        "ssh://bergey@austenite" # TODO dedicated prandtl user
+      ]; # followed by default cache.nixos.org
+    };
+
+    gc = {
+      dates = "daily";
+      options = "--delete-older-than 7d";
+      randomizedDelaySec = "1h";
+    };
   };
 
   # Use the systemd-boot EFI boot loader.
