@@ -17,6 +17,7 @@ let
         url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
       };
       pkgs = import nixpkgs {
+        inherit system;
         config = {
           allowUnfree = true;
         };
