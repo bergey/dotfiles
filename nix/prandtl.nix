@@ -61,7 +61,7 @@
       enable = true;
       userControlled = true;
       # contains passwords, not part of public git repo
-      secretsFile = "/home/bergey/dotflies/nix/wireless-secrets.conf";
+      secretsFile = "/home/bergey/dotfiles/nix/wireless-secrets.conf";
       networks = {
         Spaceways = {
           psk = "ext:spaceways";
