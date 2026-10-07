@@ -132,6 +132,11 @@ let
         zathura
         # zotero broken https://github.com/NixOS/nixpkgs/issues/568692
         # zotero # broken M1 2022-05-03
+        (pinned {
+          package = p: p.zotero;
+          sha256 = "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=";
+          rev = "4975466d324710c576dc11ad614684e6bd8cad8e";
+        })
       ];
 
       # some things don't work on ubuntu?
