@@ -58,7 +58,12 @@
       enable = true;
       userControlled = true;
       # contains passwords, not part of public git repo
-      networks = import ./wireless-networks.nix;
+      secretsFile = "/home/bergey/dotflies/nix/wireless-secrets.conf";
+      networks = {
+        Spaceways = {
+          psk = "ext:spaceways";
+        };
+      };
     };
     hosts = {
       "127.0.0.1" = [ "grafana" "prometheus" ];
