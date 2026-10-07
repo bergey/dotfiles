@@ -36,5 +36,11 @@
 
           default = self.packages.${system}.linux-server;
         }) nixpkgs.legacyPackages;
+
+      nixosConfigurations = {
+        prandtl = nixpkgs.lib.nixosSystem {
+          modules = [ ./prandtl.nix ];
+        };
+      };
     };
 }

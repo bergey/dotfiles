@@ -46,13 +46,10 @@ bootstrap:
   nix-build nix/bootstrap.nix
   rm result*
 
-prandtl: os-update global emacs nixpkgs-git
+prandtl: os global emacs nixpkgs-git
 
 os:
-  sudo nixos-rebuild switch
-
-os-update:
-  sudo nixos-rebuild switch --upgrade
+  sudo nixos-rebuild switch --flake ./nix
 
 OLD := "7d"
 dots := quote('
