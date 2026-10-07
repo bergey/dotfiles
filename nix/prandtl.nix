@@ -30,6 +30,9 @@
       substituters = pkgs.lib.mkBefore [
         "ssh://bergey@austenite" # TODO dedicated prandtl user
       ]; # followed by default cache.nixos.org
+      trusted-public-keys = [
+        "austenite:B7uPee+dxKyik2G+61AUjoZZK/u+k3prVYUz141OmTE="
+      ];
     };
 
     gc = {
