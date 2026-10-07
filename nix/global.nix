@@ -130,7 +130,8 @@ let
         transmission_4
         xev
         zathura
-        zotero # broken M1 2022-05-03
+        # zotero broken https://github.com/NixOS/nixpkgs/issues/568692
+        # zotero # broken M1 2022-05-03
       ];
 
       # some things don't work on ubuntu?
