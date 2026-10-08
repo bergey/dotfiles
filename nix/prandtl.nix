@@ -63,9 +63,7 @@
       # contains passwords, not part of public git repo
       secretsFile = "/home/bergey/dotfiles/nix/wireless-secrets.conf";
       networks = {
-        Spaceways = {
-          psk = "ext:spaceways";
-        };
+        Spaceways.pskRaw = "ext:spaceways";
       };
     };
     hosts = {
