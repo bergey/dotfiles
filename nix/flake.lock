@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "memex": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791396082,
+        "narHash": "sha256-U99w129H0S7l9DnwZL5LIDzpUY2a2zfBn2rckA9feKA=",
+        "owner": "bergey",
+        "repo": "memex",
+        "rev": "1cc027511908379df28af32e03f2b45a4f958271",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bergey",
+        "ref": "trunk",
+        "repo": "memex",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1791734076,
@@ -18,6 +39,7 @@
     },
     "root": {
       "inputs": {
+        "memex": "memex",
         "nixpkgs": "nixpkgs"
       }
     }

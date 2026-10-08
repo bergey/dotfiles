@@ -3,15 +3,23 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
+    memex = {
+      url = "github:bergey/memex?ref=trunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {self, nixpkgs}:
+  outputs = {self, nixpkgs, memex}:
     let
       pkgs = import nixpkgs {
         config = {
             allowUnfree = true;
         };
+        overlays = [
+          (self: super: {
+            inherit (memex) memex-server;
+          })
+        ];
       };
     in {
       # TODO these only make sense for Linux, and mostly x86
