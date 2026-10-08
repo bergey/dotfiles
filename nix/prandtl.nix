@@ -288,6 +288,7 @@
 
   services.clickhouse.enable = true;
 
+  systemd.services.vector.serviceConfig.Requires = [ "clickhouse"];
   services.vector = {
     enable = true;
     journaldAccess = true;
