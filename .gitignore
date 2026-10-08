@@ -57,8 +57,7 @@ snippets/*/.yas-compiled-snippets.el
 /emacs/.cache/
 /emacs/projectile.cache
 .DS_Store
-/nix/wireless-networks.nix
-/nix/wireless-secrets.conf
+/nix/wireless-secrets.nix
 /emacs/eln-cache/
 /patchdir/
 /stow/stack/.stack/pantry/

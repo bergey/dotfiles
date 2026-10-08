@@ -60,11 +60,7 @@
     wireless = {
       enable = true;
       userControlled = true;
-      # contains passwords, not part of public git repo
-      secretsFile = "/home/bergey/dotfiles/nix/wireless-secrets.conf";
-      networks = {
-        Spaceways.pskRaw = "ext:spaceways";
-      };
+      networks = import ./wireless-secrets.nix;
     };
     hosts = {
       "127.0.0.1" = [ "grafana" "prometheus" ];
