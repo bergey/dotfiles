@@ -203,7 +203,7 @@
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_16;
+    package = pkgs.postgresql_18;
     extensions = with pkgs.postgresql_16.pkgs; [ pgvector ];
 
     authentication = pkgs.lib.mkOverride 10 ''
