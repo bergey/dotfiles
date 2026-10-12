@@ -49,7 +49,10 @@ bootstrap:
 prandtl: os global emacs nixpkgs-git
 
 os:
+  # nix will build untracked changes, but not untracked files
+  cp nix/wireless-secrets.nix nix/wireless.nix
   sudo nixos-rebuild switch --flake ./nix
+  echo '{}' > nix/wireless.nix
 
 OLD := "7d"
 dots := quote('
