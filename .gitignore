@@ -67,3 +67,5 @@ snippets/*/.yas-compiled-snippets.el
 /stow/stack/.stack/stack.sqlite3
 /stow/stack/.stack/stack.sqlite3.pantry-write-lock
 /private
+/emacs/projects.eld
+/prune.log
