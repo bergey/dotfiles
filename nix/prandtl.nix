@@ -60,7 +60,7 @@
     wireless = {
       enable = true;
       userControlled = true;
-      networks = import ./wireless-secrets.nix;
+      networks = import ./wireless.nix;
     };
     hosts = {
       "127.0.0.1" = [ "grafana" "prometheus" ];
