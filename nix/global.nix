@@ -105,7 +105,11 @@ let
         sqlite
         stow
         textql
-        typescript-language-server
+        (pinned {
+          package = p: p.typescript-language-server;
+          sha256 = "sha256-XK4KceonkwD8LuMAt/vNrz982mXJM5jeHAxMwsUXXAQ=";
+          rev = "6510408d147d8c5e6d76043e899e9251756f6a75";
+        })
         typos
         (rWrapper.override{ packages = with rPackages; [ tidyverse promr ]; })
         wireshark
