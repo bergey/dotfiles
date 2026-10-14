@@ -44,9 +44,11 @@
  (italic (:underline nil :slant 'italic))
  (cursor (:background "thistle"))
 
- (mode-line (:foreground "b-violet" :background "gray10"))
- (mode-line-inactive (:background "gray20"))
+ (mode-line (:foreground "b-violet" :background "gray20"))
+ (mode-line-inactive (:background "gray10"))
  (telephone-line-projectile "b-indigo")
+ (telephone-line-accent-active (:background "grey30"))
+ (telephone-line-accent-inactive (:background "grey20"))
 
  ;; programming language syntax, general
  (font-lock-builtin-face "b-indigo")
