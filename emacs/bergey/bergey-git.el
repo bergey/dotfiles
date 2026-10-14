@@ -61,4 +61,6 @@
   (evil-make-overriding-map jj-mode-map 'normal)
   )
 
+(use-package vc-jj)
+
 (provide 'bergey-git)
