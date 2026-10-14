@@ -222,6 +222,28 @@
                       '';
   };
 
+  services.pgbackrest = {
+    enable = true;
+    stanzas.localhost = {
+      # path = "/var/lib/postgresql/18";
+      jobs.daily = {
+        type = "full";
+        schedule = "daily"; # or specify start time
+      };
+    };
+    repos.localhost = {
+      path = "/var/backups/postgresql";
+      retention-full = 10;
+      bundle = "y";
+    # block = "y"; # only for incremental backups
+    };
+    settings = {
+      process-max = 2;
+      compress-type = "zst";
+      start-fast = "y";
+    };
+  };
+
   services.caddy = {
     enable = true;
     virtualHosts."http://prandtl" = {
