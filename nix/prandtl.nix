@@ -28,7 +28,7 @@
       trusted-users = [ "bergey" ];
       experimental-features = [ "nix-command" "flakes" ];
       substituters = pkgs.lib.mkBefore [
-        "ssh://nixremote@austenite"
+        "ssh://bergey@austenite"
       ]; # followed by default cache.nixos.org
       trusted-public-keys = [
         "austenite:B7uPee+dxKyik2G+61AUjoZZK/u+k3prVYUz141OmTE="
