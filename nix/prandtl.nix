@@ -206,6 +206,10 @@
     package = pkgs.postgresql_18;
     extensions = with pkgs.postgresql_16.pkgs; [ pgvector ];
 
+    settings = {
+      shared_preload_libraries = "pg_stat_statements";
+    };
+
     authentication = pkgs.lib.mkOverride 10 ''
             local all all trust
             host all all ::1/128 trust
