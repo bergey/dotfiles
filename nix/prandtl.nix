@@ -392,4 +392,23 @@ del(.gauge)
       };
     };
   };
+
+  systemd.services.memex = {
+    description="Memex";
+    after = [ "network.target" "network-online.target" ];
+    requires = [ "network-online.target" ];
+    wantedBy = [ "multi-user.target" ];
+
+    environment = {
+      LISTEN="localhost:8810";
+      RUST_LOG="info";
+    };
+
+    serviceConfig = {
+      ExecStart = "${pkgs.memex-server}/bin/memex-server";
+      Restart = "on-failure";
+      TimeoutStopSec = "5s";
+      AmbientCapabilities = "CAP_NET_BIND_SERVICE";
+    };
+  };
 }

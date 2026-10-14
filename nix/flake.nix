@@ -10,18 +10,7 @@
   };
 
   outputs = {self, nixpkgs, memex}:
-    let
-      pkgs = import nixpkgs {
-        config = {
-            allowUnfree = true;
-        };
-        overlays = [
-          (self: super: {
-            inherit (memex) memex-server;
-          })
-        ];
-      };
-    in {
+    {
       # TODO these only make sense for Linux, and mostly x86
       # do I really want mapAttrs this way?
       packages = builtins.mapAttrs (system: pkgs:
@@ -47,7 +36,12 @@
 
       nixosConfigurations = {
         prandtl = nixpkgs.lib.nixosSystem {
-          modules = [ ./prandtl.nix ];
+          modules = [
+            { nixpkgs.overlays = [
+                (self: super: { inherit (memex.packages.x86_64-linux) memex-server; })
+              ]; }
+            ./prandtl.nix
+          ];
         };
       };
     };
