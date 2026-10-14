@@ -66,7 +66,7 @@
       "127.0.0.1" = [ "grafana" "prometheus" ];
     };
     # Open ports in the firewall.
-    firewall.allowedTCPPorts = [ 80 ];
+    firewall.allowedTCPPorts = [ 80 8810 ];
     # firewall.allowedUDPPorts = [ ... ];
   };
 
@@ -115,6 +115,7 @@
     cacert
     wget vim
     bash-completion
+    perf
   ];
 
   # TODO evaluate firejail, and these apps
