@@ -69,7 +69,10 @@
     go-mode
     rust-mode
     ) . eglot-ensure)
-  :bind (:map eglot-mode-map (("C-c C-," . eglot-format-buffer)))
+  :bind (:map eglot-mode-map
+              ("C-c C-," . eglot-format-buffer)
+              ("C-c e" . eglot-code-actions)
+              )
   :config
   (setq eglot-managed-mode-hook '(bergey/diminish-vc-mode))
   (setq eglot-menu-string "")
