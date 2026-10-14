@@ -21,15 +21,15 @@
 
   ;; after defining segment
   (setq telephone-line-lhs
-	'((nil telephone-line-evil-tag-segment)
-	  (accent bergey/telephone-line-position-segment)
-	  (nil telephone-line-projectile-buffer-segment)))
+        '((nil telephone-line-evil-tag-segment)
+          (accent bergey/telephone-line-position-segment)
+          (nil telephone-line-projectile-buffer-segment)))
 
   (setq telephone-line-rhs
-	'((nil telephone-line-flymake-segment telephone-line-misc-info-segment)
-	  (accent telephone-line-vc-segment telephone-line-erc-modified-channels-segment telephone-line-process-segment)
-	  (nil telephone-line-major-mode-segment)
-	  ))
+        '((nil telephone-line-flymake-segment telephone-line-misc-info-segment)
+          (accent telephone-line-vc-segment telephone-line-erc-modified-channels-segment telephone-line-process-segment)
+          (nil telephone-line-major-mode-segment)
+          ))
 
   (telephone-line-mode)
   )
