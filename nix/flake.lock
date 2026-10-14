@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791396082,
-        "narHash": "sha256-U99w129H0S7l9DnwZL5LIDzpUY2a2zfBn2rckA9feKA=",
+        "lastModified": 1791820411,
+        "narHash": "sha256-wqdLwka/6Z8nWd20CqmKdPZ3XLZSezm87n7Jwic8tIQ=",
         "owner": "bergey",
         "repo": "memex",
-        "rev": "1cc027511908379df28af32e03f2b45a4f958271",
+        "rev": "70318b9faa4a4e8644dfd8c942bafb5c625c8926",
         "type": "github"
       },
       "original": {
