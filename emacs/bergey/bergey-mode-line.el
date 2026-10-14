@@ -12,7 +12,6 @@
   :custom
   (telephone-line-evil-use-short-tag t)
   :config
-  (telephone-line-mode t)
 
   (telephone-line-defsegment* bergey/telephone-line-position-segment (&optional lines columns)
     "Optional args set padding on lines/columns."
@@ -32,6 +31,7 @@
 	  (nil telephone-line-major-mode-segment)
 	  ))
 
+  (telephone-line-mode)
   )
 
 (provide 'bergey-mode-line)
