@@ -168,4 +168,6 @@
   (delete-file (buffer-file-name))
   (kill-buffer))
 
+(editorconfig-mode)
+
 (provide 'bergey-editing)
