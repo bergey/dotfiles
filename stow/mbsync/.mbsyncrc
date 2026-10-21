@@ -28,3 +28,32 @@ Create Both
 Expunge Both
 # Save the synchronization state files in the relevant directory
 SyncState *
+
+IMAPAccount fastmail
+# Address to connect to
+Host imap.fastmail.com
+User bergey@fastmail.net
+PassCmd "cat ~/dotfiles/private/mbsync/fastmail"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore fastmail-remote
+Account fastmail
+
+MaildirStore fastmail-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/fastmail/
+Inbox ~/.mail/fastmail/Inbox
+
+Channel fastmail
+Far :fastmail-remote:
+Near :fastmail-local:
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
