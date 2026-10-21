@@ -4,3 +4,6 @@ email = "bergey@teallabs.org"
 
 [ui]
 default-command = "status"
+
+[revsets]
+bookmark-advance-to = '@-'  # default was @
