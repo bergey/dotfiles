@@ -2,7 +2,7 @@ IMAPAccount gmail
 # Address to connect to
 Host imap.gmail.com
 User dmbergey@gmail.com
-PassCmd "cat ~/dotfiles/private/stow/mbsync/password"
+PassCmd "cat ~/dotfiles/private/mbsync/password"
 TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 

@@ -97,6 +97,7 @@ let
         kubectl
         mise
         mr
+        mu
         nix-prefetch-git
         nix-tree
         oranda

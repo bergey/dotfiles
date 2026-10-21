@@ -54,6 +54,7 @@
     magit
     markdown-mode
     merlin
+    mu4e
     native-complete
     nginx-mode
     nix-mode

@@ -52,6 +52,7 @@
                  bergey-markup
                  bergey-shell
                  bergey-dired
+                 bergey-email
                  bergey-sql
                  bergey-music
                  bergey-irc
