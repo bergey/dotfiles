@@ -7,3 +7,6 @@ default-command = "status"
 
 [revsets]
 bookmark-advance-to = '@-'  # default was @
+
+[aliases]
+push = [ "git", "push" ]
