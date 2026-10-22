@@ -10,19 +10,8 @@ let
       inherit (bootstrap) javascript python;
     });
 
-    # function to help hold back a single package from system upgrades
-    pinned = {rev, sha256, package}: let
-      nixpkgs = builtins.fetchTarball {
-        inherit sha256;
-        url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
-      };
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-    in package pkgs;
+    pinned = let pin = import ./pinned.nix;
+             in args: pin (args // {inherit system;});
 
     in {
       global = (with pkgs; [
