@@ -136,6 +136,7 @@
              1 'font-lock-variable-name-face)))
      (haskell-indent-spaces . 4) (haskell-process-use-ghci . t)
      (hamlet/basic-offset . 4) (python-indent . 8)))
+ '(send-mail-function 'smtpmail-send-it)
  '(warning-suppress-types '((comp) (undo discard-info))))
 
 (custom-set-faces
