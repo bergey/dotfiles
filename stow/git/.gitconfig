@@ -1,5 +1,5 @@
 [user]
-	email = daniel.bergey@braze.com
+	email = bergey@clematis.systems
 	name = Daniel Bergey
 [color]
 	ui = true
@@ -39,13 +39,3 @@
 	defaultBranch = trunk
 [pull]
 	ff = only
-
-[url "git@github.com:Appboy/"]
-	insteadOf = https://github.com/Appboy/
-
-[url "git@github.com:braze-inc/"]
-	insteadOf = https://github.com/braze-inc/
-[url "ssh://git@github.com/braze-inc"]
-	insteadOf = https://github.com/braze-inc
-[url "ssh://git@github.com/Appboy/*,github.com/braze-inc/*"]
-	insteadOf = https://github.com/Appboy/*,github.com/braze-inc/*
