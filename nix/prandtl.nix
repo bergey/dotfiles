@@ -320,8 +320,8 @@
     enable = true;
     package = import ./pinned.nix {
       package = p: p.vector;
-      rev = "09063bd1f2b36fd9fd793c36dfade7bd40a93dfc";
-      sha256 = "sha256-Mh0PUaIv4nFY+8wAGonaEh8iBzwsmdNlwjVHmFg1Biw=";
+      rev = "55bfb4d7437bd4e09ab7cba58a43bd68eb310044";
+      sha256 = "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=";
       system = "x86_64-linux";
     };
     journaldAccess = true;
