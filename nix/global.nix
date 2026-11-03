@@ -95,8 +95,10 @@ let
         bootstrap.julia # global so emacs comint can find it
         kondo
         kubectl
+        mkcert
         mise
         mr
+        mold
         mu
         nix-prefetch-git
         nix-tree
