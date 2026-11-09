@@ -189,7 +189,7 @@ in with pkgs; {
   pandoc = mkBootstrap {
     name = "pandoc";
     paths = [
-      haskellPackages.pandoc
+      pkgs.pandoc
     ];
   };
 
