@@ -281,10 +281,13 @@ in with pkgs; {
 
 } // (if stdenv.isDarwin then {} else {
 
-    coq = mkBootstrap {
-      name = "coq";
+    rocq = mkBootstrap {
+      name = "rocq";
       paths = [
-        coq_8_6
+        # coq_8_20
+        (rocq-core.withPackages (ps: with ps; [
+          stdlib
+        ]))
         #    coqPackages_8_6.dpdgraph
         #    coqPackages_8_6.coq-ext-lib
       ];

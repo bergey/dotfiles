@@ -14,6 +14,9 @@
     )
   )
 
+(use-package proof-general :ensure t
+  )
+
 (use-package dockerfile-mode
   :mode "Dockerfile")
 

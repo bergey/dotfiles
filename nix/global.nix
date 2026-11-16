@@ -72,6 +72,7 @@ let
       # 1Password amphetamine daisydisk karabiner magnet slack spotify xquartz zotero
 
       workstation = with pkgs; [
+        bootstrap.rocq
         aspell
         aspellDicts.en
         bootstrap-prebuild
