@@ -2,6 +2,7 @@
   :custom
   (mu4e-mu-binary "/home/bergey/.nix-profile/bin/mu")
   (mu4e-get-mail-command "mbsync -a")
+  (mu4e-view-prefer-plain-text t)
   ;; for all contexts / email addresses
   (user-full-name "Daniel Bergey" )
   (smtpmail-smtp-service 587)
