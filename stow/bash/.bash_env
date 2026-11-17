@@ -8,7 +8,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-NEW_PATH=`paste -d ':' -s - << EOF 
+NEW_PATH=`paste -d ':' -s - << EOF
 $HOME/.local/bin
 $HOME/.cargo/bin
 $HOME/.nix-profile/bin
@@ -17,7 +17,7 @@ $HOME/.juliaup/bin
 EOF`
 
 if [ $(uname -s) == Darwin ]; then
-   NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
+   NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF
 /usr/local/go/bin
 /opt/local/bin
 /opt/local/sbin
@@ -33,13 +33,13 @@ EOF`
 fi
 
 if [ -d /run/current-system/sw/bin ]; then # NixOS
-    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
+    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF
 /run/wrappers/bin
 /run/current-system/sw/bin
 EOF`
 else # Not NixOS, can be Linux or MacOS
     # On MacOS, these should come after the /opt dirs
-    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF 
+    NEW_PATH="${NEW_PATH}:"`paste -d ':' -s - << EOF
 /nix/var/nix/profiles/default/bin
 /usr/local/bin
 /usr/bin
@@ -49,8 +49,11 @@ else # Not NixOS, can be Linux or MacOS
 EOF`
 fi
 
-export PATH=$NEW_PATH
-unset NEW_PATH
+if [ $SHLVL -eq 1 ]; then
+    # in nix shell, do not overwrite PATH
+    export PATH=$NEW_PATH
+    unset NEW_PATH
+fi
 
 EDITOR='emacsclient'; export EDITOR
 # export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
