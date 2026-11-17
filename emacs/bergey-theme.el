@@ -80,7 +80,7 @@
  (markdown-bold-face (:foreground "b-red" :inherit 'bold))
  (markdown-code-face (:inherit 'org-verbatim))
  (markdown-table-face (:inherit 'org-table))
- (proof-locked-face (:background "#333"))
+ (proof-locked-face (:background "gray10"))
  (shm-quarantine-face (:background "saddle brown")) ; structured haskell mode
 
  (web-mode-html-tag-face "b-indigo")
