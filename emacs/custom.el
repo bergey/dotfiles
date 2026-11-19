@@ -19,7 +19,8 @@
      ".pyc" ".pyo"))
  '(custom-enabled-themes '(bergey))
  '(custom-safe-themes
-   '("587e23972581efd711587b502e356bfc846f4afb078dc66af9c95da2d7b3c1eb"
+   '("ca3aa2108ac45c377297c6de9082db81aac8e33188c16a936699b43c2833216f"
+     "587e23972581efd711587b502e356bfc846f4afb078dc66af9c95da2d7b3c1eb"
      "abfce0dc2f678405f10b981eb74f7cca46837a6b948c1a80efae896380373485"
      "8574bfd65db839a07782793eda2f6e68a280365c635d84f8bae02b465d7a5f7c"
      "d9703a42210b6bb68e14040a21958b24491e4ac7803c42b3f5f376cb9b2dd0bf"
@@ -60,8 +61,9 @@
                            highlight-indent-guides highlight-quoted
                            idris-mode ivy kotlin-mode merlin move-text
                            nov org-cliplink org-evil ox-reveal
-                           pest-mode powershell rbs-mode rspec-mode
-                           rubocop ruby-test-mode smart-mode-line
+                           pest-mode powershell proof-general rbs-mode
+                           rspec-mode rubocop ruby-test-mode
+                           smart-mode-line
                            smart-mode-line-powerline-theme w3m))
  '(protect-buffer-bury-p nil t)
  '(safe-local-variable-values
