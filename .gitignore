@@ -69,3 +69,5 @@ snippets/*/.yas-compiled-snippets.el
 /private
 /emacs/projects.eld
 /prune.log
+/result
+/nixos.qcow2

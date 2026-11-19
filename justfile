@@ -97,5 +97,8 @@ ensure flake:
 mr:
     - mr -d {{home}} update
 
+vm name='vm':
+   nix build -L ./nix\#nixosConfigurations.{{name}}.config.system.build.vm
+
 home := env_var('HOME')
 escaped_home := replace(home, '/', '\/')
