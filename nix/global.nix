@@ -77,6 +77,7 @@ let
         aspellDicts.en
         bootstrap-prebuild
         cargo-dist
+        cargo-geiger
         direnv
         fastmod
         gnupg
