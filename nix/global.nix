@@ -139,6 +139,7 @@ let
       # some things don't work on ubuntu?
       nixos = with pkgs; [
         calibre
+        firefox
         # dropbox-cli # unfree
       ];
 

@@ -57,11 +57,6 @@
     };
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
     useDHCP = false;
-    wireless = {
-      enable = true;
-      userControlled = true;
-      networks = import ./wireless.nix;
-    };
     hosts = {
       "127.0.0.1" = [ "grafana" "prometheus" ];
     };
@@ -125,7 +120,7 @@
     wrappedBinaries = let inherit (pkgs.lib) getBin; in {
       chromium = "${getBin pkgs.chromium}/bin/chromium";
       darktable = "${getBin pkgs.darktable}/bin/darktable";
-      firefox = "${getBin pkgs.firefox}/bin/firefox";
+      # firefox = "${getBin pkgs.firefox}/bin/firefox";
       gimp = "${getBin pkgs.gimp}/bin/gimp";
       krita = "${getBin pkgs.krita}/bin/krita";
       libreoffice = "${getBin pkgs.libreoffice}/bin/libreoffice";
@@ -180,6 +175,19 @@
     };
     exportConfiguration = true;
   };
+
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+
+  # To disable installing GNOME's suite of applications
+  # and only be left with GNOME shell.
+  services.gnome = {
+    core-apps.enable = false;
+    core-developer-tools.enable = false;
+    games.enable = false;
+  };
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
+
   # Enable touchpad support.
   services.libinput.enable = true;
   programs.sway = {
@@ -396,25 +404,6 @@ del(.gauge)
           };
         };
       };
-    };
-  };
-
-  systemd.services.memex = {
-    description="Memex";
-    after = [ "network.target" "network-online.target" ];
-    requires = [ "network-online.target" ];
-    wantedBy = [ "multi-user.target" ];
-
-    environment = {
-      LISTEN="localhost:8810";
-      RUST_LOG="info";
-    };
-
-    serviceConfig = {
-      ExecStart = "${pkgs.memex-server}/bin/memex-server";
-      Restart = "on-failure";
-      TimeoutStopSec = "5s";
-      AmbientCapabilities = "CAP_NET_BIND_SERVICE";
     };
   };
 }
